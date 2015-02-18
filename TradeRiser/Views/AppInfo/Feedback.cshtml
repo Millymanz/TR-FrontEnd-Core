@@ -1,0 +1,49 @@
+﻿@model TradeRiser.Models.FeedbackModel
+@{
+    ViewBag.Title = "Feedback Form";
+}
+
+<style>
+    #Message {
+      max-width:800px;
+      width: 800px;
+      height: 500px;
+    }
+
+    #Summary {
+       width: 500px;
+    }
+
+
+</style>
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+@using (Html.BeginForm("FeedbackSubmit","Home"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Feedback Form</legend>
+        <ol>
+            
+            <li>
+                @Html.LabelFor(m => m.Summary)
+                @Html.TextBoxFor(m => m.Summary)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Message)
+                @Html.TextAreaFor(m=> m.Message)
+            </li>
+
+        </ol>
+        <input type="submit" value="Submit" />
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

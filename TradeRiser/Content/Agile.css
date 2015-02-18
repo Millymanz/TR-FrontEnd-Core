@@ -1,0 +1,920 @@
+﻿
+.message-area {
+    float: left;
+    margin: 10px;
+    padding: 5px 8px;
+    width: 470px;
+}
+.clickable {
+    cursor: pointer;
+}
+.board-view .hub-splitter.splitter.horizontal > .leftPane {
+    width: 200px;
+}
+.board-view .hub-splitter.splitter.horizontal > .rightPane {
+    left: 200px;
+}
+.board-view .hub-splitter.splitter.horizontal > .handleBar {
+    left: 200px;
+}
+.taskboard {
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+#taskboard-data {
+    display: none;
+}
+#taskboard-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.taskboard-cell {
+    border-bottom: 1px solid #D9D9D9;
+    border-color: #D9D9D9;
+    border-left: 1px solid #D9D9D9;
+    border-width: 1px;
+    padding: 4px 0 0 4px;
+    vertical-align: top;
+}
+th.taskboard-cell {
+    border-top-style: none;
+    padding: 0 6px 2px;
+    text-align: left;
+}
+th.taskboard-cell, th.taskboard-cell .minTileWidth {
+    min-width: 274px;
+    width: 274px;
+}
+th.taskboard-cell .minTileWidth {
+    float: right;
+    height: 1px;
+}
+th.taskboard-parent {
+    margin-left: 0;
+    min-width: 143px;
+    visibility: hidden;
+    width: 143px;
+}
+tbody .taskboard-cell {
+    padding-bottom: 18px;
+}
+.taskboard-parent {
+    border-left-style: none;
+    padding-left: 0;
+}
+.taskboard-parent .icon-add {
+    float: right;
+    margin-top: 3px;
+}
+th .witRemainingWork {
+    margin-left: 6px;
+}
+th .witState {
+    color: #666666;
+    font-size: 10pt;
+    font-weight: normal;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.tbPivotItem {
+    margin: 0 6px 6px 0;
+    width: 143px;
+}
+.tbPivotItem .witTitle {
+    color: #404040;
+    font-size: 11pt;
+    vertical-align: middle;
+}
+.tbPivotItem .clickableTitle {
+    cursor: pointer;
+}
+.tbTile .clickableTitle {
+    cursor: pointer;
+}
+.tbTile {
+    border: 1px solid transparent;
+    cursor: default;
+    float: left;
+    font-size: 9pt;
+    height: 85px;
+    margin: 0 6px 6px 0;
+    position: relative;
+    width: 135px;
+}
+.tbTile.focus {
+}
+.tbTile .tbTileContent {
+    background-color: #F6F5D2;
+    border-left: 6px solid #F2CB1D;
+    border-top-right-radius: 15px;
+    height: 100%;
+    padding: 4px;
+    position: relative;
+    width: 100%;
+}
+.tbTile .witTitle {
+    color: #000000;
+    height: 60px;
+    margin-right: 6px;
+}
+.tbTile .witExtra {
+    bottom: 0;
+    left: 2px;
+    position: absolute;
+    right: 4px;
+    width: auto;
+}
+.tbTile .tbStatusArea {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: auto;
+}
+.tbTile .witRemainingWork {
+    float: left;
+    overflow: hidden;
+    position: relative;
+    top: -2px;
+}
+.tbTile .witRemainingWork.non-combo-behavior {
+    height: 20px;
+    max-width: 90px;
+    min-width: 16px;
+    padding-right: 0;
+}
+.tbTile .witRemainingWork.combo-behavior {
+    padding-right: 2px;
+    width: 48px;
+}
+.tbTile .witAssignedTo {
+    color: #595959;
+    height: 20px;
+    min-width: 10px;
+    text-align: right;
+    white-space: nowrap;
+}
+.tbTile .tbTileContent.tile-dimmed {
+    background-color: #F3F3F3;
+    border-left-color: #BFBFBF;
+}
+.tbTile .onTileEditTextDiv {
+    height: 100%;
+    width: 100%;
+}
+.taskboard-row-summary .tbPivotItem, .taskboard-row-summary .tbPivotItem .witTitle {
+    line-height: 22px;
+    width: auto;
+}
+.taskboard-row-summary {
+    cursor: pointer;
+}
+.taskboard-row-summary .taskboard-cell {
+    padding-bottom: 0;
+}
+tr.board-row-hidden {
+    display: none;
+}
+.taskboard-last-row .taskboard-cell {
+    border-bottom: medium none;
+}
+.taskboard-expander {
+    border: medium none;
+    cursor: pointer;
+    min-width: 16px;
+    padding: 11px 0 0;
+    vertical-align: top;
+    width: 16px;
+}
+.taskboard-row .minimize {
+    background: url("../../_content/tfs-icons.png") no-repeat scroll -7840px -16px transparent !important;
+    height: 16px;
+    width: 16px;
+}
+.taskboard-row .maximize {
+    background: url("../../_content/tfs-icons.png") no-repeat scroll -7696px -16px transparent !important;
+    height: 16px;
+    width: 16px;
+}
+.witExtra .onTileEditDiv {
+    border-color: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: thin;
+    min-height: 100%;
+}
+.witRemainingWork {
+    color: #000000;
+    font-size: 10pt;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.witRemainingWork.onTileEditDiv {
+    margin-left: 4px;
+}
+.witRemainingWork input {
+    background-color: #FFFFFF !important;
+    border-style: none;
+    border-width: 0;
+    float: left;
+    font-weight: bold;
+    margin-left: 0;
+    padding: 0;
+}
+.witAssignedTo.onTileEditDiv {
+    padding-left: 3px;
+}
+.witAssignedTo input {
+    background-color: #DCE6F4 !important;
+    border-style: none;
+    color: #595959;
+    padding: 1px;
+    text-align: left;
+}
+.witAssignedTo .combo-drop-popup {
+    min-width: 140px;
+    text-align: left;
+}
+.witExtra .hover {
+    background: none repeat scroll 0 0 #DCE6F4;
+    border-color: #FFFFFF;
+}
+.combo input.invalid {
+    background-color: #FFFFCC !important;
+}
+.tbLoading {
+    font-size: 10pt;
+    font-weight: bold;
+}
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.wordwrap {
+    overflow: hidden;
+    word-wrap: break-word;
+}
+#project-nav {
+    font-size: large;
+    padding-left: 0;
+}
+#project-nav li {
+    color: #A6A6A6;
+    display: inline;
+    margin-left: 10px;
+}
+#project-nav a:visited {
+    text-decoration: none;
+}
+#project-nav a:hover {
+    color: #A6A6A6;
+    text-decoration: underline;
+}
+.tbTile .witSaving {
+    background-color: #4D6082;
+    color: #FFFFFF;
+}
+.tbTile .witError {
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
+.dragHover {
+    background-color: #EBF1DE;
+}
+.dragReparentHover {
+    background-color: #C3D69B;
+}
+.rowReparentHover {
+    border-bottom: 1px solid #C3D69B;
+}
+.rowReparentHoverFirst {
+    border-top: 1px solid #C3D69B;
+}
+.rowReparentHoverLast {
+    border-bottom-style: none;
+}
+.person-filter {
+    text-transform: none;
+}
+.backlog-info li {
+    list-style-type: none;
+}
+.backlog-view .hub-splitter.splitter.horizontal > .leftPane {
+    width: 200px;
+}
+.backlog-view .hub-splitter.splitter.horizontal > .rightPane {
+    left: 200px;
+}
+.backlog-view .hub-splitter.splitter.horizontal > .handleBar {
+    left: 200px;
+}
+.main-content {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.team-iteration-view {
+    overflow: auto;
+    padding-left: 16px;
+}
+.backlog-filter .filter {
+    display: inline-block;
+    height: 15px;
+    margin-right: 4px;
+    vertical-align: bottom;
+    width: 6px;
+}
+.team-iteration-view .filter-container {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 36px;
+}
+.team-iteration-view .filter-container .filter {
+    display: inline-block;
+    height: 15px;
+    margin-right: 4px;
+    margin-top: 5px;
+    width: 6px;
+}
+.team-backlog-view {
+    overflow: hidden;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-top: 4px;
+}
+.team-backlog-view .node-content .text, .team-iteration-view .node-content .text {
+    margin-right: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.team-backlog-view .node-content .filter-container {
+    border: 1px solid transparent;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 36px;
+}
+.team-backlog-view .node-content .filter-container.requirement-filter-container {
+    right: 12px;
+    text-align: left;
+    width: 24px;
+}
+.team-backlog-view .node-content .filter-container.task-filter-container {
+    width: 12px;
+}
+.team-backlog-view .node-content .filter-container .filter {
+    border: 1px solid transparent;
+    display: inline-block;
+    height: 15px;
+    margin-left: 14px;
+    margin-top: 4px;
+    width: 6px;
+}
+.team-backlog-view .node-content .filter-container .filter.unfiltered {
+    background-color: #E2E2E2 !important;
+}
+.team-backlog-view .node-content .filter-container .filter.hover {
+    border-color: #B8D6FB;
+    height: 17px;
+    margin-left: 13px;
+    margin-top: 3px;
+    width: 8px;
+}
+.team-backlog-view .node-content .filter-container .filter.unfiltered.hover {
+    background-color: #DCEBFC !important;
+}
+.team-backlog-view .node-content .filter-container .filter.funnel-up {
+    border-bottom: 15px solid transparent;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    margin-left: 11px;
+    margin-top: 4px;
+    width: 12px;
+}
+.team-backlog-view .node-content .filter-container .filter.funnel-down {
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 15px solid transparent;
+    margin-left: 11px;
+    width: 12px;
+}
+.team-backlog-view .node-content .filter-container.task-filter-container .filter {
+    margin-left: 1px;
+}
+.team-iteration-view.tree-view .node.dragHover > a > div.node-content, .team-iteration-view.tree-view .node.focus > a > div.node-content, .team-backlog-view.tree-view .node.dragHover > a > div.node-content, .team-backlog-view.tree-view .node.focus > a > div.node-content {
+}
+.team-iteration-view.tree-view .node.dragHover > a > div.node-content, .team-backlog-view.tree-view .node.dragHover > a > div.node-content {
+    background-color: #EBF1DE;
+    color: #000000;
+}
+.team-backlog-view .preview .node-content .text:after {
+    content: " * ";
+}
+.backlog-nav-root {
+    text-transform: uppercase;
+}
+.add-panel {
+    background-color: #E6E6E6;
+    margin-right: 10px;
+    max-width: 600px;
+    min-width: 350px;
+    padding: 6px 10px;
+}
+.add-panel-row {
+    height: 2.2em;
+}
+.add-panel-buttoncell {
+    vertical-align: top;
+}
+.add-panel-table, .add-panel-control {
+    border: medium none;
+    border-spacing: 0;
+    width: 100%;
+}
+.add-panel-labelcell {
+    width: 40px;
+}
+.add-panel-label {
+    white-space: nowrap;
+}
+.add-panel-controlcell {
+    width: 200px;
+}
+.add-panel-button {
+    float: right;
+    height: 24px;
+    margin: 0;
+}
+.add-panel-wit-type-single {
+    font-weight: bold;
+    margin-left: 4px;
+}
+.add-panel-close-button {
+    cursor: pointer;
+    float: right;
+    right: 6px;
+}
+.addpanel-full-width-row {
+    border: medium none;
+    border-spacing: 0;
+    width: 100%;
+}
+.add-panel-full-width-row-button {
+    padding: 0 0 0 6px;
+    white-space: nowrap;
+    width: 40px;
+}
+.product-backlog-header {
+    margin-bottom: 5px;
+}
+.product-backlog-header .panel-region {
+    padding: 0 10px;
+}
+.forecasting-input-container {
+    background-color: #6E94AE;
+    border-left: 5px solid #6E94AE;
+    color: #FFFFFF;
+    margin-top: 5px;
+    max-width: 600px;
+    min-width: 350px;
+    padding: 2px 6px;
+}
+.forecasting-input-control-text {
+    border: 1px solid #6E94AE;
+}
+.forecasting-input-control-text-hover {
+    background-color: #88ABBD;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+}
+.forecasting-input-control {
+    font-weight: bold;
+    min-width: 1.9em;
+}
+.forecasting-input-control input {
+    height: 1.9em;
+}
+.forecasting-input-control-table {
+    height: 2.2em;
+}
+.forecasting-input-container.disabled tr {
+    display: none;
+}
+.forecasting-input-control-disabled-message-row {
+    display: none;
+}
+.forecasting-input-container.disabled .forecasting-input-control-disabled-message-row {
+    display: table-row;
+}
+.add-panel.disabled .combo > div.wrap > input.disabled, .add-panel.disabled .combo {
+    background-color: #D3D3D3;
+}
+.forecasting-input-control-table label {
+    color: #FFFFFF;
+    margin-right: 5px;
+}
+.backlog-excluded-effort {
+    color: #6D6D6D;
+}
+.grid-status-message {
+    margin: 5px 10px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-top: 4px;
+    width: auto;
+}
+.agile-portfolio-management-notification {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: auto;
+}
+.backlog .grid-cell {
+    border-style: none;
+    padding: 5px;
+}
+.backlog .grid-row-normal {
+    border-style: none;
+}
+.backlog .grid-row-selected .grid-cell, .backlog .grid-row-selected-blur .grid-cell {
+}
+.backlog .grid-row-normal.grid-row-insertion-highlight-top {
+    border-top-color: #008000;
+    border-top-style: solid !important;
+    border-top-width: 1px;
+}
+.backlog .grid-row-normal.grid-row-insertion-highlight-top > .grid-cell {
+    padding-top: 4px;
+}
+.backlog .grid-row-normal.grid-row-insertion-highlight-bottom {
+    border-bottom-color: #008000;
+    border-bottom-style: solid !important;
+    border-bottom-width: 1px;
+}
+.productbacklog-grid-results.sprint-backlog.grid {
+    margin-top: 5px;
+}
+.backlog .grid-row-normal.grid-row-insertion-highlight-bottom > .grid-cell {
+    padding-bottom: 4px;
+}
+.backlog .grid-gutter-row {
+}
+.backlog .grid-row-normal > .grid-cell > .icon-add {
+    display: none;
+}
+.backlog .grid-row-normal.grid-row-current > .grid-cell > .icon-add, .backlog .grid-row:hover > .grid-cell > .icon-add {
+    display: block;
+}
+.sprint-line-single > .grid-cell {
+    border-bottom: 1px solid #6E94AE;
+    padding-bottom: 4px;
+}
+.sprint-line-double > .grid-cell {
+    border-bottom: 2px solid #6E94AE;
+    padding-bottom: 3px;
+}
+.drag-drop-insert-before {
+    border-color: rgba(0, 0, 0, 0);
+}
+.drag-drop-insert-before > .grid-cell {
+    border-top: 1px solid #808080;
+    padding-top: 4px;
+}
+.drag-drop-insert-after > .grid-cell, .drag-drop-insert-after.full > .grid-cell:first-child, .drag-drop-insert-after.full > .grid-cell.order-cell {
+    border-bottom: 1px solid #808080;
+    padding-bottom: 4px;
+}
+.drag-drop-insert-after > .grid-cell:first-child, .drag-drop-insert-after > .grid-cell.order-cell {
+    border-bottom-style: none;
+    padding-bottom: 5px;
+}
+.drag-drop-new-sibling > .grid-cell.order-cell {
+    border-right: 1px solid #808080;
+}
+.drag-drop-new-parent > .grid-cell.order-cell {
+    background-color: #C3D69B;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 4px;
+}
+.drag-tile {
+    background-color: #C6DBF7;
+    cursor: default;
+    font-size: 7pt;
+    height: 48px;
+    margin: 6px;
+    opacity: 0.5;
+    overflow: hidden;
+    padding: 3px;
+    position: absolute;
+    text-overflow: ellipsis;
+    width: 76px;
+}
+.new-workitem-row {
+    color: #6D6D6D;
+}
+.help-link {
+    display: inline;
+}
+.forecast-column-contents {
+    color: #6E94AE;
+    font-weight: bold;
+}
+.sprint-title {
+    float: left;
+    max-width: 400px;
+}
+.sprint-title-right-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.sprint-dates-working-days {
+    float: left;
+}
+.sprint-date {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-transform: none;
+}
+.sprint-working-days {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: right;
+    text-transform: none;
+}
+.iteration-main-content {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 200px;
+    top: 0;
+}
+.capacity-scrollable {
+    bottom: 0;
+    left: 16px;
+    margin-top: 5px;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.capacity-display-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 150px;
+}
+.header-cell {
+    color: #6D6D6D;
+    padding: 0 6px;
+    vertical-align: bottom;
+    white-space: nowrap;
+}
+.capacity-input-header {
+    width: 60px;
+}
+.capacity-clear-row {
+    height: 6px;
+}
+.capacity-days-off-row-header {
+    min-width: 80px;
+}
+.capacity-row-header {
+    color: #6D6D6D;
+    text-align: right;
+}
+.capacity-input-row td, .capacity-input-team-row td {
+    padding-left: 6px;
+}
+.capacity-activity-cell {
+    width: 120px;
+}
+.capacity-main-content {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 200px;
+    top: 0;
+}
+.capacity-message-area {
+    float: left;
+    width: auto;
+}
+.capacity-pane-container {
+    display: none;
+}
+.capacity-pane {
+    border-left: 1px solid #CCCCCC;
+    float: right;
+    height: 100%;
+    overflow: auto;
+    padding-top: 4px;
+    width: 200px;
+}
+.capacity-expand-collapse {
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 19px;
+    width: 19px;
+}
+.grouped-progress-control {
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.capacity-pane-progress-group-heading-table {
+    margin: 0 5px;
+    width: 100%;
+}
+.capacity-pane-progress-expand-collapse-cell {
+    vertical-align: top;
+    width: 1%;
+}
+.capacity-pane-progress-group-heading {
+    cursor: pointer;
+    font-weight: bold;
+}
+.capacity-pane-progress-control {
+    overflow: hidden;
+    padding: 5px;
+}
+.capacity-pane-progress-group {
+    margin-bottom: 10px;
+}
+.capacity-days-off {
+    display: inline-block;
+    padding-right: 5px;
+    white-space: nowrap;
+}
+.activity-grouped-progress-control {
+    border-bottom: 1px solid #DDDDDD;
+}
+.activity-grouped-progress-control.collapsed {
+    border-bottom: medium none;
+}
+.team-capacity-control {
+    border-bottom: 1px solid #DDDDDD;
+}
+.team-capacity-control.collapsed {
+    border-bottom: medium none;
+}
+.user-story-grid-row {
+    font-weight: bold;
+}
+.days-off-dialog-container {
+    padding: 10px;
+}
+.days-off-dialog-dates-table-container {
+    max-height: 200px;
+    overflow: auto;
+}
+.days-off-dialog-dates-table-container > table {
+    width: 100%;
+}
+.days-off-dialog-icon-header-cell {
+    width: 1px;
+}
+.days-off-dialog-date-header-cell {
+    width: 33%;
+}
+.days-off-dialog-days-off-header-cell {
+    text-align: right;
+    width: 33%;
+}
+.days-off-dialog-link-container {
+    padding-left: 3px;
+    padding-top: 10px;
+}
+.days-off-dialog-link-container .icon-add {
+    margin: 0 4px 0 0;
+}
+.days-off-dialog-days-off-count {
+    text-align: right;
+}
+.days-off-dialog-total-days-off-container {
+    float: right;
+    font-weight: bold;
+    text-align: right;
+}
+.days-off-dialog-total-days-off-text {
+    display: inline-block;
+}
+.days-off-dialog-total-days-off-count {
+    display: inline-block;
+    min-width: 30px;
+    padding-left: 3px;
+}
+.save-discard-save-button {
+    margin-right: 10px;
+}
+.save-discard-control {
+    float: left;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.hub-view.board-view .hub-title, .hub-view.backlog-view .hub-title {
+    padding-right: 300px;
+}
+.small-chart-container {
+    height: 40px;
+    width: 140px;
+}
+.small-chart-group-container {
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+.sprint-title-right-container .small-chart-container {
+    float: right;
+}
+.small-chart-group-container .small-chart-container {
+    float: left;
+}
+.large-chart-container {
+    overflow: hidden;
+}
+.in-progress-container {
+    background-image: url("../../_content/big-progress.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.sprint-date.dates-set:hover {
+    color: #007ACC;
+    cursor: pointer;
+}
+.product-backlog-mapping-panel {
+    height: 100%;
+}
+.product-backlog-mapping-panel .grid-row-normal {
+    border-style: none;
+}
+.mapping-panel-portfolio-row-drop-active {
+    background-color: #EBF1DE;
+    color: #000000;
+}
+.product-backlog-mapping-panel-header .hub-pivot {
+    position: absolute;
+    top: 45px;
+}
+.product-backlog-mapping-panel-main-content {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 79px;
+}
+.mapping-pane-title {
+    color: #000000;
+    font-family: Segoe UI Light,Segoe UI,Tahoma,Arial,Verdana;
+    font-size: 18px;
+    font-weight: lighter;
+    left: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    position: absolute;
+    right: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.product-backlog-mapping-panel-main-content .toolbar {
+    margin-bottom: 6px;
+}
+.product-backlog-mapping-panel-status-indicator {
+    height: 100%;
+}
+.backlog-page-title-area {
+    display: inline-block;
+}
+.portfolio-preview-notification {
+    display: inline-block;
+}
+.board-page-title-area {
+    display: inline-block;
+}
+.backlog-view .splitter.horizontal.right-fix:not(.no-split) > .rightPane {
+    width: 300px;
+}
+.backlog-view .splitter.horizontal.right-fix:not(.no-split) > .handleBar {
+    right: 300px;
+}
+.backlog-view .splitter.horizontal.right-fix:not(.no-split) > .leftPane {
+    right: 300px;
+    width: auto;
+}

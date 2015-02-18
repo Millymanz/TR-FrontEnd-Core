@@ -1,0 +1,12 @@
+* PokeIn Comet Ajax Library v2.280 (22 October 2013)
+* Copyright © PokeIn http://pokein.com
+
+What's new? 
+
+- IE 11.0 Compatibility Improvements
+- IOS, Desktop and Java Client Stability Update
+- IIS8 WebSocket Fix
+- Mono Edition Improvements
+
+This version is tested under ~100K virtual users’ load before released
+To boost your server performance (IIS) you may need to check our new "open source" IIS Tuner tool from http://IISTuner.codeplex.com

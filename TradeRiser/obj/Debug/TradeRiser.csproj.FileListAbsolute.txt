@@ -1,0 +1,1305 @@
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.2\TradeRiser\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3\TradeRiser\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiser\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.1\TradeRiserWithChart\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.2\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1a\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\PokeIn.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\bin\PokeIn.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\PokeIn.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\PokeIn.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\PokeIn.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\PokeIn.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\PokeIn.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\PokeIn.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.7\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\PokeIn.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\PokeIn.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\Antlr3.Runtime.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\EntityFramework.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\Newtonsoft.Json.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\PokeIn.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.Helpers.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.Http.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.Mvc.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.Optimization.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.WebPages.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\WebGrease.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\WebMatrix.Data.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\WebMatrix.WebData.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\PokeIn.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\EntityFramework.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\Newtonsoft.Json.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.Helpers.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.Http.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.Mvc.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.WebPages.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\WebMatrix.Data.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\WebMatrix.WebData.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\obj\Debug\TradeRiser.dll
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\TradeRiser.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\TradeRiser.pdb
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\EntityFramework.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\PokeIn.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.Helpers.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.Mvc.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.Optimization.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.Razor.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\WebGrease.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\WebMatrix.Data.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\PokeIn.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\EntityFramework.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.Helpers.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.Mvc.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.Razor.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\WebMatrix.Data.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.dll
+C:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\TradeRiser.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\TradeRiser.pdb
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\EntityFramework.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\PokeIn.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.Helpers.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.Mvc.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.Optimization.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.Razor.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\WebGrease.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\WebMatrix.Data.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\PokeIn.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\EntityFramework.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.Helpers.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.Mvc.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.Razor.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\WebMatrix.Data.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\EntityFramework.SqlServer.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.pdb
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\EntityFramework.SqlServer.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Web.Optimization.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\TradeRiser.dll.config
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Extensions.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Primitives.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\Org.Mentalis.Security.Cryptography.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\Mono.Math.dll
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Extensions.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Primitives.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\Org.Mentalis.Security.Cryptography.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\bin\Mono.Math.xml
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csproj.App.config
+C:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\TradeRiser.dll.config
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\TradeRiser.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\TradeRiser.pdb
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\EntityFramework.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\EntityFramework.SqlServer.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\PokeIn.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Extensions.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Primitives.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.Helpers.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.Mvc.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.Optimization.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.Razor.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\WebGrease.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\WebMatrix.Data.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\Org.Mentalis.Security.Cryptography.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\Mono.Math.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.pdb
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\EntityFramework.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\EntityFramework.SqlServer.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\PokeIn.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Extensions.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Primitives.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.Helpers.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.Mvc.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.Optimization.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.Razor.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\WebMatrix.Data.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\Org.Mentalis.Security.Cryptography.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\bin\Mono.Math.xml
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csproj.App.config
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.dll
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\TradeRiser.dll.config
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\TradeRiser.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\TradeRiser.pdb
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\EntityFramework.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\EntityFramework.SqlServer.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\PokeIn.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Extensions.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Primitives.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.Helpers.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.Mvc.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.Optimization.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.Razor.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\WebGrease.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\WebMatrix.Data.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\Org.Mentalis.Security.Cryptography.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\Mono.Math.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.pdb
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\EntityFramework.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\EntityFramework.SqlServer.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\PokeIn.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Extensions.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Net.Http.Primitives.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.Helpers.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.Mvc.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.Optimization.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.Razor.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\WebMatrix.Data.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\Org.Mentalis.Security.Cryptography.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\bin\Mono.Math.xml
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csproj.App.config
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.dll
+C:\NonDeployable\N1.4-29thDec 2014\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\TradeRiser.dll.config
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\TradeRiser.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\TradeRiser.pdb
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\EntityFramework.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\EntityFramework.SqlServer.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\PokeIn.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Extensions.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Primitives.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.Helpers.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.Http.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.Mvc.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.Optimization.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.Razor.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\WebGrease.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\WebMatrix.Data.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\Org.Mentalis.Security.Cryptography.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\Mono.Math.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.pdb
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\EntityFramework.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\EntityFramework.SqlServer.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\PokeIn.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Extensions.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Primitives.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.Helpers.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.Http.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.Mvc.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.Optimization.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.Razor.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\WebMatrix.Data.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\Org.Mentalis.Security.Cryptography.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\bin\Mono.Math.xml
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csproj.App.config
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.dll
+C:\NonDeployable\N1.5-1stJan 2015\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\TradeRiser.dll.config
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\TradeRiser.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\TradeRiser.pdb
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\EntityFramework.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\EntityFramework.SqlServer.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\PokeIn.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Extensions.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Primitives.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Helpers.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Http.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Mvc.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Optimization.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Razor.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\WebGrease.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\WebMatrix.Data.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\Org.Mentalis.Security.Cryptography.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\Mono.Math.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.pdb
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\EntityFramework.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\EntityFramework.SqlServer.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\PokeIn.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Extensions.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Primitives.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Helpers.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Http.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Mvc.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Optimization.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Razor.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\WebMatrix.Data.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\Org.Mentalis.Security.Cryptography.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\Mono.Math.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csproj.App.config
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\log4net.dll
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\bin\log4net.xml
+C:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\TradeRiser.dll.config
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\TradeRiser.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\TradeRiser.pdb
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\EntityFramework.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\EntityFramework.SqlServer.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\log4net.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\PokeIn.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Extensions.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Primitives.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Helpers.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Http.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Mvc.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Optimization.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Razor.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\WebGrease.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\WebMatrix.Data.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\Org.Mentalis.Security.Cryptography.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\Mono.Math.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\Antlr3.Runtime.pdb
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\EntityFramework.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\EntityFramework.SqlServer.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\log4net.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\Newtonsoft.Json.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\PokeIn.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Extensions.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Net.Http.Primitives.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Helpers.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Http.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Mvc.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Optimization.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.Razor.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\WebMatrix.Data.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\WebMatrix.WebData.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\Org.Mentalis.Security.Cryptography.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\bin\Mono.Math.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csproj.App.config
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp\TradeRiser\obj\Debug\TradeRiser.pdb
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\TradeRiser.dll.config
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\TradeRiser.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\TradeRiser.pdb
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\Antlr3.Runtime.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\DotNetOpenAuth.Core.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\DotNetOpenAuth.OAuth.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\DotNetOpenAuth.OpenId.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\EntityFramework.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\EntityFramework.SqlServer.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\log4net.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\Newtonsoft.Json.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\PokeIn.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Net.Http.Extensions.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Net.Http.Formatting.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Net.Http.Primitives.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.Helpers.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.Http.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.Http.WebHost.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.Mvc.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.Optimization.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.Razor.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.WebPages.Deployment.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.WebPages.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.WebPages.Razor.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\WebGrease.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\WebMatrix.Data.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\WebMatrix.WebData.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\Org.Mentalis.Security.Cryptography.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\Mono.Math.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\Antlr3.Runtime.pdb
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\DotNetOpenAuth.AspNet.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\DotNetOpenAuth.Core.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\DotNetOpenAuth.OAuth.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\DotNetOpenAuth.OpenId.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\EntityFramework.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\EntityFramework.SqlServer.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\log4net.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\Newtonsoft.Json.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\PokeIn.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Net.Http.Extensions.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Net.Http.Formatting.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Net.Http.Primitives.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.Helpers.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.Http.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.Http.WebHost.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.Mvc.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.Optimization.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.Razor.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.WebPages.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.WebPages.Deployment.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\System.Web.WebPages.Razor.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\WebMatrix.Data.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\WebMatrix.WebData.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\Org.Mentalis.Security.Cryptography.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\bin\Mono.Math.xml
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\obj\Debug\TradeRiser.csproj.App.config
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\obj\Debug\TradeRiser.dll
+C:\NonDeployable\N1.7-25th Jan 2015\FrontEndApp -Stripped\TradeRiser\obj\Debug\TradeRiser.pdb

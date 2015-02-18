@@ -1,0 +1,1092 @@
+﻿ko.bindingHandlers.hoverToggle = {
+    update: function (element, valueAccessor) {
+
+        $(element).children(":first").hover(
+            function () {
+
+                //if (globalSelectedItem != this.id) {
+                //    $(this).css("background-color", "#32a4b8");
+                //    $(this).css("color", "white");
+                //}
+                //else {
+                //    $(this).css("background-color", "#32a4b8");
+                //    $(this).css("color", "white");
+                //}
+
+                $(this).css("background-color", "#32a4b8");
+                $(this).css("color", "white");
+
+            }, function () {
+
+                if (globalSelectedItem != this.id) {
+                    $(this).css("background-color", "white");
+                    $(this).css("color", "black");
+                }
+                else {
+                    $(this).css("background-color", "#BFCFD0");
+                    $(this).css("color", "black");
+                }
+
+
+
+                //$(this).css("background-color", "white");
+                //$(this).css("color", "black");
+
+
+
+            }
+        );
+    }
+};
+
+
+//Global variable
+var globalSelectedItem = "test";
+
+/*
+*TradeRiser View Model - Class
+*/
+function TradeRiserViewModel(tradeRiserProxy) {
+    var self = this;
+    this.UNDEFINED;
+    this.getHours;
+
+    this.getMinutes = "getUTCMinutes";
+    this.getHours = "getUTCHours";
+    this.getDay = "getUTCDay";
+    this.getDate = "getUTCDate";
+    this.getMonth = "getUTCMonth";
+    this.getFullYear = "getUTCFullYear";
+    this.setMinutes;
+    this.setHours;
+    this.setDate;
+    this.setMonth;
+    this.setFullYear;
+
+
+    this.tradeRiserProxy = tradeRiserProxy;
+    this.mainQuery = ko.observable();
+    this.continuousResults = ko.observableArray();
+    this.onDemandResults = ko.observableArray();
+    this.historicQueries = ko.observableArray();
+    this.queriesSubscription = ko.observableArray();
+    this.paneFixWidth = 0;
+    this.graphicalQuery = ko.observable();
+    this.graphicalQueryStartPeriod = ko.observable();
+    this.graphicalQueryEndPeriod = ko.observable();
+    this.symbolQuery = ko.observable();
+
+    this.init = function () {
+        tradeRiserProxy.getAllContinousResults(self.initializeAllContinousResultsCards);
+
+        tradeRiserProxy.getUserProfile(self.initializeUserProfileConfigCards);
+
+        self.paneFixWidth = $(".pane").width();
+    };
+
+    this.initialiseUI = function () {
+        $("#testIndex").keypress(function (event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == '13') {
+
+                self.getAnswer();
+                event.preventDefault();
+                return false;
+            }
+        });
+
+        // $('#highlighted').prop('checked',true);
+        $("#highlighted").on("change", function (evt) {
+            Highcharts.charts[0].highlighted = $('#highlighted').prop('checked');
+            Highcharts.charts[0].redraw();
+        });
+    };
+
+    this.initializeAllContinousResultsCards = function (returnedData) {
+
+        var json = returnedData;
+        var obj = JSON && JSON.parse(json) || $.parseJSON(json);
+
+        if (obj != null || obj != 'undefined') {
+
+            for (var i = 0; i < obj.ResultSummaries.length; i++) {
+
+                var extraFieldsArray = new Array();
+
+                var tings = "";
+
+                for (var n = 0; n < obj.ResultSummaries[i].KeyResultField.length; n++) {
+
+                    var str = JSON.stringify(obj.ResultSummaries[i].KeyResultField[n]);
+                    var str = str.replace('"', ' ');
+                    var resn = str.replace('"', ' ');
+                    var resv = resn.replace('}', ' ');
+                    var resf = resv.replace('{', ' ');
+                    var ress = resf.replace(',', ' ');
+
+                    var tempArray = obj.ResultSummaries[i].KeyResultField[n];
+
+                    var extraFields = [{
+                        keyfield: tempArray[0] + ' : ', keydata: tempArray[1]
+                    }];
+
+                    tings = extraFields;
+
+                    extraFieldsArray.push(extraFields);                     
+                }
+
+
+                var resultItem = {
+                    SymbolID: obj.ResultSummaries[i].SymbolID,
+                    StartDateTime: obj.ResultSummaries[i].StartDateTime,
+                    EndDateTime: obj.ResultSummaries[i].EndDateTime,
+                    Source: obj.ResultSummaries[i].Source,
+                    TimeFrame: obj.ResultSummaries[i].TimeFrame,
+                    MoreStandardData: obj.ResultSummaries[i].MoreStandardData,
+                    MoreKeyFields: obj.ResultSummaries[i].MoreKeyFields,
+                    QueryID: i,
+                    SymbolImages: obj.ResultSummaries[i].ImageCollection,
+
+                    ExtraFields: extraFieldsArray
+                };
+
+                self.continuousResults.push(resultItem);
+            }
+
+
+
+            };
+    }
+
+    this.initializeUserProfileConfigCards = function (returnedData) {
+
+        var json = returnedData;
+        var obj = JSON && JSON.parse(json) || $.parseJSON(json);
+
+        if (obj != null || obj != 'undefined') {
+
+            for (var i = 0; i < obj.UserProfileConfig.Following.length; i++) {
+
+                var queryCard = {
+                    QueryID : obj.UserProfileConfig.Following[i].QueryID,
+                    Query : obj.UserProfileConfig.Following[i].Query
+                }
+                self.queriesSubscription.push(queryCard);
+            }
+
+            for (var i = 0; i < obj.UserProfileConfig.HistoricQueries.length; i++) {
+
+                var queryCard = {
+                    QueryID: obj.UserProfileConfig.HistoricQueries[i].QueryID,
+                    Query: obj.UserProfileConfig.HistoricQueries[i].Query
+                }
+                self.historicQueries.push(queryCard);
+            }
+        };
+
+    }
+
+    this.addToQuery = function () {
+
+        //alert(globalGraphicalQueryEndPeriod);
+
+        $("#criteriaDialog").dialog("close");
+
+
+        self.graphicalQueryStartPeriod(globalGraphicalQueryStartPeriod);
+        self.graphicalQueryEndPeriod(globalGraphicalQueryEndPeriod);
+        
+        var graphicalQuery = null;
+        var tempPeriod = self.dateFormatting("%b %e, %Y", globalGraphicalQueryStartPeriod) + '  -  ' + self.dateFormatting("%b %e, %Y", globalGraphicalQueryEndPeriod);
+
+        if (self.mainQuery() && self.defined(self.mainQuery())) {
+            graphicalQuery = self.mainQuery();
+            graphicalQuery += ' EUR/USD Custom Pattern Period [' + tempPeriod + ']';            
+        }
+        else {
+            graphicalQuery = 'EUR/USD Custom Pattern Period [' + tempPeriod + ']';
+        }
+
+        //alert(self.mainQuery());
+
+        //$("#testIndex").css("color", "green");
+        //$(".graphicalQueryInput").empty();
+        //$("#contenthandle").before('<a href="#" class="btn-chart"><div class="graphicalQueryInput"> Pattern Criteria - ' + graphicalQuery + '</div></a>');
+
+       //// $("#contenthandle").before('<span class="graphicalQueryInput">Graphical Selection....</span>');
+
+        self.mainQuery(graphicalQuery);
+    };
+
+
+    this.selectHighlightItem = function (itemId) {
+
+        //event
+        var currentItemId = itemId;
+
+        if (self.selected == "none") {
+            self.selected = currentItemId;
+            globalSelectedItem = currentItemId;
+        }
+        else {
+            var selectorTemp = "#" + self.selected;
+
+            $(selectorTemp).css("background-color", "white");
+            $(selectorTemp).css("color", "black");
+
+            self.selected = currentItemId;
+            globalSelectedItem = currentItemId;
+        }
+        var currentItem = "#" + currentItemId;
+        $(currentItem).css("background-color", "#BFCFD0");
+        $(currentItem).css("color", "black");
+
+    };
+
+    this.retrieveDataResults = function (resultKey, event) {
+
+        //event
+        var currentItem = event.currentTarget.children[0];
+        self.selectHighlightItem(currentItem.id);
+
+       // if (self.selected == "none") {
+       //     self.selected = currentItem.id;
+       //     globalSelectedItem = currentItem.id;
+       // }
+       // else {
+       //     var selectorTemp = "#" + self.selected;
+       //     //used to reset or remove previous hightlight
+       //     // $(selectorTemp).css("border", "1px solid #888888");
+
+       //     $(selectorTemp).css("background-color", "white");
+       //     $(selectorTemp).css("color", "black");
+
+       //     self.selected = currentItem.id;
+       //     globalSelectedItem =  currentItem.id;
+       // }
+       //// $(currentItem).css("border", "2px solid #BFCFD0");
+       // $(currentItem).css("background-color", "#BFCFD0");
+       // $(currentItem).css("color", "white");
+
+
+    };
+
+    this.updateMainQuery = function (query) {
+        self.mainQuery(query.Query);
+        self.getAnswer();
+    }
+
+    this.getAnswer = function () {
+
+        if (self.mainQuery() != "") {
+            if (self.mainQuery() != null || self.mainQuery() != 'undefined') {
+
+                var loadchart = document.getElementById("loadchartDia");
+                if (loadchart != null || loadchart != 'defined') {
+                    loadchart.style.display = 'block';
+                }
+
+                //this is redundant QueryID is never required by the ui
+                var r = (12 + Math.random()*16)%16 | 0;
+
+                var queryCard = {
+                    QueryID: 'tempId-' + r.toString(),
+                    Query: self.mainQuery()
+                }
+
+
+                self.historicQueries.unshift(queryCard);
+
+                $("#resultCanvas").empty();
+                
+                for (var g = 0; g < Highcharts.charts.length; g++) {
+                    if (Highcharts.charts[g] != null && Highcharts.charts[g] !== undefined) {
+                        Highcharts.charts[g].destroy();
+                    }
+                }
+ 
+                self.onDemandResults([]);
+
+                var displayError = document.getElementById("noresults");
+                displayError.style.display = 'none';
+
+
+                tradeRiserProxy.getAnswer(self.mainQuery(), self.renderQueryResults, self.errorResponse);
+            }
+        }
+    };
+
+    this.selected = "none";
+    this.toolBarShow = true;
+    this.toolBarMessage = ko.observable("<< Show Toolbar");
+
+
+
+    this.toggle = function () {
+        self.selected(!self.selected());
+    };
+
+    this.variableCleanUp = function (variable) {
+
+        var str = JSON.stringify(variable);
+        var str = str.replace('"', ' ');
+        var resn = str.replace('"', ' ');
+        var resv = resn.replace('}', ' ');
+        var resf = resv.replace('{', ' ');
+        var ress = resf.replace(',', ' ');
+
+        return ress;
+    };
+
+    this.toolBar = function (returnedData) {
+        if (self.toolBarShow) {
+            self.toolBarMessage("<< Hide Toolbar");
+            self.toolBarShow = false;
+        }
+        else {
+            self.toolBarMessage("<< Show Toolbar");
+            self.toolBarShow = true;
+        }
+    }
+
+    this.renderQueryResults = function (returnedData) {
+
+        try
+        {
+            var loadchart = document.getElementById("loadchartDia");
+            if (loadchart != null || loadchart != 'defined') {
+                loadchart.style.display = 'none';
+            }
+
+            var json = returnedData;
+            var obj = JSON && JSON.parse(json) || $.parseJSON(json);
+
+            if (obj != "") {
+                if (obj != null || obj != 'undefined') {
+
+                    var assetClassName = obj.ResultSummaries[0].SymbolID;
+
+                    for (var i = 0; i < obj.ResultSummaries.length; i++) {
+
+                        var extraFieldsArray = new Array();
+
+                        var tings = "";
+
+                        for (var n = 0; n < obj.ResultSummaries[i].KeyResultField.length; n++) {
+
+                            var str = JSON.stringify(obj.ResultSummaries[i].KeyResultField[n]);
+                            var str = str.replace('"', ' ');
+                            var resn = str.replace('"', ' ');
+                            var resv = resn.replace('}', ' ');
+                            var resf = resv.replace('{', ' ');
+                            var ress = resf.replace(',', ' ');
+
+                            var tempArray = obj.ResultSummaries[i].KeyResultField[n];
+
+                            var extraFields = [{
+                                keyfield: tempArray[0] + ' : ', keydata: tempArray[1]
+                            }];
+
+                            tings = extraFields;
+
+                            extraFieldsArray.push(extraFields);
+                        }
+
+                        var resultItem = {
+                            SymbolID: obj.ResultSummaries[i].SymbolID,
+                            StartDateTime: obj.ResultSummaries[i].StartDateTime,
+                            EndDateTime: obj.ResultSummaries[i].EndDateTime,
+                            Source: obj.ResultSummaries[i].Source,
+                            TimeFrame: obj.ResultSummaries[i].TimeFrame,
+                            MoreStandardData: obj.ResultSummaries[i].MoreStandardData,
+                            MoreKeyFields: obj.ResultSummaries[i].MoreKeyFields,
+                            QueryID: obj.ResultSummaries[i].QueryID,
+                            SymbolImages: obj.ResultSummaries[i].ImageCollection,
+                            ExtraFields: extraFieldsArray
+                        };
+
+                        self.onDemandResults.push(resultItem);
+
+                        if (i == 0) {
+                            self.selectHighlightItem(resultItem.QueryID);
+                        }
+                    }                  
+                    self.displayResult(obj);
+                }
+            }
+            else {
+
+                //var displayError = $("#noresults");
+
+                var displayError = document.getElementById("noresults");
+                displayError.style.display = 'block';
+                //$("#resultCanvas").append($('<div style='width: 200px;'">TradeRiser does not understand your input. Tip-Check your spelling, and use English</div>'));
+
+
+                //$("#resultCanvas").append($('<div id="noresults">TradeRiser does not understand your input. Tip-Check your spelling, and use English</div>'));
+               // alert('No Results');
+            }
+        }
+        catch (ex)
+        {
+            alert(ex);
+        }
+
+    };
+
+    this.errorResponse = function () {
+
+    };
+
+    this.defined = function (obj) {
+        return obj !== self.UNDEFINED && obj !== null;
+    };
+
+    this.upDateContinousQueryResult = function (latestResultCard) {
+
+
+        var loadchart = document.getElementById("loadchartDia");
+        if (loadchart != null || loadchart != 'defined') {
+            loadchart.style.display = 'block';
+        }
+
+
+
+        //this should be done on the server side
+        var imageArray = new Array();
+        if (latestResultCard.Source == "Forex") {
+            var symItemArr = latestResultCard.SymbolID.split('/');
+
+            for (var q = 0; q < symItemArr.length; q++) {
+                var path = '../../Images/flagcurrencies/' + symItemArr[q] + '.png';
+                imageArray.push(path);
+            }
+        }
+        //-----------------------------------------------//
+
+
+        var tings = "";
+        var extraFieldsArray = new Array();
+
+        for (var n = 0; n < latestResultCard.KeyResultField.length; n++) {
+            var str = JSON.stringify(latestResultCard.KeyResultField[n]);
+            var str = str.replace('"', ' ');
+            var resn = str.replace('"', ' ');
+            var resv = resn.replace('}', ' ');
+            var resf = resv.replace('{', ' ');
+            var ress = resf.replace(',', ' ');
+            var tempArray = latestResultCard.KeyResultField[n];
+
+            var extraFields = [{
+                keyfield: tempArray[0] + ' : ', keydata: tempArray[1]
+            }];
+            tings = extraFields;
+            extraFieldsArray.push(extraFields);
+        }
+
+        var resultItem = {
+            SymbolID: latestResultCard.SymbolID,
+            StartDateTime: latestResultCard.StartDateTime,
+            EndDateTime: latestResultCard.EndDateTime,
+            Source: latestResultCard.Source,
+            TimeFrame: latestResultCard.TimeFrame,
+            MoreStandardData: latestResultCard.MoreStandardData,
+            MoreKeyFields: latestResultCard.MoreKeyFields,
+            QueryID: latestResultCard.QueryID,
+            SymbolImages: imageArray,
+            ExtraFields: extraFieldsArray
+
+
+            /*,
+            ExtraFields: extraFieldsArray*/
+        };
+
+        self.continuousResults.unshift(resultItem);
+
+
+        setTimeout(function () {
+            if (loadchart != null || loadchart != 'defined') {
+                loadchart.style.display = 'none';
+            }
+        }, 3000);
+
+
+       
+
+
+    };
+
+    self.pick = function () {
+        var args = arguments,
+            i,
+            arg,
+            length = args.length;
+        for (i = 0; i < length; i++) {
+            arg = args[i];
+            if (typeof arg !== 'undefined' && arg !== null) {
+                return arg;
+            }
+        }
+    };
+
+    this.pad = function (number, length) {
+        // Create an array of the remaining length +1 and join it with 0's
+        return new Array((length || 2) + 1 - String(number).length).join(0) + number;
+    };
+    
+    this.defaultOptions = {
+        colors: ['#2f7ed8', '#0d233a', '#8bbc21', '#910000', '#1aadce', '#492970',
+            '#f28f43', '#77a1e5', '#c42525', '#a6c96a'],
+        symbols: ['circle', 'diamond', 'square', 'triangle', 'triangle-down'],
+        lang: {
+            loading: 'Loading...',
+            months: ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+                    'August', 'September', 'October', 'November', 'December'],
+            shortMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            decimalPoint: '.',
+            numericSymbols: ['k', 'M', 'G', 'T', 'P', 'E'], // SI prefixes used in axis labels
+            resetZoom: 'Reset zoom',
+            resetZoomTitle: 'Reset zoom level 1:1',
+            thousandsSep: ','
+        }
+    };
+
+    this.extend = function (a, b) {
+        var n;
+        if (!a) {
+            a = {};
+        }
+        for (n in b) {
+            a[n] = b[n];
+        }
+        return a;
+    };
+
+    this.dateFormatting = function (format, timestamp, capitalize) {
+        if (!self.defined(timestamp) || isNaN(timestamp)) {
+            return 'Invalid date';
+        }
+        format = self.pick(format, '%Y-%m-%d %H:%M:%S');
+
+        var date = new Date(timestamp),
+            key, // used in for constuct below
+            // get the basic time values
+            hours = date[self.getHours](),
+            day = date[self.getDay](),
+            dayOfMonth = date[self.getDate](),
+            month = date[self.getMonth](),
+            fullYear = date[self.getFullYear](),
+            lang = self.defaultOptions.lang,
+            langWeekdays = lang.weekdays,
+
+            // List all format keys. Custom formats can be added from the outside. 
+            replacements = self.extend({
+
+                // Day
+                'a': langWeekdays[day].substr(0, 3), // Short weekday, like 'Mon'
+                'A': langWeekdays[day], // Long weekday, like 'Monday'
+                'd': self.pad(dayOfMonth), // Two digit day of the month, 01 to 31
+                'e': dayOfMonth, // Day of the month, 1 through 31
+
+                // Week (none implemented)
+                //'W': weekNumber(),
+
+                // Month
+                'b': lang.shortMonths[month], // Short month, like 'Jan'
+                'B': lang.months[month], // Long month, like 'January'
+                'm': self.pad(month + 1), // Two digit month number, 01 through 12
+
+                // Year
+                'y': fullYear.toString().substr(2, 2), // Two digits year, like 09 for 2009
+                'Y': fullYear, // Four digits year, like 2009
+
+                // Time
+                'H': self.pad(hours), // Two digits hours in 24h format, 00 through 23
+                'I': self.pad((hours % 12) || 12), // Two digits hours in 12h format, 00 through 11
+                'l': (hours % 12) || 12, // Hours in 12h format, 1 through 12
+                'M': self.pad(date[self.getMinutes]()), // Two digits minutes, 00 through 59
+                'p': hours < 12 ? 'AM' : 'PM', // Upper case AM or PM
+                'P': hours < 12 ? 'am' : 'pm', // Lower case AM or PM
+                'S': self.pad(date.getSeconds()), // Two digits seconds, 00 through  59
+                'L': self.pad(Math.round(timestamp % 1000), 3) // Milliseconds (naming from Ruby)
+            }, ChartRegionSelector.dateFormats);
+
+
+        // do the replaces
+        for (key in replacements) {
+            while (format.indexOf('%' + key) !== -1) { // regex would do it in one line, but this is faster
+                format = format.replace('%' + key, typeof replacements[key] === 'function' ? replacements[key](timestamp) : replacements[key]);
+            }
+        }
+
+        // Optionally capitalize the string and return
+        return capitalize ? format.substr(0, 1).toUpperCase() + format.substr(1) : format;
+    };
+
+    this.unFollowQuery = function (item) {
+
+        self.tradeRiserProxy.unfollowQuery(item.Query, function () {
+            var i = self.queriesSubscription().filter(function (elem) {
+                return elem.QueryID === item.QueryID;
+            })[0];
+            self.queriesSubscription.remove(i);
+        });
+    };
+
+    this.followQuery = function (item) {
+
+        self.tradeRiserProxy.followQuery(item.Query, function () {
+
+            self.queriesSubscription.unshift(item);
+        });
+    };
+
+    this.displayResult = function (obj) {
+        //Change complex json to visuals
+        //assuming chart for now
+        //parse json object    
+        //var currentWidth = $("#resultCanvas").width();
+        $("#resultCanvas").empty();
+
+        $(".pane").width(self.paneFixWidth);
+
+        var resultsData = new ResultsData();
+
+        var arraySeries = [];
+        var overlayArray = [];
+        var highlighterArray = [];
+        var yAxisArray = []; //has to be double quotes
+
+
+        var presentationTypeCount = obj.CurrentResult.PresentationTypes.length;
+
+        if (presentationTypeCount > 0) {
+            $("#resultCanvas").append($('<br/>'
+                               + '<table id="tableCanvas" width="100%" cellpadding="15" cellspacing="1" border="1" style="border-color:#E0E0E0;"></table>'));
+
+        }
+
+        var rawDataResults = obj.CurrentResult.RawDataResults;
+
+        var selectChartKey = '';
+
+        //Main widget
+        try {
+            for (var pp = 0; pp < presentationTypeCount; pp++) {
+
+                var json = rawDataResults[pp].ChartReadyDataResults;
+                var dataLookUp = self.createLookUp(json);
+                
+
+                switch (obj.CurrentResult.PresentationTypes[pp].MainWidget) {
+                    case 'Table':
+                        {
+
+                        } break;
+
+                    case 'LineSeriesChart':
+                        {
+                            var markup = "<div class='widgetTitle'>Correlation Analysis</div><br/><div class='correlationChart'></div>";
+
+                            self.widgetPlacerT(pp, presentationTypeCount, 'Correlation Analysis', '500px', 'correlationChart');
+
+                            var lengthCount = obj.CurrentResult.RawDataResults[0].ChartReadyDataResults.length;
+
+                            var lineSeriesOptions = [],
+                                symbolNames = [];
+
+                            for (var bb = 0; bb < obj.CurrentResult.ResultSymbols[pp].length; bb++) {
+                                symbolNames.push(obj.CurrentResult.ResultSymbols[pp][bb]);
+                            }
+
+                            for (var c = 0; c < lengthCount; c++) {
+                                var dataKey = "RAW_COMPARISON" + "_" + symbolNames[c];
+                                dataResults = dataLookUp[dataKey];
+
+                                if (dataResults != null || dataResults !== undefined) {
+
+                                    var lineSeriesData = [];
+
+                                    dataLength = dataResults.length;
+
+                                    for (i = 0; i < dataLength; i++) {
+                                        lineSeriesData.push([
+                                            dataResults[i][0], // the date
+                                            dataResults[i][4] // the volume
+                                        ])
+                                    }
+
+                                    lineSeriesOptions[c] = {
+                                        name: symbolNames[c],
+                                        data: lineSeriesData
+                                    }
+
+                                }//for loop end
+
+                                var dateTimeTemp = dataResults[1][0] - dataResults[0][0];
+
+                                var bIntradayChart = true;
+
+                                if (dateTimeTemp >= 86400000) {
+                                    bIntradayChart = false;
+                                }
+
+                                var buttonSetup = { selected: 4 };
+
+                                if (bIntradayChart) {
+                                    var buttonsArray = [{
+                                        type: 'hour',
+                                        count: 1,
+                                        text: '1h'
+                                    },
+                                    {
+                                        type: 'hour',
+                                        count: 2,
+                                        text: '2h'
+                                    },
+                                    {
+                                        type: 'hour',
+                                        count: 3,
+                                        text: '3h'
+                                    },
+                                    {
+                                        type: 'day',
+                                        count: 1,
+                                        text: '1D'
+                                    }, {
+                                        type: 'all',
+                                        count: 1,
+                                        text: 'All'
+                                    }];
+
+                                    buttonSetup = {
+                                        buttons: buttonsArray,
+                                        selected: 2,
+                                        inputEnabled: false
+                                    }
+                                }
+
+
+                                $('.correlationChart').highcharts('StockChart', {
+                                    chart: {
+                                    },
+                                    rangeSelector: buttonSetup,
+                                    yAxis: {
+                                        labels: {
+                                            formatter: function () {
+                                                return (this.value > 0 ? '+' : '') + this.value + '%';
+                                            }
+                                        },
+                                        plotLines: [{
+                                            value: 0,
+                                            width: 2,
+                                            color: 'silver'
+                                        }]
+                                    },
+                                    plotOptions: {
+                                        series: {
+                                            compare: 'percent'
+                                        }
+                                    },
+                                    tooltip: {
+                                        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+                                        valueDecimals: 2
+                                    },
+                                    series: lineSeriesOptions
+                                });
+                            }
+
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, resultsData);                            
+
+                        } break;
+
+                    case 'CandleStickChart':
+                        {
+                            var chartClassName = 'chartspace dialogchart' + pp;
+                            var markup = "<div class='widgetTitle'>15 Timeframe</div><br/><div class='" + chartClassName + "'style='height: 610px; width:50%'></div>";
+
+
+                            self.widgetPlacerT(pp, presentationTypeCount, 'Technical Analysis', '610px', chartClassName);
+
+                            var dataResultsT = dataLookUp["RAW"];
+                            if (dataResultsT != null || dataResultsT !== undefined) {
+
+                                var lineSeriesOptions = [],
+                                    symbolNames = [];
+
+                                var ohlc_CandleStick = [], volume_CandleStick = [];
+
+                                for (var bb = 0; bb < obj.CurrentResult.ResultSymbols[pp].length; bb++) {
+                                    symbolNames.push(obj.CurrentResult.ResultSymbols[pp][bb]);
+                                }
+
+                                var c = 0;
+                                var dataLength = dataResultsT.length;
+
+                                if (dataLength > 0) {
+
+                                    var dateTimeTemp = dataResultsT[1][0] - dataResultsT[0][0];
+
+                                    var bIntradayChart = true;
+
+                                    if (dateTimeTemp >= 86400000) {
+                                        bIntradayChart = false;
+                                    }
+
+
+                                    for (i = 0; i < dataLength; i++) {
+                                        ohlc_CandleStick.push([
+                                            dataResultsT[i][0], // the date
+                                            dataResultsT[i][1], // open
+                                            dataResultsT[i][2], // high
+                                            dataResultsT[i][3], // low
+                                            dataResultsT[i][4] // close
+                                        ]);
+
+                                        volume_CandleStick.push([
+                                            dataResultsT[i][0], // the date
+                                            dataResultsT[i][5] // the volume
+                                        ])
+                                    }
+                                }
+
+
+                                //// set the allowed units for data grouping
+                                var groupingUnits = [[
+                                    'week',                         // unit name
+                                    [1]                             // allowed multiples
+                                ], [
+                                    'month',
+                                    [1, 2, 3, 4, 6]
+                                ]];
+
+
+                                var mainChartItem = {
+                                    type: 'candlestick',
+                                    name: symbolNames[0],
+                                    data: ohlc_CandleStick,
+                                    dataGrouping: {
+                                        units: groupingUnits
+                                    }
+                                }
+
+                                if (bIntradayChart) {
+                                    mainChartItem = {
+                                        type: 'candlestick',
+                                        name: symbolNames[0],
+                                        data: ohlc_CandleStick
+                                    }
+                                }
+                                arraySeries.push(mainChartItem);
+
+                                for (var hl = 0; hl < rawDataResults[pp].HighLightRegion.length; hl++) {
+
+                                    rawDataResults[pp].HighLightRegion[hl].Comment.split("**");;
+
+
+                                    var highlighterItem = {
+                                        colour: rawDataResults[pp].HighLightRegion[hl].Colour,
+                                        axisIndex: 0,
+                                        seriesIndex: 0,
+                                        startDate: rawDataResults[pp].HighLightRegion[hl].StartDateTime,
+                                        endDate: rawDataResults[pp].HighLightRegion[hl].EndDateTime,
+                                        speechBubbleHtml: rawDataResults[pp].HighLightRegion[hl].Comment
+
+                                        //speechBubbleHtml: '<b>Histogram </b> <br/> other comment '
+
+                                    }
+                                    highlighterArray.push(highlighterItem);
+                                }
+
+                                var chartItemDef = {
+                                    title: {
+                                        text: 'OHLC'
+                                    },
+                                    height: 310,
+                                    lineWidth: 2
+                                 };
+                                 
+                                yAxisArray.push(chartItemDef);
+
+                                presentationTypeIndex = pp;
+                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray);
+
+
+                                SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray);
+                            }
+
+                        } break;
+                }
+            }
+
+            //performance stats
+            $("#resultCanvas").append($('<br/><br/> <div id="performanceStats"><h2>Performance Stats</h2><a class="naviPos" href="#performStatsButton">Top</a><table class ="performanceStatsTable" border="1">'
+                      + '<tr><td>Pattern</td><td>Total</td><td>Correct</td><td>Total</td></tr>'
+                      + '<tr><td>Ascending Triangle</td><td>354</td><td>634</td><td>78%</td></tr>'
+                      + '<tr><td>Channel Down</td><td>354</td><td>634</td><td>78%</td></tr>'
+                      + '<tr><td>Channel Up</td><td>354</td><td>634</td><td>78%</td></tr>'
+                      + '<tr><td>Descending Triangle</td><td>354</td><td>634</td><td>78%</td></tr>'
+                      + '<tr><td>Double Bottom</td><td>354</td><td>634</td><td>78%</td></tr>'
+                      + '<tr><td>Double Top</td><td>354</td><td>634</td><td>78%</td></tr></table></div> <br/><input type="checkbox" id="highlighted">'));
+
+            //disclaimer
+            $("#resultCanvas").append($('<br/><br/><div id="riskDisclaimer"><h2>Risk Disclaimer</h2><a class="naviPos" href="#performStatsButton">Top</a><p>Please acknowledge the following: <br/>The Charts are provided'
+              +  '" as is", without warranty or guarantee of any kind, including but not limited to the warranties of merchantability and fitness for a particular purpose.' 
+              + 'In no event shall TradeRiser Limited and its affiliates or any third party contributor be liable for any claim, damages or other liability, whether in an '
+              + 'action of contract, tort or otherwise, arising from, out of or in connection with the use of or other dealings in the Charts. The Charts run on pricing '
+              + 'data provided by us to a third party charting administrator. You accept that the price data displayed in the Charts may be delayed and that we do not '
+              + 'guarantee the accuracy or completeness of the data and that we do not guarantee that the service will be uninterrupted.</p><p>**Performance Statistics ** '
+              + '<br/>Explanation <br/>The statistics below measure how many patterns hit their forecast level. <h4>Disclaimer</h4>The TradeRiser service includes analysis '
+              + 'of financial instruments. There are potential risks relating to investing and trading. You must be aware of such risks and familiarize yourself in regard '
+              + 'to such risks and to seek independent advice relating thereto. You should not trade with money that you cannot afford to lose. The TradeRiser service and'
+              + 'its content should not be construed as a solicitation to invest and/or trade. You should seek independent advice in this regard. Past performance is not'
+              + 'indicative of future performance. No representation is being made that any results discussed within the service and its related media content will be achieved.' 
+              + 'TradeRiser, TradeRiser Limited, their members, shareholders, employees, agents, representatives and resellers do not warrant the completeness, accuracy or timeliness' 
+              + 'of the information supplied, and they shall not be liable for any loss or damages, consequential or otherwise, which may arise from the use or reliance of the'
+              + 'TradeRiser service and its content.</p></div>'));
+
+
+
+        }
+        catch (err) {
+            alert(err);
+        }
+
+
+    };
+
+    this.widgetPlacer = function (index, total, markup) {
+
+        var remaining = total - index;
+        var remainder = index % 2;
+
+        var nthPos = index;
+
+        var width = '50%';
+        if (remaining == 1) {
+            width = '100%';
+        }
+
+
+        if (index == 0) {
+            if (remaining > 1) {
+                $("#tableCanvas").append($("<tr><td style='top:0px' width='50%' id=celln" + index + " >" + markup + "</td></tr>"));
+            }
+            else {
+                $("#tableCanvas").append($("<tr><td style='top:0px' width='100%' id=celln" + index + " >" + markup + "</td></tr>"));
+            }
+        }
+        else {
+            if (remaining > 1) {
+                $("<td style='top:0px' id=celln" + index + " width='100%'>" + markup + "</td>").appendTo($("#tableCanvas tr:nth-child(" + nthPos + ")"));
+            }
+            else {
+                $("<td style='top:0px' id=celln" + index + " width='50%'>" + markup + "</td>").appendTo($("#tableCanvas tr:nth-child(" + nthPos + ")"));
+            }
+        }
+    };
+
+
+    this.widgetPlacerT = function (index, total, title, height, chartClassName) {
+
+        var remaining = total - index;
+        var remainder = index % 2;
+
+        var nthPos = index;
+
+        var width = '50%';
+        if (remaining == 1) {
+            width = '100%';
+        }
+
+        var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
+       // var markup = "<div class='widgetTitle'>" + title + "</div><br/><div class='" + chartClassName + "' style='height: " + height + "; width= 50% '></div>";
+ 
+
+
+        if (index == 0) {
+            if (remaining > 1) {
+                $("#tableCanvas").append($("<tr><td style='top:0px' width='50%' id=celln" + index + " >" + markup + "</td></tr>"));
+
+                //$(chartClassName).css('width', '200px');
+            }
+            else {
+                $("#tableCanvas").append($("<tr><td style='top:0px' width='100%' id=celln" + index + " >" + markup + "</td></tr>"));
+            }
+        }
+        else {
+            //if (remainder == 0)
+            if (remaining > 1)
+            {
+                $("<td style='top:0px' id=celln" + index + " width='100%'>" + markup + "</td>").appendTo($("#tableCanvas tr:nth-child(" + nthPos + ")"));
+            }
+            else {
+                $("<td style='top:0px' id=celln" + index + " width='50%'>" + markup + "</td>").appendTo($("#tableCanvas tr:nth-child(" + nthPos + ")"));
+            }
+        }
+    };
+
+    this.createLookUp = function (json) {
+        var dataLookUp = {};
+        // generate the lookup table for reuse
+        json.forEach(function (el, i, arr) {
+            dataLookUp[el.Key] = el.Value;
+        });
+
+        return dataLookUp;
+    };
+
+    this.initalizeSubWidgets = function (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray) {
+
+        PrepareChartData(presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray);
+    }
+
+    this.convertToNumericKeyID = function (selectChartKey)
+    {
+        var accumulated = "";
+        var total = 0;
+        for (var i = 0; i < selectChartKey.length; i++)
+        {
+            var n = selectChartKey.charCodeAt(i);
+            accumulated = accumulated + n;
+            total = total + n;
+        }
+        return total;
+    }
+
+
+    this.people = ko.observableArray([
+        { name: 'Bert' },
+        { name: 'Charles' },
+        { name: 'Denise' }
+    ]);
+
+    this.addPerson = function () {
+        self.people.push({ name: "New at " + new Date() });
+    };
+
+    this.removePerson = function () {
+        self.people.remove(this);
+    };
+
+}
+
+
+
+//Class
+function ResultsData() {
+    this.smaOverlay = [];
+    this.upperBollingerBand = [];
+    this.lowerBollingerBand = [];
+    this.rsiData = [];
+    this.aroonOsc = [];
+    this.aroonUp = [];
+    this.aroonDown = [];
+    this.MACDHistogram = [];
+    this.MACDline = [];
+    this.avtrInd = [];
+    this.higlighters = [];
+}
+
+//Populate continuousResults array with the resultsSummary list

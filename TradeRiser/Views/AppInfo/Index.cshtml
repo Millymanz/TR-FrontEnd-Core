@@ -1,0 +1,103 @@
+﻿@model TradeRiser.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+    Layout = null;    
+}
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>TradeRiser - Beta</title>
+<meta name="description" content="">
+<meta name="author" content="">
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../Content/clean/css/jquery-ui-1.10.3.custom.min.css">
+<link rel="stylesheet" href="../../Content/clean/css/style.css">
+<link rel="shortcut icon" href="../../Images/traderiser.ico"/>
+
+ @Styles.Render("~/Content/css")
+ @Scripts.Render("~/bundles/modernizr")
+
+
+</head>
+<body>
+
+
+<!-- Header bar -->
+<div class="header">
+    
+</div>
+<!-- End Header bar -->
+
+@*<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>*@
+
+<div style="margin-left:auto; margin-right:auto; width:50%;">
+<section id="loginForm">
+<h2>Sign in to continue to TradeRiser</h2>
+    
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    <fieldset>
+        <legend>Log in Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </li>
+            <li>
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            </li>
+        </ol>
+        <input type="submit" value="Sign In" style="width:100px"/>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Register", "Register") if you don't have an account.
+    </p>
+}
+</section>
+
+        </div>
+
+<section class="social" id="socialLoginForm">
+    <h2>TradeRiser makes it easier to trade successfully</h2>
+   <ol style ="list-style: square inside none;">
+<li>Saves you time searching for quality trading opportunities</li>
+<li>Receive real-time trade opportunity alerts</li>
+<li>Provides price forecasts</li>
+<li>Helps you make informed decisions</li>
+
+
+</ol>
+</section>
+
+
+</body>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+</html>
