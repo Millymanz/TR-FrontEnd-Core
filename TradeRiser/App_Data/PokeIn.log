@@ -1,0 +1,2103 @@
+20 September 2013 | 19:34:59 : 
+Unhandled Exception ::    at System.ServiceModel.Description.ConfigLoader.LookupChannel(ContextInformation configurationContext, String configurationName, ContractDescription contract, EndpointAddress address, Boolean wildcard, Boolean useChannelElementKind, ServiceEndpoint& serviceEndpoint)
+   at System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   at System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   at System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   at System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   at System.ServiceModel.ClientBase`1..ctor()
+   at TradeRiser.QueryService.QueryServiceClient..ctor() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\Service References\QueryService\Reference.cs:line 175
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\Models\Poller.cs:line 22
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 September 2013 | 19:35:18 : 
+Unhandled Exception ::    at System.ServiceModel.Description.ConfigLoader.LookupChannel(ContextInformation configurationContext, String configurationName, ContractDescription contract, EndpointAddress address, Boolean wildcard, Boolean useChannelElementKind, ServiceEndpoint& serviceEndpoint)
+   at System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   at System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   at System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   at System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   at System.ServiceModel.ClientBase`1..ctor()
+   at TradeRiser.QueryService.QueryServiceClient..ctor() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\Service References\QueryService\Reference.cs:line 175
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\Models\Poller.cs:line 22
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 September 2013 | 19:38:26 : 
+Unhandled Exception ::    at System.ServiceModel.Description.ConfigLoader.LookupChannel(ContextInformation configurationContext, String configurationName, ContractDescription contract, EndpointAddress address, Boolean wildcard, Boolean useChannelElementKind, ServiceEndpoint& serviceEndpoint)
+   at System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   at System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   at System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   at System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   at System.ServiceModel.ClientBase`1..ctor()
+   at TradeRiser.QueryService.QueryServiceClient..ctor() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\Service References\QueryService\Reference.cs:line 175
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\Models\Poller.cs:line 22
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 September 2013 | 19:38:42 : 
+Unhandled Exception ::    at System.ServiceModel.Description.ConfigLoader.LookupChannel(ContextInformation configurationContext, String configurationName, ContractDescription contract, EndpointAddress address, Boolean wildcard, Boolean useChannelElementKind, ServiceEndpoint& serviceEndpoint)
+   at System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   at System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   at System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   at System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   at System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   at System.ServiceModel.ClientBase`1..ctor()
+   at TradeRiser.QueryService.QueryServiceClient..ctor() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\Service References\QueryService\Reference.cs:line 175
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\Models\Poller.cs:line 22
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 September 2013 | 20:00:35 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout, BufferManager bufferManager)
+   at System.ServiceModel.Channels.FramingDuplexSessionChannel.OnSendCore(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.OnSend(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.OutputChannel.Send(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\Service References\QueryService\Reference.cs:line 219
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 September 2013 | 20:04:14 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout, BufferManager bufferManager)
+   at System.ServiceModel.Channels.FramingDuplexSessionChannel.OnSendCore(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.OnSend(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.OutputChannel.Send(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\Service References\QueryService\Reference.cs:line 219
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.3\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 September 2013 | 22:50:41 : 
+Application is recycling. Active client count: 2
+29 September 2013 | 17:45:19 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Service References\QueryService\Reference.cs:line 389
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+29 September 2013 | 17:51:59 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Service References\QueryService\Reference.cs:line 389
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+29 September 2013 | 17:54:25 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Service References\QueryService\Reference.cs:line 389
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+29 September 2013 | 18:00:48 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout, BufferManager bufferManager)
+   at System.ServiceModel.Channels.FramingDuplexSessionChannel.OnSendCore(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.OnSend(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.OutputChannel.Send(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Service References\QueryService\Reference.cs:line 389
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+29 September 2013 | 18:04:14 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Service References\QueryService\Reference.cs:line 389
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+29 September 2013 | 18:54:47 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Service References\QueryService\Reference.cs:line 389
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+01 October 2013 | 18:03:14 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+01 October 2013 | 18:06:17 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+08 October 2013 | 19:57:13 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+08 October 2013 | 20:03:59 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.1\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+09 October 2013 | 21:02:53 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+09 October 2013 | 21:04:43 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+09 October 2013 | 21:04:46 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+10 October 2013 | 19:16:06 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+10 October 2013 | 19:18:55 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+11 October 2013 | 12:48:06 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+11 October 2013 | 12:52:32 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+12 October 2013 | 14:39:31 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+12 October 2013 | 14:45:51 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 October 2013 | 13:58:01 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 October 2013 | 14:00:10 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 October 2013 | 14:06:29 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 October 2013 | 14:12:17 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 October 2013 | 14:24:41 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 October 2013 | 14:28:11 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 October 2013 | 14:38:14 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 October 2013 | 14:53:30 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 October 2013 | 15:03:23 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 October 2013 | 18:39:53 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 October 2013 | 19:55:04 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 October 2013 | 19:55:13 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+21 October 2013 | 19:29:43 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+22 October 2013 | 09:07:44 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+22 October 2013 | 09:18:51 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+22 October 2013 | 11:01:36 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+22 October 2013 | 11:20:31 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+22 October 2013 | 15:52:20 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+22 October 2013 | 16:12:30 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+22 October 2013 | 16:12:56 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+23 October 2013 | 20:58:24 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+23 October 2013 | 21:38:06 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+23 October 2013 | 21:41:09 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+23 October 2013 | 21:43:01 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+24 October 2013 | 22:10:05 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Channels.TransactionReceiveChannelGeneric`1.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 405
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+25 October 2013 | 21:48:31 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 440
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+25 October 2013 | 22:07:07 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout, BufferManager bufferManager)
+   at System.ServiceModel.Channels.FramingDuplexSessionChannel.OnSendCore(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.OnSend(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.OutputChannel.Send(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 440
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+25 October 2013 | 22:16:45 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 440
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+25 October 2013 | 22:24:39 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout, BufferManager bufferManager)
+   at System.ServiceModel.Channels.FramingDuplexSessionChannel.OnSendCore(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.OnSend(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.OutputChannel.Send(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 440
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+25 October 2013 | 22:38:30 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 440
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 October 2013 | 15:28:24 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 520
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 October 2013 | 21:12:07 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout, BufferManager bufferManager)
+   at System.ServiceModel.Channels.FramingDuplexSessionChannel.OnSendCore(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.OnSend(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.OutputChannel.Send(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 520
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+27 October 2013 | 20:20:32 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout, BufferManager bufferManager)
+   at System.ServiceModel.Channels.FramingDuplexSessionChannel.OnSendCore(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.OnSend(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.OutputChannel.Send(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Service References\QueryService\Reference.cs:line 520
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2a\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+22 February 2014 | 09:41:44 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.4.2b\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+24 February 2014 | 19:43:12 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+24 February 2014 | 19:46:45 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+25 February 2014 | 21:55:32 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 February 2014 | 18:55:56 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 February 2014 | 19:35:44 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 February 2014 | 19:40:03 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 February 2014 | 20:21:01 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 February 2014 | 20:21:14 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 February 2014 | 20:22:15 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   at System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout, BufferManager bufferManager)
+   at System.ServiceModel.Channels.FramingDuplexSessionChannel.OnSendCore(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.OnSend(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.OutputChannel.Send(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 February 2014 | 20:22:27 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 February 2014 | 20:22:36 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 February 2014 | 20:22:47 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 February 2014 | 20:25:43 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.StreamConnection.Read(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   at System.ServiceModel.Channels.SessionConnectionReader.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.SynchronizedMessageSource.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.Receive(TimeSpan timeout)
+   at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceive(TimeSpan timeout, Message& message)
+   at System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+26 February 2014 | 21:45:40 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.GetQueryData()
+   at TradeRiser.QueryService.QueryServiceClient.GetQueryData() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Service References\QueryService\Reference.cs:line 1113
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 29
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+03 April 2014 | 17:24:15 : 
+Unhandled Exception ::    at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 41
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+03 April 2014 | 17:24:37 : 
+Unhandled Exception ::    at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 41
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+03 April 2014 | 17:30:27 : 
+Unhandled Exception ::    at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port, AddressFamily family)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port)
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 45
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+03 April 2014 | 17:30:45 : 
+Unhandled Exception ::    at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port, AddressFamily family)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port)
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 45
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+03 April 2014 | 17:47:10 : 
+Unhandled Exception ::    at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port, AddressFamily family)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port)
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 45
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+03 April 2014 | 17:47:19 : 
+Unhandled Exception ::    at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port, AddressFamily family)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port)
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 45
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+03 April 2014 | 18:47:21 : 
+Unhandled Exception ::    at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port, AddressFamily family)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port)
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 45
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+04 April 2014 | 10:27:24 : 
+Unhandled Exception ::    at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port, AddressFamily family)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port)
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 45
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+04 April 2014 | 12:06:29 : 
+Unhandled Exception ::    at System.Convert.ToInt32(Object value)
+   at TradeRiser.MvcApplication.<.cctor>b__0() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Global.asax.cs:line 68
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+04 April 2014 | 12:07:28 : 
+Unhandled Exception ::    at System.Convert.ToInt32(Object value)
+   at TradeRiser.MvcApplication.<.cctor>b__0() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Global.asax.cs:line 68
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+04 April 2014 | 12:09:34 : 
+Unhandled Exception ::    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TradeRiser.MvcApplication.<.cctor>b__0() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Global.asax.cs:line 68
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+04 April 2014 | 12:10:20 : 
+Unhandled Exception ::    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TradeRiser.MvcApplication.<.cctor>b__0() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Global.asax.cs:line 68
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+04 April 2014 | 12:36:16 : 
+Unhandled Exception ::    at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port, AddressFamily family)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port)
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 45
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+04 April 2014 | 13:39:43 : 
+Unhandled Exception ::    at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port, AddressFamily family)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port)
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 45
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+04 April 2014 | 14:05:19 : 
+Unhandled Exception ::    at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port, AddressFamily family)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port)
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 45
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+11 April 2014 | 20:42:00 : 
+Unhandled Exception ::    at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port, AddressFamily family)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port)
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.5\TradeRiser\Models\Poller.cs:line 45
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+17 April 2014 | 23:27:30 : 
+Unhandled Exception ::    at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port, AddressFamily family)
+   at System.Net.Sockets.UdpClient..ctor(Int32 port)
+   at TradeRiser.Models.Poller.Initialise() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.6\TradeRiser\Models\Poller.cs:line 45
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+12 July 2014 | 11:10:13 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   at System.ServiceModel.Channels.BufferedConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.RegisterClient(String clientName)
+   at TradeRiser.QueryService.QueryServiceClient.RegisterClient(String clientName) in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\Service References\QueryService\Reference.cs:line 1239
+   at TradeRiser.Models.Poller.RegisterClient() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\Models\Poller.cs:line 158
+   at TradeRiser.Models.Poller.InitialiseClient() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\Models\Poller.cs:line 109
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+12 July 2014 | 11:12:12 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.RegisterClient(String clientName)
+   at TradeRiser.QueryService.QueryServiceClient.RegisterClient(String clientName) in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\Service References\QueryService\Reference.cs:line 1239
+   at TradeRiser.Models.Poller.RegisterClient() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\Models\Poller.cs:line 158
+   at TradeRiser.Models.Poller.InitialiseClient() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\Models\Poller.cs:line 109
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+12 July 2014 | 11:12:18 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.RegisterClient(String clientName)
+   at TradeRiser.QueryService.QueryServiceClient.RegisterClient(String clientName) in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\Service References\QueryService\Reference.cs:line 1239
+   at TradeRiser.Models.Poller.RegisterClient() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\Models\Poller.cs:line 158
+   at TradeRiser.Models.Poller.InitialiseClient() in c:\Dev\Trade Systems Project\Iterations\FrontEnd\1.3.8.1\TradeRiser\Models\Poller.cs:line 109
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+10 August 2014 | 21:00:43 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   at System.ServiceModel.Channels.BufferedConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.RegisterClient(String clientName)
+   at TradeRiser.QueryService.QueryServiceClient.RegisterClient(String clientName) in c:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\Service References\QueryService\Reference.cs:line 1253
+   at TradeRiser.Models.Poller.RegisterClient() in c:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\Models\Poller.cs:line 158
+   at TradeRiser.Models.Poller.InitialiseClient() in c:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\Models\Poller.cs:line 109
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+10 August 2014 | 21:35:34 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.RegisterClient(String clientName)
+   at TradeRiser.QueryService.QueryServiceClient.RegisterClient(String clientName) in c:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\Service References\QueryService\Reference.cs:line 1253
+   at TradeRiser.Models.Poller.RegisterClient() in c:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\Models\Poller.cs:line 158
+   at TradeRiser.Models.Poller.InitialiseClient() in c:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\Models\Poller.cs:line 109
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+10 August 2014 | 21:39:37 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.RegisterClient(String clientName)
+   at TradeRiser.QueryService.QueryServiceClient.RegisterClient(String clientName) in c:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\Service References\QueryService\Reference.cs:line 1253
+   at TradeRiser.Models.Poller.RegisterClient() in c:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\Models\Poller.cs:line 158
+   at TradeRiser.Models.Poller.InitialiseClient() in c:\NonDeployable\N1.1-10th Aug 2014\FrontEndApp\TradeRiser\Models\Poller.cs:line 109
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+12 November 2014 | 23:30:51 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   at System.ServiceModel.Channels.BufferedConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.RegisterClient(String clientName)
+   at TradeRiser.QueryService.QueryServiceClient.RegisterClient(String clientName) in c:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\Service References\QueryService\Reference.cs:line 1253
+   at TradeRiser.Models.Poller.RegisterClient() in c:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\Models\Poller.cs:line 158
+   at TradeRiser.Models.Poller.InitialiseClient() in c:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\Models\Poller.cs:line 109
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+14 November 2014 | 20:05:20 : 
+Object reference not set to an instance of an object. ::
+   at TradeRiser.Models.MyStockDemo.JoinChannel() in c:\NonDeployable\N1.2-28th Sept 2014\FrontEndApp\TradeRiser\Models\PushNotification.cs:line 112
+31 December 2014 | 21:51:06 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.RegisterClient(String clientName)
+   at TradeRiser.QueryService.QueryServiceClient.RegisterClient(String clientName) in c:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\Service References\QueryService\Reference.cs:line 1410
+   at TradeRiser.Models.Poller.RegisterClient() in c:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\Models\Poller.cs:line 158
+   at TradeRiser.Models.Poller.InitialiseClient() in c:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\Models\Poller.cs:line 109
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+01 January 2015 | 10:05:05 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.RegisterClient(String clientName)
+   at TradeRiser.QueryService.QueryServiceClient.RegisterClient(String clientName) in c:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\Service References\QueryService\Reference.cs:line 1410
+   at TradeRiser.Models.Poller.RegisterClient() in c:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\Models\Poller.cs:line 158
+   at TradeRiser.Models.Poller.InitialiseClient() in c:\NonDeployable\N1.3-15th Nov 2014\FrontEndApp\TradeRiser\Models\Poller.cs:line 109
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+19 January 2015 | 22:54:21 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   at System.ServiceModel.Channels.BufferedConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.SyncWaiter.TryGetChannel()
+   at System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.SyncWaiter.TryWait(TChannel& channel)
+   at System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.TryGetChannel(Boolean canGetChannel, Boolean canCauseFault, TimeSpan timeout, MaskingMode maskingMode, TChannel& channel)
+   at System.ServiceModel.Channels.ReliableChannelBinder`1.Send(Message message, TimeSpan timeout, MaskingMode maskingMode)
+   at System.ServiceModel.Channels.SendReceiveReliableRequestor.OnRequest(Message request, TimeSpan timeout, Boolean last)
+   at System.ServiceModel.Channels.ReliableRequestor.Request(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientReliableSession.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientReliableDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.RegisterClient(String clientName)
+   at TradeRiser.QueryService.QueryServiceClient.RegisterClient(String clientName) in c:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\Service References\QueryService\Reference.cs:line 1410
+   at TradeRiser.Models.Poller.RegisterClient() in c:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\Models\Poller.cs:line 158
+   at TradeRiser.Models.Poller.InitialiseClient() in c:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\Models\Poller.cs:line 109
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+19 January 2015 | 22:55:02 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.RegisterClient(String clientName)
+   at TradeRiser.QueryService.QueryServiceClient.RegisterClient(String clientName) in c:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\Service References\QueryService\Reference.cs:line 1410
+   at TradeRiser.Models.Poller.RegisterClient() in c:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\Models\Poller.cs:line 158
+   at TradeRiser.Models.Poller.InitialiseClient() in c:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\Models\Poller.cs:line 109
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+20 January 2015 | 06:41:31 : 
+Unhandled Exception :: 
+Server stack trace: 
+   at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri)
+   at System.ServiceModel.Channels.SocketConnectionInitiator.GetIPAddresses(Uri uri)
+   at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   at System.ServiceModel.Channels.BufferedConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.SyncWaiter.TryGetChannel()
+   at System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.SyncWaiter.TryWait(TChannel& channel)
+   at System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.TryGetChannel(Boolean canGetChannel, Boolean canCauseFault, TimeSpan timeout, MaskingMode maskingMode, TChannel& channel)
+   at System.ServiceModel.Channels.ReliableChannelBinder`1.Send(Message message, TimeSpan timeout, MaskingMode maskingMode)
+   at System.ServiceModel.Channels.SendReceiveReliableRequestor.OnRequest(Message request, TimeSpan timeout, Boolean last)
+   at System.ServiceModel.Channels.ReliableRequestor.Request(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientReliableSession.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientReliableDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at TradeRiser.QueryService.IQueryService.RegisterClient(String clientName)
+   at TradeRiser.QueryService.QueryServiceClient.RegisterClient(String clientName) in c:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\Service References\QueryService\Reference.cs:line 1410
+   at TradeRiser.Models.Poller.RegisterClient() in c:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\Models\Poller.cs:line 158
+   at TradeRiser.Models.Poller.InitialiseClient() in c:\NonDeployable\N1.6-9th Jan 2015\FrontEndApp\TradeRiser\Models\Poller.cs:line 109
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
