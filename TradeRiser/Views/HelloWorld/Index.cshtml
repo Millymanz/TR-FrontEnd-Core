@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+<title>Pusher Test</title>
+  <script src="//js.pusher.com/2.2/pusher.min.js"></script>
+  <script>
+      // Enable pusher logging - don't include this in production
+      Pusher.log = function (message) {
+          if (window.console && window.console.log) {
+              window.console.log(message);
+          }
+      };
+
+      var pusher = new Pusher('0c52bffe086a83952d16');
+      var channel = pusher.subscribe('test_channel');
+      channel.bind('my_event', function (data) {
+          alert(data.message);
+      });
+  </script>
+</head>
+<body>
+    <div>
+        Testing the website
+    </div>
+    <br />
+    <br />
+
+
+    
+@using (Html.BeginForm("HelloWorld", "HelloWorld")) {
+
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            
+            <li>
+                hhhhh
+            </li>
+            <li>
+                hhjjyujyuy
+            </li>
+            <li>
+                yjjjyj
+            </li>
+            
+        </ol>
+        <input type="submit" value="Register" />
+    </fieldset>
+
+
+    <br />
+}
+</body>
+</html>

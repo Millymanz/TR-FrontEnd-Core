@@ -406,7 +406,33 @@ box-shadow:1px 1px 2px rgba(0,0,0,0.07) ,inset 1px 1px 0px rgba(255,255,255,0.25
 }
 
 .performanceStatsTable {
-    border:2px solid black;
+    /*border:2px solid black;*/
+    border:1px solid grey;
+    margin:20px 20px;
+    width: 80%;
+}
+
+.performanceStatsCells {
+    color: black;
+    font-size: 14px;
+    top: 0px;
+    text-align:center;
+}
+
+.performanceStatsNote {
+    color: black;
+    font-size: 13px;
+    top: 0px;  
+    margin:0px 20px; 
+}
+
+.performanceStatsHeaderCells {
+    background-color:#BFCFD0;
+    color:black;
+    font-size:15px;
+    font-weight: bold;
+    top:0px;
+    text-align:center;
 }
 
 #performanceStats {
@@ -1544,8 +1570,9 @@ img.full-width{
     font-size: 25px;
     color:gray;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    position: absolute;
-    top:40px;
+    /*position: absolute;*/
+    position: relative;
+    top:5px;
     /*left:px;*/
     /*z-index:10;*/
 }
@@ -1656,14 +1683,16 @@ img.full-width{
 	padding:0px;
 	width:100% !important;
 }
-.dialogchart1, .dialogchart2, .dialogchart3, .dialogchart4 {
-	position:absolute;
+.dialogchart0, .dialogchart1, .dialogchart2, .dialogchart3, .dialogchart4 {
+    /*position:relative;
+    width:100%;*/
+	/*position:absolute;
 	left:0px;
 	right:0px;
 	top:0px;
 	bottom:0px;
 	width:100%;
-	height:100%;
+	height:100%;*/
 }
 
 

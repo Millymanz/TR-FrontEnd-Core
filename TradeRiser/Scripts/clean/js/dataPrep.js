@@ -1,5 +1,9 @@
 // JavaScript Document
-function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray) {
+function DisplaySummary(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray) {
+
+}
+
+function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter) {
 
         //create selectChartKey from loop
         var allCount = 8;
@@ -31,7 +35,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                         var final = correlTabStr + tempStr;
 
-                        $('<br/>' + final).appendTo($("#celln1"));
+                        $('<br/>' + final).appendTo($("#celln"+ presentationTypeIndex));
 
 
                         dataResults = obj.CurrentResult.RawDataResults[0].ChartReadyDataResults;
@@ -66,9 +70,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                     units: groupingUnits
                                 }
                             }
-                            overlayArray.push(smaChartItem);
-
-                           
+                            overlayArray.push(smaChartItem);                          
 
                             allCountIter++;
                         }
@@ -129,6 +131,8 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             allCountIter++;
                         }
+
+                        GenerateSummary(obj, presentationTypeIndex);
                     }
                     break;
 
@@ -174,6 +178,8 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             allCountIter++;
                         }
+
+                        GenerateSummary(obj, presentationTypeIndex);
                     }
                     break;
 
@@ -312,6 +318,99 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             allCountIter++;
                         }
+
+                        GenerateSummary(obj, presentationTypeIndex);
+
+                    }
+                    break;
+
+                case 'MACD':
+                    {
+                        var indicatorName = "MACD";
+
+                        selectChartKey = selectChartKey + "MACD";
+
+                        var dataMACD = dataLookUp["MACDLine"];
+                        var dataSignal = dataLookUp["SignalLine"];
+                        var dataMACDHistogram = dataLookUp["MACDHistogram"];
+
+                        if (dataMACD != null || dataMACD !== undefined) {
+                            var dataLength = dataMACD.length;
+                            var macdArray = [];
+                            var macdSignalArray = [];
+                            var macdHistogramArray = [];
+
+                            for (var ri = 0; ri < dataLength; ri++) {
+
+                                macdArray.push([
+                                    dataMACD[ri][0], // the date
+                                    dataMACD[ri][1] // the close
+                                ])
+
+                                macdSignalArray.push([
+                                    dataSignal[ri][0], // the date
+                                    dataSignal[ri][1] // the close
+                                ])
+
+                                macdHistogramArray.push([
+                                    dataMACDHistogram[ri][0], // the date
+                                    dataMACDHistogram[ri][1] // the close
+                                ])
+                            }
+                            var axis = 1;
+
+                            var macdChartItem = {
+                                type: 'line',
+                                name: 'MACDline',
+                                data: macdArray,
+                                yAxis: axis,
+                                dataGrouping: {
+                                    units: groupingUnits
+                                }
+                            }
+                            arraySeries.push(macdChartItem);
+
+
+                            var signalChartItem = {
+                                type: 'line',
+                                name: 'signalLine',
+                                data: macdSignalArray,
+                                yAxis: axis,
+                                dataGrouping: {
+                                    units: groupingUnits
+                                }
+                            }
+                            arraySeries.push(signalChartItem);
+
+
+                            var macdHistogramChartItem = {
+                                type: 'column',
+                                name: 'MACDHistogram',
+                                data: macdHistogramArray,
+                                yAxis: axis,
+                                dataGrouping: {
+                                    units: groupingUnits
+                                }
+                            }
+                            arraySeries.push(macdHistogramChartItem);
+
+
+                            var chartItemDef = {
+                                title: {
+                                    text: 'MACD'
+                                },
+                                top: yAxisArray[0].height + 90,
+                                height: 100,
+                                offset: 0,
+                                lineWidth: 2
+                            };
+                            yAxisArray.push(chartItemDef);
+
+                            allCountIter++;
+                        }
+
+                        GenerateSummary(obj, presentationTypeIndex);
+
                     }
                     break;
 
@@ -357,8 +456,44 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             allCountIter++;
                         }
+
+                        GenerateSummary(obj, presentationTypeIndex);
                     }
                     break;
+
+                //case "General Table":
+                //    {
+                //        var indOne = obj.CurrentResult.ProcessedResults.KeyFieldIndex[0];
+                //        var indTwo = obj.CurrentResult.ProcessedResults.KeyFieldIndex[1];
+
+                //        var resultValue = dataLookUp["CorrelationRatio"];
+
+                //        var lineSeriesOptions = [],
+                //            symbolNames = [];
+
+
+
+                //        var genTabStr = '<span  style="color:#3a89ff;">Latest: </span><br/> <br/><table cellpadding="12" cellspacing="12" border="1" style="border-color:#E0E0E0;">';
+
+
+                //        for (var bb = 0; bb < obj.CurrentResult.ProcessedResults.KeyFieldIndex[0].length; bb++) {
+
+                //            var selectingIndex = obj.CurrentResult.ProcessedResults.KeyFieldIndex[0][bb];
+
+                //            genTabStr += '<tr style="border-color:#E0E0E0;"><td>' + obj.CurrentResult.ProcessedResults.Headers[selectingIndex] + '</td><td>' + obj.CurrentResult.ProcessedResults.ComputedResults[0][selectingIndex] + '</td></tr>';
+                //        }
+
+                //        genTabStr += '</table>';
+
+                //        var final = genTabStr;
+
+                //        $('<br/>' + final).appendTo($("#celln0"));
+
+                //        bSubWidgetSet = true;
+
+                //        allCountIter++;
+
+                //    } break;
 
                 default:
                     {
@@ -371,22 +506,8 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             symbolNames = [];
 
 
+                        GenerateSummary(obj, presentationTypeIndex);
 
-                        var genTabStr = '<span  style="color:#3a89ff;">Latest: </span><br/> <br/><table cellpadding="12" cellspacing="12" border="1" style="border-color:#E0E0E0;">';
-
-
-                        for (var bb = 0; bb < obj.CurrentResult.ProcessedResults.KeyFieldIndex[0].length; bb++) {
-
-                            var selectingIndex = obj.CurrentResult.ProcessedResults.KeyFieldIndex[0][bb];
-
-                            genTabStr += '<tr style="border-color:#E0E0E0;"><td>' + obj.CurrentResult.ProcessedResults.Headers[selectingIndex] + '</td><td>' + obj.CurrentResult.ProcessedResults.ComputedResults[0][selectingIndex] + '</td></tr>';
-                        }
-
-                        genTabStr += '</table>';
-
-                        var final = genTabStr;
-
-                        $('<br/>' + final).appendTo($("#celln0"));
 
                         bSubWidgetSet = true;
 
@@ -396,7 +517,40 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
             }
         }
 
-        if (bSubWidgetSet === true) {
-            $("#resultCanvas").append($('<br/><hr style="border: 0; color: #9E9E9E; background-color: #9E9E9E; height: 1px; width: 100%; text-align: left;" />'));
-        }
+        //if (bSubWidgetSet === true) {
+        //    $("#resultCanvas").append($('<br/><hr style="border: 0; color: #9E9E9E; background-color: #9E9E9E; height: 1px; width: 100%; text-align: left;" />'));
+        //}
+}
+
+function GenerateSummary(obj, presentationTypeIndex) {
+
+    var genTabStr = "<table cellpadding='8' cellspacing='20'><tr><td style='border-left: 1px solid grey;'>";
+    genTabStr += "<span style='color:#3a89ff;'><strong>Price Movement Facts: </strong></span><br/> <br/>"
+    genTabStr += "<table cellpadding='8' cellspacing='8' border='1' style='border-color:#E0E0E0;'>";
+
+    /*var genTabStr = "<div style='width: 300px;'>";
+    genTabStr += "<div style='float: left; width: 200px;'>";
+    genTabStr += '<span style="color:#3a89ff;">Price Movement Facts: </span><br/> <br/><table cellpadding="12" cellspacing="12" border="1" style="border-color:#E0E0E0;">';*/
+
+
+    for (var bb = 0; bb < obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex].length; bb++) {
+
+        var selectingIndex = obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex][bb];
+
+        genTabStr += '<tr style="border-color:#E0E0E0;"><td>' + obj.CurrentResult.ProcessedResults.Headers[selectingIndex] + '</td><td>'
+        + obj.CurrentResult.ProcessedResults.ComputedResults[0][selectingIndex] + '</td></tr>';
+            //+ obj.CurrentResult.ProcessedResults.ComputedResults[presentationTypeIndex][selectingIndex] + '</td></tr>';
     }
+
+
+    genTabStr += "</table></td>";
+    genTabStr += "<td valign='top' style='border-left: 1px solid grey; border-right: 1px solid grey;'><div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Summary:</strong> </span><br/> <br/>";
+    genTabStr += obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[0];
+    genTabStr += "</div></td></tr></table>";
+    //genTabStr += "This contains the text that explains or summaries the clients data.</div></td></tr></table>";
+
+    var final = genTabStr;
+
+
+    $('<br/>' + final).appendTo($("#celln" + presentationTypeIndex));
+}

@@ -166,57 +166,11 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
 
                     <div class="titleleftHeader">
                         <div class="leftSidebarNewTitle">
-                            Expired Trading Opportunities
+                            Example Queries
                         </div>
-                        <div class="subtitleNewHeader">Expired opportunities consisting of completed chart patterns</div>
+                        <div class="subtitleNewHeader">Example queries for the trading community, this is updated on a regular bases.</div>
 
                         <div class="tab-inner" id="expiredResults">
-
-                            <div class="leftSideQueryItems" id="b1">
-                                <div class="blobhead">
-                                    <div class="resultHeader">
-                                        <table class="resultHeaderTable">
-                                            <tr>
-                                                <td>
-                                                    <div class="resultIcon">View</div>
-                                                </td>
-                                                <td>
-                                                    <div class="resultSymbol">EUR/USD</div>
-                                                </td>
-                                                <td>
-                                                    <div class="resultStartDateTime">15.03.2013 08:00</div>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="resultTimeFrame">5min</div>
-                                                </td>
-                                                <td>
-                                                    <div class="resultSymbol">
-                                                        <table>
-                                                            <tr>
-                                                                <td><img src="../../Images/flagcurrencies/gbp.png" width="17" height="17" /></td>
-                                                                <td><img src="../../Images/flagcurrencies/usd.png" width="17" height="17"  /></td>
-                                                            </tr>
-                                                        </table>
-
-
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="resultEndDateTime">15.05.2013 08:05</div>
-                                                </td>
-                                            </tr>
-
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="blobcontent">
-                                    <p>Which currency pairs correlates with the EUR/PLN between 03/01/2013 to 26/03/2013?</p>
-                                </div>
-                            </div>
-
 
                             <div class="leftSideQueryItems" id="b2">
                                 <div class="blobhead">
@@ -334,24 +288,10 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
                 <br />
 
 
-                <div id="performanceStats">
-                    <h2>Performance Stats</h2>
-                    <a class="naviPos" href="#performStatsButton">Top</a>
-                    <table class ="performanceStatsTable" border="1">
-                        <tr><td>Pattern</td><td>Total</td><td>Correct</td><td>Total</td></tr>
-                        <tr><td>Ascending Triangle</td><td>354</td><td>634</td><td>78%</td></tr>
-                        <tr><td>Channel Down</td><td>354</td><td>634</td><td>78%</td></tr>
-                        <tr><td>Channel Up</td><td>354</td><td>634</td><td>78%</td></tr>
-                        <tr><td>Descending Triangle</td><td>354</td><td>634</td><td>78%</td></tr>
-                        <tr><td>Double Bottom</td><td>354</td><td>634</td><td>78%</td></tr>
-                        <tr><td>Double Top</td><td>354</td><td>634</td><td>78%</td></tr>
-                    </table>
-                </div>
 
   
 
-                <br />
-                <br />
+             
 
 
                      <div id="riskDisclaimer">
@@ -366,11 +306,6 @@ The Charts run on pricing data provided by us to a third party charting administ
 
 
 <p>
-**Performance Statistics ** <br/>
-Explanation <br/>
-
-The statistics below measure how many patterns hit their forecast level.
-
 Disclaimer
 
 The TradeRiser service includes analysis of financial instruments. There are potential risks relating to investing and trading. You must be aware of such risks and familiarize yourself in regard to such risks and to seek independent advice relating thereto. You should not trade with money that you cannot afford to lose. The TradeRiser service and its content should not be construed as a solicitation to invest and/or trade. You should seek independent advice in this regard. Past performance is not indicative of future performance. No representation is being made that any results discussed within the service and its related media content will be achieved. TradeRiser, MDIO Software, their members, shareholders, employees, agents, representatives and resellers do not warrant the completeness, accuracy or timeliness of the information supplied, and they shall not be liable for any loss or damages, consequential or otherwise, which may arise from the use or reliance of the TradeRiser service and its content.
@@ -607,13 +542,9 @@ The TradeRiser service includes analysis of financial instruments. There are pot
     <script src="../../Scripts/knockout-3.2.0.js"></script>
     <script src="../../Scripts/App/traderiser-view-model.js"></script>
     <script src="../../Scripts/App/traderiser-proxy.js"></script>
+     <script src="//js.pusher.com/2.2/pusher.min.js"></script>
 
-    <script type="text/javascript" src="a.PokeIn?ms=connect"></script>
     <script type="text/javascript">
-
-        var btnChannel = document.getElementById("channel");
-        var txtStatus = document.getElementById("status");
-
 
         var tradeRiserViewModel = new TradeRiserViewModel(
             new TradeRiserProxy());
@@ -627,37 +558,29 @@ The TradeRiser service includes analysis of financial instruments. There are pot
 
 
 
-        document.OnPokeInReady = function () {
-            PokeIn.Start(function (isConnected) {
-                if (isConnected) {
-                    
-                    var hvnme = $('#h_v').val();
-                    pCall["StockDemo"].JoinChannel(hvnme);
 
-                    var pageLoader = document.getElementById("pageLoader");
-                    pageLoader.style.display = 'none';
-                   //alert('Connected!');
-                }
-            });
+        // Enable pusher logging - don't include this in production
+        Pusher.log = function (message) {
+            if (window.console && window.console.log) {
+                window.console.log(message);
+            }
         };
 
+        var pusher = new Pusher('0c52bffe086a83952d16');
+
+        var hvnme = $('#h_v').val();
+        var channel = pusher.subscribe(hvnme);
+        var pageLoader = document.getElementById("pageLoader");
+        pageLoader.style.display = 'none';
 
 
+        channel.bind('my_event', function (data) {
+            //alert(data.message);
+            UpdateContinousQueryResultCard(data);
 
-        function UpdateString(str) {
-            txtStatus.innerHTML = str;
-        }
+        });
 
-        function Pinned() {
-            btnChannel.joined = true;
-        }
 
-        function Unpinned() {
-            btnChannel.joined = false;
-        }
-
-        var prices = [];
-        var positionCount = 0;
 
         function UpdateContinousQueryResultCard(resultCard) {
 
@@ -675,7 +598,7 @@ The TradeRiser service includes analysis of financial instruments. There are pot
         }
 
 
-     
+
         var remove = spinner("loadchartDia", 50, 120, 20, 25, "#696969");
 
         function spinner(holderid, R1, R2, count, stroke_width, colour) {

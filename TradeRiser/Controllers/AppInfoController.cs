@@ -8,13 +8,15 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using TradeRiser.Filters;
+//using TradeRiser.Filters;
 using TradeRiser.Models;
+using System.Threading;
 
 namespace TradeRiser.Controllers
 {
+    //[Authorize]
+   // [InitializeSimpleMembership]
     [Authorize]
-    [InitializeSimpleMembership]
     public class AppInfoController : Controller
     {
 
@@ -29,23 +31,22 @@ namespace TradeRiser.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(LoginModel model, string returnUrl)
         {
-            var temp = HttpContext.Response;
+            var restClient = new RestClient();
 
-            var dataModel = new DataModel();
-
-            if (ModelState.IsValid && dataModel.Login(model.UserName, model.Password, model.RememberMe))
+            if (ModelState.IsValid && restClient.AuthenticateUser(model.UserName, model.Password))
             {
                 String userQuerySessionID = model.UserName;
 
                 CustomToken customToken = new CustomToken();
                 customToken.Binarycrypt = userQuerySessionID;
 
-                PushNotification.Start_PokeIn(userQuerySessionID);
                 returnUrl = "/App";
+                //returnUrl = "/App/Index/"+ model.UserName;
+
+                FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
 
                 return RedirectToLocal(returnUrl);
             }
-
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
 
@@ -84,14 +85,17 @@ namespace TradeRiser.Controllers
                 // Attempt to register the user
                 try
                 {
-                    var dataModel = new DataModel();
-                    dataModel.CreateUserAndAccount(model);
+                    //var dataModel = new DataModel();
+                    //dataModel.CreateUserAndAccount(model);
+
+                    var restClient = new RestClient();
+                    var response = restClient.Register(model);
+
+                   // restClient.AuthenticateUser(model.UserName, model.Password);
 
                     //applicants will be manually approved
-                    dataModel.Login(model.UserName, model.Password, false);
+                    //dataModel.Login(model.UserName, model.Password, false);
 
-                    //WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    //WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "AppInfo");
                 }
                 catch (MembershipCreateUserException e)

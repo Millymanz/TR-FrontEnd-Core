@@ -115,7 +115,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                 var tings = "";
 
-                for (var n = 0; n < obj.ResultSummaries[i].KeyResultField.length; n++) {
+                var tings = "";
+                var limit = 2;
+                if (obj.ResultSummaries[i].KeyResultField.length <= 2) { limit = obj.ResultSummaries[i].KeyResultField.length; }
+
+                for (var n = 0; n < limit; n++) {
 
                     var str = JSON.stringify(obj.ResultSummaries[i].KeyResultField[n]);
                     var str = str.replace('"', ' ');
@@ -371,8 +375,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
                         var extraFieldsArray = new Array();
 
                         var tings = "";
+                        var limit = 2;
+                        if (obj.ResultSummaries[i].KeyResultField.length <= 2) { limit = obj.ResultSummaries[i].KeyResultField.length; }
 
-                        for (var n = 0; n < obj.ResultSummaries[i].KeyResultField.length; n++) {
+                        //for (var n = 0; n < obj.ResultSummaries[i].KeyResultField.length; n++) {
+                        for (var n = 0; n < limit; n++) {
 
                             var str = JSON.stringify(obj.ResultSummaries[i].KeyResultField[n]);
                             var str = str.replace('"', ' ');
@@ -671,9 +678,12 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         var selectChartKey = '';
 
+        var iterRow = 0;
+        var iter = 0;
+
         //Main widget
         try {
-            for (var pp = 0; pp < presentationTypeCount; pp++) {
+            for (var pp = 0; pp < presentationTypeCount; pp++, iterRow++) {
 
                 var json = rawDataResults[pp].ChartReadyDataResults;
                 var dataLookUp = self.createLookUp(json);
@@ -687,11 +697,10 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                     case 'LineSeriesChart':
                         {
-                            var markup = "<div class='widgetTitle'>Correlation Analysis</div><br/><div class='correlationChart'></div>";
+                          
+                            self.widgetPlacerT(pp, presentationTypeCount, 'Correlation Analysis', '500px', 'correlationChart', iter);
 
-                            self.widgetPlacerT(pp, presentationTypeCount, 'Correlation Analysis', '500px', 'correlationChart');
-
-                            var lengthCount = obj.CurrentResult.RawDataResults[0].ChartReadyDataResults.length;
+                            var lengthCount = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length;
 
                             var lineSeriesOptions = [],
                                 symbolNames = [];
@@ -700,6 +709,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 symbolNames.push(obj.CurrentResult.ResultSymbols[pp][bb]);
                             }
 
+                            var workingKey = "";
+
                             for (var c = 0; c < lengthCount; c++) {
                                 var dataKey = "RAW_COMPARISON" + "_" + symbolNames[c];
                                 dataResults = dataLookUp[dataKey];
@@ -707,6 +718,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 if (dataResults != null || dataResults !== undefined) {
 
                                     var lineSeriesData = [];
+                                    workingKey = dataKey;
 
                                     dataLength = dataResults.length;
 
@@ -721,93 +733,110 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                         name: symbolNames[c],
                                         data: lineSeriesData
                                     }
-
+                                    }//new
                                 }//for loop end
 
+          
+                                //var dateTimeTemp = dataResults[1][0] - dataResults[0][0];
+
+                            if (lineSeriesOptions != null || lineSeriesOptions !== undefined) {
+
+                                dataResults = dataLookUp[workingKey];
+
+                                //var dateTimeTemp = lineSeriesOptions[1]["data"][0] - lineSeriesOptions[0]["data"][0];
                                 var dateTimeTemp = dataResults[1][0] - dataResults[0][0];
 
-                                var bIntradayChart = true;
+                                    var bIntradayChart = true;
 
-                                if (dateTimeTemp >= 86400000) {
-                                    bIntradayChart = false;
-                                }
-
-                                var buttonSetup = { selected: 4 };
-
-                                if (bIntradayChart) {
-                                    var buttonsArray = [{
-                                        type: 'hour',
-                                        count: 1,
-                                        text: '1h'
-                                    },
-                                    {
-                                        type: 'hour',
-                                        count: 2,
-                                        text: '2h'
-                                    },
-                                    {
-                                        type: 'hour',
-                                        count: 3,
-                                        text: '3h'
-                                    },
-                                    {
-                                        type: 'day',
-                                        count: 1,
-                                        text: '1D'
-                                    }, {
-                                        type: 'all',
-                                        count: 1,
-                                        text: 'All'
-                                    }];
-
-                                    buttonSetup = {
-                                        buttons: buttonsArray,
-                                        selected: 2,
-                                        inputEnabled: false
+                                    if (dateTimeTemp >= 86400000) {
+                                        bIntradayChart = false;
                                     }
-                                }
+
+                                    var buttonSetup = { selected: 4 };
+
+                                    if (bIntradayChart) {
+                                        var buttonsArray = [{
+                                            type: 'hour',
+                                            count: 1,
+                                            text: '1h'
+                                        },
+                                        {
+                                            type: 'hour',
+                                            count: 2,
+                                            text: '2h'
+                                        },
+                                        {
+                                            type: 'hour',
+                                            count: 3,
+                                            text: '3h'
+                                        },
+                                        {
+                                            type: 'day',
+                                            count: 1,
+                                            text: '1D'
+                                        }, {
+                                            type: 'all',
+                                            count: 1,
+                                            text: 'All'
+                                        }];
+
+                                        buttonSetup = {
+                                            buttons: buttonsArray,
+                                            selected: 2,
+                                            inputEnabled: false
+                                        }
+                                    }
 
 
-                                $('.correlationChart').highcharts('StockChart', {
-                                    chart: {
-                                    },
-                                    rangeSelector: buttonSetup,
-                                    yAxis: {
-                                        labels: {
-                                            formatter: function () {
-                                                return (this.value > 0 ? '+' : '') + this.value + '%';
+                                    $('.correlationChart').highcharts('StockChart', {
+                                        chart: {
+                                        },
+                                        rangeSelector: buttonSetup,
+                                        yAxis: {
+                                            labels: {
+                                                formatter: function () {
+                                                    return (this.value > 0 ? '+' : '') + this.value + '%';
+                                                }
+                                            },
+                                            plotLines: [{
+                                                value: 0,
+                                                width: 2,
+                                                color: 'silver'
+                                            }]
+                                        },
+                                        plotOptions: {
+                                            series: {
+                                                compare: 'percent'
                                             }
                                         },
-                                        plotLines: [{
-                                            value: 0,
-                                            width: 2,
-                                            color: 'silver'
-                                        }]
-                                    },
-                                    plotOptions: {
-                                        series: {
-                                            compare: 'percent'
-                                        }
-                                    },
-                                    tooltip: {
-                                        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
-                                        valueDecimals: 2
-                                    },
-                                    series: lineSeriesOptions
-                                });
-                            }
+                                        tooltip: {
+                                            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+                                            valueDecimals: 2
+                                        },
+                                        series: lineSeriesOptions
+                                    });
+                                }
 
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, resultsData);                            
+
+                           // }
+
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, resultsData, iter);                            
 
                         } break;
 
                     case 'CandleStickChart':
                         {
+                            arraySeries = []; //test
+                            overlayArray = [];
+                            highlighterArray = [];
+                            yAxisArray = []; //has to be double quotes
+
+
                             var chartClassName = 'chartspace dialogchart' + pp;
-                            var markup = "<div class='widgetTitle'>15 Timeframe</div><br/><div class='" + chartClassName + "'style='height: 610px; width:50%'></div>";
+                            //var markup = "<div class='widgetTitle'>15 Timeframe</div><br/><div class='" + chartClassName + "'style='height: 610px; width:50%'></div>";
 
 
-                            self.widgetPlacerT(pp, presentationTypeCount, 'Technical Analysis', '610px', chartClassName);
+                            self.widgetPlacerT(pp, presentationTypeCount, 'Technical Analysis', '610px', chartClassName, iter);
 
                             var dataResultsT = dataLookUp["RAW"];
                             if (dataResultsT != null || dataResultsT !== undefined) {
@@ -910,7 +939,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 yAxisArray.push(chartItemDef);
 
                                 presentationTypeIndex = pp;
-                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray);
+                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter);
 
 
                                 SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray);
@@ -918,17 +947,16 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                         } break;
                 }
+               
+                if (iterRow == 2) {
+                    iterRow = 0;
+                    iter++;
+                }
             }
 
             //performance stats
-            $("#resultCanvas").append($('<br/><br/> <div id="performanceStats"><h2>Performance Stats</h2><a class="naviPos" href="#performStatsButton">Top</a><table class ="performanceStatsTable" border="1">'
-                      + '<tr><td>Pattern</td><td>Total</td><td>Correct</td><td>Total</td></tr>'
-                      + '<tr><td>Ascending Triangle</td><td>354</td><td>634</td><td>78%</td></tr>'
-                      + '<tr><td>Channel Down</td><td>354</td><td>634</td><td>78%</td></tr>'
-                      + '<tr><td>Channel Up</td><td>354</td><td>634</td><td>78%</td></tr>'
-                      + '<tr><td>Descending Triangle</td><td>354</td><td>634</td><td>78%</td></tr>'
-                      + '<tr><td>Double Bottom</td><td>354</td><td>634</td><td>78%</td></tr>'
-                      + '<tr><td>Double Top</td><td>354</td><td>634</td><td>78%</td></tr></table></div> <br/><input type="checkbox" id="highlighted">'));
+            self.LoadPerformanceStatistics(obj);
+
 
             //disclaimer
             $("#resultCanvas").append($('<br/><br/><div id="riskDisclaimer"><h2>Risk Disclaimer</h2><a class="naviPos" href="#performStatsButton">Top</a><p>Please acknowledge the following: <br/>The Charts are provided'
@@ -936,8 +964,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
               + 'In no event shall TradeRiser Limited and its affiliates or any third party contributor be liable for any claim, damages or other liability, whether in an '
               + 'action of contract, tort or otherwise, arising from, out of or in connection with the use of or other dealings in the Charts. The Charts run on pricing '
               + 'data provided by us to a third party charting administrator. You accept that the price data displayed in the Charts may be delayed and that we do not '
-              + 'guarantee the accuracy or completeness of the data and that we do not guarantee that the service will be uninterrupted.</p><p>**Performance Statistics ** '
-              + '<br/>Explanation <br/>The statistics below measure how many patterns hit their forecast level. <h4>Disclaimer</h4>The TradeRiser service includes analysis '
+              + 'guarantee the accuracy or completeness of the data and that we do not guarantee that the service will be uninterrupted.</p><p>'
+              + '<h4>Disclaimer</h4>The TradeRiser service includes analysis '
               + 'of financial instruments. There are potential risks relating to investing and trading. You must be aware of such risks and familiarize yourself in regard '
               + 'to such risks and to seek independent advice relating thereto. You should not trade with money that you cannot afford to lose. The TradeRiser service and'
               + 'its content should not be construed as a solicitation to invest and/or trade. You should seek independent advice in this regard. Past performance is not'
@@ -952,8 +980,66 @@ function TradeRiserViewModel(tradeRiserProxy) {
         catch (err) {
             alert(err);
         }
+    };
+
+    this.LoadPerformanceStatistics = function (obj) {
+
+        var presentationTypeCount = obj.CurrentResult.PresentationTypes.length;
+
+        for (var pp = 0; pp < presentationTypeCount; pp++) {
+
+            if (obj.CurrentResult.RawDataResults[pp].PerformanceStatistics.length > 0) {
+                $("#resultCanvas").append($("<div id='performanceStats'><h2>Performance Statistics</h2><a class='naviPos' href='#performStatsButton'>Top</a>"));
+                
+                //$("#resultCanvas").append($("<div class ='performanceStatsNote'>*Below are listed table(s) of performance statistics which predominantly shows the pattern recoginition rate and this tells you how reliable the recognition is for the symbol."
+                //    + "<br/>The percentage value gains more significance and value over time as the number of patterns found increases.</div>"));
+                
+                
+                $("#resultCanvas").append($("<div class ='performanceStatsNote'>" + obj.CurrentResult.RawDataResults[pp].PerformanceStatistics[0].Description + "</div>"));
 
 
+
+                break;
+            }
+        }
+
+        
+        for (var pp = 0; pp < presentationTypeCount; pp++) {
+
+            //header management
+            for (var mm = 0; mm < obj.CurrentResult.RawDataResults[pp].PerformanceStatistics.length; mm++) {
+               
+                var tableId = "performanceStatsTable" + mm;
+
+                $("#resultCanvas").append($("<table class= 'performanceStatsTable' id = " + tableId + " border='1'><tr></tr></table>"));
+
+                for (var tt = 0; tt < obj.CurrentResult.RawDataResults[pp].PerformanceStatistics[mm].Headers.length; tt++) {
+
+                    $('#' + tableId + ' > tbody > tr').append("<td class='performanceStatsHeaderCells' id=pshcelln" + tt + " valign='top'>"
+                        + obj.CurrentResult.RawDataResults[pp].PerformanceStatistics[mm].Headers[tt] + "</td>");
+                    
+                }
+
+              
+                //Stats body
+                for (var tt = 0; tt < obj.CurrentResult.RawDataResults[pp].PerformanceStatistics[mm].StatsLog.length; tt++) {
+
+                    var createdTemp = "rown" + tt;
+                    var createdId = "id=" + createdTemp;
+
+                    $('#' + tableId).append("<tr " + createdId + "></tr>");
+
+
+                    for (var rr = 0; rr < obj.CurrentResult.RawDataResults[pp].PerformanceStatistics[mm].StatsLog[tt].length; rr++) {
+
+                        $('#' + tableId + ' > tbody > #' + createdTemp).append("<td class='performanceStatsCells' id=pscelln" + tt + " valign='top'>"
+                            + obj.CurrentResult.RawDataResults[pp].PerformanceStatistics[mm].StatsLog[tt][rr] + "</td>");
+                    }
+                }
+
+
+            }
+        }
     };
 
     this.widgetPlacer = function (index, total, markup) {
@@ -988,42 +1074,52 @@ function TradeRiserViewModel(tradeRiserProxy) {
     };
 
 
-    this.widgetPlacerT = function (index, total, title, height, chartClassName) {
+    this.widgetPlacerT = function (index, total, title, height, chartClassName, iter) {
 
         var remaining = total - index;
         var remainder = index % 2;
 
-        var nthPos = index;
+       // var nthPos = index;
+        //var nthPos = iter;
 
-        var width = '50%';
-        if (remaining == 1) {
-            width = '100%';
+        var nthPos = 0;
+
+        //var width = '50%';
+        //if (remaining == 1) {
+        //    width = '100%';
+        //}
+
+        var width = '100%';
+        if (remainder == 0 && remaining > 1) {
+            //width = '50%';
+            width = '700px';
         }
 
-        var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
+        //var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "'></div>";
+
+         var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>"; //*
        // var markup = "<div class='widgetTitle'>" + title + "</div><br/><div class='" + chartClassName + "' style='height: " + height + "; width= 50% '></div>";
  
 
 
-        if (index == 0) {
+        if (remainder == 0) {
             if (remaining > 1) {
-                $("#tableCanvas").append($("<tr><td style='top:0px' width='50%' id=celln" + index + " >" + markup + "</td></tr>"));
+                $("#tableCanvas").append($("<tr><td style='top:0px' width='50%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
 
-                //$(chartClassName).css('width', '200px');
             }
             else {
-                $("#tableCanvas").append($("<tr><td style='top:0px' width='100%' id=celln" + index + " >" + markup + "</td></tr>"));
+                $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
             }
         }
         else {
-            //if (remainder == 0)
-            if (remaining > 1)
-            {
-                $("<td style='top:0px' id=celln" + index + " width='100%'>" + markup + "</td>").appendTo($("#tableCanvas tr:nth-child(" + nthPos + ")"));
-            }
-            else {
-                $("<td style='top:0px' id=celln" + index + " width='50%'>" + markup + "</td>").appendTo($("#tableCanvas tr:nth-child(" + nthPos + ")"));
-            }
+            // $("#tableCanvas  > tbody > tr > td").eq(nthPos).after("<td style='top:0px' id=celln" + index + " width='100%' valign='top'>" + markup + "</td>");
+
+            var indset = index - 1;
+            var newId = "#celln" + indset;
+
+            $("#tableCanvas  > tbody > tr > " + newId).eq(nthPos).after("<td style='top:0px' id=celln" + index + " width='100%' valign='top'>" + markup + "</td>");
+
+            //$("#tableCanvas  > tbody > tr > td").eq(nthPos).after("<td style='top:0px' id=celln" + index + " width='100%' valign='top'>" + markup + "</td>");
         }
     };
 
@@ -1037,9 +1133,9 @@ function TradeRiserViewModel(tradeRiserProxy) {
         return dataLookUp;
     };
 
-    this.initalizeSubWidgets = function (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray) {
+    this.initalizeSubWidgets = function (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter) {
 
-        PrepareChartData(presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray);
+        PrepareChartData(presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter);
     }
 
     this.convertToNumericKeyID = function (selectChartKey)

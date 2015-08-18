@@ -103,8 +103,7 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
                 Highcharts.charts[iterItem].highlighted = true;
                 Highcharts.charts[iterItem].redraw();
         }
-    }
-
+    }  
 
 
 }
