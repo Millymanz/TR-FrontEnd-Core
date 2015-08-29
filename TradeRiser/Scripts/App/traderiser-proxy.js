@@ -100,6 +100,23 @@ function TradeRiserProxy() {
                 alert('ajax call  failed');
             }
         })
+    };
+
+    this.fetchSymbolData = function (symbolID, timeFrame, callback, callbackError) {
+
+        $.ajax({
+            url: "/App/GetSymbolData",
+            type: "POST",
+            dataType: "text",
+            data: { symbolID: symbolID, timeFrame: timeFrame },
+            success: function (returnedData) {
+                callback(returnedData);
+            },
+            error: function (data) {
+                // Failure here is valid if the there are no groups in the database, e.g. soon after the database has been cleared.
+                alert('ajax call  failed');
+            }
+        })
 
 
     };

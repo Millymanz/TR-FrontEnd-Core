@@ -75,6 +75,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
     this.graphicalQueryStartPeriod = ko.observable();
     this.graphicalQueryEndPeriod = ko.observable();
     this.symbolQuery = ko.observable();
+    this.timeFrameQuery = ko.observable();
+    this.chartPadDataIntraday;
 
     this.init = function () {
         tradeRiserProxy.getAllContinousResults(self.initializeAllContinousResultsCards);
@@ -189,6 +191,216 @@ function TradeRiserViewModel(tradeRiserProxy) {
         };
 
     }
+    
+    this.fetch = function () {
+
+        //Temp solution
+        var criteria = self.symbolQuery().split(';');
+
+        var timeframe = 'EndOfDay';
+
+        var symbolID = criteria[0];
+        if (criteria.length == 2) timeframe = criteria[1].replace(/\s+/g, '');;
+
+        tradeRiserProxy.fetchSymbolData(symbolID, self.timeFrameQuery, self.populateChartPad, self.errorResponse);
+
+        //tradeRiserProxy.fetchSymbolData(self.symbolQuery(), 'EndOfDay', self.populateChartPad, self.errorResponse);
+    }
+
+    this.populateChartPad = function (response) {
+
+        var json = response;
+        var data = JSON && JSON.parse(json) || $.parseJSON(json);
+
+        // split the data set into ohlc and volume
+        var ohlc = [],
+            volume = [],
+            dataLength = data.length;
+
+        for (i = 0; i < dataLength; i++) {
+            ohlc.push([
+                data[i][0], // the date
+                data[i][1], // open
+                data[i][2], // high
+                data[i][3], // low
+                data[i][4] // close
+            ]);
+
+            volume.push([
+                data[i][0], // the date
+                data[i][5] // the volume
+            ])
+        }
+
+
+        var dateTimeTemp = data[1][0] - data[0][0];
+
+        chartPadDataIntraday = true;
+        if (dateTimeTemp >= 86400000) {
+            chartPadDataIntraday = false;
+        }
+
+        var buttonSetup = { selected: 1 };
+
+        if (chartPadDataIntraday) {
+            var buttonsArray = [{
+                type: 'hour',
+                count: 1,
+                text: '1h'
+            },
+            {
+                type: 'hour',
+                count: 2,
+                text: '2h'
+            },
+            {
+                type: 'hour',
+                count: 3,
+                text: '3h'
+            },
+            {
+                type: 'day',
+                count: 1,
+                text: '1D'
+            }, {
+                type: 'all',
+                count: 1,
+                text: 'All'
+            }];
+
+            buttonSetup = {
+                buttons: buttonsArray,
+                selected: 2,
+                inputEnabled: false
+            }
+        }
+
+
+        // set the allowed units for data grouping
+        var groupingUnits = [[
+            'week',                         // unit name
+            [1]                             // allowed multiples
+        ], [
+            'month',
+            [1, 2, 3, 4, 6]
+        ]];
+
+        //var mainChartItem = {
+        //    type: 'candlestick',
+        //    name: self.symbolQuery(),
+        //    data: ohlc,
+        //    dataGrouping: {
+        //        units: groupingUnits
+        //    }
+        //}
+
+        var mainChartItem =[ {
+            type: 'candlestick',
+            name: self.symbolQuery(),
+            data: ohlc,
+            dataGrouping: {
+                units: groupingUnits
+            }
+        }
+            , {
+        type: 'column',
+        name: 'Volume',
+        data: volume,  
+        yAxis: 1,
+        dataGrouping: {
+            units: groupingUnits
+        }
+    }   ] 
+
+
+        if (chartPadDataIntraday) {
+            mainChartItem = [{
+                type: 'candlestick',
+                name: self.symbolQuery(),
+                data: ohlc
+            }
+             , {
+                 type: 'column',
+                 name: 'Volume',
+                 data: volume,
+                 yAxis: 1,
+                 dataGrouping: {
+                     units: groupingUnits
+                 }
+             }
+
+            ]
+        }
+
+
+
+
+
+        $('#highStockCustom').chartRegionSelector('StockChart', {
+
+            //rangeSelector: {
+            //    selected: 1
+            //},
+            rangeSelector: buttonSetup,
+
+            title: {
+                text: self.symbolQuery(),
+            },
+
+            yAxis: [{
+                title: {
+                    text: 'OHLC'
+                },
+                // top: 200,
+                // left : 3,
+                height: 300,
+                lineWidth: 2
+            }
+
+            ,
+            {
+                title: {
+                    text: 'Volume'
+                },
+                top: 380,
+                height: 50,
+                offset: 0,
+                lineWidth: 2
+            }
+
+
+            ],
+
+            series: mainChartItem
+
+            //series: [{
+            //    type: 'candlestick',
+            //    name: self.symbolQuery(),
+            //    data: ohlc
+            //    ,
+            //    dataGrouping: {
+            //        units: groupingUnits
+            //    }
+            //}
+            //, {
+            //    type: 'column',
+            //    name: 'Volume',
+            //    data: volume,  
+            //    yAxis: 1,
+            //    dataGrouping: {
+            //        units: groupingUnits
+            //    }
+
+
+            //}      
+        
+            //]
+
+
+
+        });
+
+    }
 
     this.addToQuery = function () {
 
@@ -201,14 +413,25 @@ function TradeRiserViewModel(tradeRiserProxy) {
         self.graphicalQueryEndPeriod(globalGraphicalQueryEndPeriod);
         
         var graphicalQuery = null;
-        var tempPeriod = self.dateFormatting("%b %e, %Y", globalGraphicalQueryStartPeriod) + '  -  ' + self.dateFormatting("%b %e, %Y", globalGraphicalQueryEndPeriod);
+
+        var tempPeriod = "";
+
+        if (chartPadDataIntraday) {
+            var tempPeriod = self.dateFormatting("%Y-%m-%d %H:%M:%S", globalGraphicalQueryStartPeriod) + '  #  ' + self.dateFormatting("%Y-%m-%d %H:%M:%S", globalGraphicalQueryEndPeriod);
+        }
+        else {
+            tempPeriod = self.dateFormatting("%b %e, %Y", globalGraphicalQueryStartPeriod) + '  #  ' + self.dateFormatting("%b %e, %Y", globalGraphicalQueryEndPeriod);
+        }
+
+        //var tempPeriod = self.dateFormatting("%Y-%m-%d %H:%M:%S", globalGraphicalQueryStartPeriod) + '  -  ' + self.dateFormatting("%Y-%m-%d %H:%M:%S", globalGraphicalQueryEndPeriod);
+
 
         if (self.mainQuery() && self.defined(self.mainQuery())) {
             graphicalQuery = self.mainQuery();
-            graphicalQuery += ' EUR/USD Custom Pattern Period [' + tempPeriod + ']';            
+            graphicalQuery += '' + self.symbolQuery() + ' Custom Pattern Period {^' + self.symbolQuery() + '^' + self.timeFrameQuery() + '@' + tempPeriod + '&}';
         }
         else {
-            graphicalQuery = 'EUR/USD Custom Pattern Period [' + tempPeriod + ']';
+            graphicalQuery = ' Custom Pattern Period {^' + self.symbolQuery() + '^' + self.timeFrameQuery() + '@' + tempPeriod + '&}';
         }
 
         //alert(self.mainQuery());

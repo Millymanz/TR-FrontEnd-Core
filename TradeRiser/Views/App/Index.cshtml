@@ -331,9 +331,12 @@ The TradeRiser service includes analysis of financial instruments. There are pot
 
         <!-- Dialog box class="inputbox transition input-search"-->
     <div id="criteriaDialog" >
-        <input data-bind="value: symbolQuery" id="loadChart" name="searchQuery" size="30" placeholder="AAPL" 
+        <input data-bind="value: symbolQuery" id="loadChart" name="searchQuery" size="30" placeholder="EURUSD" 
              autocomplete="off" />
-        <div id="fetchButton">Fetch</div>
+         <input data-bind="value: timeFrameQuery" id="loadChartTimeframe" name="timeframeQuery" size="20" placeholder="EndOfDay" 
+             autocomplete="off" />
+
+        <div data-bind="click: fetch" id="fetchButton">Fetch</div>
 
         <div id="selectionType">Selection Type : 
        <input type="radio" name="selectionType" value="Pattern" checked="checked" />Pattern

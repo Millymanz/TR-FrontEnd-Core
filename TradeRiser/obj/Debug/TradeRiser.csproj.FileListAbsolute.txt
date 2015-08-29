@@ -1593,6 +1593,6 @@ E:\NonDeployable\N2.0-13th August 2015\FrontEndApp -Stripped\TradeRiser\bin\WebM
 E:\NonDeployable\N2.0-13th August 2015\FrontEndApp -Stripped\TradeRiser\bin\Org.Mentalis.Security.Cryptography.xml
 E:\NonDeployable\N2.0-13th August 2015\FrontEndApp -Stripped\TradeRiser\bin\Mono.Math.xml
 E:\NonDeployable\N2.0-13th August 2015\FrontEndApp -Stripped\TradeRiser\obj\Debug\TradeRiser.csproj.App.config
-E:\NonDeployable\N2.0-13th August 2015\FrontEndApp -Stripped\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache
 E:\NonDeployable\N2.0-13th August 2015\FrontEndApp -Stripped\TradeRiser\obj\Debug\TradeRiser.dll
 E:\NonDeployable\N2.0-13th August 2015\FrontEndApp -Stripped\TradeRiser\obj\Debug\TradeRiser.pdb
+E:\NonDeployable\N2.0-13th August 2015\FrontEndApp -Stripped\TradeRiser\obj\Debug\TradeRiser.csprojResolveAssemblyReference.cache

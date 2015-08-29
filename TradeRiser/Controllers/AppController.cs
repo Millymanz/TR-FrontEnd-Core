@@ -90,6 +90,16 @@ namespace TradeRiser.Controllers
         }
 
         [HttpPost]
+        public string GetSymbolData(string symbolID, string timeFrame)
+        {
+            var restClient = new RestClient();
+            String username = HttpContext.User.Identity.Name;
+
+            var response = restClient.GetSymbolData(symbolID, timeFrame);
+            return response;
+        }
+
+        [HttpPost]
         public JsonResult GetDataResult(String selectionID)
         {
             //var arrayIDs = selectionID.Split('*');
