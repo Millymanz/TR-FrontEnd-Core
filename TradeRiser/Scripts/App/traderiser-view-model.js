@@ -1296,8 +1296,52 @@ function TradeRiserViewModel(tradeRiserProxy) {
         }
     };
 
-
     this.widgetPlacerT = function (index, total, title, height, chartClassName, iter) {
+
+        var remaining = total - index;
+        var remainder = index % 2;
+
+         var nthPos = 0;
+
+        var width = '100%';
+        //if (remainder == 0 && remaining > 1) {
+        //    //width = '50%';
+        //    width = '700px';
+        //}
+
+
+        var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>"; //*
+
+        
+        $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
+
+
+
+
+        //if (remainder == 0) {
+        //    if (remaining > 1) {
+        //        $("#tableCanvas").append($("<tr><td style='top:0px' width='50%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
+
+        //    }
+        //    else {
+        //        $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
+        //    }
+        //}
+        //else {
+        //    var indset = index - 1;
+        //    var newId = "#celln" + indset;
+
+        //    $("#tableCanvas  > tbody > tr > " + newId).eq(nthPos).after("<td style='top:0px' id=celln" + index + " width='100%' valign='top'>" + markup + "</td>");
+        //}
+
+
+
+
+
+    };
+
+
+    this.widgetPlacerTSideBySide = function (index, total, title, height, chartClassName, iter) {
 
         var remaining = total - index;
         var remainder = index % 2;

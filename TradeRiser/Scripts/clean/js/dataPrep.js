@@ -544,10 +544,12 @@ function GenerateSummary(obj, presentationTypeIndex) {
 
 
     genTabStr += "</table></td>";
-    genTabStr += "<td valign='top' style='border-left: 1px solid grey; border-right: 1px solid grey;'><div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Summary:</strong> </span><br/> <br/>";
+    genTabStr += "<td valign='top' style='border-left: 1px solid grey; border-right: 1px solid grey;'>";
+    genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Summary:</strong> </span><br/> <br/>";
     genTabStr += obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[0];
-    genTabStr += "</div></td></tr></table>";
-    //genTabStr += "This contains the text that explains or summaries the clients data.</div></td></tr></table>";
+    genTabStr += "</div></td><td><div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Summary:</strong> </span><br/> <br/>" +
+        obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[1] + "</td></tr></table>";
+  
 
     var final = genTabStr;
 
