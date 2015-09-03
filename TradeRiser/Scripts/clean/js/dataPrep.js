@@ -524,13 +524,9 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
 function GenerateSummary(obj, presentationTypeIndex) {
 
-    var genTabStr = "<table cellpadding='8' cellspacing='20'><tr><td style='border-left: 1px solid grey;'>";
-    genTabStr += "<span style='color:#3a89ff;'><strong>Price Movement Facts: </strong></span><br/> <br/>"
+    var genTabStr = "<table cellpadding='8' cellspacing='20'><tr><td style='border-left: 1px solid grey; vertical-align: top;'>";
+    genTabStr += "<span style='color:#3a89ff;'><strong>Detailed Facts: </strong></span><br/> <br/>"
     genTabStr += "<table cellpadding='8' cellspacing='8' border='1' style='border-color:#E0E0E0;'>";
-
-    /*var genTabStr = "<div style='width: 300px;'>";
-    genTabStr += "<div style='float: left; width: 200px;'>";
-    genTabStr += '<span style="color:#3a89ff;">Price Movement Facts: </span><br/> <br/><table cellpadding="12" cellspacing="12" border="1" style="border-color:#E0E0E0;">';*/
 
 
     for (var bb = 0; bb < obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex].length; bb++) {
@@ -539,16 +535,30 @@ function GenerateSummary(obj, presentationTypeIndex) {
 
         genTabStr += '<tr style="border-color:#E0E0E0;"><td>' + obj.CurrentResult.ProcessedResults.Headers[selectingIndex] + '</td><td>'
         + obj.CurrentResult.ProcessedResults.ComputedResults[0][selectingIndex] + '</td></tr>';
-            //+ obj.CurrentResult.ProcessedResults.ComputedResults[presentationTypeIndex][selectingIndex] + '</td></tr>';
+    }
+    genTabStr += "</table></td>";
+
+    var firstSummary = obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[0];
+
+    //if (typeof firstSummary !== null || typeof firstSummary !== 'undefined') {
+    if (typeof firstSummary !== 'undefined') {
+
+        genTabStr += "<td valign='top' style='border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;'>";
+        genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Summary:</strong> </span><br/> <br/>";
+        genTabStr += firstSummary;
+        genTabStr += "</div></td>";
     }
 
+    var summaryMore = obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[1];
+    //if (typeof summaryMore !== null || typeof summaryMore !== 'undefined') {
 
-    genTabStr += "</table></td>";
-    genTabStr += "<td valign='top' style='border-left: 1px solid grey; border-right: 1px solid grey;'>";
-    genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Summary:</strong> </span><br/> <br/>";
-    genTabStr += obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[0];
-    genTabStr += "</div></td><td><div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Summary:</strong> </span><br/> <br/>" +
-        obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[1] + "</td></tr></table>";
+    if (typeof summaryMore !== 'undefined') {
+
+        genTabStr += "<td valign='top' style='border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;>";
+        genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>More Summary:</strong> </span><br/>" +
+            summaryMore + "</td>";
+    }
+    genTabStr += "</tr></table>";
   
 
     var final = genTabStr;

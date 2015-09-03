@@ -1139,8 +1139,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                                     var highlighterItem = {
                                         colour: rawDataResults[pp].HighLightRegion[hl].Colour,
-                                        axisIndex: 0,
-                                        seriesIndex: 0,
+                                        axisIndex: rawDataResults[pp].HighLightRegion[hl].AxisIndex,
+                                        seriesIndex: rawDataResults[pp].HighLightRegion[hl].SeriesIndex,
                                         startDate: rawDataResults[pp].HighLightRegion[hl].StartDateTime,
                                         endDate: rawDataResults[pp].HighLightRegion[hl].EndDateTime,
                                         speechBubbleHtml: rawDataResults[pp].HighLightRegion[hl].Comment
