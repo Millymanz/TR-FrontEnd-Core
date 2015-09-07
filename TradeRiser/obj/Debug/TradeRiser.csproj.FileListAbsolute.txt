@@ -1645,7 +1645,6 @@ E:\NonDeployable\Current\Frontend\TradeRiser\bin\EntityFramework.SqlServer.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\log4net.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\Newtonsoft.Json.xml
-E:\NonDeployable\Current\Frontend\TradeRiser\bin\PokeIn.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\PusherClient.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\PusherServer.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\RestSharp.xml

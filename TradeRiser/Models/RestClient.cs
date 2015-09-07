@@ -70,10 +70,17 @@ namespace TradeRiser.Models
             model.UserName = username;
             model.Password = password;
 
+            //userinfo object is returned 
+
             var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(model);
 
             string response = PostToRestService(apiUrl, serialized);
-            return string.IsNullOrEmpty(response) ? false : Convert.ToBoolean(response);
+            dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject(response);
+
+            return Convert.ToBoolean((string)json["LoginSuccessful"]);
+
+
+            //return string.IsNullOrEmpty(response) ? false : Convert.ToBoolean(response);
         }
 
         public bool Register(RegisterModel model)
