@@ -84,6 +84,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
         tradeRiserProxy.getUserProfile(self.initializeUserProfileConfigCards);
 
         self.paneFixWidth = $(".pane").width();
+
+        self.tokenChecker();
     };
 
     this.initialiseUI = function () {
@@ -401,6 +403,58 @@ function TradeRiserViewModel(tradeRiserProxy) {
         });
 
     }
+
+    this.logOff = function () {
+        tradeRiserProxy.logOff();       
+    };
+
+    this.tokenChecker = function () {
+        setInterval(function () {
+
+            tradeRiserProxy.tokenChecker(function (boolitem) {
+
+                var tokenValid = (boolitem.toLowerCase() === 'true');
+
+                if (tokenValid == false) {
+                   // alert("Token Expired!");
+
+                    tradeRiserProxy.getNewToken(function (response) {
+                        var json = JSON.parse(response)
+                        $('#a_t').val(json.AccessToken);
+                    });
+
+
+                    tradeRiserProxy.registerToken(function (response) {
+                        var resgisterationSuccess = (response.toLowerCase() === 'true');
+
+                        if (resgisterationSuccess === true) {
+                            console.log('Registeration Success');
+                        }
+                        else {
+                            console.log('Registeration Failed');
+                        }
+
+                    });
+
+
+
+                }              
+            });
+
+        }, 10000);
+    };
+
+    //this.tokenHandler = function (boolitem) {
+    //    if (boolitem) {
+
+    //    }
+    //    else {
+    //        alert("Token Expired!");
+    //    }
+
+    //    //if token expired reconnect
+    //    //
+    //};
 
     this.addToQuery = function () {
 

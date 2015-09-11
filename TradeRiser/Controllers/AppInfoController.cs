@@ -33,17 +33,19 @@ namespace TradeRiser.Controllers
         {
             var restClient = new RestClient();
 
-            if (ModelState.IsValid && restClient.AuthenticateUser(model.UserName, model.Password))
+            var customToken = restClient.AuthenticateUser(model.UserName, model.Password);
+            if (customToken != null)
             {
-                String userQuerySessionID = model.UserName;
-
-                CustomToken customToken = new CustomToken();
-                customToken.Binarycrypt = userQuerySessionID;
-
                 returnUrl = "/App";
-                //returnUrl = "/App/Index/"+ model.UserName;
 
                 FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+
+                //var gh = new AppController();
+                //gh.Index(customToken);
+
+                Session.Add("accesstoken", customToken);
+
+                
 
                 return RedirectToLocal(returnUrl);
             }
@@ -53,15 +55,67 @@ namespace TradeRiser.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public string ObtainNewToken(string username, string password)
+        {
+            var restClient = new RestClient();
+
+            var customToken = restClient.AuthenticateUser(username, password);
+            if (customToken != null)
+            {
+                var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(customToken);
+
+                return serialized;
+            }
+            return null;
+        }
+
         //
         // POST: /Account/LogOff
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult LogOff()
+        public ActionResult LogOff(string username, string accessToken)
         {
-            WebSecurity.Logout();
+            var restClient = new RestClient();
 
-            return RedirectToAction("Index", "AppInfo");
+            var response = restClient.LogOff(username, accessToken);
+
+            if (response)
+            {
+                return RedirectToLocal("/AppInfo");
+
+                //return RedirectToAction("Index", "AppInfo");
+            }
+            return null;
+
+        }
+
+        [HttpPost]
+        public ActionResult LogOff()
+        {            
+            return View();
+
+        }
+        
+        [HttpPost]
+        public string TokenChecker(string accessToken)
+        {
+            var restClient = new RestClient();
+            var response = restClient.TokenChecker(accessToken);
+
+            return response.ToString();
+        }
+
+        [HttpPost]
+        public string RegisterToken(string username, string accessToken)
+        {
+            RegisterModel model = new RegisterModel();
+            model.UserName = username;
+            model.AccessToken = accessToken;
+
+            var restClient = new RestClient();
+            var response = restClient.Register(model);
+
+            return response.ToString();
         }
 
         //

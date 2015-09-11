@@ -27,12 +27,11 @@ namespace TradeRiser.Controllers
         //}
 
         [HttpGet]
-        public ActionResult Index(string parameter)
+        public ActionResult Index()
         {
-            String username = HttpContext.User.Identity.Name;
-
-            CustomToken customToken = new CustomToken();
-            customToken.Binarycrypt = username;
+            var customTokenItem = Session["accesstoken"];
+            var customToken = (CustomToken) customTokenItem;
+            //customT.Username = customTokenItem["Username"];
 
             return View(customToken);
         }
@@ -54,48 +53,48 @@ namespace TradeRiser.Controllers
         }
 
         [HttpPost]
-        public string GetUserProfile()
+        public string GetUserProfile(string accessToken)
         {
             String username = HttpContext.User.Identity.Name;
 
             var restClient = new RestClient();
-            return restClient.GetUserProfile(username);   
+            return restClient.GetUserProfile(username, accessToken);   
         }
 
         [HttpPost]
-        public void UnfollowQuery(String query)
+        public void UnfollowQuery(String query, string accessToken)
         {
             String username = HttpContext.User.Identity.Name;
             var restClient = new RestClient();
-            restClient.UnfollowQuery(username, query);            
+            restClient.UnfollowQuery(username, query, accessToken);            
         }
 
         [HttpPost]
-        public void FollowQuery(String query)
+        public void FollowQuery(String query, string accessToken)
         {
             String username = HttpContext.User.Identity.Name;
 
             var restClient = new RestClient();
-            restClient.FollowQuery(username, query);            
+            restClient.FollowQuery(username, query, accessToken);            
         }
        
         [HttpPost]
-        public string GetAnswer(String searchQuery)
+        public string GetAnswer(String searchQuery, string accessToken)
         {
             var restClient = new RestClient();
             String username = HttpContext.User.Identity.Name;
 
-            var response = restClient.GetAnswer(searchQuery, username);
+            var response = restClient.GetAnswer(searchQuery, username, accessToken);
             return response;
         }
 
         [HttpPost]
-        public string GetSymbolData(string symbolID, string timeFrame)
+        public string GetSymbolData(string symbolID, string timeFrame, string accessToken)
         {
             var restClient = new RestClient();
             String username = HttpContext.User.Identity.Name;
 
-            var response = restClient.GetSymbolData(symbolID, timeFrame);
+            var response = restClient.GetSymbolData(symbolID, timeFrame, accessToken);
             return response;
         }
 

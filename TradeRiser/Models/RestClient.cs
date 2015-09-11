@@ -15,6 +15,53 @@ namespace TradeRiser.Models
 {
     public class RestClient
     {
+        private string GetAccessToken(string username, string password)
+        {
+            var url = System.Configuration.ConfigurationManager.AppSettings["REST_URL"].ToString() + "token";
+            //var apikeyInsert = System.Configuration.ConfigurationManager.AppSettings["TradeRiserAPI_Key"].ToString();
+
+            WebRequest request = WebRequest.Create(url);
+            // Set the Method property of the request to POST.
+            request.Method = "POST";
+
+            string postData = "username=" + username + "&grant_type=password" + "&password=" + password;
+
+
+            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+            // Set the ContentType property of the WebRequest.
+            request.ContentType = "application/x-www-form-urlencoded";
+            // Set the ContentLength property of the WebRequest.
+            request.ContentLength = byteArray.Length;
+            // Get the request stream.
+            Stream dataStream = request.GetRequestStream();
+            // Write the data to the request stream.
+            dataStream.Write(byteArray, 0, byteArray.Length);
+            // Close the Stream object.
+            dataStream.Close();
+
+
+
+            // Get the response.
+            WebResponse response = request.GetResponse();
+            // Display the status.
+            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+            // Get the stream containing content returned by the server.
+            dataStream = response.GetResponseStream();
+            // Open the stream using a StreamReader for easy access.
+            StreamReader reader = new StreamReader(dataStream);
+            // Read the content.
+            string responseFromServer = reader.ReadToEnd();
+            // Display the content.
+            Console.WriteLine(responseFromServer);
+            // Clean up the streams.
+            reader.Close();
+            dataStream.Close();
+            response.Close();
+
+            dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject(responseFromServer);
+            return (string)json["access_token"];
+        }
+
         private string GetAccessToken()
         {
             var url = System.Configuration.ConfigurationManager.AppSettings["REST_URL"].ToString() + "token";
@@ -62,7 +109,7 @@ namespace TradeRiser.Models
             return (string)json["access_token"];
         }
 
-        public bool AuthenticateUser(string username, string password)
+        public CustomToken AuthenticateUser(string username, string password)
         {
             var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/UserAuth/Authenticate";
 
@@ -71,17 +118,52 @@ namespace TradeRiser.Models
             model.Password = password;
 
             //userinfo object is returned 
+            string accessTokenRaw = GetAccessToken(username, password);
+            //dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(accessTokenRaw);
 
-            var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(model);
+            if (String.IsNullOrEmpty(accessTokenRaw) == false)
+            {
+                var regModel = new RegisterModel
+                {
+                    UserName = username,
+                    AccessToken = accessTokenRaw
+                };
+                if (Register(regModel))
+                {
+                    var customToken = new CustomToken
+                    {
+                        Username = regModel.UserName,
+                        AccessToken = regModel.AccessToken,
+                        Password = password
+                    };
+                    return customToken;
+                }
+            }
+            return null;
+            //var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(model);
 
-            string response = PostToRestService(apiUrl, serialized);
-            dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject(response);
+            //string response = PostToRestService(apiUrl, serialized);
+            //dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject(response);
 
-            return Convert.ToBoolean((string)json["LoginSuccessful"]);
+            //return Convert.ToBoolean((string)json["LoginSuccessful"]);
 
 
             //return string.IsNullOrEmpty(response) ? false : Convert.ToBoolean(response);
         }
+
+        public bool LogOff(string username, string accessToken)
+        {
+            var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/UserAuth/Logout";
+           
+            var usernameItem = new UserNameItem();
+            usernameItem.UserName = username;
+
+            var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(usernameItem);
+
+            string response = PostToRestService(apiUrl, serialized, accessToken);
+            return string.IsNullOrEmpty(response) ? false : Convert.ToBoolean(response);
+        }
+
 
         public bool Register(RegisterModel model)
         {
@@ -89,11 +171,39 @@ namespace TradeRiser.Models
 
             var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(model);
 
-            string response = PostToRestService(apiUrl, serialized);
-            return string.IsNullOrEmpty(response) ? false : Convert.ToBoolean(response);
+            string response = PostToRestService(apiUrl, serialized, model.AccessToken);
+
+            dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(response);
+
+            return string.IsNullOrEmpty(response) ? false : jsonObj["LoginSuccessful"];
         }
 
-        public string GetUserProfile(string username)
+        public bool TokenChecker(string accessToken)
+        {
+            var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/UserAuth/SessionTokenActive";
+
+            string response = GetFromRestService(apiUrl, accessToken);
+            try
+            {
+                if (String.IsNullOrEmpty(response) == false)
+                {
+                    if (Convert.ToBoolean(response))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return false;
+
+
+            //return string.IsNullOrEmpty(response) ? false : Convert.ToBoolean(response);
+        }
+
+        public string GetUserProfile(string username, string accessToken)
         {
             var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/Query/GetUserProfile";
 
@@ -101,11 +211,11 @@ namespace TradeRiser.Models
             usernameItem.UserName = username;
             var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(usernameItem);
 
-            string response = PostToRestService(apiUrl, serialized);
+            string response = PostToRestService(apiUrl, serialized, accessToken);
             return response;
         }
 
-        public string GetAnswer(string searchQuery, string username)
+        public string GetAnswer(string searchQuery, string username, string accessToken)
         {
             var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/Query/GetAnswer";
 
@@ -115,11 +225,11 @@ namespace TradeRiser.Models
 
             var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(search);
 
-            string response = PostToRestService(apiUrl, serialized);
+            string response = PostToRestService(apiUrl, serialized, accessToken);
             return response;
         }
 
-        public string GetSymbolData(string symbolID, string timeFrame)
+        public string GetSymbolData(string symbolID, string timeFrame, string accessToken)
         {
             var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/Query/GetSymbolData";
 
@@ -129,11 +239,11 @@ namespace TradeRiser.Models
 
             var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(symbolData);
 
-            string response = PostToRestService(apiUrl, serialized);
+            string response = PostToRestService(apiUrl, serialized, accessToken);
             return response;
         }
 
-        public string FollowQuery(string username, string query)
+        public string FollowQuery(string username, string query, string accessToken)
         {
             var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/Query/FollowQuery";
 
@@ -142,11 +252,11 @@ namespace TradeRiser.Models
             subMan.Query = query;
             var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(subMan);
 
-            string response = PostToRestService(apiUrl, serialized);
+            string response = PostToRestService(apiUrl, serialized, accessToken);
             return response;
         }
 
-        public string UnfollowQuery(string username, string query)
+        public string UnfollowQuery(string username, string query, string accessToken)
         {
             var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/Query/UnfollowQuery";
 
@@ -155,7 +265,7 @@ namespace TradeRiser.Models
             subMan.Query = query;
             var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(subMan);
 
-            string response = PostToRestService(apiUrl, serialized);
+            string response = PostToRestService(apiUrl, serialized, accessToken);
             return response;
         }
 
@@ -173,6 +283,49 @@ namespace TradeRiser.Models
 
             string response = GetFromRestService(apiUrl);
             return response;
+        }
+
+        private string GetFromRestService(string url, string accessTokenItem)
+        {
+            try
+            {
+                var accessToken = accessTokenItem;
+                var apiUrl = url;
+                WebRequest request = WebRequest.Create(apiUrl);
+                // Set the Method property of the request to POST.
+                request.Method = "GET";
+
+                request.Headers.Add("Authorization", "Bearer " + accessToken);
+
+
+                // Set the ContentType property of the WebRequest.
+                //request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentType = "application/json";
+
+
+                // Get the response.
+                WebResponse response = request.GetResponse();
+                // Display the status.
+                Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+                // Get the stream containing content returned by the server.
+                var dataStream = response.GetResponseStream();
+                // Open the stream using a StreamReader for easy access.
+                StreamReader reader = new StreamReader(dataStream);
+                // Read the content.
+                string responseFromServer = reader.ReadToEnd();
+                // Display the content.
+                Console.WriteLine(responseFromServer);
+                // Clean up the streams.
+                reader.Close();
+                response.Close();
+
+                return responseFromServer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return "";
         }
 
         private string GetFromRestService(string url)
@@ -220,7 +373,48 @@ namespace TradeRiser.Models
             return "";
         }
 
-        private string PostToRestService(string url, string serialized)
+        private string PostToRestService(string url, string accessTokenItem)
+        {
+            try
+            {
+                var accessToken = accessTokenItem;
+                var apiUrl = url;
+
+                WebRequest request = WebRequest.Create(apiUrl);
+                // Set the Method property of the request to POST.
+                request.Method = "POST";
+
+                request.Headers.Add("Authorization", "Bearer " + accessToken);
+                request.ContentType = "application/json";
+
+                // Get the response.
+                WebResponse response = request.GetResponse();
+                // Display the status.
+                Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+                // Get the stream containing content returned by the server.
+                var dataStream = response.GetResponseStream();
+                // Open the stream using a StreamReader for easy access.
+                StreamReader reader = new StreamReader(dataStream);
+                // Read the content.
+                string responseFromServer = reader.ReadToEnd();
+                // Display the content.
+                Console.WriteLine(responseFromServer);
+                // Clean up the streams.
+                reader.Close();
+                dataStream.Close();
+                response.Close();
+
+                return responseFromServer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return "";
+        }
+
+
+        private string PostToRestService(string url, string serialized, string accessTokenItem)
         {
             //store access token locally for reuse- if it expires then
             //login again
@@ -229,7 +423,7 @@ namespace TradeRiser.Models
 
             try
             {
-                var accessToken = GetAccessToken();
+                var accessToken = accessTokenItem;
                 var apiUrl = url;
 
 

@@ -37,7 +37,9 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
 
    @*<div hidden id="h_v">Model.Binarycrypt</div>*@
 
-   <input type="hidden" value=@Model.Binarycrypt id='h_v' class='h_v'>
+   <input type="hidden" value=@Model.Username id='u_n' class='h_v'>
+   <input type="hidden" value=@Model.AccessToken id='a_t' class='h_v'>
+   <input type="hidden" value=@Model.Password id='p_d' class='h_v'>
 
     <!-- Header bar -->
     <div class="header">
@@ -58,15 +60,21 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
                 <ul class="drop">
  
                     <li class="logoutItem">
-                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <a href="#">Log off</a>
-                        }</li>
+
+                         @using (Html.BeginForm("LogOff", "AppInfo", FormMethod.Post, new { id = "logoutForm", username = Model.Username, accessToken = Model.AccessToken }))
+                         {
+
+                            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                         }
+
+
+
+
+                    </li>
                 </ul>
             }
-            else
-            {
+ else
+ {
                 <ul>
                     <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                     <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
@@ -571,7 +579,7 @@ The TradeRiser service includes analysis of financial instruments. There are pot
 
         var pusher = new Pusher('0c52bffe086a83952d16');
 
-        var hvnme = $('#h_v').val();
+        var hvnme = $('#u_n').val();
         var channel = pusher.subscribe(hvnme);
         var pageLoader = document.getElementById("pageLoader");
         pageLoader.style.display = 'none';

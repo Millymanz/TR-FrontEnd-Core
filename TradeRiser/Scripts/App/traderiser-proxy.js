@@ -37,6 +37,63 @@ function TradeRiserProxy() {
                 url: "/App/GetUserProfile",
                 type: "POST",
                 dataType: "text",
+                data: { accessToken: $('#a_t').val() },
+                success: function (returnedData) {
+                    callback(returnedData);
+                }
+            });
+        }
+    };
+
+    this.logOff = function () {
+        {
+            $.ajax({
+                url: "/AppInfo/LogOff",
+                type: "POST",
+                dataType: "text",
+                data: { username: $('#u_n').val(), accessToken: $('#a_t').val() },
+                success: function (returnedData) {
+                    callback(returnedData);
+                }
+            });
+        }
+    };
+
+    this.tokenChecker = function (callback) {
+        {
+            $.ajax({
+                url: "/AppInfo/TokenChecker",
+                type: "POST",
+                dataType: "text",
+                data: { accessToken: $('#a_t').val() },
+                success: function (returnedData) {
+                    callback(returnedData);
+                }
+            });
+        }
+    };
+
+    this.getNewToken = function (callback) {
+        {
+            $.ajax({
+                url: "/AppInfo/ObtainNewToken",
+                type: "POST",
+                dataType: "text",
+                data: { username: $('#u_n').val(), password: $('#p_d').val() },
+                success: function (returnedData) {
+                    callback(returnedData);
+                }
+            });
+        }
+    };
+
+    this.registerToken = function (callback) {
+        {
+            $.ajax({
+                url: "/AppInfo/RegisterToken",
+                type: "POST",
+                dataType: "text",
+                data: { username: $('#u_n').val(), accessToken: $('#a_t').val() },
                 success: function (returnedData) {
                     callback(returnedData);
                 }
@@ -50,7 +107,7 @@ function TradeRiserProxy() {
                 url: "/App/UnfollowQuery",
                 type: "POST",
                 dataType: "text",
-                data: { query: query },
+                data: { query: query, accessToken: hvnme = $('#a_t').val() },
                 success: function (returnedData) {
                     callback(returnedData);
                 }
@@ -91,7 +148,7 @@ function TradeRiserProxy() {
             url: "/App/GetAnswer",
             type: "POST",
             dataType: "text",
-            data: { searchQuery: query },
+            data: { searchQuery: query, accessToken: hvnme = $('#a_t').val() },
             success: function (returnedData) {
                 callback(returnedData);
             },
