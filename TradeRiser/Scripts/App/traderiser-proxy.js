@@ -148,7 +148,7 @@ function TradeRiserProxy() {
             url: "/App/GetAnswer",
             type: "POST",
             dataType: "text",
-            data: { searchQuery: query, accessToken: hvnme = $('#a_t').val() },
+            data: { searchQuery: query, accessToken: $('#a_t').val() },
             success: function (returnedData) {
                 callback(returnedData);
             },
@@ -165,7 +165,7 @@ function TradeRiserProxy() {
             url: "/App/GetSymbolData",
             type: "POST",
             dataType: "text",
-            data: { symbolID: symbolID, timeFrame: timeFrame },
+            data: { symbolID: symbolID, timeFrame: timeFrame, accessToken: $('#a_t').val() },
             success: function (returnedData) {
                 callback(returnedData);
             },

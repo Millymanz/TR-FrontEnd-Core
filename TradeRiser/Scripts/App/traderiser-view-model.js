@@ -204,7 +204,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var symbolID = criteria[0];
         if (criteria.length == 2) timeframe = criteria[1].replace(/\s+/g, '');;
 
-        tradeRiserProxy.fetchSymbolData(symbolID, self.timeFrameQuery, self.populateChartPad, self.errorResponse);
+        tradeRiserProxy.fetchSymbolData(symbolID, self.timeFrameQuery(), self.populateChartPad, self.errorResponse);
 
         //tradeRiserProxy.fetchSymbolData(self.symbolQuery(), 'EndOfDay', self.populateChartPad, self.errorResponse);
     }
@@ -441,7 +441,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                 }              
             });
 
-        }, 10000);
+        }, 120000); //every 2mins
     };
 
     //this.tokenHandler = function (boolitem) {

@@ -281,3 +281,4 @@ E:\NonDeployable\Current\Frontend\TradeRiser\bin\Mono.Math.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.csproj.App.config
 E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.pdb
+E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.csprojResolveAssemblyReference.cache
