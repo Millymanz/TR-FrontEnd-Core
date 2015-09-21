@@ -140,7 +140,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                     tings = extraFields;
 
-                    extraFieldsArray.push(extraFields);                     
+                    extraFieldsArray.push(extraFields);
                 }
 
 
@@ -163,7 +163,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
 
-            };
+        };
     }
 
     this.initializeUserProfileConfigCards = function (returnedData) {
@@ -176,8 +176,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
             for (var i = 0; i < obj.UserProfileConfig.Following.length; i++) {
 
                 var queryCard = {
-                    QueryID : obj.UserProfileConfig.Following[i].QueryID,
-                    Query : obj.UserProfileConfig.Following[i].Query
+                    QueryID: obj.UserProfileConfig.Following[i].QueryID,
+                    Query: obj.UserProfileConfig.Following[i].Query
                 }
                 self.queriesSubscription.push(queryCard);
             }
@@ -193,7 +193,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         };
 
     }
-    
+
     this.fetch = function () {
 
         //Temp solution
@@ -296,7 +296,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         //    }
         //}
 
-        var mainChartItem =[ {
+        var mainChartItem = [{
             type: 'candlestick',
             name: self.symbolQuery(),
             data: ohlc,
@@ -305,14 +305,14 @@ function TradeRiserViewModel(tradeRiserProxy) {
             }
         }
             , {
-        type: 'column',
-        name: 'Volume',
-        data: volume,  
-        yAxis: 1,
-        dataGrouping: {
-            units: groupingUnits
-        }
-    }   ] 
+                type: 'column',
+                name: 'Volume',
+                data: volume,
+                yAxis: 1,
+                dataGrouping: {
+                    units: groupingUnits
+                }
+            }]
 
 
         if (chartPadDataIntraday) {
@@ -395,7 +395,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
             //}      
-        
+
             //]
 
 
@@ -405,7 +405,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
     }
 
     this.logOff = function () {
-        tradeRiserProxy.logOff();       
+        tradeRiserProxy.logOff();
     };
 
     this.tokenChecker = function () {
@@ -416,7 +416,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                 var tokenValid = (boolitem.toLowerCase() === 'true');
 
                 if (tokenValid == false) {
-                   // alert("Token Expired!");
+                    // alert("Token Expired!");
 
                     tradeRiserProxy.getNewToken(function (response) {
                         var json = JSON.parse(response)
@@ -438,7 +438,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
 
-                }              
+                }
             });
 
         }, 120000); //every 2mins
@@ -465,7 +465,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         self.graphicalQueryStartPeriod(globalGraphicalQueryStartPeriod);
         self.graphicalQueryEndPeriod(globalGraphicalQueryEndPeriod);
-        
+
         var graphicalQuery = null;
 
         var tempPeriod = "";
@@ -494,7 +494,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         //$(".graphicalQueryInput").empty();
         //$("#contenthandle").before('<a href="#" class="btn-chart"><div class="graphicalQueryInput"> Pattern Criteria - ' + graphicalQuery + '</div></a>');
 
-       //// $("#contenthandle").before('<span class="graphicalQueryInput">Graphical Selection....</span>');
+        //// $("#contenthandle").before('<span class="graphicalQueryInput">Graphical Selection....</span>');
 
         self.mainQuery(graphicalQuery);
     };
@@ -530,24 +530,24 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var currentItem = event.currentTarget.children[0];
         self.selectHighlightItem(currentItem.id);
 
-       // if (self.selected == "none") {
-       //     self.selected = currentItem.id;
-       //     globalSelectedItem = currentItem.id;
-       // }
-       // else {
-       //     var selectorTemp = "#" + self.selected;
-       //     //used to reset or remove previous hightlight
-       //     // $(selectorTemp).css("border", "1px solid #888888");
+        // if (self.selected == "none") {
+        //     self.selected = currentItem.id;
+        //     globalSelectedItem = currentItem.id;
+        // }
+        // else {
+        //     var selectorTemp = "#" + self.selected;
+        //     //used to reset or remove previous hightlight
+        //     // $(selectorTemp).css("border", "1px solid #888888");
 
-       //     $(selectorTemp).css("background-color", "white");
-       //     $(selectorTemp).css("color", "black");
+        //     $(selectorTemp).css("background-color", "white");
+        //     $(selectorTemp).css("color", "black");
 
-       //     self.selected = currentItem.id;
-       //     globalSelectedItem =  currentItem.id;
-       // }
-       //// $(currentItem).css("border", "2px solid #BFCFD0");
-       // $(currentItem).css("background-color", "#BFCFD0");
-       // $(currentItem).css("color", "white");
+        //     self.selected = currentItem.id;
+        //     globalSelectedItem =  currentItem.id;
+        // }
+        //// $(currentItem).css("border", "2px solid #BFCFD0");
+        // $(currentItem).css("background-color", "#BFCFD0");
+        // $(currentItem).css("color", "white");
 
 
     };
@@ -560,15 +560,22 @@ function TradeRiserViewModel(tradeRiserProxy) {
     this.getAnswer = function () {
 
         if (self.mainQuery() != "") {
-            if (self.mainQuery() != null || self.mainQuery() != 'undefined') {
+            if (self.mainQuery() !== null && self.mainQuery() !== 'undefined') {
 
                 var loadchart = document.getElementById("loadchartDia");
-                if (loadchart != null || loadchart != 'defined') {
+                if (loadchart !== null || loadchart !== 'defined') {
                     loadchart.style.display = 'block';
                 }
 
+                //clear url variable if it has unrequired url parameters
+                //window.location.href = window.location.href.split('?')[0];
+                var arraySplit = window.location.href.split('?');
+                if (arraySplit.length > 1) {
+                    window.history.pushState("ClearingUrl", "ClearingUrl", window.location.href.split('?')[0]);
+                }
+
                 //this is redundant QueryID is never required by the ui
-                var r = (12 + Math.random()*16)%16 | 0;
+                var r = (12 + Math.random() * 16) % 16 | 0;
 
                 var queryCard = {
                     QueryID: 'tempId-' + r.toString(),
@@ -579,13 +586,13 @@ function TradeRiserViewModel(tradeRiserProxy) {
                 self.historicQueries.unshift(queryCard);
 
                 $("#resultCanvas").empty();
-                
+
                 for (var g = 0; g < Highcharts.charts.length; g++) {
                     if (Highcharts.charts[g] != null && Highcharts.charts[g] !== undefined) {
                         Highcharts.charts[g].destroy();
                     }
                 }
- 
+
                 self.onDemandResults([]);
 
                 var displayError = document.getElementById("noresults");
@@ -632,8 +639,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
     this.renderQueryResults = function (returnedData) {
 
-        try
-        {
+        try {
             var loadchart = document.getElementById("loadchartDia");
             if (loadchart != null || loadchart != 'defined') {
                 loadchart.style.display = 'none';
@@ -694,7 +700,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                         if (i == 0) {
                             self.selectHighlightItem(resultItem.QueryID);
                         }
-                    }                  
+                    }
                     self.displayResult(obj);
                 }
             }
@@ -708,11 +714,10 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
                 //$("#resultCanvas").append($('<div id="noresults">TradeRiser does not understand your input. Tip-Check your spelling, and use English</div>'));
-               // alert('No Results');
+                // alert('No Results');
             }
         }
-        catch (ex)
-        {
+        catch (ex) {
             alert(ex);
         }
 
@@ -795,7 +800,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         }, 3000);
 
 
-       
+
 
 
     };
@@ -817,7 +822,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         // Create an array of the remaining length +1 and join it with 0's
         return new Array((length || 2) + 1 - String(number).length).join(0) + number;
     };
-    
+
     this.defaultOptions = {
         colors: ['#2f7ed8', '#0d233a', '#8bbc21', '#910000', '#1aadce', '#492970',
             '#f28f43', '#77a1e5', '#c42525', '#a6c96a'],
@@ -958,13 +963,15 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var iterRow = 0;
         var iter = 0;
 
+       
         //Main widget
         try {
             for (var pp = 0; pp < presentationTypeCount; pp++, iterRow++) {
 
                 var json = rawDataResults[pp].ChartReadyDataResults;
                 var dataLookUp = self.createLookUp(json);
-                
+                var extIndicatorLookUp = self.createExternalIndicatorLookUp(json);
+
 
                 switch (obj.CurrentResult.PresentationTypes[pp].MainWidget) {
                     case 'Table':
@@ -972,9 +979,179 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                         } break;
 
+                    case 'SideBarChart':
+                        {
+
+                            self.widgetPlacerT(pp, presentationTypeCount, 'Statistical Analysis', '500px', 'sideBarChart', iter);
+
+                            $('.sideBarChart').highcharts({
+                                chart: {
+                                    type: 'bar'
+                                },
+                                title: {
+                                    text: 'Historic World Population by Region'
+                                },
+                                subtitle: {
+                                    text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+                                },
+                                xAxis: {
+                                    categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+                                    title: {
+                                        text: null
+                                    }
+                                },
+                                yAxis: {
+                                    min: 0,
+                                    title: {
+                                        text: 'Population (millions)',
+                                        align: 'high'
+                                    },
+                                    labels: {
+                                        overflow: 'justify'
+                                    }
+                                },
+                                tooltip: {
+                                    valueSuffix: ' millions'
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        dataLabels: {
+                                            enabled: true
+                                        }
+                                    }
+                                },
+                                legend: {
+                                    layout: 'vertical',
+                                    align: 'right',
+                                    verticalAlign: 'top',
+                                    x: -40,
+                                    y: 80,
+                                    floating: true,
+                                    borderWidth: 1,
+                                    backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                                    shadow: true
+                                },
+                                credits: {
+                                    enabled: false
+                                },
+                                series: [{
+                                    name: 'Year 1800',
+                                    data: [107, 31, 635, 203, 2]
+                                }, {
+                                    name: 'Year 1900',
+                                    data: [133, 156, 947, 408, 6]
+                                }, {
+                                    name: 'Year 2012',
+                                    data: [1052, 954, 4250, 740, 38]
+                                }]
+                            });
+
+
+
+
+
+                        } break;
+
+                    case 'ColumnChart':
+                        {
+                            self.widgetPlacerT(pp, presentationTypeCount, 'Statistical Analysis', '500px', 'columnChart', iter);
+
+                            //$('.columnChart').highcharts({
+                            //    chart: {
+                            //        type: 'column'
+                            //    },
+                            //    title: {
+                            //        text: 'Column chart with negative values'
+                            //    },
+                            //    xAxis: {
+                            //        categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+                            //    },
+                            //    credits: {
+                            //        enabled: false
+                            //    },
+                            //    series: [{
+                            //        name: 'John',
+                            //        data: [5, 3, 4, 7, 2]
+                            //    }, {
+                            //        name: 'Jane',
+                            //        data: [2, -2, -3, 2, 1]
+                            //    }, {
+                            //        name: 'Joe',
+                            //        data: [3, 4, 4, -2, 5]
+                            //    }]
+                            //});
+
+
+
+                            var lengthCount = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length;
+
+                            var lineSeriesOptions = [],
+                                symbolNames = [],
+                                chartData = [];
+
+                            for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+                                //symbolNames.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0][bb]);
+
+                                for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0].length; ss++) {
+                                    symbolNames.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0][ss]);
+                                }
+
+
+                            }
+
+
+                            for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+                                for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0].length; ss++) {
+                                    chartData.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][ss]);
+                                }
+                            }
+
+
+
+
+                            $('.columnChart').highcharts({
+                                chart: {
+                                    type: 'column'
+                                },
+                                title: {
+                                    text: 'How The Major Pairs Performed Last Week'
+                                },
+                                xAxis: {
+                                    categories: symbolNames
+                                    //categories: ['EURUSD', 'NZDUSD', 'USDCAD', 'GBPUSD', 'AUDUSD', 'USDJPY', 'USDCHF']
+                                },
+                                credits: {
+                                    enabled: false
+                                },
+                                series: [{
+                                    /*name: 'John',*/
+                                    colorByPoint: true,
+                                    
+                                    data: chartData
+
+                                    //data: [5, 3, -4, -7, 2]
+
+                                }
+
+                                //, {
+                                //    name: 'Jane',
+                                //    data: [2, -2, -3, 2, 1]
+                                //}, {
+                                //    name: 'Joe',
+                                //    data: [3, 4, 4, -2, 5]
+                                //}
+
+
+                                ]
+                            });
+
+
+
+
+                        } break;
+
                     case 'LineSeriesChart':
                         {
-                          
                             self.widgetPlacerT(pp, presentationTypeCount, 'Correlation Analysis', '500px', 'correlationChart', iter);
 
                             var lengthCount = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length;
@@ -1010,11 +1187,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                         name: symbolNames[c],
                                         data: lineSeriesData
                                     }
-                                    }//new
-                                }//for loop end
+                                }//new
+                            }//for loop end
 
-          
-                                //var dateTimeTemp = dataResults[1][0] - dataResults[0][0];
+
+                            //var dateTimeTemp = dataResults[1][0] - dataResults[0][0];
 
                             if (lineSeriesOptions != null || lineSeriesOptions !== undefined) {
 
@@ -1023,81 +1200,81 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 //var dateTimeTemp = lineSeriesOptions[1]["data"][0] - lineSeriesOptions[0]["data"][0];
                                 var dateTimeTemp = dataResults[1][0] - dataResults[0][0];
 
-                                    var bIntradayChart = true;
+                                var bIntradayChart = true;
 
-                                    if (dateTimeTemp >= 86400000) {
-                                        bIntradayChart = false;
+                                if (dateTimeTemp >= 86400000) {
+                                    bIntradayChart = false;
+                                }
+
+                                var buttonSetup = { selected: 4 };
+
+                                if (bIntradayChart) {
+                                    var buttonsArray = [{
+                                        type: 'hour',
+                                        count: 1,
+                                        text: '1h'
+                                    },
+                                    {
+                                        type: 'hour',
+                                        count: 2,
+                                        text: '2h'
+                                    },
+                                    {
+                                        type: 'hour',
+                                        count: 3,
+                                        text: '3h'
+                                    },
+                                    {
+                                        type: 'day',
+                                        count: 1,
+                                        text: '1D'
+                                    }, {
+                                        type: 'all',
+                                        count: 1,
+                                        text: 'All'
+                                    }];
+
+                                    buttonSetup = {
+                                        buttons: buttonsArray,
+                                        selected: 2,
+                                        inputEnabled: false
                                     }
-
-                                    var buttonSetup = { selected: 4 };
-
-                                    if (bIntradayChart) {
-                                        var buttonsArray = [{
-                                            type: 'hour',
-                                            count: 1,
-                                            text: '1h'
-                                        },
-                                        {
-                                            type: 'hour',
-                                            count: 2,
-                                            text: '2h'
-                                        },
-                                        {
-                                            type: 'hour',
-                                            count: 3,
-                                            text: '3h'
-                                        },
-                                        {
-                                            type: 'day',
-                                            count: 1,
-                                            text: '1D'
-                                        }, {
-                                            type: 'all',
-                                            count: 1,
-                                            text: 'All'
-                                        }];
-
-                                        buttonSetup = {
-                                            buttons: buttonsArray,
-                                            selected: 2,
-                                            inputEnabled: false
-                                        }
-                                    }
-
-
-                                    $('.correlationChart').highcharts('StockChart', {
-                                        chart: {
-                                        },
-                                        rangeSelector: buttonSetup,
-                                        yAxis: {
-                                            labels: {
-                                                formatter: function () {
-                                                    return (this.value > 0 ? '+' : '') + this.value + '%';
-                                                }
-                                            },
-                                            plotLines: [{
-                                                value: 0,
-                                                width: 2,
-                                                color: 'silver'
-                                            }]
-                                        },
-                                        plotOptions: {
-                                            series: {
-                                                compare: 'percent'
-                                            }
-                                        },
-                                        tooltip: {
-                                            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
-                                            valueDecimals: 2
-                                        },
-                                        series: lineSeriesOptions
-                                    });
                                 }
 
 
-                           // }
+                                $('.correlationChart').highcharts('StockChart', {
+                                    chart: {
+                                    },
+                                    rangeSelector: buttonSetup,
+                                    yAxis: {
+                                        labels: {
+                                            formatter: function () {
+                                                return (this.value > 0 ? '+' : '') + this.value + '%';
+                                            }
+                                        },
+                                        plotLines: [{
+                                            value: 0,
+                                            width: 2,
+                                            color: 'silver'
+                                        }]
+                                    },
+                                    plotOptions: {
+                                        series: {
+                                            compare: 'percent'
+                                        }
+                                    },
+                                    tooltip: {
+                                        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+                                        valueDecimals: 2
+                                    },
+                                    series: lineSeriesOptions
+                                });
+                            }
 
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, resultsData, iter);                            
+
+                            // }
+
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, resultsData, iter, extIndicatorLookUp);
 
                         } break;
 
@@ -1112,8 +1289,19 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             var chartClassName = 'chartspace dialogchart' + pp;
                             //var markup = "<div class='widgetTitle'>15 Timeframe</div><br/><div class='" + chartClassName + "'style='height: 610px; width:50%'></div>";
 
+                            //var dataLookUp.length;
 
-                            self.widgetPlacerT(pp, presentationTypeCount, 'Technical Analysis', '610px', chartClassName, iter);
+                            //function to confirm number of indicators involved
+                            var candlestickHeight = '610px';
+
+                            switch (extIndicatorLookUp.length)
+                            {
+                                case 2: { candlestickHeight = '740px' } break;
+                                case 3: { candlestickHeight = '920px' } break;
+                                case 4: { candlestickHeight = '1040px' } break;
+                            }
+
+                            self.widgetPlacerT(pp, presentationTypeCount, 'Technical Analysis', candlestickHeight, chartClassName, iter);
 
                             var dataResultsT = dataLookUp["RAW"];
                             if (dataResultsT != null || dataResultsT !== undefined) {
@@ -1211,12 +1399,12 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     },
                                     height: 310,
                                     lineWidth: 2
-                                 };
-                                 
+                                };
+
                                 yAxisArray.push(chartItemDef);
 
                                 presentationTypeIndex = pp;
-                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter);
+                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp);
 
 
                                 SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray);
@@ -1224,7 +1412,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                         } break;
                 }
-               
+
                 if (iterRow == 2) {
                     iterRow = 0;
                     iter++;
@@ -1237,7 +1425,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
             //disclaimer
             $("#resultCanvas").append($('<br/><br/><div id="riskDisclaimer"><h2>Risk Disclaimer</h2><a class="naviPos" href="#performStatsButton">Top</a><p>Please acknowledge the following: <br/>The Charts are provided'
-              +  '" as is", without warranty or guarantee of any kind, including but not limited to the warranties of merchantability and fitness for a particular purpose.' 
+              + '" as is", without warranty or guarantee of any kind, including but not limited to the warranties of merchantability and fitness for a particular purpose.'
               + 'In no event shall TradeRiser Limited and its affiliates or any third party contributor be liable for any claim, damages or other liability, whether in an '
               + 'action of contract, tort or otherwise, arising from, out of or in connection with the use of or other dealings in the Charts. The Charts run on pricing '
               + 'data provided by us to a third party charting administrator. You accept that the price data displayed in the Charts may be delayed and that we do not '
@@ -1246,8 +1434,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
               + 'of financial instruments. There are potential risks relating to investing and trading. You must be aware of such risks and familiarize yourself in regard '
               + 'to such risks and to seek independent advice relating thereto. You should not trade with money that you cannot afford to lose. The TradeRiser service and'
               + 'its content should not be construed as a solicitation to invest and/or trade. You should seek independent advice in this regard. Past performance is not'
-              + 'indicative of future performance. No representation is being made that any results discussed within the service and its related media content will be achieved.' 
-              + 'TradeRiser, TradeRiser Limited, their members, shareholders, employees, agents, representatives and resellers do not warrant the completeness, accuracy or timeliness' 
+              + 'indicative of future performance. No representation is being made that any results discussed within the service and its related media content will be achieved.'
+              + 'TradeRiser, TradeRiser Limited, their members, shareholders, employees, agents, representatives and resellers do not warrant the completeness, accuracy or timeliness'
               + 'of the information supplied, and they shall not be liable for any loss or damages, consequential or otherwise, which may arise from the use or reliance of the'
               + 'TradeRiser service and its content.</p></div>'));
 
@@ -1267,11 +1455,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
             if (obj.CurrentResult.RawDataResults[pp].PerformanceStatistics.length > 0) {
                 $("#resultCanvas").append($("<div id='performanceStats'><h2>Performance Statistics</h2><a class='naviPos' href='#performStatsButton'>Top</a>"));
-                
+
                 //$("#resultCanvas").append($("<div class ='performanceStatsNote'>*Below are listed table(s) of performance statistics which predominantly shows the pattern recoginition rate and this tells you how reliable the recognition is for the symbol."
                 //    + "<br/>The percentage value gains more significance and value over time as the number of patterns found increases.</div>"));
-                
-                
+
+
                 $("#resultCanvas").append($("<div class ='performanceStatsNote'>" + obj.CurrentResult.RawDataResults[pp].PerformanceStatistics[0].Description + "</div>"));
 
 
@@ -1280,12 +1468,12 @@ function TradeRiserViewModel(tradeRiserProxy) {
             }
         }
 
-        
+
         for (var pp = 0; pp < presentationTypeCount; pp++) {
 
             //header management
             for (var mm = 0; mm < obj.CurrentResult.RawDataResults[pp].PerformanceStatistics.length; mm++) {
-               
+
                 var tableId = "performanceStatsTable" + mm;
 
                 $("#resultCanvas").append($("<table class= 'performanceStatsTable' id = " + tableId + " border='1'><tr></tr></table>"));
@@ -1294,10 +1482,10 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                     $('#' + tableId + ' > tbody > tr').append("<td class='performanceStatsHeaderCells' id=pshcelln" + tt + " valign='top'>"
                         + obj.CurrentResult.RawDataResults[pp].PerformanceStatistics[mm].Headers[tt] + "</td>");
-                    
+
                 }
 
-              
+
                 //Stats body
                 for (var tt = 0; tt < obj.CurrentResult.RawDataResults[pp].PerformanceStatistics[mm].StatsLog.length; tt++) {
 
@@ -1355,7 +1543,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var remaining = total - index;
         var remainder = index % 2;
 
-         var nthPos = 0;
+        var nthPos = 0;
 
         var width = '100%';
         //if (remainder == 0 && remaining > 1) {
@@ -1366,7 +1554,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>"; //*
 
-        
+
         $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
 
 
@@ -1400,7 +1588,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var remaining = total - index;
         var remainder = index % 2;
 
-       // var nthPos = index;
+        // var nthPos = index;
         //var nthPos = iter;
 
         var nthPos = 0;
@@ -1418,9 +1606,9 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         //var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "'></div>";
 
-         var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>"; //*
-       // var markup = "<div class='widgetTitle'>" + title + "</div><br/><div class='" + chartClassName + "' style='height: " + height + "; width= 50% '></div>";
- 
+        var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>"; //*
+        // var markup = "<div class='widgetTitle'>" + title + "</div><br/><div class='" + chartClassName + "' style='height: " + height + "; width= 50% '></div>";
+
 
 
         if (remainder == 0) {
@@ -1444,6 +1632,68 @@ function TradeRiserViewModel(tradeRiserProxy) {
         }
     };
 
+    this.isExternalIndicator = function (indicatorItem) {
+        switch (indicatorItem) {
+            case 'RSI':
+                {
+                    return true;
+                }
+                break;
+
+            case 'ATR':
+                {
+                    return true;
+                }
+                break;
+
+            case 'Aroon Oscillator':
+                {
+                    return true;
+                } break;
+
+            case 'Aroon Up':
+                {
+                    return true;
+                }
+                break;
+
+            case 'Aroon Down':
+                {
+                    return true;
+                }
+                break;
+
+            case 'MACD':
+                {
+                    return true;
+                } break;
+        }
+        return false;
+    };
+
+    this.createExternalIndicatorLookUp = function (json) {
+        var extIndicatorLookUp = {};
+
+        var tempIndicatorParentLookUp =
+        {
+            length: 0,
+            indicatorLookUp: {}
+        };
+
+        var j = 1;
+
+        json.forEach(function (el, i, arr) {
+            if (self.isExternalIndicator(el.Key)== true) {
+                extIndicatorLookUp[el.Key] = j;
+                j++;
+            }
+        });
+        tempIndicatorParentLookUp.indicatorLookUp = extIndicatorLookUp;
+        tempIndicatorParentLookUp.length = j - 1;
+
+        return tempIndicatorParentLookUp;
+    };
+
     this.createLookUp = function (json) {
         var dataLookUp = {};
         // generate the lookup table for reuse
@@ -1454,17 +1704,15 @@ function TradeRiserViewModel(tradeRiserProxy) {
         return dataLookUp;
     };
 
-    this.initalizeSubWidgets = function (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter) {
+    this.initalizeSubWidgets = function (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp) {
 
-        PrepareChartData(presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter);
+        PrepareChartData(presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp);
     }
 
-    this.convertToNumericKeyID = function (selectChartKey)
-    {
+    this.convertToNumericKeyID = function (selectChartKey) {
         var accumulated = "";
         var total = 0;
-        for (var i = 0; i < selectChartKey.length; i++)
-        {
+        for (var i = 0; i < selectChartKey.length; i++) {
             var n = selectChartKey.charCodeAt(i);
             accumulated = accumulated + n;
             total = total + n;

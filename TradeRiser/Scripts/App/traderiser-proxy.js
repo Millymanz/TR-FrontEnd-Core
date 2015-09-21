@@ -121,7 +121,7 @@ function TradeRiserProxy() {
                 url: "/App/FollowQuery",
                 type: "POST",
                 dataType: "text",
-                data: { query: query },
+                data: { query: query, accessToken: hvnme = $('#a_t').val() },
                 success: function (returnedData) {
                     callback(returnedData);
                 }

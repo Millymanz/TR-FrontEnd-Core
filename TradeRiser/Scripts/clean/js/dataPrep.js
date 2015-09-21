@@ -3,7 +3,7 @@ function DisplaySummary(presentationTypes, presentationTypeIndex, obj, dataLookU
 
 }
 
-function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter) {
+function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp) {
 
         //create selectChartKey from loop
         var allCount = 8;
@@ -11,6 +11,14 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
         var selectChartKey = '';
 
         var bSubWidgetSet = false;
+    
+        var indicatorPos = 0;
+        if (yAxisArray != null && typeof yAxisArray != 'undefined') {
+            indicatorPos = yAxisArray[0].height;
+        }
+
+        var indSpacing = 90;
+        var indicatorGap = 0; //handles gap between bottom chart indicators
 
         for (var ss = 0; ss < presentationTypes.SubWidgets.length; ss++) {
 
@@ -73,6 +81,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             overlayArray.push(smaChartItem);                          
 
                             allCountIter++;
+                            GenerateSummary(obj, presentationTypeIndex);
                         }
                     }
                     break;
@@ -128,17 +137,18 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 }
                             }
                             overlayArray.push(bollingerBandsChartItem);
-
                             allCountIter++;
-                        }
 
-                        GenerateSummary(obj, presentationTypeIndex);
+                            GenerateSummary(obj, presentationTypeIndex);
+                        }                        
                     }
                     break;
 
                 case 'Aroon Oscillator':
                     {
-                        selectChartKey = selectChartKey + "Aroon Oscillator";
+                        var indicatorName = "Aroon Oscillator";
+                        selectChartKey = selectChartKey + indicatorName;
+                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
 
                         var dataResults = dataLookUp["Aroon Oscillator"];
 
@@ -157,19 +167,19 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 type: 'area',
                                 name: 'Aroon Oscillator',
                                 data: aroonOscArray,
-                                yAxis: 1,
+                                yAxis: yAxisPos,
                                 dataGrouping: {
                                     units: groupingUnits
                                 }
                             }
                             arraySeries.push(aroonOscChart);
 
-
+                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
                             var chartItemDef = {
                                 title: {
                                     text: 'Aroon Osc'
                                 },
-                                top: yAxisArray[0].height + 90,
+                                top: indicatorPos,
                                 height: 100,
                                 offset: 0,
                                 lineWidth: 2
@@ -177,15 +187,15 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
-                        }
-
-                        GenerateSummary(obj, presentationTypeIndex);
+                            GenerateSummary(obj, presentationTypeIndex);
+                        }                        
                     }
                     break;
 
                 case 'Aroon Up':
                     {
                         var indicatorName = "Aroon Up";
+                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
 
                         selectChartKey = selectChartKey + "Aroon Up";
 
@@ -206,18 +216,20 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 type: 'line',
                                 name: indicatorName,
                                 data: aroonUpArray,
-                                yAxis: 1,
+                                yAxis: yAxisPos,
                                 dataGrouping: {
                                     units: groupingUnits
                                 }
                             }
                             arraySeries.push(aroonUpChart);
 
+                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
+
                             var chartItemDef = {
                                 title: {
                                     text: indicatorName
                                 },
-                                top: yAxisArray[0].height + 90,
+                                top: indicatorPos,
                                 height: 100,
                                 offset: 0,
                                 lineWidth: 2
@@ -225,6 +237,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
+                            GenerateSummary(obj, presentationTypeIndex);
                         }
                     }
                     break;
@@ -232,6 +245,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                 case 'Aroon Down':
                     {
                         var indicatorName = "Aroon Down";
+                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
 
                         selectChartKey = selectChartKey + indicatorName;
 
@@ -252,18 +266,20 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 type: 'line',
                                 name: indicatorName,
                                 data: aroonDownArray,
-                                yAxis: 1,
+                                yAxis: yAxisPos,
                                 dataGrouping: {
                                     units: groupingUnits
                                 }
                             }
                             arraySeries.push(aroonDownChart);
 
+                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
+
                             var chartItemDef = {
                                 title: {
                                     text: indicatorName
                                 },
-                                top: yAxisArray[0].height + 90,
+                                top: indicatorPos,
                                 height: 100,
                                 offset: 0,
                                 lineWidth: 2
@@ -271,6 +287,8 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
+
+                            GenerateSummary(obj, presentationTypeIndex);
                         }
                     }
                     break;
@@ -278,6 +296,8 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                 case 'RSI':
                     {
                         var indicatorName = "RSI";
+                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
+
 
                         selectChartKey = selectChartKey + "RSI";
 
@@ -298,18 +318,20 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 type: 'line',
                                 name: 'RSI',
                                 data: rsiArray,
-                                yAxis: 1,
+                                yAxis: yAxisPos,
                                 dataGrouping: {
                                     units: groupingUnits
                                 }
                             }
                             arraySeries.push(rsiChart);
 
+                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
+
                             var chartItemDef = {
                                 title: {
                                     text: indicatorName
                                 },
-                                top: yAxisArray[0].height + 90,
+                                top: indicatorPos,
                                 height: 100,
                                 offset: 0,
                                 lineWidth: 2
@@ -317,10 +339,9 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
+
+                            GenerateSummary(obj, presentationTypeIndex);
                         }
-
-                        GenerateSummary(obj, presentationTypeIndex);
-
                     }
                     break;
 
@@ -394,12 +415,13 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             }
                             arraySeries.push(macdHistogramChartItem);
 
+                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
 
                             var chartItemDef = {
                                 title: {
                                     text: 'MACD'
                                 },
-                                top: yAxisArray[0].height + 90,
+                                top: indicatorPos,
                                 height: 100,
                                 offset: 0,
                                 lineWidth: 2
@@ -407,16 +429,16 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
+
+                            GenerateSummary(obj, presentationTypeIndex);
                         }
-
-                        GenerateSummary(obj, presentationTypeIndex);
-
                     }
                     break;
 
                 case 'ATR':
                     {
                         var indicatorName = "ATR";
+                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
 
                         selectChartKey = selectChartKey + "ATR";
 
@@ -436,18 +458,20 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 type: 'line',
                                 name: 'ATR',
                                 data: atrArray,
-                                yAxis: 1,
+                                yAxis: yAxisPos,
                                 dataGrouping: {
                                     units: groupingUnits
                                 }
                             }
                             arraySeries.push(atrChart);
 
+                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
+
                             var chartItemDef = {
                                 title: {
                                     text: indicatorName
                                 },
-                                top: yAxisArray[0].height + 90,
+                                top: indicatorPos,
                                 height: 100,
                                 offset: 0,
                                 lineWidth: 2
@@ -455,46 +479,11 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
+                            GenerateSummary(obj, presentationTypeIndex);
                         }
-
-                        GenerateSummary(obj, presentationTypeIndex);
                     }
                     break;
-
-                //case "General Table":
-                //    {
-                //        var indOne = obj.CurrentResult.ProcessedResults.KeyFieldIndex[0];
-                //        var indTwo = obj.CurrentResult.ProcessedResults.KeyFieldIndex[1];
-
-                //        var resultValue = dataLookUp["CorrelationRatio"];
-
-                //        var lineSeriesOptions = [],
-                //            symbolNames = [];
-
-
-
-                //        var genTabStr = '<span  style="color:#3a89ff;">Latest: </span><br/> <br/><table cellpadding="12" cellspacing="12" border="1" style="border-color:#E0E0E0;">';
-
-
-                //        for (var bb = 0; bb < obj.CurrentResult.ProcessedResults.KeyFieldIndex[0].length; bb++) {
-
-                //            var selectingIndex = obj.CurrentResult.ProcessedResults.KeyFieldIndex[0][bb];
-
-                //            genTabStr += '<tr style="border-color:#E0E0E0;"><td>' + obj.CurrentResult.ProcessedResults.Headers[selectingIndex] + '</td><td>' + obj.CurrentResult.ProcessedResults.ComputedResults[0][selectingIndex] + '</td></tr>';
-                //        }
-
-                //        genTabStr += '</table>';
-
-                //        var final = genTabStr;
-
-                //        $('<br/>' + final).appendTo($("#celln0"));
-
-                //        bSubWidgetSet = true;
-
-                //        allCountIter++;
-
-                //    } break;
-
+           
                 default:
                     {
                         var indOne = obj.CurrentResult.ProcessedResults.KeyFieldIndex[0];
@@ -505,16 +494,14 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         var lineSeriesOptions = [],
                             symbolNames = [];
 
-
-                        GenerateSummary(obj, presentationTypeIndex);
-
+                       // GenerateSummary(obj, presentationTypeIndex);
 
                         bSubWidgetSet = true;
-
                         allCountIter++;
                     }
                     break;
             }
+            indicatorGap = indicatorGap + 30;
         }
 
         //if (bSubWidgetSet === true) {
@@ -565,4 +552,23 @@ function GenerateSummary(obj, presentationTypeIndex) {
 
 
     $('<br/>' + final).appendTo($("#celln" + presentationTypeIndex));
+
+
+
+    //generate dynatable
+    $('.genericResultsTable').dynatable({
+        table: {
+            defaultColumnIdStyle: 'trimDash'
+        },
+        features: {
+            paginate: true,
+            search: false,
+            recordCount: true,
+            perPageSelect: false
+        }
+    });
+
+
+
+
 }
