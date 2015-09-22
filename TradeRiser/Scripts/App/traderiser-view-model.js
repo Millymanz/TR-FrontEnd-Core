@@ -648,8 +648,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
             var json = returnedData;
             var obj = JSON && JSON.parse(json) || $.parseJSON(json);
 
-            if (obj != "") {
-                if (obj != null || obj != 'undefined') {
+            if (obj !== "") {
+                if (obj !== null) {
 
                     var assetClassName = obj.ResultSummaries[0].SymbolID;
 
@@ -703,22 +703,20 @@ function TradeRiserViewModel(tradeRiserProxy) {
                     }
                     self.displayResult(obj);
                 }
+                else {
+                    var displayError = document.getElementById("noresults");
+                    displayError.style.display = 'block';
+                }
             }
             else {
-
-                //var displayError = $("#noresults");
-
                 var displayError = document.getElementById("noresults");
                 displayError.style.display = 'block';
-                //$("#resultCanvas").append($('<div style='width: 200px;'">TradeRiser does not understand your input. Tip-Check your spelling, and use English</div>'));
-
-
-                //$("#resultCanvas").append($('<div id="noresults">TradeRiser does not understand your input. Tip-Check your spelling, and use English</div>'));
-                // alert('No Results');
             }
         }
         catch (ex) {
-            alert(ex);
+            var displayError = document.getElementById("noresults");
+            displayError.style.display = 'block';
+            //alert(ex);
         }
 
     };
@@ -984,18 +982,69 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                             self.widgetPlacerT(pp, presentationTypeCount, 'Statistical Analysis', '500px', 'sideBarChart', iter);
 
+
+                            var lengthCount = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length;
+
+                            var lineSeriesOptions = [],
+                                symbolNames = [],
+                                chartData = [];
+                            var tempSeries = [];
+
+                            var xAxis = "";
+                            var yAxis = "";
+                            var title = "";
+
+                            for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+                                for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr.length; ss++) {
+
+                                    for (var cc = 0; cc < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[ss].length; cc++) {
+
+                                        if (ss == 0) {
+                                            symbolNames.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0][cc]);
+
+                                            xAxis = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Xaxis;
+                                            yAxis = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Yaxis;
+                                            title = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Title;
+
+                                        }
+                                        else {
+                                            var timeFrameGroupedData = {
+                                                name: obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[ss][cc],
+                                                data: []
+                                            };
+                                            tempSeries.push(timeFrameGroupedData);
+
+                                        }
+                                    }
+                                }
+                            }
+
+
+                            for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+                                chartData = [];
+
+                                for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value.length; ss++) {
+                                    chartData = []
+                                    for (var vv = 0; vv < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[ss].length; vv++) {
+
+                                        chartData.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[ss][vv]);
+                                    }
+                                    tempSeries[ss].data = chartData;
+                                }
+                            }
+
+                          
+
+
                             $('.sideBarChart').highcharts({
                                 chart: {
                                     type: 'bar'
                                 },
                                 title: {
-                                    text: 'Historic World Population by Region'
-                                },
-                                subtitle: {
-                                    text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+                                    text: title
                                 },
                                 xAxis: {
-                                    categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+                                    categories: symbolNames,
                                     title: {
                                         text: null
                                     }
@@ -1003,7 +1052,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 yAxis: {
                                     min: 0,
                                     title: {
-                                        text: 'Population (millions)',
+                                        text: yAxis,
                                         align: 'high'
                                     },
                                     labels: {
@@ -1011,7 +1060,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     }
                                 },
                                 tooltip: {
-                                    valueSuffix: ' millions'
+                                    valueSuffix: ' '+ yAxis
                                 },
                                 plotOptions: {
                                     bar: {
@@ -1034,16 +1083,22 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 credits: {
                                     enabled: false
                                 },
-                                series: [{
-                                    name: 'Year 1800',
-                                    data: [107, 31, 635, 203, 2]
-                                }, {
-                                    name: 'Year 1900',
-                                    data: [133, 156, 947, 408, 6]
-                                }, {
-                                    name: 'Year 2012',
-                                    data: [1052, 954, 4250, 740, 38]
-                                }]
+                                
+                                series: tempSeries
+
+                                //series: [{
+                                //    name: 'Year 1800',
+                                //    data: [107, 31, 635, 203, 2]
+                                //}, {
+                                //    name: 'Year 1900',
+                                //    data: [133, 156, 947, 408, 6]
+                                //}, {
+                                //    name: 'Year 2012',
+                                //    data: [1052, 954, 4250, 740, 38]
+                                //}]
+
+
+
                             });
 
 
