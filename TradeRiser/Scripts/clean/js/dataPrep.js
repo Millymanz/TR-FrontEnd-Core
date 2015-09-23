@@ -19,6 +19,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
         var indSpacing = 90;
         var indicatorGap = 0; //handles gap between bottom chart indicators
+        var summariesSet = false;
 
         for (var ss = 0; ss < presentationTypes.SubWidgets.length; ss++) {
 
@@ -81,7 +82,11 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             overlayArray.push(smaChartItem);                          
 
                             allCountIter++;
-                            GenerateSummary(obj, presentationTypeIndex);
+
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
                         }
                     }
                     break;
@@ -139,7 +144,10 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             overlayArray.push(bollingerBandsChartItem);
                             allCountIter++;
 
-                            GenerateSummary(obj, presentationTypeIndex);
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
                         }                        
                     }
                     break;
@@ -187,8 +195,12 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
-                            GenerateSummary(obj, presentationTypeIndex);
-                        }                        
+
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
+                        }
                     }
                     break;
 
@@ -237,7 +249,10 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
-                            GenerateSummary(obj, presentationTypeIndex);
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
                         }
                     }
                     break;
@@ -288,7 +303,10 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             allCountIter++;
 
-                            GenerateSummary(obj, presentationTypeIndex);
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
                         }
                     }
                     break;
@@ -340,7 +358,10 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             allCountIter++;
 
-                            GenerateSummary(obj, presentationTypeIndex);
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
                         }
                     }
                     break;
@@ -430,7 +451,10 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             allCountIter++;
 
-                            GenerateSummary(obj, presentationTypeIndex);
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
                         }
                     }
                     break;
@@ -479,7 +503,11 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
-                            GenerateSummary(obj, presentationTypeIndex);
+
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
                         }
                     }
                     break;
@@ -516,6 +544,14 @@ function GenerateSummary(obj, presentationTypeIndex) {
     genTabStr += "<table cellpadding='8' cellspacing='8' border='1' style='border-color:#E0E0E0;'>";
 
 
+    //for (var bb = 0; bb < obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex].length; bb++) {
+
+    //    var selectingIndex = obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex][bb];
+
+    //    genTabStr += '<tr style="border-color:#E0E0E0;"><td>' + obj.CurrentResult.ProcessedResults.Headers[selectingIndex] + '</td><td>'
+    //    + obj.CurrentResult.ProcessedResults.ComputedResults[0][selectingIndex] + '</td></tr>';
+    //}
+
     for (var bb = 0; bb < obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex].length; bb++) {
 
         var selectingIndex = obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex][bb];
@@ -523,12 +559,21 @@ function GenerateSummary(obj, presentationTypeIndex) {
         genTabStr += '<tr style="border-color:#E0E0E0;"><td>' + obj.CurrentResult.ProcessedResults.Headers[selectingIndex] + '</td><td>'
         + obj.CurrentResult.ProcessedResults.ComputedResults[0][selectingIndex] + '</td></tr>';
     }
+
+
+
     genTabStr += "</table></td>";
 
     var firstSummary = obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[0];
+    var summaryMore = obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[1];
 
+    var ignoreMoreSummary = false;
     //if (typeof firstSummary !== null || typeof firstSummary !== 'undefined') {
     if (typeof firstSummary !== 'undefined') {
+        if (!firstSummary) {
+            firstSummary = summaryMore;
+            ignoreMoreSummary = true;
+        }
 
         genTabStr += "<td valign='top' style='border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;'>";
         genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Summary:</strong> </span><br/> <br/>";
@@ -536,15 +581,17 @@ function GenerateSummary(obj, presentationTypeIndex) {
         genTabStr += "</div></td>";
     }
 
-    var summaryMore = obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[1];
-    //if (typeof summaryMore !== null || typeof summaryMore !== 'undefined') {
 
-    if (typeof summaryMore !== 'undefined') {
+    if (ignoreMoreSummary === false) {
+        if (typeof summaryMore !== 'undefined') {
 
-        genTabStr += "<td valign='top' style='border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;>";
-        genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>More Summary:</strong> </span><br/>" +
-            summaryMore + "</td>";
+            genTabStr += "<td valign='top' style='border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;>";
+            genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>More Summary:</strong> </span><br/>" +
+                summaryMore + "</td>";
+        }
     }
+
+
     genTabStr += "</tr></table>";
   
 
