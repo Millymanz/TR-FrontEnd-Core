@@ -99,22 +99,17 @@ namespace TradeRiser.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetDataResult(String selectionID)
+        public string GetDataResult(string selectionID, string accessToken)
         {
-            //var arrayIDs = selectionID.Split('*');
+            var arrayIDs = selectionID.Split('*');
+            String queryId = arrayIDs.LastOrDefault();
+            String selectingSymbol = arrayIDs.FirstOrDefault();
 
-            //String queryId = arrayIDs.FirstOrDefault();
-            //String selectingSymbol = arrayIDs.LastOrDefault();
+            var restClient = new RestClient();
+            String username = HttpContext.User.Identity.Name;
 
-            //QueryHandler queryHandler = new QueryHandler();
-            //var data = queryHandler.GetDataResult(queryId, selectingSymbol);
-
-            //if (data == null) return Json("");
-
-            //var presentRender = new PresentationRenderer(data);
-
-            return null;
-            //return Json(presentRender);            
+            var response = restClient.GetDataResult(queryId, selectingSymbol, accessToken); 
+            return response;        
         }
 
         [HttpPost]

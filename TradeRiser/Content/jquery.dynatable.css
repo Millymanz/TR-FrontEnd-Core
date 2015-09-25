@@ -16,6 +16,7 @@ th a:hover {
   text-decoration: underline;
 }
 
+
 .dynatable-head {
    color: black;
 }
@@ -65,7 +66,7 @@ th a:hover {
   text-decoration: none;
 }
 
-.dynatable-active-page {
+/*.dynatable-active-page {
   background: #71AF5A;
   border-radius: 5px;
   color: #fff;
@@ -77,4 +78,18 @@ th a:hover {
 .dynatable-disabled-page:hover {
   background: none;
   color: #999;
+}*/
+
+.dynatable-active-page {
+  background: #71AF5A;
+  border-radius: 5px;
+  color: black;
+}
+.dynatable-active-page:hover {
+  color: black;
+}
+.dynatable-disabled-page,
+.dynatable-disabled-page:hover {
+  background: none;
+  color: black;
 }

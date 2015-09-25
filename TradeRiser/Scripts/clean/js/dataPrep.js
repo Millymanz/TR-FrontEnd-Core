@@ -3,6 +3,31 @@ function DisplaySummary(presentationTypes, presentationTypeIndex, obj, dataLookU
 
 }
 
+function WidgetAlreadyUsed(presentationItem, widgetUsedList) {
+    
+    for (var t = 0; t < widgetUsedList.length; t++) {
+        if (presentationItem == widgetUsedList[t]) {
+            return true;
+        }
+    }
+    widgetUsedList.push(presentationItem);  
+    return false;
+}
+
+function GenerateRandomColour() {
+
+    var textArray = [
+    '#5dff4f',
+    'blue',
+    '#006a72',
+    '#0055a6',
+    '#ad655f',
+    '#f3e877'
+    ];
+    var randomNumber = Math.floor(Math.random() * textArray.length);
+    return textArray[randomNumber];
+}
+
 function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp) {
 
         //create selectChartKey from loop
@@ -11,6 +36,8 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
         var selectChartKey = '';
 
         var bSubWidgetSet = false;
+
+        var widgetUsedList = [];
     
         var indicatorPos = 0;
         if (yAxisArray != null && typeof yAxisArray != 'undefined') {
@@ -30,7 +57,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         var indTwo = obj.CurrentResult.ProcessedResults.KeyFieldIndex[1];
 
 
-                        var resultValue = dataLookUp["CorrelationRatio"];
+                        var resultValue = dataLookUp["CorrelationRatio" + ss];
 
                         var lineSeriesOptions = [],
                             symbolNames = [];
@@ -57,7 +84,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                 case 'SMA':
                     {
-                        var dataResults = dataLookUp["SMA"];
+                        var dataResults = dataLookUp["SMA" + ss];
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -70,10 +97,17 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 ])
                             }
 
+                            //For handling multilple widgets of the same
+                            //kind, this diversifies color
+                            var selectedColor = "red";
+                            if (WidgetAlreadyUsed('SMA', widgetUsedList)) {
+                                selectedColor = GenerateRandomColour();
+                            }
+
                             var smaChartItem = {
                                 code: 'sma',
                                 name: 'SMA',
-                                color: 'red',
+                                color: selectedColor,
                                 data: [smaData],
                                 dataGrouping: {
                                     units: groupingUnits
@@ -93,9 +127,9 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                 case 'BollingerBands':
                     {
-                        var dataUpperBand = dataLookUp["UpperBand"];
-                        var dataLowerBand = dataLookUp["LowerBand"];
-                        var dataMiddleBand = dataLookUp["MiddleBand"];
+                        var dataUpperBand = dataLookUp["UpperBand" + ss];
+                        var dataLowerBand = dataLookUp["LowerBand" + ss];
+                        var dataMiddleBand = dataLookUp["MiddleBand" + ss];
 
                         if (dataMiddleBand != null || dataMiddleBand !== undefined) {
                             var smaOverlayArray = [];
@@ -158,7 +192,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         selectChartKey = selectChartKey + indicatorName;
                         var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
 
-                        var dataResults = dataLookUp["Aroon Oscillator"];
+                        var dataResults = dataLookUp["Aroon Oscillator" + ss];
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -211,7 +245,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                         selectChartKey = selectChartKey + "Aroon Up";
 
-                        var dataResults = dataLookUp["Aroon Up"];
+                        var dataResults = dataLookUp["Aroon Up" + ss];
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -264,7 +298,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                         selectChartKey = selectChartKey + indicatorName;
 
-                        var dataResults = dataLookUp["Aroon Down"];
+                        var dataResults = dataLookUp["Aroon Down" + ss];
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -319,7 +353,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                         selectChartKey = selectChartKey + "RSI";
 
-                        var dataResults = dataLookUp["RSI"];
+                        var dataResults = dataLookUp["RSI" + ss];
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -372,9 +406,9 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                         selectChartKey = selectChartKey + "MACD";
 
-                        var dataMACD = dataLookUp["MACDLine"];
-                        var dataSignal = dataLookUp["SignalLine"];
-                        var dataMACDHistogram = dataLookUp["MACDHistogram"];
+                        var dataMACD = dataLookUp["MACDLine" + ss];
+                        var dataSignal = dataLookUp["SignalLine" + ss];
+                        var dataMACDHistogram = dataLookUp["MACDHistogram" + ss];
 
                         if (dataMACD != null || dataMACD !== undefined) {
                             var dataLength = dataMACD.length;
@@ -466,7 +500,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                         selectChartKey = selectChartKey + "ATR";
 
-                        var dataResults = dataLookUp["ATR"];
+                        var dataResults = dataLookUp["ATR" + ss];
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -517,13 +551,15 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         var indOne = obj.CurrentResult.ProcessedResults.KeyFieldIndex[0];
                         var indTwo = obj.CurrentResult.ProcessedResults.KeyFieldIndex[1];
 
-                        var resultValue = dataLookUp["CorrelationRatio"];
+                        var resultValue = dataLookUp["CorrelationRatio" + ss];
 
                         var lineSeriesOptions = [],
                             symbolNames = [];
 
-                       // GenerateSummary(obj, presentationTypeIndex);
-
+                        if (summariesSet === false) {
+                            GenerateSummary(obj, presentationTypeIndex);
+                            summariesSet = true;
+                        }
                         bSubWidgetSet = true;
                         allCountIter++;
                     }
@@ -539,43 +575,33 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
 function GenerateSummary(obj, presentationTypeIndex) {
 
-    var genTabStr = "<table cellpadding='8' cellspacing='20'><tr><td style='border-left: 1px solid grey; vertical-align: top;'>";
+    var genTabStr = "<table cellpadding='8' cellspacing='20'><tr><td style='border-left: 0px solid grey; vertical-align: top;'>";
     genTabStr += "<span style='color:#3a89ff;'><strong>Detailed Facts: </strong></span><br/> <br/>"
     genTabStr += "<table cellpadding='8' cellspacing='8' border='1' style='border-color:#E0E0E0;'>";
 
-
-    //for (var bb = 0; bb < obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex].length; bb++) {
-
-    //    var selectingIndex = obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex][bb];
-
-    //    genTabStr += '<tr style="border-color:#E0E0E0;"><td>' + obj.CurrentResult.ProcessedResults.Headers[selectingIndex] + '</td><td>'
-    //    + obj.CurrentResult.ProcessedResults.ComputedResults[0][selectingIndex] + '</td></tr>';
-    //}
 
     for (var bb = 0; bb < obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex].length; bb++) {
 
         var selectingIndex = obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex][bb];
 
-        genTabStr += '<tr style="border-color:#E0E0E0;"><td>' + obj.CurrentResult.ProcessedResults.Headers[selectingIndex] + '</td><td>'
+        genTabStr += "<tr style='border-color:#E0E0E0;'><td>" + obj.CurrentResult.ProcessedResults.Headers[selectingIndex]
+            + "</td><td>"
         + obj.CurrentResult.ProcessedResults.ComputedResults[0][selectingIndex] + '</td></tr>';
     }
-
-
-
     genTabStr += "</table></td>";
 
     var firstSummary = obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[0];
     var summaryMore = obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[1];
 
     var ignoreMoreSummary = false;
-    //if (typeof firstSummary !== null || typeof firstSummary !== 'undefined') {
+
     if (typeof firstSummary !== 'undefined') {
         if (!firstSummary) {
             firstSummary = summaryMore;
             ignoreMoreSummary = true;
         }
 
-        genTabStr += "<td valign='top' style='border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;'>";
+        genTabStr += "<td valign='top' style='width:400px; border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;'>";
         genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Summary:</strong> </span><br/> <br/>";
         genTabStr += firstSummary;
         genTabStr += "</div></td>";
@@ -585,7 +611,7 @@ function GenerateSummary(obj, presentationTypeIndex) {
     if (ignoreMoreSummary === false) {
         if (typeof summaryMore !== 'undefined') {
 
-            genTabStr += "<td valign='top' style='border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;>";
+            genTabStr += "<td valign='top' style='border-left: 0px solid grey; border-right: 0px solid grey; vertical-align: top;>";
             genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>More Summary:</strong> </span><br/>" +
                 summaryMore + "</td>";
         }
@@ -601,21 +627,21 @@ function GenerateSummary(obj, presentationTypeIndex) {
     $('<br/>' + final).appendTo($("#celln" + presentationTypeIndex));
 
 
+    var allElements = $('.genericResultsTable');
 
-    //generate dynatable
-    $('.genericResultsTable').dynatable({
-        table: {
-            defaultColumnIdStyle: 'trimDash'
-        },
-        features: {
-            paginate: true,
-            search: false,
-            recordCount: true,
-            perPageSelect: false
-        }
-    });
+    for (var j = 0; j < allElements.length; j++) {
+        var idSelect = allElements[j].id;
 
-
-
-
+        $('#'+idSelect).dynatable({
+            table: {
+                defaultColumnIdStyle: 'trimDash'
+            },
+            features: {
+                paginate: true,
+                search: false,
+                recordCount: true,
+                perPageSelect: false
+            }
+        });
+    } 
 }

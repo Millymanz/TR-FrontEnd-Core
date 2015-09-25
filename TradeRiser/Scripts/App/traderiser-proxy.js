@@ -159,6 +159,25 @@ function TradeRiserProxy() {
         })
     };
 
+
+    this.getDataResults = function (selectionID, callback, callbackError) {
+
+        $.ajax({
+            url: "/App/GetDataResult",
+            type: "POST",
+            dataType: "text",
+            data: { selectionID: selectionID, accessToken: $('#a_t').val() },
+            success: function (returnedData) {
+                callback(returnedData);
+            },
+            error: function (data) {
+                // Failure here is valid if the there are no groups in the database, e.g. soon after the database has been cleared.
+                alert('ajax call  failed');
+            }
+        })
+    };
+
+
     this.fetchSymbolData = function (symbolID, timeFrame, callback, callbackError) {
 
         $.ajax({

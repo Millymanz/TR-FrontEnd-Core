@@ -229,6 +229,20 @@ namespace TradeRiser.Models
             return response;
         }
 
+        public string GetDataResult(string queryId, string selectingSymbol, string accessToken)
+        {
+            var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/Query/GetDataResult";
+
+            var dataResultRetriever = new DataResultRetriever();
+            dataResultRetriever.QueryId = queryId;
+            dataResultRetriever.SelectingSymbol = selectingSymbol;
+
+            var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(dataResultRetriever);
+
+            string response = PostToRestService(apiUrl, serialized, accessToken);
+            return response;
+        }
+
         public string GetSymbolData(string symbolID, string timeFrame, string accessToken)
         {
             var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/Query/GetSymbolData";
@@ -547,6 +561,13 @@ namespace TradeRiser.Models
         }
 
     }
+
+    public class DataResultRetriever
+    {
+        public string QueryId { get; set; }
+        public string SelectingSymbol { get; set; }
+    }
+
 
     public class SearchQuery
     {

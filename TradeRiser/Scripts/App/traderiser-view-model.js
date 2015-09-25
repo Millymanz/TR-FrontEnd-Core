@@ -530,24 +530,66 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var currentItem = event.currentTarget.children[0];
         self.selectHighlightItem(currentItem.id);
 
-        // if (self.selected == "none") {
-        //     self.selected = currentItem.id;
-        //     globalSelectedItem = currentItem.id;
-        // }
-        // else {
-        //     var selectorTemp = "#" + self.selected;
-        //     //used to reset or remove previous hightlight
-        //     // $(selectorTemp).css("border", "1px solid #888888");
+        var loadchart = document.getElementById("loadchartDia");
+        if (loadchart !== null || loadchart !== 'defined') {
+            loadchart.style.display = 'block';
+        }
 
-        //     $(selectorTemp).css("background-color", "white");
-        //     $(selectorTemp).css("color", "black");
+        tradeRiserProxy.getDataResults(currentItem.id, function (dataInterm) {
 
-        //     self.selected = currentItem.id;
-        //     globalSelectedItem =  currentItem.id;
-        // }
-        //// $(currentItem).css("border", "2px solid #BFCFD0");
-        // $(currentItem).css("background-color", "#BFCFD0");
-        // $(currentItem).css("color", "white");
+            loadchart.style.display = 'none';
+            var obj = dataInterm;
+
+            if (obj != "") {
+                if (obj != null || obj != 'undefined') {
+                    var json = dataInterm;
+                    var obj = JSON && JSON.parse(json) || $.parseJSON(json);
+                    self.displayResult(obj);
+                }
+            }
+        });
+
+        //$.ajax({
+        //    url: "/App/GetDataResult",
+        //    type: "POST",
+        //    dataType: "text",
+        //    data: { selectionID: currentItem.id, accessToken: $('#a_t').val() },
+        //    success: function (dataInterm) {
+        //        try {
+        //            loadchart.style.display = 'none';
+        //            var obj = dataInterm;
+
+        //            if (obj != "") {
+        //                if (obj != null || obj != 'undefined') {
+
+        //                    var json = dataInterm;
+        //                    var obj = JSON && JSON.parse(json) || $.parseJSON(json);
+
+        //                    //DisplayResult(obj);
+        //                    self.displayResult(obj);
+        //                }
+        //            }
+        //        }
+        //        catch (error) {
+        //            alert(error);
+        //        }
+        //    },
+        //    error: function (dataInterm) {
+        //        // Failure here is valid if the there are no groups in the database, e.g. soon after the database has been cleared.
+        //        alert('ajax call  failed');
+        //    }
+        //})
+
+
+
+
+
+
+
+
+
+
+
 
 
     };
@@ -979,7 +1021,6 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                     case 'SideBarChart':
                         {
-
                             self.widgetPlacerT(pp, presentationTypeCount, 'Statistical Analysis', '500px', 'sideBarChart', iter);
 
 
@@ -1033,9 +1074,6 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 }
                             }
 
-                          
-
-
                             $('.sideBarChart').highcharts({
                                 chart: {
                                     type: 'bar'
@@ -1060,7 +1098,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     }
                                 },
                                 tooltip: {
-                                    valueSuffix: ' '+ yAxis
+                                    valueSuffix: ' ' + yAxis
                                 },
                                 plotOptions: {
                                     bar: {
@@ -1083,60 +1121,17 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 credits: {
                                     enabled: false
                                 },
-                                
+
                                 series: tempSeries
-
-                                //series: [{
-                                //    name: 'Year 1800',
-                                //    data: [107, 31, 635, 203, 2]
-                                //}, {
-                                //    name: 'Year 1900',
-                                //    data: [133, 156, 947, 408, 6]
-                                //}, {
-                                //    name: 'Year 2012',
-                                //    data: [1052, 954, 4250, 740, 38]
-                                //}]
-
-
-
                             });
 
-
-
-
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, resultsData, iter, extIndicatorLookUp);
 
                         } break;
 
                     case 'ColumnChart':
                         {
                             self.widgetPlacerT(pp, presentationTypeCount, 'Statistical Analysis', '500px', 'columnChart', iter);
-
-                            //$('.columnChart').highcharts({
-                            //    chart: {
-                            //        type: 'column'
-                            //    },
-                            //    title: {
-                            //        text: 'Column chart with negative values'
-                            //    },
-                            //    xAxis: {
-                            //        categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
-                            //    },
-                            //    credits: {
-                            //        enabled: false
-                            //    },
-                            //    series: [{
-                            //        name: 'John',
-                            //        data: [5, 3, 4, 7, 2]
-                            //    }, {
-                            //        name: 'Jane',
-                            //        data: [2, -2, -3, 2, 1]
-                            //    }, {
-                            //        name: 'Joe',
-                            //        data: [3, 4, 4, -2, 5]
-                            //    }]
-                            //});
-
-
 
                             var lengthCount = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length;
 
@@ -1179,29 +1174,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     enabled: false
                                 },
                                 series: [{
-                                    /*name: 'John',*/
                                     colorByPoint: true,
-                                    
                                     data: chartData
-
-                                    //data: [5, 3, -4, -7, 2]
-
-                                }
-
-                                //, {
-                                //    name: 'Jane',
-                                //    data: [2, -2, -3, 2, 1]
-                                //}, {
-                                //    name: 'Joe',
-                                //    data: [3, 4, 4, -2, 5]
-                                //}
-
-
-                                ]
+                                }]
                             });
-
-
-
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, resultsData, iter, extIndicatorLookUp);
 
                         } break;
 
@@ -1753,7 +1730,14 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var dataLookUp = {};
         // generate the lookup table for reuse
         json.forEach(function (el, i, arr) {
-            dataLookUp[el.Key] = el.Value;
+
+            var index = i - 1;
+            var nameLookUp = el.Key + "" + index;
+            if (el.Key == "RAW") nameLookUp = el.Key;
+            dataLookUp[nameLookUp] = el.Value;
+
+
+            //dataLookUp[el.Key] = el.Value;
         });
 
         return dataLookUp;

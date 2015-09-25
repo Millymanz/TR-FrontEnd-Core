@@ -1906,6 +1906,7 @@ $(function() {
 
     function dataCalculations(data) {
         overlay1Data = [];
+        dennisOverlay1Data = [];
         overlay2Data = [];
         overlay3Data_1 = [];
         overlay3Data_2 = [];
@@ -1959,6 +1960,10 @@ $(function() {
                 }
                 SMA = tempData / SMADays;
                 overlay1Data.push([datePoint[0], SMA]);
+
+                var neData = SMA + 2;
+                dennisOverlay1Data.push([datePoint[0], neData]);
+
             }
             overlay2Data.push([d[0], d[4] + 10]);
             overlay3Data_1.push([d[0], d[4] - 20]);
@@ -2339,10 +2344,16 @@ $(function() {
         highlightRegion: higlighters,
         trendLines: [{
             name: "Trend signalLine",
-            startDate: Date.UTC(2013, 4, 7),
+            //startDate: Date.UTC(2013, 4, 7),
+            //startDate: Date.UTC(2013, 5, 3),
+            
+            startDate:1365120000000,
             lowColor: "#42ad5e",
             highColor: "#4e66dc",
-            endDate: Date.UTC(2013, 3, 19)
+            endDate: 1366761600000
+            //endDate: Date.UTC(2013, 18, 4)
+
+            //endDate: Date.UTC(2013, 3, 19)
         }],
         overlay: [{
             code: 'sma',
@@ -2352,7 +2363,18 @@ $(function() {
             dataGrouping: {
                 units: groupingUnits
             }
+        },
+
+        {
+            code: 'sma',
+            name: 'SMA',
+            color: 'red',
+            data: [dennisOverlay1Data],
+            dataGrouping: {
+                units: groupingUnits
+            }
         }
+
             /*,
                 {
                     code: 'ema',
