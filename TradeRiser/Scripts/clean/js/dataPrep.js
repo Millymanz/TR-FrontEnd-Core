@@ -57,7 +57,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         var indTwo = obj.CurrentResult.ProcessedResults.KeyFieldIndex[1];
 
 
-                        var resultValue = dataLookUp["CorrelationRatio" + ss];
+                        var resultValue = dataLookUp["CorrelationRatio"];
 
                         var lineSeriesOptions = [],
                             symbolNames = [];
@@ -127,9 +127,9 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                 case 'BollingerBands':
                     {
-                        var dataUpperBand = dataLookUp["UpperBand" + ss];
-                        var dataLowerBand = dataLookUp["LowerBand" + ss];
-                        var dataMiddleBand = dataLookUp["MiddleBand" + ss];
+                        var dataUpperBand = dataLookUp["UpperBand"];
+                        var dataLowerBand = dataLookUp["LowerBand"];
+                        var dataMiddleBand = dataLookUp["MiddleBand"];
 
                         if (dataMiddleBand != null || dataMiddleBand !== undefined) {
                             var smaOverlayArray = [];
@@ -192,7 +192,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         selectChartKey = selectChartKey + indicatorName;
                         var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
 
-                        var dataResults = dataLookUp["Aroon Oscillator" + ss];
+                        var dataResults = dataLookUp["Aroon Oscillator"];
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -245,7 +245,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                         selectChartKey = selectChartKey + "Aroon Up";
 
-                        var dataResults = dataLookUp["Aroon Up" + ss];
+                        var dataResults = dataLookUp["Aroon Up"];
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -298,7 +298,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                         selectChartKey = selectChartKey + indicatorName;
 
-                        var dataResults = dataLookUp["Aroon Down" + ss];
+                        var dataResults = dataLookUp["Aroon Down"];
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -353,7 +353,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                         selectChartKey = selectChartKey + "RSI";
 
-                        var dataResults = dataLookUp["RSI" + ss];
+                        var dataResults = dataLookUp["RSI"];
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -406,9 +406,9 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                         selectChartKey = selectChartKey + "MACD";
 
-                        var dataMACD = dataLookUp["MACDLine" + ss];
-                        var dataSignal = dataLookUp["SignalLine" + ss];
-                        var dataMACDHistogram = dataLookUp["MACDHistogram" + ss];
+                        var dataMACD = dataLookUp["MACDLine"];
+                        var dataSignal = dataLookUp["SignalLine"];
+                        var dataMACDHistogram = dataLookUp["MACDHistogram"];
 
                         if (dataMACD != null || dataMACD !== undefined) {
                             var dataLength = dataMACD.length;
@@ -500,7 +500,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                         selectChartKey = selectChartKey + "ATR";
 
-                        var dataResults = dataLookUp["ATR" + ss];
+                        var dataResults = dataLookUp["ATR"];
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -551,7 +551,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         var indOne = obj.CurrentResult.ProcessedResults.KeyFieldIndex[0];
                         var indTwo = obj.CurrentResult.ProcessedResults.KeyFieldIndex[1];
 
-                        var resultValue = dataLookUp["CorrelationRatio" + ss];
+                        var resultValue = dataLookUp["CorrelationRatio"];
 
                         var lineSeriesOptions = [],
                             symbolNames = [];

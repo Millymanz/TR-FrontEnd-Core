@@ -1728,16 +1728,83 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
     this.createLookUp = function (json) {
         var dataLookUp = {};
+        var tempLookUp = {};
+
+        json.forEach(function (el, i, arr) {
+
+            json.forEach(function (nu, j, arrd) {
+
+                if (el.Key == nu.Key && i != j) {
+                    
+                    var currentCount = tempLookUp[el.Key];
+                    if (typeof currentCount !== 'undefined') {
+                        tempLookUp[el.Key] = currentCount + 1;
+                    }
+                    else {
+                        tempLookUp[el.Key] = 1;
+                    }
+                }
+
+            });
+        });
+
+        var ManySet = false;
         // generate the lookup table for reuse
         json.forEach(function (el, i, arr) {
 
-            var index = i - 1;
-            var nameLookUp = el.Key + "" + index;
-            if (el.Key == "RAW") nameLookUp = el.Key;
-            dataLookUp[nameLookUp] = el.Value;
+
+            //if (el.Key != "LowerBand" && el.Key != "MiddleBand" && el.Key != "UpperBand" && ManySet == true) {
+            //    nameLookUp = el.Key + "" + 0;
+            //}
 
 
-            //dataLookUp[el.Key] = el.Value;
+                var index = i - 1;
+                if (index === -1) index = 0;
+
+                var nameLookUp = el.Key + "" + index;
+
+                var currentCount = tempLookUp[el.Key];
+                if (typeof currentCount !== 'undefined') {
+                    index = currentCount - 1;
+                    tempLookUp[el.Key] = index;
+
+                    nameLookUp = el.Key + "" + index;
+                }
+                else {
+                    nameLookUp = el.Key;
+                }
+
+
+                //switch (el.Key) {
+                //    case "UpperBand":
+                //    case "LowerBand":
+                //    case "MiddleBand":
+                //        {
+                //            nameLookUp = el.Key;
+                //        } break;
+                //}
+              
+
+                //else {
+                //    //these are part of the same display
+                //    //if (el.Key == "LowerBand" || el.Key == "MiddleBand" || el.Key == "UpperBand") {
+                //    //    nameLookUp = el.Key + "" + 0;
+
+                //    //   // dataLookUp[nameLookUp] = el.Value;
+                //    //}
+                //    switch (el.Key) {
+                //        case "UpperBand":
+                //        case "LowerBand":
+                //        case "MiddleBand":
+                //            {
+                //                nameLookUp = el.Key + "" + 0;
+                //                ManySet = true;
+                //            } break;
+                //    }
+                //}                
+                if (el.Key == "RAW") nameLookUp = el.Key;
+                dataLookUp[nameLookUp] = el.Value;
+
         });
 
         return dataLookUp;

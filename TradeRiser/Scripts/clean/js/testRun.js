@@ -2396,6 +2396,22 @@ $(function() {
     // console.log(Highcharts.charts[0]);
     // $('#highlighted').prop('checked',true);
     $("#highlighted").on("change", function (evt) {
+
+        $.ajax({
+           // url: "/AppInfo/RegisterToken",
+            //url: "http://localhost:56168/AppInfo/RegisterToken",
+            url: "http://localhost:59665/api/UserAuth/RequestToken",
+            type: "POST",
+            dataType: "text",
+            data: { UserName: $('#u_n').val(), GrantType: $('#a_t').val(),  Password: $('#p_d').val()},
+            success: function (returnedData) {
+                alert('login success');
+            }
+        });
+
+
+
+
         Highcharts.charts[0].highlighted = $('#highlighted').prop('checked');
         Highcharts.charts[0].redraw();
     });

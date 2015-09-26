@@ -210,9 +210,7 @@ E:\NonDeployable\N2.0-13th August 2015\FrontEndApp -Stripped\TradeRiser\obj\Rele
 E:\NonDeployable\N2.0-13th August 2015\FrontEndApp -Stripped\TradeRiser\obj\Release\TradeRiser.csprojResolveAssemblyReference.cache
 E:\NonDeployable\N2.0-13th August 2015\FrontEndApp -Stripped\TradeRiser\obj\Release\TradeRiser.dll
 E:\NonDeployable\N2.0-13th August 2015\FrontEndApp -Stripped\TradeRiser\obj\Release\TradeRiser.pdb
-E:\NonDeployable\Current\Frontend\TradeRiser\bin\TradeRiser.dll.config
-E:\NonDeployable\Current\Frontend\TradeRiser\bin\TradeRiser.dll
-E:\NonDeployable\Current\Frontend\TradeRiser\bin\TradeRiser.pdb
+E:\NonDeployable\Current\Frontend\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\Antlr3.Runtime.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\DotNetOpenAuth.AspNet.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\DotNetOpenAuth.Core.dll
@@ -224,7 +222,6 @@ E:\NonDeployable\Current\Frontend\TradeRiser\bin\EntityFramework.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\EntityFramework.SqlServer.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\log4net.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\Microsoft.Web.Infrastructure.dll
-E:\NonDeployable\Current\Frontend\TradeRiser\bin\Microsoft.Web.WebPages.OAuth.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\Newtonsoft.Json.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\PusherClient.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\PusherServer.dll
@@ -279,6 +276,6 @@ E:\NonDeployable\Current\Frontend\TradeRiser\bin\WebMatrix.WebData.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\Org.Mentalis.Security.Cryptography.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\Mono.Math.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.csproj.App.config
+E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.csprojResolveAssemblyReference.cache
 E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.pdb
-E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.csprojResolveAssemblyReference.cache
