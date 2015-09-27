@@ -986,6 +986,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var overlayArray = [];
         var highlighterArray = [];
         var yAxisArray = []; //has to be double quotes
+        var groupingUnits = [];
 
 
         var presentationTypeCount = obj.CurrentResult.PresentationTypes.length;
@@ -1010,6 +1011,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                 var json = rawDataResults[pp].ChartReadyDataResults;
                 var dataLookUp = self.createLookUp(json);
+                var mulitipleWidgetLookUp = self.createMulitipleWidgetsLookUp(json);
+
                 var extIndicatorLookUp = self.createExternalIndicatorLookUp(json);
 
 
@@ -1125,7 +1128,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 series: tempSeries
                             });
 
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, resultsData, iter, extIndicatorLookUp);
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp);
 
                         } break;
 
@@ -1178,7 +1181,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     data: chartData
                                 }]
                             });
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, resultsData, iter, extIndicatorLookUp);
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp);
 
                         } break;
 
@@ -1302,11 +1305,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     series: lineSeriesOptions
                                 });
                             }
-
-
-                            // }
-
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, resultsData, iter, extIndicatorLookUp);
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp);
 
                         } break;
 
@@ -1319,9 +1318,6 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
                             var chartClassName = 'chartspace dialogchart' + pp;
-                            //var markup = "<div class='widgetTitle'>15 Timeframe</div><br/><div class='" + chartClassName + "'style='height: 610px; width:50%'></div>";
-
-                            //var dataLookUp.length;
 
                             //function to confirm number of indicators involved
                             var candlestickHeight = '610px';
@@ -1379,7 +1375,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
                                 //// set the allowed units for data grouping
-                                var groupingUnits = [[
+                                groupingUnits = [[
                                     'week',                         // unit name
                                     [1]                             // allowed multiples
                                 ], [
@@ -1408,7 +1404,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                                 for (var hl = 0; hl < rawDataResults[pp].HighLightRegion.length; hl++) {
 
-                                    rawDataResults[pp].HighLightRegion[hl].Comment.split("**");;
+                                    rawDataResults[pp].HighLightRegion[hl].Comment.split("**");
 
 
                                     var highlighterItem = {
@@ -1417,11 +1413,9 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                         seriesIndex: rawDataResults[pp].HighLightRegion[hl].SeriesIndex,
                                         startDate: rawDataResults[pp].HighLightRegion[hl].StartDateTime,
                                         endDate: rawDataResults[pp].HighLightRegion[hl].EndDateTime,
-                                        speechBubbleHtml: rawDataResults[pp].HighLightRegion[hl].Comment
-
-                                        //speechBubbleHtml: '<b>Histogram </b> <br/> other comment '
-
+                                        speechBubbleHtml: rawDataResults[pp].HighLightRegion[hl].Comment 
                                     }
+
                                     highlighterArray.push(highlighterItem);
                                 }
 
@@ -1436,8 +1430,9 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 yAxisArray.push(chartItemDef);
 
                                 presentationTypeIndex = pp;
-                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp);
 
+                                                       // (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp)
+                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp);
 
                                 SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray);
                             }
@@ -1752,12 +1747,6 @@ function TradeRiserViewModel(tradeRiserProxy) {
         // generate the lookup table for reuse
         json.forEach(function (el, i, arr) {
 
-
-            //if (el.Key != "LowerBand" && el.Key != "MiddleBand" && el.Key != "UpperBand" && ManySet == true) {
-            //    nameLookUp = el.Key + "" + 0;
-            //}
-
-
                 var index = i - 1;
                 if (index === -1) index = 0;
 
@@ -1773,35 +1762,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                 else {
                     nameLookUp = el.Key;
                 }
-
-
-                //switch (el.Key) {
-                //    case "UpperBand":
-                //    case "LowerBand":
-                //    case "MiddleBand":
-                //        {
-                //            nameLookUp = el.Key;
-                //        } break;
-                //}
-              
-
-                //else {
-                //    //these are part of the same display
-                //    //if (el.Key == "LowerBand" || el.Key == "MiddleBand" || el.Key == "UpperBand") {
-                //    //    nameLookUp = el.Key + "" + 0;
-
-                //    //   // dataLookUp[nameLookUp] = el.Value;
-                //    //}
-                //    switch (el.Key) {
-                //        case "UpperBand":
-                //        case "LowerBand":
-                //        case "MiddleBand":
-                //            {
-                //                nameLookUp = el.Key + "" + 0;
-                //                ManySet = true;
-                //            } break;
-                //    }
-                //}                
+           
                 if (el.Key == "RAW") nameLookUp = el.Key;
                 dataLookUp[nameLookUp] = el.Value;
 
@@ -1810,9 +1771,29 @@ function TradeRiserViewModel(tradeRiserProxy) {
         return dataLookUp;
     };
 
-    this.initalizeSubWidgets = function (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp) {
+    this.createMulitipleWidgetsLookUp = function (json) {
+        var tempLookUp = {};
 
-        PrepareChartData(presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp);
+        json.forEach(function (el, i, arr) {
+            json.forEach(function (nu, j, arrd) {
+                if (el.Key == nu.Key && i != j) {
+                    var currentCount = tempLookUp[el.Key];
+                    if (typeof currentCount !== 'undefined') {
+                        tempLookUp[el.Key] = currentCount + 1;
+                    }
+                    else {
+                        tempLookUp[el.Key] = 1;
+                    }
+                }
+            });
+        });      
+        return tempLookUp;
+    };
+
+
+    this.initalizeSubWidgets = function (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp) {
+
+        PrepareChartData(presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp);
     }
 
     this.convertToNumericKeyID = function (selectChartKey) {

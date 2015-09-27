@@ -28,7 +28,7 @@ function GenerateRandomColour() {
     return textArray[randomNumber];
 }
 
-function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp) {
+function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp) {
 
         //create selectChartKey from loop
         var allCount = 8;
@@ -41,7 +41,9 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
     
         var indicatorPos = 0;
         if (yAxisArray != null && typeof yAxisArray != 'undefined') {
-            indicatorPos = yAxisArray[0].height;
+            if (yAxisArray.length > 0) {
+                indicatorPos = yAxisArray[0].height;
+            }
         }
 
         var indSpacing = 90;
@@ -84,7 +86,18 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                 case 'SMA':
                     {
-                        var dataResults = dataLookUp["SMA" + ss];
+                        var dataResults = {};
+                        var widgetName = "";
+                        var currentCount = mulitipleWidgetLookUp["SMA"];
+                        if (typeof currentCount !== 'undefined') {
+                            dataResults = dataLookUp["SMA" + ss];
+                            widgetName = obj.CurrentResult.PresentationTypes[0].SubWidgetsAltName[ss];
+                        }
+                        else {
+                            dataResults = dataLookUp["SMA"];
+                            widgetName = "SMA";
+                        }
+                        
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -106,7 +119,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             var smaChartItem = {
                                 code: 'sma',
-                                name: 'SMA',
+                                name: widgetName,
                                 color: selectedColor,
                                 data: [smaData],
                                 dataGrouping: {

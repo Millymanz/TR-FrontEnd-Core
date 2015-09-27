@@ -279,3 +279,6 @@ E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.csproj.App.c
 E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.csprojResolveAssemblyReference.cache
 E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.pdb
+E:\NonDeployable\Current\Frontend\TradeRiser\bin\TradeRiser.dll.config
+E:\NonDeployable\Current\Frontend\TradeRiser\bin\TradeRiser.dll
+E:\NonDeployable\Current\Frontend\TradeRiser\bin\TradeRiser.pdb

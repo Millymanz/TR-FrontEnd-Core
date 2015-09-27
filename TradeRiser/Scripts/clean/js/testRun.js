@@ -2400,7 +2400,9 @@ $(function() {
         $.ajax({
            // url: "/AppInfo/RegisterToken",
             //url: "http://localhost:56168/AppInfo/RegisterToken",
-            url: "http://localhost:59665/api/UserAuth/RequestToken",
+            //url: "http://localhost:59665/api/UserAuth/RequestToken",
+
+            url: "http://devapi.traderiser.com/api/UserAuth/RequestToken",
             type: "POST",
             dataType: "text",
             data: { UserName: $('#u_n').val(), GrantType: $('#a_t').val(),  Password: $('#p_d').val()},
