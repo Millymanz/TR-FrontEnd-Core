@@ -1,6 +1,13 @@
 // JavaScript Document
 
 
+
+//$("#highlighted").on("change", function (evt) {
+//    Highcharts.charts[0].highlighted = $('#highlighted').prop('checked');
+//    Highcharts.charts[0].redraw();
+//});
+
+
 function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray) {
 
     var chartClassName = 'chartspace dialogchart' + presentationTypeIndex;
@@ -77,6 +84,26 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
 
             // create the chart
             $(classOnly).highcharts('StockChart', {
+
+
+          
+                //tooltip: {
+                //style: {
+                //        height: '200px',
+                //        width: '700px'
+                //},
+                //pointFormat: '<span style="color:{series.color};white-space:nowrap"> \u25CF{series.name}: <b>{point.y}</b></span>',
+                //positioner: function() {
+                //        return {
+                //            x: 300,
+                //            y: 20
+                //        };
+                //    },
+                //},
+
+
+
+
 
                 title: {
                     text: symbolNames[0]

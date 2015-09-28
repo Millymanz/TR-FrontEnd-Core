@@ -1406,7 +1406,6 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                                     rawDataResults[pp].HighLightRegion[hl].Comment.split("**");
 
-
                                     var highlighterItem = {
                                         colour: rawDataResults[pp].HighLightRegion[hl].Colour,
                                         axisIndex: rawDataResults[pp].HighLightRegion[hl].AxisIndex,
@@ -1415,7 +1414,6 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                         endDate: rawDataResults[pp].HighLightRegion[hl].EndDateTime,
                                         speechBubbleHtml: rawDataResults[pp].HighLightRegion[hl].Comment 
                                     }
-
                                     highlighterArray.push(highlighterItem);
                                 }
 
@@ -1431,10 +1429,54 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                                 presentationTypeIndex = pp;
 
-                                                       // (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp)
                                 self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp);
 
                                 SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray);
+
+                                //Insert into Title area
+                                if (highlighterArray.length > 0) {
+
+                                    var highId = Highcharts.charts[Highcharts.charts.length - 1].container.id;
+
+                                    $("#highlightControl" + pp).append($("<label>HighLighters : </label><input type='checkbox' checked id='highlightControlCheckBoxSplit" + highId + "'>"));
+
+                                    $("#highlightControlCheckBoxSplit" + highId).bind("change", function (e) {
+
+                                        var splitArrayTxt = e.target.id.split('Split');
+                                        var clikedItemId = splitArrayTxt[1];
+
+                                        for (var g = 0; g < Highcharts.charts.length; g++) {
+
+                                            if (typeof Highcharts.charts[g] !== 'undefined') {
+                                                if (Highcharts.charts[g].container.id == clikedItemId) {
+
+                                                    Highcharts.charts[g].pointFormat = '<span style="color:{series.color};white-space:nowrap"> \u25CF{series.name}: <b>{point.y}</b></span>';
+
+                                                    Highcharts.charts[g].tooltip.positioner = function () {
+                                                        return {
+                                                            x: 20,
+                                                            y: 80
+                                                        };
+                                                    }
+
+
+
+                                                    Highcharts.charts[g].highlighted = $("#highlightControlCheckBoxSplit" + clikedItemId).prop('checked');
+                                                    Highcharts.charts[g].redraw();
+
+
+
+
+                                                }
+                                            }
+                                        }
+                                    })
+
+                                }
+
+
+
+
                             }
 
                         } break;
@@ -1565,6 +1607,14 @@ function TradeRiserViewModel(tradeRiserProxy) {
         }
     };
 
+    //this.highLightersHandling = function (index, total, title, height, chartClassName, iter) {
+
+    //    $("#highlighted").on("change", function (evt) {
+    //        Highcharts.charts[0].highlighted = $('#highlighted').prop('checked');
+    //        Highcharts.charts[0].redraw();
+    //    });
+    //};
+
     this.widgetPlacerT = function (index, total, title, height, chartClassName, iter) {
 
         var remaining = total - index;
@@ -1579,7 +1629,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         //}
 
 
-        var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>"; //*
+        var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
 
 
         $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
@@ -1661,39 +1711,17 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
     this.isExternalIndicator = function (indicatorItem) {
         switch (indicatorItem) {
-            case 'RSI':
-                {
-                    return true;
-                }
-                break;
-
             case 'ATR':
-                {
-                    return true;
-                }
-                break;
-
+            case 'STDDEV':
+            case 'RSI':
             case 'Aroon Oscillator':
-                {
-                    return true;
-                } break;
-
             case 'Aroon Up':
-                {
-                    return true;
-                }
-                break;
-
             case 'Aroon Down':
-                {
-                    return true;
-                }
-                break;
-
             case 'MACD':
                 {
                     return true;
-                } break;
+                }
+                break;
         }
         return false;
     };

@@ -358,15 +358,16 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                     }
                     break;
 
+                case 'STDDEV':
                 case 'RSI':
                     {
-                        var indicatorName = "RSI";
+                        var indicatorName = presentationTypes.SubWidgets[ss];
                         var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
 
 
-                        selectChartKey = selectChartKey + "RSI";
+                        selectChartKey = selectChartKey + indicatorName;
 
-                        var dataResults = dataLookUp["RSI"];
+                        var dataResults = dataLookUp[indicatorName];
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -381,7 +382,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             var rsiChart = {
                                 type: 'line',
-                                name: 'RSI',
+                                name: indicatorName,
                                 data: rsiArray,
                                 yAxis: yAxisPos,
                                 dataGrouping: {
@@ -395,6 +396,83 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             var chartItemDef = {
                                 title: {
                                     text: indicatorName
+                                },
+                                top: indicatorPos,
+                                height: 100,
+                                offset: 0,
+                                lineWidth: 2
+                            };
+                            yAxisArray.push(chartItemDef);
+
+                            allCountIter++;
+
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
+                        }
+                    }
+                    break;
+
+                case 'Stochastic':
+                    {
+                        var indicatorName = presentationTypes.SubWidgets[ss];
+
+                        selectChartKey = selectChartKey + indicatorName;
+
+                        var stochasticPKDataTemp = dataLookUp["OutSlowKData"];
+                        var stochasticPDDataTemp = dataLookUp["OutSlowDData"];
+                       
+
+                        if (stochasticPKDataTemp != null || stochasticPKDataTemp !== undefined) {
+                            var dataLength = stochasticPKDataTemp.length;
+                            var stochasticPKData = [];
+                            var stochasticPDData = [];
+
+                            for (var ri = 0; ri < dataLength; ri++) {
+
+                                stochasticPKData.push([
+                                    stochasticPKDataTemp[ri][0], // the date
+                                    stochasticPKDataTemp[ri][1] // the close
+                                ])
+
+                                stochasticPDData.push([
+                                    stochasticPDDataTemp[ri][0], // the date
+                                    stochasticPDDataTemp[ri][1] // the close
+                                ])
+                            }
+                            var axis = 1;
+
+                            var macdChartItem ={
+                                type: 'line',
+                                name: 'Stochastic %K ',
+                                data: stochasticPKData,
+                                yAxis: axis,
+                                dashStyle: 'ShortDash',
+                                dataGrouping: {
+                                    units: groupingUnits
+                                }
+                            }
+                            arraySeries.push(macdChartItem);
+
+
+                            var signalChartItem = {
+                                type: 'line',
+                                name: 'Stochastic %D ',
+                                data: stochasticPDData,
+                                dashStyle: 'LongDash',
+                                yAxis: axis,
+                                dataGrouping: {
+                                    units: groupingUnits
+                                }
+                            }
+                            arraySeries.push(signalChartItem);
+
+                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
+
+                            var chartItemDef = {
+                                title: {
+                                    text: 'Stochastic'
                                 },
                                 top: indicatorPos,
                                 height: 100,

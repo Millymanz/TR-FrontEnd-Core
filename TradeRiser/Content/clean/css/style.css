@@ -1071,6 +1071,8 @@ background-position:0px 0px;
         color:#FFF;
         text-shadow:none;
 }
+
+/*Temporary hold*/
 .content {
 	position: absolute;
 	left: 340px;
@@ -1078,6 +1080,8 @@ background-position:0px 0px;
 	right: 0px;
 	bottom: 0px;
 }
+
+
 .content-inner {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
