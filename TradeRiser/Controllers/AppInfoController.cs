@@ -21,6 +21,7 @@ namespace TradeRiser.Controllers
     {
 
         [AllowAnonymous]
+        [OutputCache(NoStore = true, Duration = 0)]
         public ActionResult Index()
         {
             return View();
@@ -29,6 +30,7 @@ namespace TradeRiser.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [OutputCache(NoStore = true, Duration = 0)]
         public ActionResult Index(LoginModel model, string returnUrl)
         {
             var restClient = new RestClient();
@@ -39,13 +41,7 @@ namespace TradeRiser.Controllers
                 returnUrl = "/App";
 
                 FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-
-                //var gh = new AppController();
-                //gh.Index(customToken);
-
                 Session.Add("accesstoken", customToken);
-
-                
 
                 return RedirectToLocal(returnUrl);
             }
@@ -73,20 +69,19 @@ namespace TradeRiser.Controllers
         //
         // POST: /Account/LogOff
         [HttpPost]
-        public ActionResult LogOff(string username, string accessToken)
+        public ActionResult LogOut(IEnumerable<string> hiddens)
         {
+            var logoutList = hiddens.ToList();
             var restClient = new RestClient();
 
-            var response = restClient.LogOff(username, accessToken);
+            var response = restClient.LogOff(logoutList[0], logoutList[1]);
 
             if (response)
             {
-                return RedirectToLocal("/AppInfo");
-
-                //return RedirectToAction("Index", "AppInfo");
-            }
-            return null;
-
+               Session["accesstoken"] = null;
+               return RedirectToLocal("/AppInfo");
+            }           
+            return View();
         }
 
         [HttpPost]

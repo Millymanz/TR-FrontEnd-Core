@@ -23,9 +23,7 @@
 
     <link rel="stylesheet" href="../../Content/jquery.dynatable.css">
 
-     <link rel="stylesheet" href="../../Scripts/Highstock-2.1.8/css/speech-bubble.css">
-
-@*    <link rel="stylesheet" href="../../Scripts/highstocks2/css/speech-bubble.css">*@
+    <link rel="stylesheet" href="../../Scripts/Highstock-2.1.8/css/speech-bubble.css">
 </head>
 <body>
     <div id="pageLoader" style="width:2000px; display:block; height:1000px; top:60px; background-color:black; color:white;  opacity: 0.7;
@@ -41,25 +39,20 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
 
     </div>
 
-   @*<div hidden id="h_v">Model.Binarycrypt</div>*@
-
-   <input type="hidden" value=@Model.Username id='u_n' class='h_v'>
+@*   <input type="hidden" value=@Model.Username id='u_n' class='h_v'>
    <input type="hidden" value=@Model.AccessToken id='a_t' class='h_v'>
-   <input type="hidden" value=@Model.Password id='p_d' class='h_v'>
+   <input type="hidden" value=@Model.Password id='p_d' class='h_v'>*@
 
     <!-- Header bar -->
-    <div class="header">
-@*        <img alt="Highcharts Home Page" src="http://api.highcharts.com/resources/images/Highstock.svg" border="0" >*@
-    
-        <div style="top:10px; position:absolute">
-        <img alt="Highcharts Home Page" src="../../../Images/TradeRiser_logo3.svg" border="0" height="40" width="240" >
+    <div class="header">    
+        <div style="top:4px; left:5px; position:absolute">
+            <img alt="TradeRiser" src="../../../Images/TradeRiser_Web.png" border="0" height="55" width="240" >
             </div>
         <div class="user">
  @if (Request.IsAuthenticated)
-            {
+ {
                 <a href="#" class="btn-user transition">
-                    <span class="imgbox">
-                        <img src="../Images/user-avatar.png" width="35" height="35" alt="John Doe"></span>
+                    
                     @User.Identity.Name
                     <i class="icn icn-carret"></i>
                 </a>
@@ -67,25 +60,25 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
  
                     <li class="logoutItem">
 
-                         @using (Html.BeginForm("LogOff", "AppInfo", FormMethod.Post, new { id = "logoutForm", username = Model.Username, accessToken = Model.AccessToken }))
+                         @using (Html.BeginForm("LogOut", "AppInfo", FormMethod.Post, new { id = "logoutForm" }))
                          {
-
-                            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                           <input type="hidden" value=@Model.Username id='u_n' class='h_v' name="hiddens">
+                           <input type="hidden" value=@Model.AccessToken id='a_t' class='h_v' name="hiddens">
+                           <input type="hidden" value=@Model.Password id='p_d' class='h_v' name="hiddens">
+                             
+                             <a href="#" style="text-align: center">Log off</a>
                          }
-
-
-
 
                     </li>
                 </ul>
-            }
+ }
  else
  {
                 <ul>
                     <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                     <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
                 </ul>
-            }
+ }
         </div>
     </div>
     <!-- End Header bar -->
@@ -277,9 +270,7 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
     <!-- Main Content -->
     <div class="content">
         <div class="content-inner">
-            <a id="performStatsButton" href="#performanceStats">Performance Statistics</a>
-            <a id="riskDisclaimerButton" href="#riskDisclaimer">Risk Disclaimer</a>
-            
+            <a id="riskDisclaimerButton" href="#riskDisclaimer">Risk Disclaimer</a>            
                 <div id="noresults" style="z-index: 50000; display:none; font-size: medium; font-family:'PT Sans', Arial, Helvetica, sans-serif;
                 margin: 100px auto; color:#686665; left:0; right:0; width: 600px; position: absolute; padding:5px 5px 5px 5px; border-radius: 5px; 
                 box-shadow: 0 0 7px 1px #BFCFD0;"><b>TradeRiser does not understand your input. 
@@ -287,9 +278,6 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
 
             <div class="pane" id="resultCanvas">
                 <!-- Space for app content -->
-
-
-
                 <table width="95%" cellspacing="1" border="1" style="border-color: #E0E0E0; margin: 0 auto;">
                     <tr>
                         <td>
