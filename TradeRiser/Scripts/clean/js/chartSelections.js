@@ -195,19 +195,19 @@ function SelectButtonArray(timeFrame) {
                  {
                      type: 'hour',
                      count: 4,
-                     text: '- (In 1x)'
+                     text: '+ (In 1x)'
                  }
                  ,
                  {
                      type: 'hour',
                      count: 2,
-                     text: '- (In 2x)'
+                     text: '+ (In 2x)'
                  }
                  ,
                  {
                      type: 'hour',
                      count: 1,
-                     text: '- (In 3x)'
+                     text: '+ (In 3x)'
                  }
                 ];
             } break;
@@ -223,25 +223,25 @@ function SelectButtonArray(timeFrame) {
                  {
                      type: 'hour',
                      count: 6,
-                     text: '- (In 1x)'
+                     text: '+ (In 1x)'
                  }
                  ,
                  {
                      type: 'hour',
                      count: 4,
-                     text: '- (In 2x)'
+                     text: '+ (In 2x)'
                  }
                  ,
                  {
                     type: 'hour',
                     count: 2,
-                    text: '- (In 3x)'
+                    text: '+ (In 3x)'
                  }
                  ,
                  {
                      type: 'hour',
                      count: 1,
-                     text: '- (In 4x)'
+                     text: '+ (In 4x)'
                  }
                 ];
 
@@ -263,12 +263,12 @@ function SelectButtonArray(timeFrame) {
                 {
                     type: 'day',
                     count: 4,
-                    text: '- (In 1x)'
+                    text: '+ (In 1x)'
                 },
                 {
                     type: 'day',
                     count: 2,
-                    text: '- (In 2x)'
+                    text: '+ (In 2x)'
                 }
                 ];
 

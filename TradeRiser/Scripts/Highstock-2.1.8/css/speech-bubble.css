@@ -78,17 +78,15 @@ div.pin {
     float: right;
 }
 
-#speech-bubble .container .content {
+#speech-bubble .container .bubblecontent {
     clear: both;
     padding: 0px 5px 5px 5px;
+    font-size: 13px;
 }
 
-#speech-bubble .bubblecontent {
+/*#speech-bubble .bubblecontent {
     font-size: 13px;
     padding: 5px 5px 5px 5px;
     position: relative;
-}
-
-/*#speech-bubble .container .bubblecontent {
-    font-size: 13px;
 }*/
+
