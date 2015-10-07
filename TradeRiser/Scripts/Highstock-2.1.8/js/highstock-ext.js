@@ -206,11 +206,95 @@
                 });
             });
         };
-        this.addTrendLines = function (argument) {
+        this.addCustomLines = function(argument) {
+            if (!chart.options.customLines || !chart.options.customLines.length) {
+                return;
+            }
+            H.each(chart.options.customLines, function(customLine) {
+                var yAxis = chart.yAxis[0];
+                var axisSeries = yAxis.series[0];
+                var axisPoints = axisSeries.points;
+                var customAxisLineData = [];
+                // console.log(axisPoints);
+                H.each(data, function(point) {
+                    if (point[0] > customLine.startDate) {
+                        customAxisLineData.push([point[0], customLine.value]);
+                    } else {
+                        customAxisLineData.push([point[0], null]);
+                    }
+                });
+                var options = {
+                    name: customLine.name,
+                    data: customAxisLineData,
+                    lineWidth: 1,
+                    marker: {
+                        symbol: 'circle',
+                        states: {
+                            hover: {
+                                enabled: false
+                            }
+                        }
+                    }
+                };
+                if (customLine.color) {
+                    options.color = customLine.color;
+                }
+                if (customLine.dataGrouping) {
+                    options.dataGrouping = customLine.dataGrouping;
+                }
+                chart.addSeries(options);
+            });
+        };
+        this.addCustomSlopeLines = function(argument) {
+            if (!chart.options.customSlopeLines || !chart.options.customSlopeLines.length) {
+                return;
+            }
+            H.each(chart.options.customSlopeLines, function(customLine) {
+                var yAxis = chart.yAxis[0];
+                var axisSeries = yAxis.series[0];
+                var axisPoints = axisSeries.points;
+                var customLineData = [];
+                // console.log(axisPoints);
+                H.each(data, function(point) {
+                    if (point[0] == customLine.startDate || point[0] == customLine.endDate) {
+                        if (point[0] == customLine.startDate) {
+                            customLineData.push([point[0], customLine.startValue]);
+                        } else {
+                            customLineData.push([point[0], customLine.endValue]);
+                        }
+                    } else if (point[0] >= customLine.startDate && point[0] <= customLine.endDate) {
+                        var slope = (customLine.endValue - customLine.startValue) / (customLine.endDate - customLine.startDate)
+                        var value = customLine.startValue + slope * (point[0] - customLine.startDate);
+                        customLineData.push([point[0], value]);
+                    }
+                });
+                var options = {
+                    name: customLine.name,
+                    data: customLineData,
+                    lineWidth: 1,
+                    marker: {
+                        symbol: 'circle',
+                        states: {
+                            hover: {
+                                enabled: false
+                            }
+                        }
+                    }
+                };
+                if (customLine.color) {
+                    options.color = customLine.color;
+                }
+                if (customLine.dataGrouping) {
+                    options.dataGrouping = customLine.dataGrouping;
+                }
+                chart.addSeries(options);
+            });
+        };
+        this.addTrendLines = function(argument) {
             if (!chart.options.trendLines || !chart.options.trendLines.length) {
                 return;
             }
-            H.each(chart.options.trendLines,function (trendline) {
+            H.each(chart.options.trendLines, function(trendline) {
                 var yAxis = chart.yAxis[0];
                 var axisSeries = yAxis.series[0];
                 var axisPoints = axisSeries.points;
@@ -218,67 +302,70 @@
                 var lineDataHigh = [];
                 // console.log(axisPoints);
                 H.each(axisPoints, function(point) {
-
-                        if (point.x == trendline.startDate || point.x == trendline.endDate) {
-                            lineDataLow.push([point.x,point.low]);
-                            lineDataHigh.push([point.x,point.high]);
-                        }
+                    if (point.x == trendline.startDate || point.x == trendline.endDate) {
+                        lineDataLow.push([point.x, point.low]);
+                        lineDataHigh.push([point.x, point.high]);
+                    }
                 });
-                console.log(lineDataLow,lineDataHigh);
+                console.log(lineDataLow, lineDataHigh);
                 var options = {
-                        name: trendline.name + " - High ",
-                        data: lineDataHigh,
-                        lineWidth: 2,
-                        marker: {
-                            symbol: 'circle',
-                            states: {
-                                hover: {
-                                    enabled: false
-                                }
+                    name: trendline.name + " - High ",
+                    data: lineDataHigh,
+                    lineWidth: 2,
+                    marker: {
+                        symbol: 'circle',
+                        states: {
+                            hover: {
+                                enabled: false
                             }
                         }
-                    };
-                    if (trendline.highColor) {
-                        options.color = trendline.highColor;
                     }
-                    if (trendline.dataGrouping) {
-                        options.dataGrouping = trendline.dataGrouping;
-                    }
-                    chart.addSeries(options);
-                    var options2 = {
-                        name: trendline.name + " - Low ",
-                        data: lineDataLow,
-                        lineWidth: 2,
-                        marker: {
-                            symbol: 'circle',
-                            states: {
-                                hover: {
-                                    enabled: false
-                                }
+                };
+                if (trendline.highColor) {
+                    options.color = trendline.highColor;
+                }
+                if (trendline.dataGrouping) {
+                    options.dataGrouping = trendline.dataGrouping;
+                }
+                chart.addSeries(options);
+                var options2 = {
+                    name: trendline.name + " - Low ",
+                    data: lineDataLow,
+                    lineWidth: 2,
+                    marker: {
+                        symbol: 'circle',
+                        states: {
+                            hover: {
+                                enabled: false
                             }
                         }
-                    };
-                    if (trendline.highColor) {
-                        options.color = trendline.lowColor;
                     }
-                    if (trendline.dataGrouping) {
-                        options.dataGrouping = trendline.dataGrouping;
-                    }
-                    chart.addSeries(options2);
+                };
+                if (trendline.highColor) {
+                    options.color = trendline.lowColor;
+                }
+                if (trendline.dataGrouping) {
+                    options.dataGrouping = trendline.dataGrouping;
+                }
+                chart.addSeries(options2);
 
             });
 
-        }
+        };
         origFunc.apply(this, Array.prototype.slice.call(arguments, 1));
     });
     H.wrap(H.Chart.prototype, 'render', function(origFunc) {
         origFunc.apply(this, Array.prototype.slice.call(arguments, 1));
         this.highlightRegions();
         this.addTrendLines();
+        this.addCustomLines();
+        this.addCustomSlopeLines();
         this.buildOverlay();
     });
     H.wrap(H.Chart.prototype, 'redraw', function(origFunc) {
         origFunc.apply(this, Array.prototype.slice.call(arguments, 1));
         this.highlightRegions();
+        // this.addCustomLines();
     });
+
 }(Highcharts));

@@ -117,15 +117,23 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 selectedColor = GenerateRandomColour();
                             }
 
+                            //var smaChartItem = {
+                            //    code: 'sma',
+                            //    name: widgetName,
+                            //    color: selectedColor,
+                            //    data: [smaData],
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
+
                             var smaChartItem = {
                                 code: 'sma',
                                 name: widgetName,
                                 color: selectedColor,
-                                data: [smaData],
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
+                                data: [smaData]
                             }
+
                             overlayArray.push(smaChartItem);                          
 
                             allCountIter++;
@@ -168,26 +176,42 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 ])
                             }
 
+                            //var smaChartItem = {
+                            //    code: 'sma',
+                            //    name: 'SMA',
+                            //    color: 'red',
+                            //    data: [smaOverlayArray],
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
+
                             var smaChartItem = {
                                 code: 'sma',
                                 name: 'SMA',
                                 color: 'red',
-                                data: [smaOverlayArray],
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
+                                data: [smaOverlayArray]
                             }
+
                             overlayArray.push(smaChartItem);
+
+                            //var bollingerBandsChartItem = {
+                            //    code: 'bbands',
+                            //    name: 'Bollinger Bands',
+                            //    color: 'blue',
+                            //    data: [lowerBollingerBandArray, upperBollingerBandArray],
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
 
                             var bollingerBandsChartItem = {
                                 code: 'bbands',
                                 name: 'Bollinger Bands',
                                 color: 'blue',
-                                data: [lowerBollingerBandArray, upperBollingerBandArray],
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
+                                data: [lowerBollingerBandArray, upperBollingerBandArray]
                             }
+
                             overlayArray.push(bollingerBandsChartItem);
                             allCountIter++;
 
@@ -218,15 +242,22 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 ])
                             }
 
+                            //var aroonOscChart = {
+                            //    type: 'area',
+                            //    name: 'Aroon Oscillator',
+                            //    data: aroonOscArray,
+                            //    yAxis: yAxisPos,
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
                             var aroonOscChart = {
                                 type: 'area',
                                 name: 'Aroon Oscillator',
                                 data: aroonOscArray,
-                                yAxis: yAxisPos,
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
+                                yAxis: yAxisPos                               
                             }
+
                             arraySeries.push(aroonOscChart);
 
                             indicatorPos = indicatorPos + indSpacing + indicatorGap;
@@ -271,15 +302,23 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 ])
                             }
 
+                            //var aroonUpChart = {
+                            //    type: 'line',
+                            //    name: indicatorName,
+                            //    data: aroonUpArray,
+                            //    yAxis: yAxisPos,
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
+
                             var aroonUpChart = {
                                 type: 'line',
                                 name: indicatorName,
                                 data: aroonUpArray,
                                 yAxis: yAxisPos,
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
                             }
+
                             arraySeries.push(aroonUpChart);
 
                             indicatorPos = indicatorPos + indSpacing + indicatorGap;
@@ -324,15 +363,23 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 ])
                             }
 
+                            //var aroonDownChart = {
+                            //    type: 'line',
+                            //    name: indicatorName,
+                            //    data: aroonDownArray,
+                            //    yAxis: yAxisPos,
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
+
                             var aroonDownChart = {
                                 type: 'line',
                                 name: indicatorName,
                                 data: aroonDownArray,
-                                yAxis: yAxisPos,
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
+                                yAxis: yAxisPos
                             }
+
                             arraySeries.push(aroonDownChart);
 
                             indicatorPos = indicatorPos + indSpacing + indicatorGap;
@@ -380,15 +427,24 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 ])
                             }
 
+                            //var rsiChart = {
+                            //    type: 'line',
+                            //    name: indicatorName,
+                            //    data: rsiArray,
+                            //    yAxis: yAxisPos,
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
+
+
                             var rsiChart = {
                                 type: 'line',
                                 name: indicatorName,
                                 data: rsiArray,
-                                yAxis: yAxisPos,
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
+                                yAxis: yAxisPos
                             }
+
                             arraySeries.push(rsiChart);
 
                             indicatorPos = indicatorPos + indSpacing + indicatorGap;
@@ -443,17 +499,38 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             }
                             var axis = 1;
 
-                            var macdChartItem ={
+                            //var macdChartItem ={
+                            //    type: 'line',
+                            //    name: 'Stochastic %K ',
+                            //    data: stochasticPKData,
+                            //    yAxis: axis,
+                            //    dashStyle: 'ShortDash',
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
+
+                            var macdChartItem = {
                                 type: 'line',
                                 name: 'Stochastic %K ',
                                 data: stochasticPKData,
                                 yAxis: axis,
-                                dashStyle: 'ShortDash',
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
+                                dashStyle: 'ShortDash'
                             }
+
                             arraySeries.push(macdChartItem);
+
+
+                            //var signalChartItem = {
+                            //    type: 'line',
+                            //    name: 'Stochastic %D ',
+                            //    data: stochasticPDData,
+                            //    dashStyle: 'LongDash',
+                            //    yAxis: axis,
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
 
 
                             var signalChartItem = {
@@ -461,11 +538,9 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 name: 'Stochastic %D ',
                                 data: stochasticPDData,
                                 dashStyle: 'LongDash',
-                                yAxis: axis,
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
+                                yAxis: axis
                             }
+
                             arraySeries.push(signalChartItem);
 
                             indicatorPos = indicatorPos + indSpacing + indicatorGap;
@@ -526,39 +601,62 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             }
                             var axis = 1;
 
+                            //var macdChartItem = {
+                            //    type: 'line',
+                            //    name: 'MACDline',
+                            //    data: macdArray,
+                            //    yAxis: axis,
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
+
                             var macdChartItem = {
                                 type: 'line',
                                 name: 'MACDline',
                                 data: macdArray,
-                                yAxis: axis,
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
+                                yAxis: axis
                             }
+
                             arraySeries.push(macdChartItem);
 
+
+                            //var signalChartItem = {
+                            //    type: 'line',
+                            //    name: 'signalLine',
+                            //    data: macdSignalArray,
+                            //    yAxis: axis,
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
 
                             var signalChartItem = {
                                 type: 'line',
                                 name: 'signalLine',
                                 data: macdSignalArray,
-                                yAxis: axis,
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
+                                yAxis: axis
                             }
                             arraySeries.push(signalChartItem);
 
+
+                            //var macdHistogramChartItem = {
+                            //    type: 'column',
+                            //    name: 'MACDHistogram',
+                            //    data: macdHistogramArray,
+                            //    yAxis: axis,
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
 
                             var macdHistogramChartItem = {
                                 type: 'column',
                                 name: 'MACDHistogram',
                                 data: macdHistogramArray,
-                                yAxis: axis,
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
+                                yAxis: axis
                             }
+
                             arraySeries.push(macdHistogramChartItem);
 
                             indicatorPos = indicatorPos + indSpacing + indicatorGap;
@@ -603,15 +701,23 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                     dataResults[ri][1] // the close
                                 ])
                             }
+                            //var atrChart = {
+                            //    type: 'line',
+                            //    name: 'ATR',
+                            //    data: atrArray,
+                            //    yAxis: yAxisPos,
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
+
                             var atrChart = {
                                 type: 'line',
                                 name: 'ATR',
                                 data: atrArray,
-                                yAxis: yAxisPos,
-                                dataGrouping: {
-                                    units: groupingUnits
-                                }
+                                yAxis: yAxisPos
                             }
+
                             arraySeries.push(atrChart);
 
                             indicatorPos = indicatorPos + indSpacing + indicatorGap;

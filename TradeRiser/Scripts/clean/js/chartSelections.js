@@ -43,40 +43,54 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
                 bIntradayChart = false;
             }
 
-            var buttonSetup = { selected: 1 };
+            //var buttonSetup = { selected: 1 };
 
-            if (bIntradayChart) {
-                        var buttonsArray = [{
-                            type: 'hour',
-                            count: 1,
-                            text: '1h'
-                        },
-                        {
-                            type: 'hour',
-                            count: 2,
-                            text: '2h'
-                        },
-                        {
-                            type: 'hour',
-                            count: 3,
-                            text: '3h'
-                        },
-                        {
-                            type: 'day',
-                            count: 1,
-                            text: '1D'
-                        }, {
-                            type: 'all',
-                            count: 1,
-                            text: 'All'
-                        }];
+            //if (bIntradayChart) {
+            //            var buttonsArray = [{
+            //                type: 'hour',
+            //                count: 1,
+            //                text: '1h'
+            //            },
+            //            {
+            //                type: 'hour',
+            //                count: 2,
+            //                text: '2h'
+            //            },
+            //            {
+            //                type: 'hour',
+            //                count: 3,
+            //                text: '3h'
+            //            },
+            //            {
+            //                type: 'day',
+            //                count: 1,
+            //                text: '1D'
+            //            }, {
+            //                type: 'all',
+            //                count: 1,
+            //                text: 'All'
+            //    }];          
+            //    buttonSetup = {
+            //        buttons: buttonsArray,
+            //        selected: 1,
+            //        inputEnabled: false
+            //    }
+            //}
 
-                buttonSetup = {
-                    buttons: buttonsArray,
-                    selected: 2,
-                    inputEnabled: false
+
+
+
+            var buttonsArray = SelectButtonArray(obj.CurrentResult.RawDataResults[presentationTypeIndex].DataTimeFrame);
+            buttonSetup = {
+                buttons: buttonsArray,
+                selected: 0,
+                inputEnabled: false,
+                buttonTheme: {
+                    width: 60
                 }
             }
+
+
 
             if (yAxisArray.length == 1) {
                 yAxisArray[0].height = 400;
@@ -85,8 +99,10 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
             // create the chart
             $(classOnly).highcharts('StockChart', {
 
-
-          
+                credits: {
+                    enabled: false
+                },
+         
                 //tooltip: {
                 //style: {
                 //        height: '200px',
@@ -100,14 +116,23 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
                 //        };
                 //    },
                 //},
+                plotOptions :{
+                    series: {
+                        dataGrouping: {enabled:false}
+                    }
+                },
 
-
-
-
+                //navigator: {
+                //    enabled: false
+                //},
+                //scrollbar: {
+                //    enabled: false
+                //},
 
                 title: {
                     text: symbolNames[0]
                 },
+
                 rangeSelector: buttonSetup,
 
                 yAxis: yAxisArray,
@@ -136,7 +161,250 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
 }
 
 
+function SelectButtonArray(timeFrame) {
 
+    var buttonsArray = [
+        {
+            type: 'day',
+            count: 250,
+            text: '- (Out)'
+        },
+        {
+            type: 'day',
+            count: 40,
+            text: '- (In 1x)'
+        },
+        {
+            type: 'day',
+            count: 10,
+            text: '- (In 2x)'
+        }
+    ];
+
+
+    switch (timeFrame)
+    {
+        case '1min':
+            {
+                buttonsArray = [
+                 {
+                     type: 'hour',
+                     count: 6,
+                     text: '- (Out)'
+                 },
+                 {
+                     type: 'hour',
+                     count: 4,
+                     text: '- (In 1x)'
+                 }
+                 ,
+                 {
+                     type: 'hour',
+                     count: 2,
+                     text: '- (In 2x)'
+                 }
+                 ,
+                 {
+                     type: 'hour',
+                     count: 1,
+                     text: '- (In 3x)'
+                 }
+                ];
+            } break;
+
+        case '5min':
+            {
+                buttonsArray = [
+                 {
+                     type: 'hour',
+                     count: 12,
+                     text: '- (Out)'
+                 },
+                 {
+                     type: 'hour',
+                     count: 6,
+                     text: '- (In 1x)'
+                 }
+                 ,
+                 {
+                     type: 'hour',
+                     count: 4,
+                     text: '- (In 2x)'
+                 }
+                 ,
+                 {
+                    type: 'hour',
+                    count: 2,
+                    text: '- (In 3x)'
+                 }
+                 ,
+                 {
+                     type: 'hour',
+                     count: 1,
+                     text: '- (In 4x)'
+                 }
+                ];
+
+            } break;
+
+        case '10min':
+            {
+
+            } break;
+
+        case '15min':
+            {
+                buttonsArray = [
+                {
+                    type: 'day',
+                    count: 7,
+                    text: '- (Out)'
+                },
+                {
+                    type: 'day',
+                    count: 4,
+                    text: '- (In 1x)'
+                },
+                {
+                    type: 'day',
+                    count: 2,
+                    text: '- (In 2x)'
+                }
+                ];
+
+            } break;
+
+        case '30min':
+            {
+
+            } break;
+
+        case '1hour':
+            {
+                buttonsArray = [
+                {
+                    type: 'day',
+                    count: 16,
+                    text: '- (Out)'
+                },
+                {
+                    type: 'day',
+                    count: 7,
+                    text: '+ (In 1x)'
+                }
+                ,
+                {
+                    type: 'day',
+                    count: 3,
+                    text: '+ (In 2x)'
+                }
+                ];
+            } break;
+
+        case '2hour':
+            {
+
+            } break;
+
+        case '3hour':
+            {
+
+            } break;
+
+        case '4hour':
+            {
+
+            } break;
+
+        case 'EndOfDay':
+            {
+
+            } break;
+
+        case 'Weekly':
+            {
+
+            } break;
+
+        case 'Monthly':
+            {
+
+            } break;
+
+    };
+    return buttonsArray; 
+
+}
+
+
+//function GetSelectorValue(timeFrame)
+//{
+//    var selectorNo = 0;
+//    switch (timeFrame)
+//    {
+//        case '1min':
+//            {
+//                selectorNo = 0;
+//            } break;
+
+//        case '5min':
+//            {
+
+//            } break;
+
+//        case '10min':
+//            {
+
+//            } break;
+
+//        case '15min':
+//            {
+//                selectorNo = 0;
+//            } break;
+
+//        case '30min':
+//            {
+
+//            } break;
+
+//        case '1hour':
+//            {
+
+//            } break;
+
+//        case '2hour':
+//            {
+
+//            } break;
+
+//        case '3hour':
+//            {
+
+//            } break;
+
+//        case '4hour':
+//            {
+
+//            } break;
+
+//        case 'EndOfDay':
+//            {
+
+//            } break;
+
+//        case 'Weekly':
+//            {
+
+//            } break;
+
+//        case 'Monthly':
+//            {
+
+//            } break;
+
+//    };
+//    return selectorNo;
+//}
 
 
 

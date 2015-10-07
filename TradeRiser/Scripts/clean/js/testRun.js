@@ -2002,7 +2002,6 @@
                     stanDev = Math.sqrt(stanDev / SMADays);
                     overlay1Data.push([datePoint[0], SMA]);
                 }
-
                 stanDevData.push([d[0], stanDev]);
                 overlay2Data.push([d[0], d[4] + 10]);
                 overlay3Data_1.push([d[0], d[4] - 20]);
@@ -2197,6 +2196,7 @@
                 endDate: Date.UTC(2013, 4, 9),
                 speechBubbleHtml: 'bbbb'
             }];
+
             // create the chart
 
         }
@@ -2219,7 +2219,7 @@
                 },
             },
             title: {
-                text: 'AAPL Historical'
+                text: 'EUR/USD Dummy Data'
             },
             xAxis: {
                 _plotBands: [{ // mark the weekend
@@ -2311,13 +2311,13 @@
             }],
             series: [
                 /*{
-            type: 'line',
-            name: 'AAPL',
-            data: ohlc,
-            dataGrouping: {
-            units: groupingUnits
-            }
-            },*/
+                type: 'line',
+                name: 'AAPL',
+                data: ohlc,
+                dataGrouping: {
+                units: groupingUnits
+                }
+                },*/
                 {
                     type: 'candlestick',
                     name: 'AAPL',
@@ -2532,6 +2532,24 @@
                 highColor: "#4e66dc",
                 endDate: Date.UTC(2013, 3, 19)
             }],
+            customLines: [{
+                name: "Axis Line",
+                startDate: Date.UTC(2013, 4, 7),
+                color: 'red',
+                value: 350
+            }, {
+                name: "Axis Line 2",
+                startDate: Date.UTC(2008, 4, 7),
+                value: 500
+            }],
+            customSlopeLines: [{
+                name: "Slope Line",
+                startDate: 1366588800000,
+                color: 'blue',
+                startValue: 200,
+                endDate: 1367971200000,
+                endValue: 500
+            }],
             overlay: [{
                 code: 'sma',
                 name: 'SMA',
@@ -2565,6 +2583,30 @@
             Highcharts.charts[0].highlighted = $('#highlighted').prop('checked');
             Highcharts.charts[0].redraw();
         });
+        var highlightersLength = higlighters.length - 1;
+        $(".highlightButton").on("click", function (evt, x) {
+            console.log(evt, x);
+            if (this.id == "next") {
+                highlightersLength++;
+            } else {
+                highlightersLength--;
+            }
+            var chart = Highcharts.charts[0];
+            // console.log(chart.xAxis[0].getExtremes());
+            if (highlightersLength < 0) {
+                highlightersLength = higlighters.length - 1;
+            }
+            if (highlightersLength > higlighters.length - 1) {
+                highlightersLength = highlightersLength % (higlighters.length);
+            }
+
+
+            var val = highlightersLength;
+            chart.xAxis[0].setExtremes(
+                higlighters[val].startDate,
+                higlighters[val].endDate
+            );
+        });
         $("#nextData").on("click", function (evt) {
             alert("Loading Next Data Set");
             var chart = Highcharts.charts[0];
@@ -2581,6 +2623,7 @@
         });
 
     });
+
 
 //--------------------------------------------------------------------------------//
 

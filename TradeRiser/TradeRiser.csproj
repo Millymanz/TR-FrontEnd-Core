@@ -230,7 +230,6 @@
     <Content Include="Content\clean\css\jquery-ui-1.10.3.custom.min.css" />
     <Content Include="Content\clean\css\old.css" />
     <Content Include="Content\clean\css\pin.png" />
-    <Content Include="Content\clean\css\speech-bubble.css" />
     <Content Include="Content\clean\css\style - Copy.css" />
     <Content Include="Content\clean\css\style.css" />
     <Content Include="Content\jquery.dynatable.css" />
