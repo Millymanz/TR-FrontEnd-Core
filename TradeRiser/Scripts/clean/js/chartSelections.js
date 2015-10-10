@@ -83,10 +83,10 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
             var buttonsArray = SelectButtonArray(obj.CurrentResult.RawDataResults[presentationTypeIndex].DataTimeFrame);
             buttonSetup = {
                 buttons: buttonsArray,
-                selected: 0,
+                selected: 1,
                 inputEnabled: false,
                 buttonTheme: {
-                    width: 60
+                    width: 70
                 }
             }
 
@@ -165,9 +165,14 @@ function SelectButtonArray(timeFrame) {
 
     var buttonsArray = [
         {
+            type: 'all',
+            count: 1,
+            text: '- (Out All)'
+        },
+        {
             type: 'day',
             count: 250,
-            text: '- (Out)'
+            text: '- (In)'
         },
         {
             type: 'day',
@@ -187,10 +192,15 @@ function SelectButtonArray(timeFrame) {
         case '1min':
             {
                 buttonsArray = [
+                {
+                    type: 'all',
+                    count: 1,
+                    text: '- (Out All)'
+                },
                  {
                      type: 'hour',
                      count: 6,
-                     text: '- (Out)'
+                     text: '- (In)'
                  },
                  {
                      type: 'hour',
@@ -215,10 +225,15 @@ function SelectButtonArray(timeFrame) {
         case '5min':
             {
                 buttonsArray = [
-                 {
+                {
+                    type: 'all',
+                    count: 1,
+                    text: '- (Out All)'
+                },
+                {
                      type: 'hour',
                      count: 12,
-                     text: '- (Out)'
+                     text: '- (In)'
                  },
                  {
                      type: 'hour',
@@ -256,9 +271,14 @@ function SelectButtonArray(timeFrame) {
             {
                 buttonsArray = [
                 {
+                    type: 'all',
+                    count: 1,
+                    text: '- (Out All)'
+                },
+                {
                     type: 'day',
                     count: 7,
-                    text: '- (Out)'
+                    text: '- (In)'
                 },
                 {
                     type: 'day',
@@ -283,9 +303,14 @@ function SelectButtonArray(timeFrame) {
             {
                 buttonsArray = [
                 {
+                    type: 'all',
+                    count: 1,
+                    text: '- (Out All)'
+                },
+                {
                     type: 'day',
                     count: 16,
-                    text: '- (Out)'
+                    text: '- (In)'
                 },
                 {
                     type: 'day',

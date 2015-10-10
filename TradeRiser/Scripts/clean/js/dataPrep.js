@@ -772,7 +772,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
 function GenerateSummary(obj, presentationTypeIndex) {
 
-    var genTabStr = "<table cellpadding='8' cellspacing='20'><tr><td style='border-left: 0px solid grey; vertical-align: top;'>";
+    var genTabStr = "<table cellpadding='8' cellspacing='20' style='width:100%'><tr><td style='width:20%; border-left: 0px solid grey; vertical-align: top;'>";
     genTabStr += "<span style='color:#3a89ff;'><strong>Detailed Facts: </strong></span><br/> <br/>"
     genTabStr += "<table cellpadding='8' cellspacing='8' border='1' style='border-color:#E0E0E0;'>";
 
@@ -798,7 +798,7 @@ function GenerateSummary(obj, presentationTypeIndex) {
             ignoreMoreSummary = true;
         }
 
-        genTabStr += "<td valign='top' style='width:400px; border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;'>";
+        genTabStr += "<td valign='top' style='width:40%; border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;'>";
         genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Summary:</strong> </span><br/> <br/>";
         genTabStr += firstSummary;
         genTabStr += "</div></td>";

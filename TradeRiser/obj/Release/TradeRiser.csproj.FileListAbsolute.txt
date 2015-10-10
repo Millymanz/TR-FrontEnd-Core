@@ -276,9 +276,9 @@ E:\NonDeployable\Current\Frontend\TradeRiser\bin\WebMatrix.WebData.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\Org.Mentalis.Security.Cryptography.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\Mono.Math.xml
 E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.csproj.App.config
-E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.csprojResolveAssemblyReference.cache
 E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.pdb
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\TradeRiser.dll.config
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\TradeRiser.dll
 E:\NonDeployable\Current\Frontend\TradeRiser\bin\TradeRiser.pdb
+E:\NonDeployable\Current\Frontend\TradeRiser\obj\Release\TradeRiser.csprojResolveAssemblyReference.cache

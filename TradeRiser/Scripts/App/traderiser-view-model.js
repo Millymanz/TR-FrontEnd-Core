@@ -1142,11 +1142,22 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 symbolNames = [],
                                 chartData = [];
 
+                            var xAxis = "";
+                            var yAxis = "";
+                            var title = "";
+
+
+
                             for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
                                 //symbolNames.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0][bb]);
 
                                 for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0].length; ss++) {
                                     symbolNames.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0][ss]);
+
+                                    xAxis = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Xaxis;
+                                    yAxis = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Yaxis;
+                                    title = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Title;
+
                                 }
 
 
@@ -1167,7 +1178,13 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     type: 'column'
                                 },
                                 title: {
-                                    text: 'How The Major Pairs Performed Last Week'
+                                    text: title
+                                },
+                                yAxis: {
+                                    title: {
+                                        text: yAxis
+                                    }
+
                                 },
                                 xAxis: {
                                     categories: symbolNames
@@ -1178,7 +1195,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 },
                                 series: [{
                                     colorByPoint: true,
-                                    data: chartData
+                                    data: chartData,
+                                    name: 'Currency'
                                 }]
                             });
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp);
