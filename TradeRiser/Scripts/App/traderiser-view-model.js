@@ -1390,17 +1390,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                         ])
                                     }
                                 }
-
-
-                                //// set the allowed units for data grouping
-                                //groupingUnits = [[
-                                //    'week',                         // unit name
-                                //    [1]                             // allowed multiples
-                                //], [
-                                //    'month',
-                                //    [1, 2, 3, 4, 6]
-                                //]];
-
+            
 
                                 var mainChartItem = {
                                     type: 'candlestick',

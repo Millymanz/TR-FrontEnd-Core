@@ -799,7 +799,7 @@ function GenerateSummary(obj, presentationTypeIndex) {
         }
 
         genTabStr += "<td valign='top' style='width:40%; border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;'>";
-        genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Summary:</strong> </span><br/> <br/>";
+        genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Tabular Summary:</strong> </span><br/> <br/>";
         genTabStr += firstSummary;
         genTabStr += "</div></td>";
     }
@@ -809,7 +809,7 @@ function GenerateSummary(obj, presentationTypeIndex) {
         if (typeof summaryMore !== 'undefined') {
 
             genTabStr += "<td valign='top' style='border-left: 0px solid grey; border-right: 0px solid grey; vertical-align: top;>";
-            genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>More Summary:</strong> </span><br/>" +
+            genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Analysis Summary:</strong> </span><br/>" +
                 summaryMore + "</td>";
         }
     }
