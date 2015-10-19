@@ -28,7 +28,7 @@ function GenerateRandomColour() {
     return textArray[randomNumber];
 }
 
-function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp) {
+function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray) {
 
         //create selectChartKey from loop
         var allCount = 8;
@@ -742,6 +742,89 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         }
                     }
                     break;
+
+                case 'Trends':
+                    {
+                        var dataResults = {};
+                        var widgetName = "";
+                        var currentCount = mulitipleWidgetLookUp["Trends"];
+                        if (typeof currentCount !== 'undefined') {
+                            dataResults = dataLookUp["Trends" + ss];
+                            widgetName = obj.CurrentResult.PresentationTypes[0].SubWidgetsAltName[ss];
+                        }
+                        else {
+                            dataResults = dataLookUp["Trends"];
+                            widgetName = "Trends";
+                        }
+
+
+                        if (dataResults != null || dataResults !== undefined) {
+                            var dataLength = dataResults.length;
+                            var smaData = [];
+
+                            for (var ri = 0; ri < dataLength; ri++) {
+                                smaData.push([
+                                    dataResults[ri][0], // the date
+                                    dataResults[ri][1] // the close
+                                ])
+                            }
+
+                            //For handling multilple widgets of the same
+                            //kind, this diversifies color
+                            var selectedColor = "red";
+                            if (WidgetAlreadyUsed('Trends', widgetUsedList)) {
+                                selectedColor = GenerateRandomColour();
+                            }
+
+                            //var smaChartItem = {
+                            //    code: 'sma',
+                            //    name: widgetName,
+                            //    color: selectedColor,
+                            //    data: [smaData],
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
+
+                            var smaChartItem = {
+                                //code: 'sma',
+                                //name: widgetName,
+                                //color: selectedColor,
+                                //data: [smaData],
+
+                                series: arraySeries[presentationTypeIndex].data,
+                                name: "Slope Line",
+                                startDate: dataResults[0][0],
+                                lineWidth: 3,
+                                color: 'red',
+                                startValue: dataResults[0][1],
+                                endDate: dataResults[1][0],
+                                endValue: dataResults[1][1]
+
+
+                                //series : arraySeries
+                                //name: "Slope Line",
+                                //startDate: 1430485200000,
+                                //lineWidth: 3,
+                                
+                                //startValue: 120,
+                                //endDate: 1430935200000,
+                                //endValue: 150
+
+
+                            }
+
+                            trendsOverlayArray.push(smaChartItem);
+
+                            allCountIter++;
+
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
+                        }
+                    }
+                    break;
            
                 default:
                     {
@@ -798,10 +881,13 @@ function GenerateSummary(obj, presentationTypeIndex) {
             ignoreMoreSummary = true;
         }
 
-        genTabStr += "<td valign='top' style='width:40%; border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;'>";
-        genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Tabular Summary:</strong> </span><br/> <br/>";
-        genTabStr += firstSummary;
-        genTabStr += "</div></td>";
+        if (ignoreMoreSummary === false) {
+
+            genTabStr += "<td valign='top' style='width:40%; border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;'>";
+            genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Tabular Summary:</strong> </span><br/> <br/>";
+            genTabStr += firstSummary;
+            genTabStr += "</div></td>";
+        }
     }
 
 
@@ -813,32 +899,80 @@ function GenerateSummary(obj, presentationTypeIndex) {
                 summaryMore + "</td>";
         }
     }
-
-
     genTabStr += "</tr></table>";
   
 
     var final = genTabStr;
 
-
     $('<br/>' + final).appendTo($("#celln" + presentationTypeIndex));
 
 
+
+
     var allElements = $('.genericResultsTable');
+
+
+
+    //for (var j = 0; j < allElements.length; j++) {
+    //    var idSelect = allElements[j].id;
+
+    //    $('#'+idSelect).dynatable({
+    //        table: {
+    //            defaultColumnIdStyle: 'trimDash'
+    //        },
+    //        features: {
+    //            paginate: true,
+    //            search: false,
+    //            recordCount: true,
+    //            perPageSelect: false
+    //        }
+    //    });
+    //}
+
+
+    // Function that renders the list items from our records
+    function ulWriter(rowIndex, record, columns, cellWriter) {
+        var cssClass = "span4", li;
+        if (rowIndex % 3 === 0) { cssClass += ' first'; }
+        li = '<li class="' + cssClass + '"><div class="thumbnail"><div class="thumbnail-image">' + record.thumbnail + '</div><div class="caption">' + record.caption + '</div></div></li>';
+        return li;
+    }
+
+    // Function that creates our records from the DOM when the page is loaded
+    function ulReader(index, li, record) {
+        var $li = $(li),
+            $caption = $li.find('.caption');
+        record.thumbnail = $li.find('.thumbnail-image').html();
+        record.caption = $caption.html();
+        record.label = $caption.find('h3').text();
+        record.description = $caption.find('p').text();
+        record.color = $li.data('color');
+    }
 
     for (var j = 0; j < allElements.length; j++) {
         var idSelect = allElements[j].id;
 
         $('#'+idSelect).dynatable({
-            table: {
-                defaultColumnIdStyle: 'trimDash'
-            },
-            features: {
-                paginate: true,
-                search: false,
-                recordCount: true,
-                perPageSelect: false
-            }
-        });
-    } 
+                    table: {
+                        defaultColumnIdStyle: 'trimDash'
+                    },
+                    features: {
+                        paginate: true,
+                        search: false,
+                        recordCount: true,
+                        perPageSelect: false
+                    }
+                });
+    }
+
+
+
+
+
+
+
+
+
+
+
 }

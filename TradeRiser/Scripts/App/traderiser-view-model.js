@@ -104,6 +104,12 @@ function TradeRiserViewModel(tradeRiserProxy) {
             Highcharts.charts[0].highlighted = $('#highlighted').prop('checked');
             Highcharts.charts[0].redraw();
         });
+
+
+        $(".ancherComplaint").click(function (evt) {
+           // evt.stopPropagation();
+            alert('1225654');
+        });
     };
 
     this.initializeAllContinousResultsCards = function (returnedData) {
@@ -984,6 +990,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         var arraySeries = [];
         var overlayArray = [];
+        var trendsOverlayArray = [];
         var highlighterArray = [];
         var yAxisArray = []; //has to be double quotes
         var groupingUnits = [];
@@ -1128,7 +1135,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 series: tempSeries
                             });
 
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp);
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
 
                         } break;
 
@@ -1199,7 +1206,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     name: 'Currency'
                                 }]
                             });
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp);
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
 
                         } break;
 
@@ -1323,7 +1330,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     series: lineSeriesOptions
                                 });
                             }
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp);
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
 
                         } break;
 
@@ -1437,9 +1444,9 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                                 presentationTypeIndex = pp;
 
-                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp);
+                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
 
-                                SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray);
+                                SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray, trendsOverlayArray);
 
                                 //Insert into Title area
                                 if (highlighterArray.length > 0) {
@@ -1623,6 +1630,10 @@ function TradeRiserViewModel(tradeRiserProxy) {
     //    });
     //};
 
+    this.tabularClick = function (clickindex) {
+        SelectHighlighter(clickindex);
+    };
+
     this.widgetPlacerT = function (index, total, title, height, chartClassName, iter) {
 
         var remaining = total - index;
@@ -1635,7 +1646,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         //    //width = '50%';
         //    width = '700px';
         //}
-
+      
 
         var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
 
@@ -1827,9 +1838,9 @@ function TradeRiserViewModel(tradeRiserProxy) {
     };
 
 
-    this.initalizeSubWidgets = function (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp) {
+    this.initalizeSubWidgets = function (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray) {
 
-        PrepareChartData(presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp);
+        PrepareChartData(presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
     }
 
     this.convertToNumericKeyID = function (selectChartKey) {

@@ -1086,6 +1086,7 @@ $(window).on('resize', function(e){
 			this.MACDline = [];
 			this.avtrInd = [];
 			this.higlighters = [];
+			this.trendsOverlayArray = [];
 		}
 		
 
@@ -1501,8 +1502,8 @@ $(window).on('resize', function(e){
 
 													SelectMiniChart(numericKeyID, presentationTypeIndex, obj,
 													   resultsData.upperBollingerBand, resultsData.lowerBollingerBand, resultsData.smaOverlay, resultsData.aroonOsc,
-													   resultsData.aroonUp, resultsData.aroonDown, resultsData.rsiData, resultsData.MACDHistogram, resultsData.MACDline, resultsData.avtrInd, resultsData.higlighters, dataLookUp
-													   ); 
+													   resultsData.aroonUp, resultsData.aroonDown, resultsData.rsiData, resultsData.MACDHistogram, resultsData.MACDline, resultsData.avtrInd, resultsData.higlighters, dataLookUp,
+													   resultsData.trendsOverlayArray); 
 
 												} break;
 										}	

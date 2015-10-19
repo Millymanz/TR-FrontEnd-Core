@@ -371,6 +371,11 @@ $(function() {
             },
             area: {
                 fillOpacity: 0.2
+            },
+            series: {
+                dataGrouping: {
+                    enabled: false
+                }
             }
         },
         yAxis: [{
@@ -671,21 +676,27 @@ $(function() {
         }],
         customLines: [{
             name: "Axis Line",
+            lineWidth: 2,
             startDate: Date.UTC(2013, 4, 7),
             color: 'red',
             value: 350
         }, {
             name: "Axis Line 2",
+            lineWidth: 3,
             startDate: Date.UTC(2008, 4, 7),
             value: 500
         }],
         customSlopeLines: [{
             name: "Slope Line",
-            startDate: 1152230400000,
+            startDate: Date.UTC(2013, 3, 12),
+            lineWidth: 3,
             // color: 'red',
             startValue: 200,
-            endDate: 1356480000000,
-            endValue: 500
+            endDate: 1368144000000,
+            endValue: 500,
+            dataGrouping: {
+                units: groupingUnits
+            }
         }],
         overlay: [{
                 code: 'sma',
@@ -719,6 +730,17 @@ $(function() {
     $("#highlighted").on("change", function(evt) {
         Highcharts.charts[0].highlighted = $('#highlighted').prop('checked');
         Highcharts.charts[0].redraw();
+        var trHTML = "";
+        $.each(higlighters, function(i, item) {
+            trHTML += '<tr data-index="' + i + '" class="rowItem"><td>' + item.startDate + '</td><td>' + item.endDate + '</td></tr>';
+        });
+        if ($('#highlighted').prop('checked')) {
+            $(".rowItem").remove();
+            $('#records_table').append(trHTML);
+            $(".rowItem").on("click", function(evt, x) {
+                selectHighlighter(this.getAttribute('data-index'));
+            });
+        }
     });
     var highlightersLength = higlighters.length - 1;
     $(".highlightButton").on("click", function(evt, x) {
@@ -736,14 +758,38 @@ $(function() {
         if (highlightersLength > higlighters.length - 1) {
             highlightersLength = highlightersLength % (higlighters.length);
         }
+        selectHighlighter(highlightersLength);
 
+        // var val = highlightersLength;
+        // var xtrem = chart.xAxis[0].getExtremes();
+        // var diff = xtrem.userMax - xtrem.userMin;
 
-        var val = highlightersLength;
-        chart.xAxis[0].setExtremes(
-            higlighters[val].startDate,
-            higlighters[val].endDate
-        );
+        // chart.xAxis[0].setExtremes(
+        //     higlighters[val].startDate - diff / 2,
+        //     higlighters[val].startDate + diff / 2
+        // );
     });
+    var selectHighlighter = function(highlightersLength) {
+        var val = highlightersLength;
+        var chart = Highcharts.charts[0];
+
+        var xtrem = chart.xAxis[0].getExtremes();
+        var diff = xtrem.userMax - xtrem.userMin;
+        chart.xAxis[0].setExtremes(
+            higlighters[val].startDate - diff / 2,
+            higlighters[val].startDate + diff / 2
+        );
+        // var region = chart.highlightedRegions[val].element;
+        // var pinLeft = ($(region).attr("x") + ($(region).attr("w") / 2) - (chart.pinsConf.width / 2));
+        // var pinTop = ($(region).attr("y") - chart.pinsConf.height);
+
+        for (var i = 0; i < chart.pins.length; i++) {
+            if (higlighters[val].speechBubbleHtml == chart.pins[i].attr('data-comment')) {
+                // if (chart.pins[i].attr("left") == pinLeft && chart.pins[i].attr("top") == pinTop)
+                chart.pins[i].click();
+            }
+        }
+    };
     $("#nextData").on("click", function(evt) {
         alert("Loading Next Data Set");
         var chart = Highcharts.charts[0];

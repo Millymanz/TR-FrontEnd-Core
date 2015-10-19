@@ -18,25 +18,32 @@
     <script type="text/javascript" src="../../js/modules/exporting.js"></script>
     <script>
     /*
-                                                (function (H) {
-                                                    H.wrap(H.Series.prototype, 'drawGraph', function (proceed) {
-                                                        // Before the original function
-                                                        console.log("We are about to draw the graph:", this.graph);
-                                                        // Now apply the original function with the original arguments,
-                                                        // which are sliced off this function's arguments
-                                                        proceed.apply(this, Array.prototype.slice.call(arguments, 1));
-                                                        // Add some code after the original function
-                                                        console.log("We just finished drawing the graph:", this.graph);
-                                                    });
-                                                }(Highcharts));
-                                                */
+                                                            (function (H) {
+                                                                H.wrap(H.Series.prototype, 'drawGraph', function (proceed) {
+                                                                    // Before the original function
+                                                                    console.log("We are about to draw the graph:", this.graph);
+                                                                    // Now apply the original function with the original arguments,
+                                                                    // which are sliced off this function's arguments
+                                                                    proceed.apply(this, Array.prototype.slice.call(arguments, 1));
+                                                                    // Add some code after the original function
+                                                                    console.log("We just finished drawing the graph:", this.graph);
+                                                                });
+                                                            }(Highcharts));
+                                                            */
     </script>
     <label>Highlighted:</label>
     <input type="checkbox" id="highlighted" />
     <button id="prev" class="highlightButton">Prev</button>
     <button id="next" class="highlightButton">Next</button>
     <button id="nextData">Next Data</button>
-    <div id="container" style="height: 1250px; min-width: 500px"></div>
+    <hr/>
+    <table id="records_table" border='1' style="display:inline-block;max-width: 225px;width:20%;vertical-align:top;">
+        <tr>
+            <th>StartDate</th>
+            <th>EndDate</th>
+        </tr>
+    </table>
+    <div id="container" style="height: 1250px; min-width: 500px;display:inline-block;width:80%"></div>
     <!--<div id="container" style="height: 500px; margin-top: 50px;"></div>-->
 </body>
 

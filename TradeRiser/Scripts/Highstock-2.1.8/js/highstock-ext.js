@@ -166,7 +166,7 @@
                         if (region.speechBubbleHtml) {
                             pinLeft = (x + (w / 2) - (chart.pinsConf.width / 2));
                             pinTop = (y - chart.pinsConf.height);
-                            pinDiv = '<div class="pin" style="left:' + pinLeft + 'px; top:' + pinTop + 'px""></div>';
+                            pinDiv = '<div data-comment="' + region.speechBubbleHtml + '"" class="pin" style="left:' + pinLeft + 'px; top:' + pinTop + 'px""></div>';
                             pinElm = $(pinDiv);
                             $(chart.container).prepend(pinElm);
                             pinElm.click(createOnClick(region.speechBubbleHtml, pinLeft, pinTop));
@@ -239,6 +239,9 @@
                 if (customLine.color) {
                     options.color = customLine.color;
                 }
+                if (customLine.lineWidth) {
+                    options.lineWidth = customLine.lineWidth;
+                }
                 if (customLine.dataGrouping) {
                     options.dataGrouping = customLine.dataGrouping;
                 }
@@ -255,17 +258,20 @@
                 var axisPoints = axisSeries.points;
                 var customLineData = [];
                 // console.log(axisPoints);
-                H.each(data, function(point) {
+
+                //Changed this to use customLineSeries instead of 
+                //data...Dennis
+                H.each(customLine.series, function (point) {
                     if (point[0] == customLine.startDate || point[0] == customLine.endDate) {
                         if (point[0] == customLine.startDate) {
                             customLineData.push([point[0], customLine.startValue]);
                         } else {
                             customLineData.push([point[0], customLine.endValue]);
                         }
-                    } else if (point[0] >= customLine.startDate && point[0] <= customLine.endDate) {
-                        var slope = (customLine.endValue - customLine.startValue) / (customLine.endDate - customLine.startDate)
-                        var value = customLine.startValue + slope * (point[0] - customLine.startDate);
-                        customLineData.push([point[0], value]);
+                        // } else if (point[0] > customLine.startDate && point[0] < customLine.endDate) {
+                        //     var slope = (customLine.endValue - customLine.startValue) / (customLine.endDate - customLine.startDate)
+                        //     var value = customLine.endValue + slope * (point[0] - customLine.endDate);
+                        //     customLineData.push([point[0], value]);
                     }
                 });
                 var options = {
@@ -284,10 +290,19 @@
                 if (customLine.color) {
                     options.color = customLine.color;
                 }
+                if (customLine.lineWidth) {
+                    options.lineWidth = customLine.lineWidth;
+                }
                 if (customLine.dataGrouping) {
                     options.dataGrouping = customLine.dataGrouping;
                 }
                 chart.addSeries(options);
+                // var elmVol = chart.renderer.rect(x, y, w, h, 4).attr({
+                //             'stroke-width': 0.2,
+                //             stroke: 'black',
+                //             zIndex: 0,
+                //             fill: region.colour || '#e1f5e4'
+                //         });
             });
         };
         this.addTrendLines = function(argument) {

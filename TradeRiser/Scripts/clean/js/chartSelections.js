@@ -7,8 +7,30 @@
 //    Highcharts.charts[0].redraw();
 //});
 
+function SelectHighlighter(highlightersLength) {
+    var val = highlightersLength;
+    var chart = Highcharts.charts[0];
 
-function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray) {
+    var xtrem = chart.xAxis[0].getExtremes();
+    var diff = xtrem.userMax - xtrem.userMin;
+    chart.xAxis[0].setExtremes(
+        higlighters[val].StartDateTime - diff / 2,
+        higlighters[val].StartDateTime + diff / 2
+    );
+    // var region = chart.highlightedRegions[val].element;
+    // var pinLeft = ($(region).attr("x") + ($(region).attr("w") / 2) - (chart.pinsConf.width / 2));
+    // var pinTop = ($(region).attr("y") - chart.pinsConf.height);
+
+    for (var i = 0; i < chart.pins.length; i++) {
+        if (higlighters[val].Comment == chart.pins[i].attr('data-comment')) {
+            // if (chart.pins[i].attr("left") == pinLeft && chart.pins[i].attr("top") == pinTop)
+            chart.pins[i].click();
+        }
+    }
+}
+
+
+function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray, trendsOverlayArray) {
 
     var chartClassName = 'chartspace dialogchart' + presentationTypeIndex;
 
@@ -43,43 +65,8 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
                 bIntradayChart = false;
             }
 
-            //var buttonSetup = { selected: 1 };
-
-            //if (bIntradayChart) {
-            //            var buttonsArray = [{
-            //                type: 'hour',
-            //                count: 1,
-            //                text: '1h'
-            //            },
-            //            {
-            //                type: 'hour',
-            //                count: 2,
-            //                text: '2h'
-            //            },
-            //            {
-            //                type: 'hour',
-            //                count: 3,
-            //                text: '3h'
-            //            },
-            //            {
-            //                type: 'day',
-            //                count: 1,
-            //                text: '1D'
-            //            }, {
-            //                type: 'all',
-            //                count: 1,
-            //                text: 'All'
-            //    }];          
-            //    buttonSetup = {
-            //        buttons: buttonsArray,
-            //        selected: 1,
-            //        inputEnabled: false
-            //    }
-            //}
-
-
-
-
+          
+   
             var buttonsArray = SelectButtonArray(obj.CurrentResult.RawDataResults[presentationTypeIndex].DataTimeFrame);
             buttonSetup = {
                 buttons: buttonsArray,
@@ -89,12 +76,12 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
                     width: 70
                 }
             }
-
-
-
             if (yAxisArray.length == 1) {
                 yAxisArray[0].height = 400;
             }
+
+
+            
 
             // create the chart
             $(classOnly).highcharts('StockChart', {
@@ -102,33 +89,13 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
                 credits: {
                     enabled: false
                 },
-         
-                //tooltip: {
-                //style: {
-                //        height: '200px',
-                //        width: '700px'
-                //},
-                //pointFormat: '<span style="color:{series.color};white-space:nowrap"> \u25CF{series.name}: <b>{point.y}</b></span>',
-                //positioner: function() {
-                //        return {
-                //            x: 300,
-                //            y: 20
-                //        };
-                //    },
-                //},
-                plotOptions :{
+
+                plotOptions: {
                     series: {
-                        dataGrouping: {enabled:false}
+                        dataGrouping: { enabled: false }
                     }
                 },
-
-                //navigator: {
-                //    enabled: false
-                //},
-                //scrollbar: {
-                //    enabled: false
-                //},
-
+             
                 title: {
                     text: symbolNames[0]
                 },
@@ -142,9 +109,17 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
                 highlighted: true,
                 highlightRegion: highlighterArray,
 
+                customSlopeLines: trendsOverlayArray,                
+
                 overlay: overlayArray
 
             });
+
+
+
+          
+
+
         }
     }
 
