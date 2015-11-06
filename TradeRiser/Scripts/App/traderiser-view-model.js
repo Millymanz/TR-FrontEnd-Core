@@ -70,6 +70,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
     this.onDemandResults = ko.observableArray();
     this.historicQueries = ko.observableArray();
     this.queriesSubscription = ko.observableArray();
+    this.queriesSaved = ko.observableArray();
+
     this.paneFixWidth = 0;
     this.graphicalQuery = ko.observable();
     this.graphicalQueryStartPeriod = ko.observable();
@@ -78,8 +80,10 @@ function TradeRiserViewModel(tradeRiserProxy) {
     this.timeFrameQuery = ko.observable();
     this.chartPadDataIntraday;
 
+    this.chartLookUp = {};
+
     this.init = function () {
-        tradeRiserProxy.getAllContinousResults(self.initializeAllContinousResultsCards);
+       // tradeRiserProxy.getAllContinousResults(self.initializeAllContinousResultsCards);
 
         tradeRiserProxy.getUserProfile(self.initializeUserProfileConfigCards);
 
@@ -110,6 +114,35 @@ function TradeRiserViewModel(tradeRiserProxy) {
            // evt.stopPropagation();
             alert('1225654');
         });
+
+
+
+
+        //function SelectHighlighter(highlightersLength) {
+        //    var val = highlightersLength;
+        //    var chart = Highcharts.charts[0];
+
+        //    var xtrem = chart.xAxis[0].getExtremes();
+        //    var diff = xtrem.userMax - xtrem.userMin;
+        //    chart.xAxis[0].setExtremes(
+        //      higlighters[val].StartDateTime - diff / 2,
+        //      higlighters[val].StartDateTime + diff / 2
+        //    );
+        //    // var region = chart.highlightedRegions[val].element;
+        //    // var pinLeft = ($(region).attr("x") + ($(region).attr("w") / 2) - (chart.pinsConf.width / 2));
+        //    // var pinTop = ($(region).attr("y") - chart.pinsConf.height);
+
+        //    for (var i = 0; i < chart.pins.length; i++) {
+        //        if (higlighters[val].Comment == chart.pins[i].attr('data-comment')) {
+        //            // if (chart.pins[i].attr("left") == pinLeft && chart.pins[i].attr("top") == pinTop)
+        //            chart.pins[i].click();
+        //        }
+        //    }
+        //};
+
+
+
+
     };
 
     this.initializeAllContinousResultsCards = function (returnedData) {
@@ -196,6 +229,17 @@ function TradeRiserViewModel(tradeRiserProxy) {
                 }
                 self.historicQueries.push(queryCard);
             }
+
+
+            for (var i = 0; i < obj.UserProfileConfig.SavedQueries.length; i++) {
+
+                var queryCard = {
+                    QueryID: obj.UserProfileConfig.SavedQueries[i].QueryID,
+                    Query: obj.UserProfileConfig.SavedQueries[i].Query
+                }
+                self.queriesSaved.push(queryCard);
+            }
+
         };
 
     }
@@ -210,7 +254,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var symbolID = criteria[0];
         if (criteria.length == 2) timeframe = criteria[1].replace(/\s+/g, '');;
 
-        tradeRiserProxy.fetchSymbolData(symbolID, self.timeFrameQuery(), self.populateChartPad, self.errorResponse);
+        //tradeRiserProxy.fetchSymbolData(symbolID, self.timeFrameQuery(), self.populateChartPad, self.errorResponse);
+
+        //tradeRiserProxy.fetchSymbolData(symbolID, self.timeFrameQuery(), self.populateChartPad, self.errorResponse);
+        tradeRiserProxy.testApi(symbolID);
+
 
         //tradeRiserProxy.fetchSymbolData(self.symbolQuery(), 'EndOfDay', self.populateChartPad, self.errorResponse);
     }
@@ -532,6 +580,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
     this.retrieveDataResults = function (resultKey, event) {
 
+        
         //event
         var currentItem = event.currentTarget.children[0];
         self.selectHighlightItem(currentItem.id);
@@ -540,6 +589,9 @@ function TradeRiserViewModel(tradeRiserProxy) {
         if (loadchart !== null || loadchart !== 'defined') {
             loadchart.style.display = 'block';
         }
+
+        $("#resultCanvas").empty();
+        $("#summaryResults").empty();
 
         tradeRiserProxy.getDataResults(currentItem.id, function (dataInterm) {
 
@@ -634,6 +686,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                 self.historicQueries.unshift(queryCard);
 
                 $("#resultCanvas").empty();
+                $("#summaryResults").empty();
 
                 for (var g = 0; g < Highcharts.charts.length; g++) {
                     if (Highcharts.charts[g] != null && Highcharts.charts[g] !== undefined) {
@@ -655,6 +708,9 @@ function TradeRiserViewModel(tradeRiserProxy) {
     this.selected = "none";
     this.toolBarShow = true;
     this.toolBarMessage = ko.observable("<< Show Toolbar");
+
+    this.toolBottomBarShow = true;
+    this.toolBottomBarMessage = ko.observable("<< Show Answer Toolbar");
 
 
 
@@ -682,6 +738,17 @@ function TradeRiserViewModel(tradeRiserProxy) {
         else {
             self.toolBarMessage("<< Show Toolbar");
             self.toolBarShow = true;
+        }
+    }
+
+    this.toolBottomBar = function (returnedData) {
+        if (self.toolBottomBarShow) {
+            self.toolBottomBarMessage("<< Hide Answer Toolbar");
+            self.toolBottomBarShow = false;
+        }
+        else {
+            self.toolBottomBarMessage("<< Show Answer Toolbar");
+            self.toolBottomBarShow = true;
         }
     }
 
@@ -820,6 +887,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         }
 
         var resultItem = {
+            Query: latestResultCard.Query,
             SymbolID: latestResultCard.SymbolID,
             StartDateTime: latestResultCard.StartDateTime,
             EndDateTime: latestResultCard.EndDateTime,
@@ -835,6 +903,25 @@ function TradeRiserViewModel(tradeRiserProxy) {
             /*,
             ExtraFields: extraFieldsArray*/
         };
+
+        if (self.continuousResults().length > 0) {
+            var hjj = self.continuousResults()[0];
+            var ghgh = hjj;
+        }
+
+        var removalList = [];
+        for (var d = 0; d < self.continuousResults().length; d++) {
+
+            if (self.continuousResults()[d].QueryID == resultItem.QueryID) {
+                removalList.push(d);
+            }
+        }
+
+        for (var i = 0; i < removalList.length; i++) {
+            self.continuousResults.splice(removalList[i], 1);
+        }
+
+
 
         self.continuousResults.unshift(resultItem);
 
@@ -974,6 +1061,25 @@ function TradeRiserViewModel(tradeRiserProxy) {
         self.tradeRiserProxy.followQuery(item.Query, function () {
 
             self.queriesSubscription.unshift(item);
+        });
+    };
+
+
+    this.unSaveQuery = function (item) {
+
+        self.tradeRiserProxy.unSaveQuery(item.Query, function () {
+            var i = self.queriesSaved().filter(function (elem) {
+                return elem.QueryID === item.QueryID;
+            })[0];
+            self.queriesSaved.remove(i);
+        });
+    };
+
+    this.saveQuery = function (item) {
+
+        self.tradeRiserProxy.saveQuery(item.Query, function () {
+
+            self.queriesSaved.unshift(item);
         });
     };
 
@@ -1443,10 +1549,12 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 yAxisArray.push(chartItemDef);
 
                                 presentationTypeIndex = pp;
+                               // var highId = Highcharts.charts[Highcharts.charts.length - 1].container.id;
 
                                 self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
 
                                 SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray, trendsOverlayArray);
+                                self.initialiseDynaTable(highlighterArray);
 
                                 //Insert into Title area
                                 if (highlighterArray.length > 0) {
@@ -1529,6 +1637,44 @@ function TradeRiserViewModel(tradeRiserProxy) {
         catch (err) {
             alert(err);
         }
+    };
+
+    this.initialiseDynaTable = function (highlighterArray) {
+
+        var currenthighChartsId = Highcharts.charts[Highcharts.charts.length - 1].container.id;
+
+        self.chartLookUp[currenthighChartsId] = highlighterArray;
+
+        var allElements = $('.genericResultsTable');
+
+        for (var j = 0; j < allElements.length; j++) {
+            var idSelect = allElements[j].id;
+
+            $('#' + idSelect).dynatable({
+                table: {
+                    defaultColumnIdStyle: 'trimDash'
+                },
+                features: {
+                    paginate: true,
+                    search: false,
+                    recordCount: true,
+                    perPageSelect: false
+                },
+                writers: {
+                    _rowWriter: myRowWriter
+                }
+            }).bind('dynatable:afterProcess', addClickEvent);
+        }
+
+        addClickEvent();
+
+        function addClickEvent() {
+            $('#' + idSelect).find("tr").on("click", function (evt, x) {
+                SelectHighlighter(this.getAttribute('data-index'), currenthighChartsId, self.chartLookUp);
+            });
+        }
+
+
     };
 
     this.LoadPerformanceStatistics = function (obj) {

@@ -291,6 +291,32 @@ namespace TradeRiser.Models
             return response;
         }
 
+        public string SaveQuery(string username, string query, string accessToken)
+        {
+            var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/Query/SaveQuery";
+
+            var subMan = new StoredQueryManagment();
+            subMan.UserName = username;
+            subMan.Query = query;
+            var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(subMan);
+
+            string response = PostToRestService(apiUrl, serialized, accessToken);
+            return response;
+        }
+
+        public string UnsaveQuery(string username, string query, string accessToken)
+        {
+            var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/Query/UnsaveQuery";
+
+            var subMan = new StoredQueryManagment();
+            subMan.UserName = username;
+            subMan.Query = query;
+            var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(subMan);
+
+            string response = PostToRestService(apiUrl, serialized, accessToken);
+            return response;
+        }
+
         public string GetAllEmergingPatternDefaults()
         {
             var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/Query/GetAllEmergingPatternDefaults";
@@ -590,6 +616,12 @@ namespace TradeRiser.Models
     }
 
     public class SubscripitionManagment
+    {
+        public string UserName { get; set; }
+        public string Query { get; set; }
+    }
+
+    public class StoredQueryManagment
     {
         public string UserName { get; set; }
         public string Query { get; set; }

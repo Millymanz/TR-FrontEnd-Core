@@ -129,6 +129,34 @@ function TradeRiserProxy() {
         }
     };
 
+    this.unSaveQuery = function (query, callback) {
+        {
+            $.ajax({
+                url: "/App/UnsaveQuery",
+                type: "POST",
+                dataType: "text",
+                data: { query: query, accessToken: hvnme = $('#a_t').val() },
+                success: function (returnedData) {
+                    callback(returnedData);
+                }
+            });
+        }
+    };
+
+    this.saveQuery = function (query, callback) {
+        {
+            $.ajax({
+                url: "/App/SaveQuery",
+                type: "POST",
+                dataType: "text",
+                data: { query: query, accessToken: hvnme = $('#a_t').val() },
+                success: function (returnedData) {
+                    callback(returnedData);
+                }
+            });
+        }
+    };
+
     this.getAllCompletedPatternDefaults = function (callback) {
 
         $.ajax({
@@ -178,15 +206,95 @@ function TradeRiserProxy() {
     };
 
 
-    this.fetchSymbolData = function (symbolID, timeFrame, callback, callbackError) {
+    //this.fetchSymbolData = function (symbolID, timeFrame, callback, callbackError) {
+
+    //    $.ajax({
+    //        url: "/App/GetSymbolData",
+    //        type: "POST",
+    //        dataType: "text",
+    //        data: { symbolID: symbolID, timeFrame: timeFrame, accessToken: $('#a_t').val() },
+    //        success: function (returnedData) {
+    //            callback(returnedData);
+    //        },
+    //        error: function (data) {
+    //            // Failure here is valid if the there are no groups in the database, e.g. soon after the database has been cleared.
+    //            alert('ajax call  failed');
+    //        }
+    //    })
+
+
+    //};
+
+
+    this.testApi = function (symbolID) {
+        // url: "http://devapi.traderiser.com/api/UserAuth/Authenticate",
+
+       // var myObject = '{\' UserName: traderiserapp@traderiser.com \}';
+
+
+
+
+        var myObject = { UserName: 'traderiserapp@traderiser.com' };
+        var myUrlTemp = "http://localhost:59665/api/Query/GetUserProfile";
+
+        var myUrlTempMM = "http://devapi.traderiser.com/api/Query/GetUserProfile";
+
+        var mySessionUrl = "http://devapi.traderiser.com/api/UserAuth/SessionTokenActive";
+
+        var urloginModel = "http://localhost:59665/api/UserAuth/Authenticate";
+        var LoginModel = { UserName: 'traderiserapp@traderiser.com', Password: 'Hydrus!$men1' };
+
+
+        var myUrlTempAnswer = "http://localhost:59665/api/Query/GetAnswer";
+
+        var queryObj = {
+            Username: $('#u_n').val(),
+            Query: "EUR/USD price change of at least 20 pips on 5min timeframe"
+        };
+
+        var json_text = JSON.stringify(myObject);
+
+
+        //var urloginModel = "http://devapi.traderiser.com/api/UserAuth/Authenticate";
+        //var LoginModel = { UserName: 'traderiserapp@traderiser.com', Password: 'Hydrus!$men1' };
+
+
+        //$.ajax({
+            
+        //        beforeSend: function(xhrObj){
+        //            xhrObj.setRequestHeader("Content-Type","application/json");
+        //            xhrObj.setRequestHeader("Accept", "application/json");
+        //            xhrObj.setRequestHeader('Authorization', 'Bearer ' + $('#a_t').val() + ' ');
+        //        },
+        //    contentType: "application/json",
+        //    url: myUrlTempMM,
+        //    type: "POST",
+        //    dataType: "json",
+        //    //data: { UserName: $('#u_n').val() },
+        //    data: json_text,
+        //    success: function (returnedData) {
+        //        alert('Success');
+        //    },
+        //    error: function (data) {
+        //        // Failure here is valid if the there are no groups in the database, e.g. soon after the database has been cleared.
+        //        alert('ajax call  failed');
+        //    }
+        //})
+
+
 
         $.ajax({
-            url: "/App/GetSymbolData",
-            type: "POST",
-            dataType: "text",
-            data: { symbolID: symbolID, timeFrame: timeFrame, accessToken: $('#a_t').val() },
+
+            beforeSend: function (xhrObj) {
+                xhrObj.setRequestHeader("Content-Type", "application/json");
+                xhrObj.setRequestHeader("Accept", "application/json");
+                xhrObj.setRequestHeader('Authorization', 'Bearer ' + $('#a_t').val() + ' ');
+            },
+            contentType: "application/json",
+            url: mySessionUrl,
+            type: "GET",          
             success: function (returnedData) {
-                callback(returnedData);
+                alert('Success');
             },
             error: function (data) {
                 // Failure here is valid if the there are no groups in the database, e.g. soon after the database has been cleared.
@@ -195,6 +303,14 @@ function TradeRiserProxy() {
         })
 
 
+
+
+
+
+
+
+
     };
+
 
 }

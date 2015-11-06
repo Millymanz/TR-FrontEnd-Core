@@ -7,24 +7,56 @@
 //    Highcharts.charts[0].redraw();
 //});
 
-function SelectHighlighter(highlightersLength) {
+function SelectHighlighter(highlightersLength, currenthighChartsId, chartLookUp) {
     var val = highlightersLength;
-    var chart = Highcharts.charts[0];
 
-    var xtrem = chart.xAxis[0].getExtremes();
-    var diff = xtrem.userMax - xtrem.userMin;
-    chart.xAxis[0].setExtremes(
-        higlighters[val].StartDateTime - diff / 2,
-        higlighters[val].StartDateTime + diff / 2
-    );
-    // var region = chart.highlightedRegions[val].element;
-    // var pinLeft = ($(region).attr("x") + ($(region).attr("w") / 2) - (chart.pinsConf.width / 2));
-    // var pinTop = ($(region).attr("y") - chart.pinsConf.height);
+    for (var g = 0; g < Highcharts.charts.length; g++) {
 
-    for (var i = 0; i < chart.pins.length; i++) {
-        if (higlighters[val].Comment == chart.pins[i].attr('data-comment')) {
-            // if (chart.pins[i].attr("left") == pinLeft && chart.pins[i].attr("top") == pinTop)
-            chart.pins[i].click();
+        if (typeof Highcharts.charts[g] !== 'undefined') {
+            if (Highcharts.charts[g].container.id == currenthighChartsId) {
+                var chart = Highcharts.charts[g];
+
+                var xtrem = '';
+                var miniBool = true;
+                var maxBool = true;
+                var axisIndex = 0;
+                for (var y = 0; y < chart.xAxis.length; y++) {
+
+                    var xtremTemp = chart.xAxis[y].getExtremes();
+                    
+                    miniBool = isNaN(xtremTemp.userMin);
+                    maxBool = isNaN(xtremTemp.userMax);
+
+                    if (miniBool === false && maxBool === false) {
+                        xtrem = xtremTemp;
+                        axisIndex = y;
+                        break;
+                    }
+                }
+
+                //ensure extents exist
+                if (miniBool === false && maxBool === false) {
+                    var diff = xtrem.userMax - xtrem.userMin;
+                    //var diff = xtrem.userMax - xtrem.userMin;
+
+                    var higlighters = chartLookUp[currenthighChartsId];
+
+                    chart.xAxis[axisIndex].setExtremes(
+                        higlighters[val].startDate - diff / 2,
+                        higlighters[val].startDate + diff / 2
+
+                    );
+
+                    //open speech bubble
+                    for (var i = 0; i < chart.pins.length; i++) {
+                        if (higlighters[val].speechBubbleHtml == chart.pins[i].attr('data-comment')) {                            
+                            chart.pins[i].click();
+                        }
+                    }
+                }
+
+
+            }
         }
     }
 }
@@ -50,8 +82,10 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
         var volume_CandleStick = [];
 
         for (var bb = 0; bb < obj.CurrentResult.ResultSymbols[presentationTypeIndex].length; bb++) {
-            symbolNames.push(obj.CurrentResult.ResultSymbols[presentationTypeIndex][bb]);
+            symbolNames.push(obj.CurrentResult.ResultSymbols[presentationTypeIndex][bb] + " " + obj.CurrentResult.RawDataResults[presentationTypeIndex].DataTimeFrame);
         }
+
+  
 
         var dataLength = dataResultsT.length;
 

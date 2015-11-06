@@ -86,6 +86,7 @@ namespace TradeRiser.Controllers
             var restClient = new RestClient();
             restClient.FollowQuery(username, query, accessToken);            
         }
+
        
         [HttpPost]
         public string GetAnswer(String searchQuery, string accessToken)
@@ -95,6 +96,23 @@ namespace TradeRiser.Controllers
 
             var response = restClient.GetAnswer(searchQuery, username, accessToken);
             return response;
+        }
+        
+        [HttpPost]
+        public void UnsaveQuery(String query, string accessToken)
+        {
+            String username = HttpContext.User.Identity.Name;
+            var restClient = new RestClient();
+            restClient.UnsaveQuery(username, query, accessToken);
+        }
+
+        [HttpPost]
+        public void SaveQuery(String query, string accessToken)
+        {
+            String username = HttpContext.User.Identity.Name;
+
+            var restClient = new RestClient();
+            restClient.SaveQuery(username, query, accessToken);
         }
 
         [HttpPost]

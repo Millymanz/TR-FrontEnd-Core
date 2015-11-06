@@ -11,7 +11,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>TradeRiser - Beta</title>
+    <title>TradeRiser - Demo</title>
     <meta name="description" content="">
     <meta name="author" content="">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -88,14 +88,14 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
     <div class="topbar">
         <div class="searchbox">
             <div class="searchact">
-                <a href="#" class="btn-act btn-chart transition">Chart</a>
+                <!--<a href="#" class="btn-act btn-chart transition">Chart</a> -->
                 <a href="#" class="btn-act btn-drop transition">Drop</a>
             </div>
             <div id="searchboxArea">
                 <div id="contenthandle">
                     <form id="searchForm" method="post">
                         <input data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" id="testIndex" name="searchQuery" size="72"
-                            placeholder="What would like to know about the Forex markets?" class="inputbox transition input-search" autocomplete="off" />
+                            placeholder="Enter what you would like query or know about the Forex markets?" class="inputbox transition input-search" autocomplete="off" />
                         <div data-bind="click: getAnswer" id="compute" value="SEARCH" class="btn btn-search transition" style="cursor: pointer;">GET ANSWER</div>
                         
 
@@ -155,59 +155,38 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
                         <div class="leftSidebarNewTitle">
                            Continuous Query Results
                         </div>
-                        <div class="subtitleNewHeader">Continuous query results featuring emerging chart patterns and custom analysis</div>
+                        <div class="subtitleNewHeader">Continuous query results - Alerts/Notification/Updates</div>
 
                         <div class="tab-inner" id="emergingResults">
                             <div data-bind="foreach : continuousResults">
-                                <div data-bind="template: {name: 'resultCardTemplate', data: $data },  hoverToggle: 'resultCardHover', 
-                                    click: function(data, event) { $parent.retrieveDataResults(data, event) }">
+                                <div data-bind="template: {name: 'continousResultCardTemplate', data: $data },  hoverToggle: 'resultCardHover'">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
 
                 <div id="tabs1-tab3" class="tabpanel">
-
                     <div class="titleleftHeader">
                         <div class="leftSidebarNewTitle">
-                            Example Queries
+                           Saved Queries
                         </div>
-                        <div class="subtitleNewHeader">Example queries for the trading community, this is updated on a regular bases.</div>
+                        <div class="subtitleNewHeader">Saved query results - User favourite queries</div>
 
-                        <div class="tab-inner" id="expiredResults">
+                        <div class="tab-inner" id="savedQueries">
 
-                            <div class="leftSideQueryItems" id="b2">
-                                <div class="blobhead">
-                                    <div class="blobuser">
-                                        <div class="sideBarViewQuery">View</div>
+                    <div data-bind="foreach : queriesSaved">
+                        <div data-bind="template: {name: 'savedQueryTemplate', data: $data } ">
+                        </div>
+                    </div>
 
-                                        <div class="btnUnfollow">
-                                            Unfollow-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="blobcontent">
-                                    <p>Which currency pairs have a high volatility on a 1 minute timeframe and an uptrend on the 4 hour timeframe and sharp drop 2 weeks ago on the 30 minute time frame?</p>
-                                </div>
-                            </div>
 
-                            <div class="leftSideQueryItems" id="b3">
-                                <div class="blobhead">
-                                    <div class="blobuser">
-                                        <div class="sideBarViewQuery">View</div>
-                                        <div class="btnUnfollow">
-                                            Unfollow-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="blobcontent">
-                                    <p>Which currency pairs have a high volatility on a 1 minute timeframe and an uptrend on the 4 hour timeframe and sharp drop 2 weeks ago on the 30 minute time frame?</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -235,6 +214,8 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
                         <div data-bind="template: {name: 'followingQueryTemplate', data: $data } ">
                         </div>
                     </div>
+
+
                 </div>
 
             </div>
@@ -264,11 +245,19 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
     </div>
     <!-- End Sidebar -->
 
+    <!-- Bottom Bar -->
+        <div class="bottombar">
+            <div>
+                <a href="#" id="bottombtn-splitter" data-bind="click: toolBottomBar, text:toolBottomBarMessage"></a>
+               </div>
+                <div class="tab-inner" id="summaryResults"></div>
+         </div>
+        <!---->
 
     <!-- Main Content -->
     <div class="content">
         <div class="content-inner">
-            <a id="riskDisclaimerButton" href="#riskDisclaimer">Risk Disclaimer</a>            
+           <!-- <a id="riskDisclaimerButton" href="#riskDisclaimer">Risk Disclaimer</a>   -->
                 <div id="noresults" style="z-index: 50000; display:none; font-size: medium; font-family:'PT Sans', Arial, Helvetica, sans-serif;
                 margin: 200px auto; color:#686665; left:0; right:0; width: 600px; position: absolute; padding:5px 5px 5px 5px; border-radius: 5px; 
                 box-shadow: 0 0 7px 1px #BFCFD0;"><b>TradeRiser does not understand your input. 
@@ -279,7 +268,11 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
                 <table width="95%" cellspacing="1" border="1" style="border-color: #E0E0E0; margin: 0 auto;">
                     <tr>
                         <td>
-                            <label>Highlighted:</label><input type="checkbox" id="highlighted" />
+                           <!--
+                                <label>Highlighted:</label><input type="checkbox" id="highlighted" />
+                              -->
+                            <br/>
+                            <div id="reportArea">Example Report</div>
                             <div id="container" style="height: 610px; width: 100%;"></div>
                         </td>
                     </tr>
@@ -290,7 +283,7 @@ background-color:white; padding:5px 5px 5px 5px; border-radius: 5px; position: a
 
                      <div id="riskDisclaimer">
                     <h2>Risk Disclaimer</h2>
-                    <a class="naviPos" href="#performStatsButton">Top</a>
+                   <!-- <a class="naviPos" href="#riskDisclaimerButton">Top</a> -->
 
                     <p>
 Please acknowledge the following: <br/>
@@ -367,6 +360,70 @@ The TradeRiser service includes analysis of financial instruments. There are pot
             <div class="blobhead">
                 <div class="resultHeader">
                     <table class="resultHeaderTable">
+                        <tr>
+                            <td>
+                                <div class="resultIcon">                                                                                
+                                    <div data-bind="foreach: SymbolImages">
+                                        <img data-bind="attr:{src: $data}" />  
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: Source">-</div> 
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: SymbolID"></div>
+                            </td>
+                            <td>
+                                <div class="resultStartDateTime" data-bind="text: StartDateTime"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="resultTimeFrame" data-bind="text: TimeFrame"></div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol">
+                                </div>
+                            </td>
+                            <td colspan="4">
+                                <div class="resultEndDateTime" data-bind="text: EndDateTime"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="blobcontent">
+
+                <table class="resultFieldsTable" data-bind="foreach : ExtraFields">
+                    <tbody data-bind="foreach : $data">
+                        <tr>
+                            <td data-bind="text: keyfield">:</td>
+                            <td data-bind="text: keydata"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </script>
+
+
+
+        <script type="text/html" id="continousResultCardTemplate">
+        <div class="leftSideQueryItems" data-bind="attr: {id: QueryID }, click: function(Query) { 
+                       $root.updateMainQuery(Query); }">
+            <div class="blobhead">
+                <div class="resultHeader">
+                    <table class="resultHeaderTable">
+                        <tr>
+                            <td colspan="4">
+                                <strong>
+                                    <div class="resultTimeFrame" data-bind="text: Query"></div>
+                                </strong>
+                            </td>                           
+                        </tr>
+
                         <tr>
                             <td>
                                 <div class="resultIcon">                                                                                
@@ -471,6 +528,27 @@ The TradeRiser service includes analysis of financial instruments. There are pot
         </div>
     </script>*@
 
+        <script type="text/html" id="savedQueryTemplate">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unSaveQuery(QueryID); }">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query"></div>
+            </div>
+        </div>
+    </script>
+
+
     <script type="text/html" id="followingQueryTemplate">
         <div class="followingQuery" data-bind="attr: {id: QueryID }">
             <div class="blobhead">
@@ -497,6 +575,9 @@ The TradeRiser service includes analysis of financial instruments. There are pot
                 <div class="blobuser">
                     <div class="sideBarViewQuery" data-bind="click: function(Query) { 
                        $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
 
                     <div class="btnFollow" data-bind="click: function(QueryID) { 
                        $root.followQuery(QueryID); }">

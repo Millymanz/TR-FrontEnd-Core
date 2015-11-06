@@ -831,35 +831,54 @@ function(e){
 
 
 
-
-
-
-$('#rightbtn-splitter').on('click', 
-function(e){	
-    if(!$('.rightsidebar').hasClass('closed'))
-    {
+$('#rightbtn-splitter').on('click',
+function (e) {
+    if (!$('.rightsidebar').hasClass('closed')) {
         $('.rightsidebar')
         .addClass('closed')
-        .animate({'right':-340});
-        $('.content').animate({right:0});
-	
+        .animate({ 'right': -340 });
+        $('.content').animate({ right: 0 });
+
         //-- Resize dialogs on pane visibility change
         //$('.pane').each(function(index, element){			
         //    resizeDialog($(this), true);
         //});
-	
+
     }
-    else
-    {
+    else {
         $('.rightsidebar')
         .removeClass('closed')
-        .animate({'right':0});
-        $('.content').animate({right:340});
+        .animate({ 'right': 0 });
+        $('.content').animate({ right: 340 });
 
         //-- Resize dialogs on pane visibility change
         /*$('.pane .ui-dialog').each(function(index, element){
             resizeDialog($(this), false);
         });*/
+    }
+});
+
+
+//$('.bottombar').hasClass('closed');
+
+$('#bottombtn-splitter').on('click',
+function(e){	
+    if (!$('.bottombar').hasClass('closed'))
+    {
+        $('.bottombar')
+        .addClass('closed')
+        .animate({ 'bottom': -300 });
+
+        //$('.content').animate({bottom:0});
+    }
+    else
+    {
+        $('.bottombar')
+        .removeClass('closed')
+        .animate({ 'bottom': 0 });
+
+
+        //$('.content').animate({ bottom: -300 });
     }
 });
 

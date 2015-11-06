@@ -3,6 +3,16 @@ function DisplaySummary(presentationTypes, presentationTypeIndex, obj, dataLookU
 
 }
 
+function myRowWriter(rowIndex, record, columns, cellWriter) {
+var tr = '';
+
+// grab the record's attribute for each column
+    for (var i = 0, len = columns.length; i < len; i++) {
+        tr += cellWriter(columns[i], record);
+    }
+    return '<tr style=cursor:pointer data-index=' + rowIndex + '>' + tr + '</tr>';
+}
+
 function WidgetAlreadyUsed(presentationItem, widgetUsedList) {
     
     for (var t = 0; t < widgetUsedList.length; t++) {
@@ -904,75 +914,44 @@ function GenerateSummary(obj, presentationTypeIndex) {
 
     var final = genTabStr;
 
-    $('<br/>' + final).appendTo($("#celln" + presentationTypeIndex));
+    //$('<br/>' + final).appendTo($("#celln" + presentationTypeIndex));
 
 
+    $(final).appendTo($("#summaryResults"));
 
 
-    var allElements = $('.genericResultsTable');
+   //var allElements = $('.genericResultsTable');
 
+   // for (var j = 0; j < allElements.length; j++) {
+   //     var idSelect = allElements[j].id;
 
+   //     $('#' + idSelect).dynatable({
+   //         table: {
+   //             defaultColumnIdStyle: 'trimDash'
+   //         },
+   //         features: {
+   //             paginate: true,
+   //             search: false,
+   //             recordCount: true,
+   //             perPageSelect: false
+   //         },
+   //         writers: {
+   //             _rowWriter: myRowWriter
+   //         }
+   //     }).bind('dynatable:afterProcess', addClickEvent);
+   // }
 
-    //for (var j = 0; j < allElements.length; j++) {
-    //    var idSelect = allElements[j].id;
+    
+   // addClickEvent();
 
-    //    $('#'+idSelect).dynatable({
-    //        table: {
-    //            defaultColumnIdStyle: 'trimDash'
-    //        },
-    //        features: {
-    //            paginate: true,
-    //            search: false,
-    //            recordCount: true,
-    //            perPageSelect: false
-    //        }
-    //    });
-    //}
-
-
-    // Function that renders the list items from our records
-    function ulWriter(rowIndex, record, columns, cellWriter) {
-        var cssClass = "span4", li;
-        if (rowIndex % 3 === 0) { cssClass += ' first'; }
-        li = '<li class="' + cssClass + '"><div class="thumbnail"><div class="thumbnail-image">' + record.thumbnail + '</div><div class="caption">' + record.caption + '</div></div></li>';
-        return li;
-    }
-
-    // Function that creates our records from the DOM when the page is loaded
-    function ulReader(index, li, record) {
-        var $li = $(li),
-            $caption = $li.find('.caption');
-        record.thumbnail = $li.find('.thumbnail-image').html();
-        record.caption = $caption.html();
-        record.label = $caption.find('h3').text();
-        record.description = $caption.find('p').text();
-        record.color = $li.data('color');
-    }
-
-    for (var j = 0; j < allElements.length; j++) {
-        var idSelect = allElements[j].id;
-
-        $('#'+idSelect).dynatable({
-                    table: {
-                        defaultColumnIdStyle: 'trimDash'
-                    },
-                    features: {
-                        paginate: true,
-                        search: false,
-                        recordCount: true,
-                        perPageSelect: false
-                    }
-                });
-    }
-
-
-
-
-
-
-
+   // function addClickEvent() {
+   //     $('#' + idSelect).find("tr").on("click", function (evt, x) {
+   //         SelectHighlighter(this.getAttribute('data-index'), currenthighChartsId);
+   //     });
+   // }
 
 
 
 
 }
+
