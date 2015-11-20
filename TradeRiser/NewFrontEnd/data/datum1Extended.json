@@ -1,0 +1,143 @@
+[ 
+    
+    
+   { 
+    "name": "Linear regression(10)", 
+    "description": "Twitter's out-of-date, forked thrift 123132 321 321 321 321 2 132 13 213213 2132 13 213 21 321 32 13 21", 
+    "language": "Search Query", 
+    "image": "data/unlock.png", 
+    "addclass": "class1", 
+    "value": "Linear regression(10)", 
+    "tokens": [ 
+      "Linear regression(10)"
+    ] 
+  }, 
+     { 
+    "name": "Linear regression(12)", 
+    "description": "Twitter's out-of-date, forked thrift", 
+    "language": "Other Search Query", 
+    "image": "data/unlock.png", 
+    "addclass": "class1", 
+    "value": "Linear regression(12)", 
+    "tokens": [ 
+      "Linear regression(12)"
+    ] 
+  }, 
+     { 
+    "name": "Linear regression(13)", 
+    "description": "Twitter's out-of-date, forked thrift", 
+    "language": "Search Query", 
+    "image": "data/private_icon.gif", 
+    "addclass": "class2", 
+    "value": "Linear regression(13)", 
+    "tokens": [ 
+      "Linear regression(13)"
+    ] 
+  }, 
+     { 
+    "name": "Linear regression(14)", 
+    "description": "Twitter's out-of-date, forked thrift", 
+    "language": "Search Query", 
+    "image": "data/private_icon.gif", 
+    "value": "Linear regression(14)", 
+    "tokens": [ 
+      "Linear regression(14)"
+    ] 
+  }, 
+     { 
+    "name": "Linear regression(15)", 
+    "description": "Twitter's out-of-date, forked thrift", 
+    "language": "Search Query", 
+    "value": "Linear regression(15)", 
+    "tokens": [ 
+      "Linear regression(15)"
+    ] 
+  }, 
+    
+   { 
+    "name": "VMA(50) 5% below MA(50)", 
+    "description": "A fast and fully-featured autocomplete library", 
+    "language": "Search Query", 
+    "value": "VMA(50) 5% below MA(50)", 
+    "tokens": [ 
+      "VMA(50) 5% below MA(50)"
+    ] 
+  }, 
+  { 
+    "name": "Min RSI/Signal above 60", 
+    "description": "A Ruby client for the Cassandra distributed database", 
+    "language": "Search Query", 
+    "image": "data/unlock.png", 
+    "addclass": "class1", 
+    "value": "Min RSI/Signal above 60", 
+    "tokens": [ 
+      "Min RSI/Signal above 60"
+    ] 
+  }, 
+  { 
+    "name": "Aroon Oscillator cross above 0", 
+    "description": "Refactored version of code.google.com/hadoop-gpl-compression for hadoop 0.20", 
+    "language": "Search Query", 
+    "image": "data/unlock.png", 
+    "addclass": "class1", 
+    "value": "Aroon Oscillator cross above 0", 
+    "tokens": [ 
+      "Aroon Oscillator cross above 0"
+    ] 
+  }, 
+  { 
+    "name": "MA cross above 5-day DMA", 
+    "description": "A Ruby client library for Scribe", 
+    "language": "Search Query", 
+    "image": "data/unlock.png", 
+    "addclass": "class2", 
+    "value": "MA cross above 5-day DMA", 
+    "tokens": [ 
+      "MA cross above 5-day DMA"
+    ] 
+  }, 
+  { 
+    "name": "Beta above 3.0", 
+    "description": "Parameters: 3.0 can be changed", 
+    "language": "Search Query", 
+    "image": "data/unlock.png", 
+    "addclass": "class1", 
+    "value": "Beta above 3.0", 
+    "tokens": [ 
+      "Beta above 3.0"
+    ] 
+  }, 
+  { 
+    "name": "Gained More than 20%", 
+    "description": "Minimal templating with {{mustaches}} in JavaScript", 
+    "language": "Search Query", 
+    "image": "data/unlock.png", 
+    "addclass": "class2", 
+    "value": "Gained More than 20%", 
+    "tokens": [ 
+      "Gained More than 20%"
+    ] 
+  }, 
+  { 
+    "name": "P/E Ratio above 0", 
+    "description": "A JVM Kestrel client that aggregates queues from multiple servers. Implemented in Scala with Java bindings. In use at Twitter for all JVM Search and Streaming Kestrel interactions.", 
+    "language": "Search Query", 
+    "image": "data/unlock.png", 
+    "addclass": "class1", 
+    "value": "P/E Ratio above 0", 
+    "tokens": [ 
+      "P/E Ratio above 0"
+    ] 
+  }, 
+  { 
+    "name": "Price crossing below Chandelier Exit", 
+    "description": "A flexible sharding framework for creating eventually-consistent distributed datastores", 
+    "language": "Search Query", 
+    "value": "Price crossing below Chandelier Exit", 
+    "tokens": [ 
+      "Price crossing below Chandelier Exit"
+    ] 
+  } 
+    
+   
+]

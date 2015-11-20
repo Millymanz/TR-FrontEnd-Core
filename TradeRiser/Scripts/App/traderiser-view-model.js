@@ -710,7 +710,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
     this.toolBarMessage = ko.observable("<< Show Toolbar");
 
     this.toolBottomBarShow = true;
-    this.toolBottomBarMessage = ko.observable("<< Show Answer Toolbar");
+    this.toolBottomBarMessage = ko.observable("<< Hide Answer Toolbar >>");
 
 
 
@@ -743,11 +743,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
     this.toolBottomBar = function (returnedData) {
         if (self.toolBottomBarShow) {
-            self.toolBottomBarMessage("<< Hide Answer Toolbar");
+            //self.toolBottomBarMessage("<< Hide Answer Toolbar");
             self.toolBottomBarShow = false;
         }
         else {
-            self.toolBottomBarMessage("<< Show Answer Toolbar");
+           // self.toolBottomBarMessage("<< Show Answer Toolbar");
             self.toolBottomBarShow = true;
         }
     }
@@ -1090,7 +1090,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         //var currentWidth = $("#resultCanvas").width();
         $("#resultCanvas").empty();
 
-        $(".pane").width(self.paneFixWidth);
+       // $(".pane").width(self.paneFixWidth);
 
         var resultsData = new ResultsData();
 
@@ -1105,8 +1105,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var presentationTypeCount = obj.CurrentResult.PresentationTypes.length;
 
         if (presentationTypeCount > 0) {
-            $("#resultCanvas").append($('<br/>'
-                               + '<table id="tableCanvas" width="100%" cellpadding="15" cellspacing="1" border="1" style="border-color:#E0E0E0;"></table>'));
+
+            $("#resultCanvas").append($('<table id="tableCanvas" width="100%" cellpadding="15" cellspacing="1" border="1" style="border-color:#E0E0E0;"></table>'));
+
+            //$("#resultCanvas").append($('<br/>'
+            //                   + '<table id="tableCanvas" width="100%" cellpadding="15" cellspacing="1" border="1" style="border-color:#E0E0E0;"></table>'));
 
         }
 
@@ -1616,7 +1619,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
             //disclaimer
-            $("#resultCanvas").append($('<br/><br/><div id="riskDisclaimer"><h2>Risk Disclaimer</h2><a class="naviPos" href="#performStatsButton">Top</a><p>Please acknowledge the following: <br/>The Charts are provided'
+            $("#resultCanvas").append($('<br/><br/><div id="riskDisclaimer"><h2>Risk Disclaimer</h2><p>Please acknowledge the following: <br/>The Charts are provided'
               + '" as is", without warranty or guarantee of any kind, including but not limited to the warranties of merchantability and fitness for a particular purpose.'
               + 'In no event shall TradeRiser Limited and its affiliates or any third party contributor be liable for any claim, damages or other liability, whether in an '
               + 'action of contract, tort or otherwise, arising from, out of or in connection with the use of or other dealings in the Charts. The Charts run on pricing '
@@ -1792,6 +1795,10 @@ function TradeRiserViewModel(tradeRiserProxy) {
         //    //width = '50%';
         //    width = '700px';
         //}
+
+        var preferredWidth = $('#pane').width() * 0.90;
+        width = preferredWidth + 'px';
+
       
 
         var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";

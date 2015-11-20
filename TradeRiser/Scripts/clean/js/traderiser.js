@@ -6,10 +6,29 @@
 	var delay = 200;
 	var bShow = 0;
 
-	$('.rightsidebar')
-.addClass('closed')
-.animate({'right':-340});
-	$('.content').animate({ right: 0 });
+	$('.sidebar')
+        .addClass('closed');
+        $('.content').animate({ left: 0 });
+
+
+    //var differenceSet = $('.titleleftHeader').height() - 150;
+    //$('.titleleftHeader').height(differenceSet);
+      
+
+       var preferredHeight = $('.sidebar').height() * 0.70;  
+
+        $('#savedQueries').height(preferredHeight);
+
+        $('#historicQueries').height(preferredHeight);
+        $('#followedQueries').height(preferredHeight);
+
+        $('#emergingResults').height(preferredHeight);
+        $('#queryResults').height(preferredHeight);
+
+        var outerHeight = $('#testIndex').outerHeight();
+        $('#compute').height(outerHeight);
+
+
 
 	$(".logoutItem").click(function () {
 	    document.getElementById('logoutForm').submit();
@@ -243,71 +262,34 @@
 
 $(document).ready(function(e) {
 
-    //$( ".historicQuery" ).draggable();
-    //$( "#followedQueries" ).droppable({
-    //    drop: function( event, ui ) {
-    //        $( this )
-    //          .addClass( "ui-state-highlight" )
-    //          .find( "p" )
-    //            .html( "Dropped!" );
+  
 
-    //        alert('Dropped');
-    //    }
-    //});
-
-
-	
 var panewidth = $('.pane').width();
 var paneheight = $('.pane').height();
-var dwidth = (panewidth - 36) / 2;
-var dheight = (paneheight - 10) / 2;
+/*var dwidth = $('.pane').width() - 50;*/
 
-var dwidth = panewidth;
-var dheight = paneheight;
+var dwidth = 900;
+
+var dheight = $('.pane').height();
 
 //-- Initializing four windows
 var dialog1 = $('.dialog1').dialog({
-	autoOpen: true,
-	draggable: true,
-	resizable: true,
-	width: dwidth,
-	height: dheight,
-	appendTo:'#pane',
-	dialogClass: 'd1'
+    autoOpen: true,
+    draggable: true,
+    resizable: false,
+    width: "96%",
+    height: dheight,
+    appendTo: '#pane',
+    dialogClass: 'd1'
 });
 
-var dialog2 = $('.dialog2').dialog({
-	autoOpen: true,
-	draggable: true,
-	resizable: true,
-	width: dwidth,
-	height: dheight,
-	appendTo:'#pane',
-	dialogClass: 'd2'
-});
 
-var dialog3 = $('.dialog3').dialog({
-	autoOpen: true,
-	draggable: true,
-	resizable: true,
-	width: dwidth,
-	height: dheight,
-	appendTo:'#pane',
-	dialogClass: 'd3'
-});
-
-var dialog4 = $('.dialog4').dialog({
-	autoOpen: true,
-	draggable: true,
-	resizable: true,
-	width: dwidth,
-	height: dheight,
-	appendTo:'#pane',
-	dialogClass: 'd4'
-});
 
 //-- Adding Maximize/Restore buttons to dialog boxes
-$('.d1, .d2, .d3, .d4').children('.ui-dialog-titlebar').append('<button class="btn-expand"></button>');
+//$('.d1, .d2, .d3, .d4').children('.ui-dialog-titlebar').append('<button class="btn-expand"></button>');
+
+//$('.d1, .d2, .d3, .d4').children('.ui-dialog-titlebar').append('<button class="btn-expand"></button>');
+
 
 var oldPositionX;
 var oldPositionY;
@@ -315,12 +297,17 @@ var oldPositionW;
 var oldPositionH;
 
 
+
+
 //-- Servicing Maximize/Restore clicks
 $('.btn-expand').click(function(e) {
 	
 	var dialog = $(this).parents('.ui-dialog');
 	var dialogbody = dialog.find('.ui-dialog-content');
-	var chart = dialog.find('.chartspace');
+
+	var chartspace = dialog.find('#resultCanvas');
+
+	//var chartspace = $('.resultCanvas');
 
 	//-- If dialog is already maximized, 
 	//-- minimize it
@@ -329,9 +316,23 @@ $('.btn-expand').click(function(e) {
 		
 		dialog.animate({'width': oldPositionW, 'left': oldPositionX, 'height': oldPositionH, top:oldPositionY}, 300, function()
 		{
-			$(this).toggleClass('maximized');
-			var hchart = chart.highcharts();
-			hchart.setSize(chart.innerWidth(), chart.innerHeight());			
+		    $(this).toggleClass('maximized');
+
+		    for (var h = 0; h < Highcharts.charts.length; h++) {
+		        var hchart = Highcharts.charts[h];
+		        
+		        if (typeof hchart !== 'undefined' && hchart !== null) {
+
+		        var widthOffset = (5 * chartspace[0].clientWidth) / 100;
+		        var heightOffset = (20 * chartspace[0].clientHeight) / 100;
+
+		        hchart.setSize(chartspace[0].clientWidth - widthOffset,
+                   chartspace[0].clientHeight - heightOffset);
+		        }
+		    }
+
+
+
 		})	
 	}
 	else
@@ -345,9 +346,25 @@ $('.btn-expand').click(function(e) {
 		{
 			$(this).toggleClass('maximized');
 			dialogbody.css('height', '98%');
+
 			
-			var hchart = chart.highcharts();
-			hchart.setSize(chart.innerWidth(), chart.innerHeight());			
+
+			for (var h = 0; h < Highcharts.charts.length; h++) {
+			    var hchart = Highcharts.charts[h];
+
+			    if (typeof hchart !== 'undefined' && hchart !== null) {
+
+			        var widthOffset = (5 * chartspace[0].clientWidth) / 100;
+			        var heightOffset = (20 * chartspace[0].clientHeight) / 100;
+
+			        hchart.setSize(chartspace[0].clientWidth - widthOffset,
+                       chartspace[0].clientHeight - heightOffset);
+			    }
+			}
+
+			
+			//var hchart = chart.highcharts();
+			//hchart.setSize(chart.innerWidth(), chart.innerHeight());			
 		})			
 	}
     
@@ -386,9 +403,29 @@ $('.dia').each(function(index, element) {
 
 
 $('.dialog1').dialog({
-	resizeStop: function(event, ui){
-		var chart1 = $('.dialogchart1').highcharts();	
-		//chart1.setSize($('.dialogchart1').innerWidth(), $('.dialogchart1').innerHeight());
+    resizeStop: function (event, ui) {
+
+	    //var chart1 = $('.dialogchart1').highcharts();
+        //chart1.setSize($('.dialogchart1').innerWidth(), $('.dialogchart1').innerHeight());
+
+        var chartspace = $('.dialog1').find('#resultCanvas');
+
+
+        for (var h = 0; h < Highcharts.charts.length; h++) {
+            var hchart = Highcharts.charts[h];
+
+            if (typeof hchart !== 'undefined' && hchart !== null) {
+
+                var widthOffset = (5 * chartspace[0].clientWidth) / 100;
+                var heightOffset = (20 * chartspace[0].clientHeight) / 100;
+
+                hchart.setSize(chartspace[0].clientWidth - widthOffset,
+                   chartspace[0].clientHeight - heightOffset);
+            }
+        }
+
+
+
 	}
 });
 
@@ -749,29 +786,6 @@ function(e){
 
 
 
-//-- Opening dialog box
-$('.btn-chart').click(function () {
-    $("#criteriaDialog").dialog("open");
-
-});
-
-$("#criteriaDialog").dialog({
-    height: 700,
-    width: 920,
-    resizable: false,
-    show: "clip",
-    hide: "clip",
-    autoOpen: false,
-    modal: false
-});
-
-    //-- Constraining windows to parent pane
-$('#criteriaDialog').parent().draggable({
-    containment: '.content-inner'
-})
-
-
-
 
 //-- User Settings drop
 $('.btn-user').on('click', function(e){
@@ -798,89 +812,132 @@ $(window).on('resize', function(){
 });
 
 
-//-- Splitter control
-$('.btn-splitter').on('click', 
-function(e){	
-  if(!$('.sidebar').hasClass('closed'))
-  {
-    $('.sidebar')
-	.addClass('closed')
-	.animate({'left':-340});
-    $('.content').animate({left:0});
-	
-	//-- Resize dialogs on pane visibility change
-	$('.pane .ui-dialog').each(function(index, element){			
-		resizeDialog($(this), true);
-	});
-	
-  }
-  else
-  {
-    $('.sidebar')
-	.removeClass('closed')
-	.animate({'left':0});
-    $('.content').animate({left:340});
-
-	//-- Resize dialogs on pane visibility change
-	$('.pane .ui-dialog').each(function(index, element){
-		resizeDialog($(this), false);
-	});
-  }
-});
 
 
-
-
-$('#rightbtn-splitter').on('click',
+    //-- Splitter control
+$('.btn-splitter').on('click',
 function (e) {
-    if (!$('.rightsidebar').hasClass('closed')) {
-        $('.rightsidebar')
+    if (!$('.sidebar').hasClass('closed')) {
+        $('.sidebar')
         .addClass('closed')
-        .animate({ 'right': -340 });
-        $('.content').animate({ right: 0 });
+        .animate({ 'left': -340 });
+
+        $('.bottomSidebar')
+        .addClass('closed')
+        .animate({ 'left': 0 });
+
+        //$('.content').animate({ left: 0 });
+
+        $('#summaryResults').animate({ left: 0 });
+        $('#summaryResults').width('96%');
+
+
 
         //-- Resize dialogs on pane visibility change
-        //$('.pane').each(function(index, element){			
-        //    resizeDialog($(this), true);
-        //});
+        /*$('.pane .ui-dialog').each(function (index, element) {
+            resizeDialog($(this), true);
+        });*/
 
     }
     else {
-        $('.rightsidebar')
+        $('.sidebar')
         .removeClass('closed')
-        .animate({ 'right': 0 });
-        $('.content').animate({ right: 340 });
+        .animate({ 'left': 0 });
+
+        $('.bottomSidebar')
+        .addClass('closed')
+        .animate({ 'left': 340 });
+
+        //$('.content').animate({ left: 340 });
+
+        $('#summaryResults').animate({ left: 340 });
+        $('#summaryResults').width('70%');
+
+        //$('#summaryResults').width('80%');
+
+
 
         //-- Resize dialogs on pane visibility change
-        /*$('.pane .ui-dialog').each(function(index, element){
+        /*$('.pane .ui-dialog').each(function (index, element) {
             resizeDialog($(this), false);
         });*/
     }
 });
 
 
-//$('.bottombar').hasClass('closed');
 
-$('#bottombtn-splitter').on('click',
-function(e){	
-    if (!$('.bottombar').hasClass('closed'))
-    {
-        $('.bottombar')
+
+    //-- Right Splitter control
+$('.btnRight-splitter').on('click',
+function (e) {
+    if (!$('.rightSidebar').hasClass('closed')) {
+        $('.rightSidebar')
         .addClass('closed')
-        .animate({ 'bottom': -300 });
+        .animate({ 'right': -340 });
 
-        //$('.content').animate({bottom:0});
+       /*$('.content').animate({ right: 0 });
+        $('#summaryResults').animate({ right: 0 });
+
+        $('#summaryResults').width('90%');*/
+
+
+        //-- Resize dialogs on pane visibility change
+        /*$('.pane .ui-dialog').each(function (index, element) {
+            resizeDialog($(this), true);
+        });*/
+
     }
-    else
-    {
-        $('.bottombar')
+    else {
+        $('.rightSidebar')
         .removeClass('closed')
-        .animate({ 'bottom': 0 });
+        .animate({ 'right': 0 });
+
+       /* $('.content').animate({ right: 340 });
+        $('#summaryResults').animate({ right: 340 });*/
 
 
-        //$('.content').animate({ bottom: -300 });
+
+        //-- Resize dialogs on pane visibility change
+        /*$('.pane .ui-dialog').each(function (index, element) {
+            resizeDialog($(this), false);
+        });*/
     }
 });
+
+
+
+
+    //-- Bottom Splitter control
+    /*$('.btnBottom-splitter').on('click', */
+
+$(".bottomSidebar").hide();
+
+$('#bottombtn-splitter').on('click',
+function (e) {
+    if (!$('.bottomSidebar').hasClass('closed')) {
+        $(".bottomSidebar").addClass('closed');
+        $(".bottomSidebar").hide("slow");
+    }
+    else {
+        $(".bottomSidebar").removeClass('closed');
+        $(".bottomSidebar").show();
+    }
+});
+
+$('.btn-chart').on('click',
+
+function (e) {
+    if (!$('.bottomSidebar').hasClass('closed')) {
+        $(".bottomSidebar").addClass('closed');
+        $(".bottomSidebar").hide("slow");
+    }
+    else {
+        $(".bottomSidebar").removeClass('closed');
+        $(".bottomSidebar").show();
+    }
+});
+
+
 
 
 
@@ -907,19 +964,34 @@ function resizeDialog(dialog, enlarge)
 		newPane = $('.pane').width() - 340;
 		newWidth = (oldWidth * newPane) / oldPane;
 		newX = (oldposX * newPane) / oldPane;
+
+	
 	}
 	
-	var chartspace = dialog.find('.chartspace');		
+	//var chartspace = dialog.find('.resultCanvas');
+
+	var chartspace = dialog.find('#resultCanvas');
 	//console.log(chartspace);
 
 	dialog.animate({'width': newWidth, 'left': newX}, function()
-	{
-		//console.log($(this).find('.dia').innerWidth());
-		//console.log($(this).find('.chartspace').width());
-		
+	{		
 		var chart = chartspace.highcharts();		
-		chart.setSize(chartspace.innerWidth(), chartspace.innerHeight());
-		//x = true;
+		//chart.setSize(chartspace.innerWidth(), chartspace.innerHeight());
+
+		for (var h = 0; h < Highcharts.charts.length; h++) {
+		    var hchart = Highcharts.charts[h];
+
+		    if (typeof hchart !== 'undefined' && hchart !== null) {
+
+		        var widthOffset = (5 * chartspace.context.clientWidth) / 100;
+		        var heightOffset = (5 * chartspace.context.clientHeight) / 100;
+
+		        hchart.setSize(chartspace.context.clientWidth - widthOffset,
+                    hchart.containerHeight);
+		    }
+		}
+
+		
 	});	
 
 }

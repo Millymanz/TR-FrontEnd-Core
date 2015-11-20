@@ -1752,6 +1752,10 @@ var data = [
         }
 
 
+        var preferredWidth = $('#pane').width() * 0.90;
+        var width = preferredWidth + 'px';
+        $('#container').width(width);
+
 
         var chart = $('#container').highcharts('StockChart', {
             rangeSelector: buttonSetup,
@@ -1777,8 +1781,8 @@ var data = [
                 title: {
                     text: 'OHLC'
                 },
-                top: 200,
-                height: 300,
+                top: 150,
+                height: 350,
                 lineWidth: 2
             }],
             series: [{

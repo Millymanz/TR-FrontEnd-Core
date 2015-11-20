@@ -1,0 +1,359 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>S-Dedroid Analytics</title>
+<meta name="description" content="">
+<meta name="author" content="">
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/jquery-ui-1.10.3.custom.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<!-- Header bar -->
+<div class="header">
+
+<div class="searchbox">
+   <!-- <a href="#" class="btnBottom-splitter">Hide Summary Toolbar</a> -->
+
+    <div class="searchact">
+      <a href="#" class="btn-act btn-chart transition">Chart</a>
+      <a href="#" class="btn-act btn-drop transition">Drop</a>
+    </div>
+    <div id="searchboxArea">
+      <div id="contenthandle">
+        <form id="searchForm" method="post">
+          <input type="text" id="testIndex" name="searchQuery" size="72" placeholder="Stocks, forex, commodities or query..." class="inputbox transition input-search" autocomplete="off" />
+          <input type="submit" value="GET ANSWER" class="btn btn-search transition">
+          <div id="queryDropDown">
+          <textarea rows="7" cols="101" name="textArea" id="textArea"></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="divTextArea" class="dimension"></div>
+    <div id="divLineLenght" class="dimension"></div>
+    <input type="text" id="hidden_typehead"/>
+    <input type="text" id="hidden_height_line"/>
+    <div id="tip" style='width:20px; height:5px; background-color:red; display:none; position:absolute;background-color:red;font-size:0;'></div>
+  </div>
+
+    <div style="top:7px; left:5px; position:absolute">
+    <img alt="TradeRiser" src="pix/TradeRiser_Web.png" border="0" height="50" width="235">
+    </div>
+
+  <div class="brokerLogo">
+    BROKER LOGO
+  </div>
+
+  <div class="user">
+    <a href="#" class="btn-user transition">
+      
+      JOHN DOE<i class="icn icn-carret"></i>
+    </a>
+    <ul class="drop">
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </div>
+</div>
+<!-- End Header bar -->
+
+
+
+<!-- Sidebar -->
+<div class="sidebar">
+
+  <a href="#" class="btn-splitter"></a>
+  <div class="sidebar-inner"> 
+    
+    <!-- Tabs -->
+    <div id="tab-container" class="side-tabs">
+      <ul class='etabs'>
+        <li class='tab'><a href="#tabs1-tab1" class="first transition"><i class="icn icn-tab1"></i></a></li>
+        <li class='tab'><a href="#tabs1-tab2" class="transition"><i class="icn icn-tab2"></i></a></li>
+        <li class='tab'><a href="#tabs1-tab3" class="last transition"><i class="icn icn-tab3"></i></a></li>
+      </ul>
+      
+      <!-- Tab 1 -->
+      <div id="tabs1-tab1" class="tabpanel">
+      
+        <div class="tabbable">
+         <div class="tab-inner">
+        
+        <div class="blob transition">
+         <div class="blobhead">
+           <p class="date">15.03.2013 - 15.05.2013</p>
+           <div class="blobuser">
+           <span class="imgbox"><img src="pix/user-avatar.png" width="35" height="35" alt="John Doe"></span>
+           <p>mkool</p>
+           </div>
+         </div>
+         <div class="blobcontent">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, urna a elementum gravida, lorem quam vestibulum purus, eu fermentum erat risus egestas mauris.</p>
+         </div>
+		</div>
+        
+        <div class="blob transition">
+         <div class="blobhead">
+           <p class="date">15.03.2013 - 15.05.2013</p>
+           <div class="blobuser">
+           <span class="imgbox"><img src="pix/user-avatar.png" width="35" height="35" alt="John Doe"></span>
+           <p>mkool</p>
+           </div>
+         </div>
+         <div class="blobcontent">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, urna a elementum gravida, lorem quam vestibulum purus, eu fermentum erat risus egestas mauris.</p>
+         </div>
+		</div>
+        
+        <div class="blob transition">
+         <div class="blobhead">
+           <p class="date">15.03.2013 - 15.05.2013</p>
+           <div class="blobuser">
+           <span class="imgbox"><img src="pix/user-avatar.png" width="35" height="35" alt="John Doe"></span>
+           <p>mkool</p>
+           </div>
+         </div>
+         <div class="blobcontent">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, urna a elementum gravida, lorem quam vestibulum purus, eu fermentum erat risus egestas mauris.</p>
+         </div>
+		</div>
+        
+        <div class="blob transition">
+         <div class="blobhead">
+           <p class="date">15.03.2013 - 15.05.2013</p>
+           <div class="blobuser">
+           <span class="imgbox"><img src="pix/user-avatar.png" width="35" height="35" alt="John Doe"></span>
+           <p>mkool</p>
+           </div>
+         </div>
+         <div class="blobcontent">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, urna a elementum gravida, lorem quam vestibulum purus, eu fermentum erat risus egestas mauris.</p>
+         </div>
+		</div>   
+
+        <div class="blob transition">
+         <div class="blobhead">
+           <p class="date">15.03.2013 - 15.05.2013</p>
+           <div class="blobuser">
+           <span class="imgbox"><img src="pix/user-avatar.png" width="35" height="35" alt="John Doe"></span>
+           <p>mkool</p>
+           </div>
+         </div>
+         <div class="blobcontent">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, urna a elementum gravida, lorem quam vestibulum purus, eu fermentum erat risus egestas mauris.</p>
+         </div>
+		</div>
+        
+        <div class="blob transition">
+         <div class="blobhead">
+           <p class="date">15.03.2013 - 15.05.2013</p>
+           <div class="blobuser">
+           <span class="imgbox"><img src="pix/user-avatar.png" width="35" height="35" alt="John Doe"></span>
+           <p>mkool</p>
+           </div>
+         </div>
+         <div class="blobcontent">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, urna a elementum gravida, lorem quam vestibulum purus, eu fermentum erat risus egestas mauris.</p>
+         </div>
+		</div>
+        
+        <div class="blob transition">
+         <div class="blobhead">
+           <p class="date">15.03.2013 - 15.05.2013</p>
+           <div class="blobuser">
+           <span class="imgbox"><img src="pix/user-avatar.png" width="35" height="35" alt="John Doe"></span>
+           <p>mkool</p>
+           </div>
+         </div>
+         <div class="blobcontent">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, urna a elementum gravida, lorem quam vestibulum purus, eu fermentum erat risus egestas mauris.</p>
+         </div>
+		</div>
+        
+        <div class="blob transition">
+         <div class="blobhead">
+           <p class="date">15.03.2013 - 15.05.2013</p>
+           <div class="blobuser">
+           <span class="imgbox"><img src="pix/user-avatar.png" width="35" height="35" alt="John Doe"></span>
+           <p>mkool</p>
+           </div>
+         </div>
+         <div class="blobcontent">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, urna a elementum gravida, lorem quam vestibulum purus, eu fermentum erat risus egestas mauris.</p>
+         </div>
+		</div>           
+        
+        </div>
+        </div>     
+        
+      </div>
+      <!-- End Tab 1 -->
+      
+      <!-- Tab 2 -->
+      <div id="tabs1-tab2" class="tabpanel">
+        <h2>Tab 2 Content</h2>
+        <!-- content --> 
+      </div>
+      <!-- End Tab 2 -->
+      
+      <!-- Tab 3 -->
+      <div id="tabs1-tab3" class="tabpanel">
+        <h2>Tab 3 Content</h2>
+        <!-- content --> 
+      </div>
+      <!-- End Tab 3 -->
+      
+    </div>
+    <!-- End Tabs --> 
+    
+  </div>
+</div>
+<!-- End Sidebar -->
+
+
+<!-- Right Sidebar -->
+<div class="rightSidebar closed">
+ 
+  <a href="#" class="btnRight-splitter"></a>
+  <div class="sidebar-inner"> 
+    
+    <!-- Tabs -->
+    <div>
+      gweggerger
+      
+
+          
+
+      
+    </div>
+    <!-- End Tabs --> 
+    
+  </div>
+</div>
+<!-- End Sidebar -->
+
+
+
+
+
+
+
+
+<!-- bottom Sidebar -->
+<div class="bottomSidebar closed">
+
+
+  <div class="sidebar-inner"> 
+    
+    <!-- Tabs -->
+    <div class="side-tabstest">
+eheherher
+      
+    </div>
+    <!-- End Tabs --> 
+    
+  </div>
+</div>
+<!-- End Sidebar -->
+
+
+
+
+
+
+
+
+<!-- Bottom Sidebar -->
+<!-- <div class="bottomSidebar">
+
+  <a href="#" class="btnBottom-splitter"></a>
+  <div class="sidebar-innertest"> 
+    
+  
+    <div  class="side-tabs">     
+ wefwegwe
+      </ul>
+    
+    </div>   
+    
+  </div>
+</div>-->
+<!-- End Sidebar -->
+
+
+<!-- Main Content -->
+<div class="content">
+ <div class="content-inner">
+   <div class="pane" id="pane">
+       <!-- Space for app content -->
+   </div>
+ </div>
+</div>
+<!-- End Main Content -->
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="js/jquery.dialogextend.min.js"></script>
+<script src="js/jquery.easytabs.min.js"></script>
+<script src="js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
+
+<script src="http://code.highcharts.com/stock/highstock.js"></script>
+<script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="http://twitter.github.com/hogan.js/builds/2.0.0/hogan-2.0.0.js"></script>
+
+<script src="js/jquery.caretposition.js"></script>
+<script src="js/typeahead.js"></script>
+<script src="js/typeahead.fn.js"></script>
+<script src="js/typeahead.mod.js"></script>
+<script src="js/custom.js"></script>
+
+
+<!-- Dialog box -->
+<div id="criteriaDialog">
+	<div id="highStockCustom" style="height: 450px; width: 880px; padding:5px 5px 5px 5px"></div>
+    <img src="pix/loadingchart.gif"  id="loadchart" style="display:none; margin-left:auto; margin-right:auto; top:35%; left:45%; width:50px; height:50px; position:absolute;"/>
+  <div id="renderForSearch">Render for Search</div>
+</div>
+<!-- End Dialog box -->
+
+
+<!-- Dialog1 -->
+<div class="dia dialog1">
+	<div class="chartspace dialogchart1"></div>
+</div>
+<!-- End Dialog1 -->
+
+
+
+<!-- 
+<div class="dia dialog2">
+	<div class="chartspace dialogchart2"></div>
+</div>
+<div class="dia dialog3">
+	<div class="chartspace dialogchart3"></div>
+</div>
+
+<div class="dia dialog4">
+	<div class="chartspace dialogchart4"></div>
+</div>-->
+
+
+
+
+</body>
+</html>
+
+
+<!-- Dialog box -->
+

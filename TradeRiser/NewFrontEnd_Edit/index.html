@@ -1,0 +1,1328 @@
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>TradeRiser - Demo</title>
+<meta name="description" content="">
+<meta name="author" content="">
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="../NewFrontEnd_Edit/css/jquery-ui-1.10.3.custom.min.css">
+
+<link rel="stylesheet" href="../Content/clean/css/style.css">
+
+
+
+<link rel="shortcut icon" href="../Images/traderiser.ico"/>
+<link rel="stylesheet" href="../Content/jquery.dynatable.css">
+<link rel="stylesheet" href="../Scripts/Highstock-2.1.8/css/speech-bubble.css">
+
+</head>
+<body>
+
+<!-- Header bar -->
+<div class="header">
+
+<div class="searchbox">
+   <!-- <a href="#" class="btnBottom-splitter">Hide Summary Toolbar</a> -->
+
+    <div class="searchact">
+      <a href="#" class="btn-act btn-chart transition">Chart</a>
+      <a href="#" class="btn-act btn-drop transition">Drop</a>
+    </div>
+    <div id="searchboxArea">
+
+       <div id="contenthandle">
+            <form id="searchForm" method="post">
+                <input data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" id="testIndex" name="searchQuery" size="72"
+                            placeholder="Enter what you would like query or know about the Forex markets?" class="inputbox transition input-search" autocomplete="off" />
+                <div data-bind="click: getAnswer" id="compute" value="SEARCH" class="btn btn-search transition" style="cursor: pointer;">GET ANSWER</div>
+                        
+
+                <div id="queryDropDown">
+                    <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" id="textArea"></textarea>
+                    </div>
+                   </form>
+              </div>
+
+
+
+
+
+
+    </div>
+    <div id="divTextArea" class="dimension"></div>
+    <div id="divLineLenght" class="dimension"></div>
+    <input type="text" id="hidden_typehead"/>
+    <input type="text" id="hidden_height_line"/>
+    <div id="tip" style='width:20px; height:5px; background-color:red; display:none; position:absolute;background-color:red;font-size:0;'></div>
+  </div>
+
+    <div style="top:7px; left:5px; position:absolute">
+    <img alt="TradeRiser" src="../Images/TradeRiser_Web.png" border="0" height="50" width="235">
+    </div>
+
+  <div class="brokerLogo">
+    BROKER LOGO
+  </div>
+
+
+
+    <div class="user">
+                <a href="#" class="btn-user transition">
+                    
+                    traderiserapp@traderiser.com
+                    <i class="icn icn-carret"></i>
+                </a>
+                <ul class="drop">
+ 
+                    <li class="logoutItem">
+
+<form action="/AppInfo/LogOut" id="logoutForm" method="post">                           <input type="hidden" value=traderiserapp@traderiser.com id='u_n' class='h_v' name="hiddens">
+                           <input type="hidden" value=WcnD4Cjk9j27RrwCtew5bia3YRqkxx3alewE8o1UDctl1_sDg1p3zC1ieF_LNQYBJvJgr8sQ1XCwntP_dYiAo4PGo7UY6P2CNQhLGisyyCx_tC2nOaO88_m5hgu91hOOe9oyJxQ_DOL7HmSN22atSuwEjEA7PiNImzOzffq2etMOvL2nGiMongP9yEmObJZ7FXVba9ZnzxLOtI6nf_tOftlCCaj2EYughoDrXpV_zcZhL0LN6Jy_WmN4GIeOprXRF5JX8gMFNRqpHNMpUxv87IPhcmarXNsA2Pg2xbT_gXGMqRzG87vBiH5TVF5xWZL2xCPtdxjsv1tqt36otIV9BU0e9ZT5rmHr_7ON7hBUkBr93wG-Dgiop0ZjFeA6w1nFq6ii8gMOKOFTpZWhak332s8mIx_U1K-4VimGo8p8FN5EcCP8mwbYLeXRl5jGqq7KjoRnxr-KGANYWjFG3TdamaXqGAX_4hGvMfwbUnlEsHSHcmHzo7fffAXKgx9RYeis id='a_t' class='h_v' name="hiddens">
+                           <input type="hidden" value=Hydrus!$men1 id='p_d' class='h_v' name="hiddens">
+                             <a href="#" style="text-align: center">Log off</a>
+</form>
+                    </li>
+                </ul>
+        </div>
+
+
+
+
+
+</div>
+<!-- End Header bar -->
+
+
+
+<!-- Sidebar -->
+<div class="sidebar">
+
+  <a href="#" class="btn-splitter"></a>
+ <div class="sidebar-inner"> 
+    
+    <!-- Tabs -->
+    <div id="tab-container" class="side-tabs" data-easytabs="true">
+      <ul class="etabs">
+        <li class="tab"><a href="#tabs1-tab1" class="first transition"><i class="icn icn-tab1"></i></a></li>
+        <li class="tab"><a href="#tabs1-tab2" class="transition"><i class="icn icn-tab2"></i></a></li>
+        <li class="tab active"><a href="#tabs1-tab3" class="last transition active"><i class="icn icn-tab3"></i></a></li>
+      </ul>
+      
+      <!-- Tab 1 -->
+      <div id="tabs1-tab1" class="tabpanel" style="display: none;">
+      
+                     <div class="titleleftHeader">
+                        <div class="leftSidebarNewTitle">
+                            Query Results
+                        </div>
+                        <div class="subtitleNewHeader">The answers to your query</div>
+
+                         <div class="tab-inner" id="queryResults">
+                             <div>
+                                <div>
+        <div class="leftSideQueryItems" data-bind="attr: {id: QueryID }" id="USDJPY*3cf29a35-f6c6-4e9e-8bb6-5e28a1bb5155cmc0">
+            <div class="blobhead">
+                <div class="resultHeader">
+                    <table class="resultHeaderTable">
+                        <tbody><tr>
+                            <td>
+                                <div class="resultIcon">                                                                                
+                                    <div data-bind="foreach: SymbolImages">
+                                        <img data-bind="attr:{src: $data}" src="../../Images/flagcurrencies/usd.png">  
+                                    
+                                        <img data-bind="attr:{src: $data}" src="../../Images/flagcurrencies/jpy.png">  
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: Source">Forex</div> 
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: SymbolID">USDJPY</div>
+                            </td>
+                            <td>
+                                <div class="resultStartDateTime" data-bind="text: StartDateTime">05/02/2015 00:00:00</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="resultTimeFrame" data-bind="text: TimeFrame">Daily</div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol">
+                                </div>
+                            </td>
+                            <td colspan="4">
+                                <div class="resultEndDateTime" data-bind="text: EndDateTime">14/02/2015 00:00:00</div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+            <div class="blobcontent">
+
+                <table class="resultFieldsTable" data-bind="foreach : ExtraFields">
+                    <tbody data-bind="foreach : $data">
+                        <tr>
+                            <td data-bind="text: keyfield">Symbol : </td>
+                            <td data-bind="text: keydata">USDJPY</td>
+                        </tr>
+                    </tbody>
+                
+                    <tbody data-bind="foreach : $data">
+                        <tr>
+                            <td data-bind="text: keyfield">Pips : </td>
+                            <td data-bind="text: keydata">1452</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+                            </div>
+                         </div>
+                    </div>
+
+        
+      </div>
+      <!-- End Tab 1 -->
+      
+      <!-- Tab 2 -->
+      <div id="tabs1-tab2" class="tabpanel" style="display: none; position: static; visibility: visible;">
+                    <div class="titleleftHeader">
+                        <div class="leftSidebarNewTitle">
+                           Continuous Query Results
+                        </div>
+                        <div class="subtitleNewHeader">Continuous query results - Alerts/Notification/Updates</div>
+
+                        <div class="tab-inner" id="emergingResults">
+                            <div data-bind="foreach : continuousResults"></div>
+                        </div>
+                    </div>
+ 
+      </div>
+      <!-- End Tab 2 -->
+      
+      <!-- Tab 3 -->
+      <div id="tabs1-tab3" class="tabpanel active" style="display: block; position: static; visibility: visible;">
+                    <div class="titleleftHeader">
+                        <div class="leftSidebarNewTitle">
+                           Saved Queries
+                        </div>
+                        <div class="subtitleNewHeader">Saved query results - User favourite queries</div>
+
+                        <div class="tab-inner" id="savedQueries">
+
+                    <div>
+                        <div>
+        <div class="followingQuery" id="772918DA-FAD4-479A-A86E-5ACF50DD96EC">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unSaveQuery(QueryID); }">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Is EUR/CAD more likely to exhaust or continue in the same direction for a similar movement after gaining/losing 52 pips in a day, between 01/02/2015 to 20/9/2015
+</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'savedQueryTemplate', data: $data } ">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }" id="ECE46414-AC83-4DBB-8AC7-B67B62D70232">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unSaveQuery(QueryID); }">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Show Buy Signals from the 21 14 sma in the eurusd daily timeframe between 01/6/2014 to 25/5/2015</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'savedQueryTemplate', data: $data } ">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }" id="186B58B8-600C-4952-B83D-6F1634022C26">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unSaveQuery(QueryID); }">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">How many times did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought
+</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'savedQueryTemplate', data: $data } ">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }" id="B1D69F3C-AD85-4CF7-B374-389DDB8A0B9F">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unSaveQuery(QueryID); }">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'savedQueryTemplate', data: $data } ">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }" id="7E5B8CFE-3C0B-4D4B-9389-A0B736B08493">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unSaveQuery(QueryID); }">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">How did the eurjpy move, in the hourly chart in the first hour of London open between 06/04/2015 to 20/04/2015</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'savedQueryTemplate', data: $data } ">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }" id="38350E73-D164-4640-86AB-A49D9B9D118E">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unSaveQuery(QueryID); }">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which are the most volatile among the major pair and their EUR crosses on 15min and daily timeframe between 04/04/2015 to 25/05/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'savedQueryTemplate', data: $data } ">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }" id="9CB8B685-CE98-4736-8A0B-C0174BF694FE">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unSaveQuery(QueryID); }">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Identify pairs that are trading above 20 simple moving average on 1H timeframe for the first time between 1/2/2015 to 20/05/2015</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'savedQueryTemplate', data: $data } ">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }" id="D8A644EE-1A2C-41E0-B4F0-84A8832323BA">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unSaveQuery(QueryID); }">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">In the daily chart, highlight instances between 15/08/2014 to 15/06/2015 when the usdcad gave a bullish rejection signal with its Bollinger Bands while its average true range was neither more than 0.0400 nor less than 0.0140</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'savedQueryTemplate', data: $data } ">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }" id="5B9E2219-60E3-43E6-ABAB-59CBF8FF1163">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unSaveQuery(QueryID); }">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">In the daily chart, highlight instances between 15/02/2015 to 15/06/2015 when the nzdusd gave a bullish rejection signal with its Bollinger Bands</div>
+            </div>
+        </div>
+    </div>
+                    </div>
+
+
+                        </div>
+                    </div>
+
+      </div>
+      <!-- End Tab 3 -->
+      
+    </div>
+    <!-- End Tabs --> 
+    
+  </div>
+</div>
+<!-- End Sidebar -->
+
+
+<!-- Right Sidebar -->
+<div class="rightSidebar closed">
+ 
+  <a href="#" class="btnRight-splitter"></a>
+
+<div class="topRight">
+
+
+            <div class="titleHeader">
+                <div class="rightSidebarTitle">
+                    Following
+                </div>
+                <div class="subtitleHeader">The queries you currently subscribe to</div>
+
+                <div class="tab-inner" id="followedQueries">
+
+                    <div data-bind="foreach : queriesSubscription">
+                        <div data-bind="template: {name: 'followingQueryTemplate', data: $data } ">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }" id="13CC7171-27A5-4D5B-A688-764CD6C3F40C">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unFollowQuery(QueryID); }">
+                        Unfollow-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">In the 1min timeframe chart, highlight instances realtime when the eurusd gave a bullish rejection signal with its Bollinger Bands while its average true range was neither more than 0.0400 nor less than 0.0140</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'followingQueryTemplate', data: $data } ">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }" id="078462CD-79A8-48BC-845A-9D2369877933">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unFollowQuery(QueryID); }">
+                        Unfollow-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">eurusd price change at most 0.4 pips on 1min timeframe realtime</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'followingQueryTemplate', data: $data } ">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }" id="36DA1145-BD7F-43AB-9D33-B62A130770D8">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unFollowQuery(QueryID); }">
+                        Unfollow-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">USDchf price change at least 0.1 pips on 1min timeframe realtime</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'followingQueryTemplate', data: $data } ">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }" id="68AD5F27-C13F-47B4-9A99-788EEF5507F9">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unFollowQuery(QueryID); }">
+                        Unfollow-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair 1min timeframe realtime</div>
+            </div>
+        </div>
+    </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+<div class="bottomRight">
+            <div class="titleHeader">
+                <div class="rightSidebarTitle">
+                    Historic Queries
+                </div>
+                <div class="subtitleHeader">Queries made in the past</div>
+
+                <div class="tab-inner" id="historicQueries">
+
+                    <div data-bind="foreach : historicQueries">
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="D7BCB579-BACC-47DE-A912-032E9AAB5A33">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="CCCA4A18-BE11-4B67-930E-4B4EDF9D6F1F">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="C10358AD-50A2-4C7E-B841-EEAFFB24A463">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="CBB80428-D8AE-4A45-91D1-CE35CAB0767F">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="80B56B03-088F-454D-AE3B-FA118C60A9F0">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="45067C71-41BC-4CD5-9530-61F6CC558D20">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="02EA6A34-4FA1-49BA-9104-356E5E0E92DC">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="A1BC1CE0-E3DB-4376-AB2A-FE169F23B123">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="A3714257-F8D6-4F7B-8DFE-F9F32EE0B6B3">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="E9DD855F-935B-44E3-9FF3-F149CCA89415">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="B5813C34-3D96-44C0-B8BE-56E385ECEE71">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="36106DC9-9394-4B04-9778-3C292D64F626">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="5CF3C1B0-0BAB-486C-9B95-0C99D9143F13">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="BAB55D6D-F195-470A-B02E-031828B5F17A">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    
+                        <div data-bind="template: {name: 'historicQueryTemplate', data: $data }">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }" id="47EDC271-07F6-468B-8B48-0573BFFC3484">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query">Which was the most bullish major currency pair between 05/02/2015 to 14/02/2015?</div>
+            </div>
+        </div>
+    </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>  
+ 
+ </div>
+<!-- End Sidebar -->
+
+
+
+
+
+
+
+
+<!-- bottom Sidebar -->
+<div class="bottomSidebar closed">
+
+        <div>
+            <a href="#" id="bottombtn-splitter" data-bind="click: toolBottomBar, text:toolBottomBarMessage"></a>
+        </div>
+        <div id="summaryResults"></div>
+    
+  </div>
+<!-- End Sidebar -->
+
+
+
+
+
+
+
+
+<!-- Bottom Sidebar -->
+<!-- <div class="bottomSidebar">
+
+  <a href="#" class="btnBottom-splitter"></a>
+  <div class="sidebar-innertest"> 
+    
+  
+    <div  class="side-tabs">     
+ wefwegwe
+      </ul>
+    
+    </div>   
+    
+  </div>
+</div>-->
+<!-- End Sidebar -->
+
+
+<!-- Main Content -->
+<div class="content">
+ <div class="content-inner">
+   <div class="pane" id="pane">
+       <!-- Space for app content -->
+   </div>
+ </div>
+</div>
+
+<div id="loadchartDia" style="display: none; z-index: 50000; color:black;
+margin: 150px auto; left:0; right:0; width: 70px; height: 70px; position: absolute;"></div>
+
+
+
+
+<!-- End Main Content -->
+
+
+
+<!-- Template Collection -->
+
+    <script type="text/html" id="resultCardTemplate">
+        <div class="leftSideQueryItems" data-bind="attr: {id: QueryID }">
+            <div class="blobhead">
+                <div class="resultHeader">
+                    <table class="resultHeaderTable">
+                        <tr>
+                            <td>
+                                <div class="resultIcon">                                                                                
+                                    <div data-bind="foreach: SymbolImages">
+                                        <img data-bind="attr:{src: $data}" />  
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: Source">-</div> 
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: SymbolID"></div>
+                            </td>
+                            <td>
+                                <div class="resultStartDateTime" data-bind="text: StartDateTime"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="resultTimeFrame" data-bind="text: TimeFrame"></div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol">
+                                </div>
+                            </td>
+                            <td colspan="4">
+                                <div class="resultEndDateTime" data-bind="text: EndDateTime"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="blobcontent">
+
+                <table class="resultFieldsTable" data-bind="foreach : ExtraFields">
+                    <tbody data-bind="foreach : $data">
+                        <tr>
+                            <td data-bind="text: keyfield">:</td>
+                            <td data-bind="text: keydata"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </script>
+
+
+
+        <script type="text/html" id="continousResultCardTemplate">
+        <div class="leftSideQueryItems" data-bind="attr: {id: QueryID }, click: function(Query) { 
+                       $root.updateMainQuery(Query); }">
+            <div class="blobhead">
+                <div class="resultHeader">
+                    <table class="resultHeaderTable">
+                        <tr>
+                            <td colspan="4">
+                                <strong>
+                                    <div class="resultTimeFrame" data-bind="text: Query"></div>
+                                </strong>
+                            </td>                           
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="resultIcon">                                                                                
+                                    <div data-bind="foreach: SymbolImages">
+                                        <img data-bind="attr:{src: $data}" />  
+                                    </div>
+
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: Source">-</div> 
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: SymbolID"></div>
+                            </td>
+                            <td>
+                                <div class="resultStartDateTime" data-bind="text: StartDateTime"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="resultTimeFrame" data-bind="text: TimeFrame"></div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol">
+                                </div>
+                            </td>
+                            <td colspan="4">
+                                <div class="resultEndDateTime" data-bind="text: EndDateTime"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="blobcontent">
+
+                <table class="resultFieldsTable" data-bind="foreach : ExtraFields">
+                    <tbody data-bind="foreach : $data">
+                        <tr>
+                            <td data-bind="text: keyfield">:</td>
+                            <td data-bind="text: keydata"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </script>
+
+        <script type="text/html" id="savedQueryTemplate">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unSaveQuery(QueryID); }">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query"></div>
+            </div>
+        </div>
+    </script>
+
+
+    <script type="text/html" id="followingQueryTemplate">
+        <div class="followingQuery" data-bind="attr: {id: QueryID }">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+
+                    <div class="btnUnfollow" data-bind="click: function(QueryID) { 
+                       $root.unFollowQuery(QueryID); }">
+                        Unfollow-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query"></div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="historicQueryTemplate">
+        <div class="historicQuery" data-bind="attr: {id: QueryID }">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function(Query) { 
+                       $root.updateMainQuery(Query); }">View</div>
+                    
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                        $root.saveQuery(QueryID); }">Save</div>
+
+                    <div class="btnFollow" data-bind="click: function(QueryID) { 
+                       $root.followQuery(QueryID); }">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+               <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow:1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query"></div>
+            </div>
+        </div>
+    </script>
+
+    <!-- Template End --->
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="../NewFrontEnd_Edit/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../NewFrontEnd_Edit/js/jquery.dialogextend.min.js"></script>
+<script src="../NewFrontEnd_Edit/js/jquery.easytabs.min.js"></script>
+<script src="../NewFrontEnd_Edit/js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="../Scripts/raphael-min.js"></script>
+<script src="../Scripts/Highstock-2.1.8/js/jquery.js"></script>
+<script src="../Scripts/Highstock-2.1.8/js/highstock.src.js"></script>    
+<script src="../Scripts/Highstock-2.1.8/js/highstock-ext.js"></script>
+<script src="../Scripts/clean/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../Scripts/clean/js/jquery.easytabs.min.js"></script>
+<script src="../Scripts/clean/js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
+<script src="../scripts/dynatable/jquery.dynatable.js"></script>
+<script src="../Scripts/clean/js/traderiser.js"></script>
+<script src="../Scripts/clean/js/testRun.js"></script>
+<script src="../Scripts/clean/js/dataPrep.js"></script>
+<script src="../Scripts/clean/js/chartSelections.js"></script>
+<script src="../Scripts/knockout-3.2.0.js"></script>
+<script src="../Scripts/App/traderiser-view-model.js"></script>
+<script src="../Scripts/App/traderiser-proxy.js"></script>
+<script src="//js.pusher.com/2.2/pusher.min.js"></script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+        var tradeRiserViewModel = new TradeRiserViewModel(
+            new TradeRiserProxy());
+
+        tradeRiserViewModel.initialiseUI();
+        tradeRiserViewModel.init();
+
+
+        ko.applyBindings(tradeRiserViewModel);
+
+
+
+
+
+        // Enable pusher logging - don't include this in production
+        Pusher.log = function (message) {
+            if (window.console && window.console.log) {
+                window.console.log(message);
+            }
+        };
+
+        var pusher = new Pusher('0c52bffe086a83952d16');
+
+        var hvnme = $('#u_n').val();
+        var channel = pusher.subscribe(hvnme);
+        /*var pageLoader = document.getElementById("pageLoader");
+        pageLoader.style.display = 'none';
+        */
+
+        channel.bind('my_event', function (data) {
+            //alert(data.message);
+            UpdateContinousQueryResultCard(data);
+
+        });
+
+
+
+        function UpdateContinousQueryResultCard(resultCard) {
+
+            tradeRiserViewModel.upDateContinousQueryResult(resultCard);
+        }
+
+        function updateResultsTable() {
+            var mouseOverColor = '#33A1DE';
+            var bgOverColor = '#FFFFFF';
+            $('#first').after('<div class="blob transition"><div class="blobhead"><p class="date">15.03.2014 - 15.05.2014</p><div class="blobuser"><span class="imgbox"><img src="pix/user-avatar.png" width="35" height="35" alt="John Doe"></span><p>Count ' + positionCount + '</p></div></div><div class="blobcontent"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, urna a elementum gravida, lorem quam vestibulum purus, eu fermentum erat risus egestas mauris.</p></div></div>');
+
+
+            //$('#resultsTable tr:first').before('<tr onMouseUp="javascipt:resultItemClicked()" bgcolor=' + bgOverColor + ' onMouseOver=this.bgColor="' + mouseOverColor + '" onMouseOut=this.bgColor="' + bgOverColor + '"><td>eBay Inc (EBAY) - Nasdaq  - ' + positionCount + '<br /> <div style="font-size:smaller">51.65   |   0.57 (1.12%)</div></td></tr>');
+
+        }
+
+
+
+        var remove = spinner("loadchartDia", 50, 120, 20, 25, "#696969");
+
+        function spinner(holderid, R1, R2, count, stroke_width, colour) {
+            var sectorsCount = count || 12,
+                color = colour || "#fff",
+                width = stroke_width || 15,
+                r1 = Math.min(R1, R2) || 35,
+                r2 = Math.max(R1, R2) || 60,
+                cx = r2 + width,
+                cy = r2 + width,
+                r = Raphael(holderid, r2 * 2 + width * 2, r2 * 2 + width * 2),
+
+                sectors = [],
+                opacity = [],
+                beta = 2 * Math.PI / sectorsCount,
+
+                pathParams = { stroke: color, "stroke-width": width, "stroke-linecap": "round" };
+            Raphael.getColor.reset();
+            for (var i = 0; i < sectorsCount; i++) {
+                var alpha = beta * i - Math.PI / 2,
+                    cos = Math.cos(alpha),
+                    sin = Math.sin(alpha);
+                opacity[i] = 1 / sectorsCount * i;
+                sectors[i] = r.path([["M", cx + r1 * cos, cy + r1 * sin], ["L", cx + r2 * cos, cy + r2 * sin]]).attr(pathParams);
+                if (color == "rainbow") {
+                    sectors[i].attr("stroke", Raphael.getColor());
+                }
+            }
+            var tick;
+            (function ticker() {
+                opacity.unshift(opacity.pop());
+                for (var i = 0; i < sectorsCount; i++) {
+                    sectors[i].attr("opacity", opacity[i]);
+                }
+                r.safari();
+                tick = setTimeout(ticker, 1000 / sectorsCount);
+            })();
+            return function () {
+                clearTimeout(tick);
+                r.remove();
+            };
+        }
+
+
+</script>
+
+
+
+
+
+<!-- Dialog1 -->
+<div class="dia dialog1">
+	        <div class="content-inner">
+
+                <div id="noresults" style="z-index: 50000; display:none; font-size: medium; font-family:'PT Sans', Arial, Helvetica, sans-serif;
+                margin: 200px auto; color:#686665; left:0; right:0; width: 600px; position: absolute; padding:5px 5px 5px 5px; border-radius: 5px; 
+                box-shadow: 0 0 7px 1px #BFCFD0;"><b>TradeRiser does not understand your input. 
+                    <br />Please check the spelling and ensure your query is related to trading.</b></div>
+
+            <div class="pane" id="resultCanvas">
+                <!-- Space for app content -->
+                <table width="95%" cellspacing="1" border="1" style="border-color: #E0E0E0; margin: 0 auto;">
+                    <tr>
+                        <td>
+
+
+
+
+
+                            <br/>
+                            <div id="reportArea">Example Report</div>
+                            <div id="container" style="height: 610px; width: 100%;"></div>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+
+
+                     <div id="riskDisclaimer">
+                    <h2>Risk Disclaimer</h2>
+
+                    <p>
+Please acknowledge the following: <br/>
+The Charts are provided 'as is', without warranty or guarantee of any kind, including but not limited to the warranties of merchantability and fitness for a particular purpose. In no event shall TradeRiser Limited and its affiliates or any third party contributor be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the use of or other dealings in the Charts. 
+The Charts run on pricing data provided by us to a third party charting administrator. You accept that the price data displayed in the Charts may be delayed and that we do not guarantee the accuracy or completeness of the data and that we do not guarantee that the service will be uninterrupted.
+</p>
+
+
+<p>
+Disclaimer
+
+The TradeRiser service includes analysis of financial instruments. There are potential risks relating to investing and trading. You must be aware of such risks and familiarize yourself in regard to such risks and to seek independent advice relating thereto. You should not trade with money that you cannot afford to lose. The TradeRiser service and its content should not be construed as a solicitation to invest and/or trade. You should seek independent advice in this regard. Past performance is not indicative of future performance. No representation is being made that any results discussed within the service and its related media content will be achieved. TradeRiser, their members, shareholders, employees, agents, representatives and resellers do not warrant the completeness, accuracy or timeliness of the information supplied, and they shall not be liable for any loss or damages, consequential or otherwise, which may arise from the use or reliance of the TradeRiser service and its content.
+</p>
+</div>
+            </div>            
+        </div> 
+        
+</div>
+<!-- End Dialog1 -->
+
+
+
+</body>
+</html>

@@ -35,14 +35,70 @@
 
 <!-- Header bar -->
 <div class="header">
-         <div style="top:0px; left:5px; position:absolute">
-            <img alt="TradeRiser" src="../../../Images/TradeRiser_Web.png" border="0" height="55" width="240" >
+    <div style="top:7px; left:5px; position:absolute">
+    <img alt="TradeRiser" src="../../../Images/TradeRiser_Web.png" border="0" height="50" width="235">
             </div>
 </div>
 <!-- End Header bar -->
 
-<div style="margin-left:auto; margin-right:auto; width:50%;">
-<section id="loginForm">
+<div id="textAreaSignIn">
+
+<div>
+@*<div style="margin-left:auto; margin-right:auto; width:50%;">*@
+
+
+<table style="border:0px solid red;     margin: 5px auto;">
+    <tr>
+        <td id="loginForm">
+            
+            <h2>Sign in to continue to TradeRiser</h2>
+    
+            @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+    
+                <fieldset>
+                    <legend>Log in Form</legend>
+                    <ol>
+                        <li>
+                            @Html.LabelFor(m => m.UserName)
+                            @Html.TextBoxFor(m => m.UserName)
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </li>
+                        <li>
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password)
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </li>
+                        <li>
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                        </li>
+                    </ol>
+                    <input type="submit" value="Sign In" style="width:100px"/>
+                </fieldset>
+            }
+        </td>
+
+        <td class="social" id="socialLoginForm">
+              <h2>TradeRiser makes it easier to trade successfully</h2>
+   <ol style ="list-style: square inside none;">
+<li>Saves you time searching for quality trading opportunities</li>
+<li>Receive real-time trade opportunity alerts</li>
+<li>Helps you make informed decisions</li>
+<li>Query market data</li>
+<li>Question and Answer System</li>
+
+</ol>
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+@*<section id="loginForm">
 <h2>Sign in to continue to TradeRiser</h2>
     
 @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
@@ -72,7 +128,7 @@
 }
 </section>
 
-        </div>
+       </div>
 
 <section class="social" id="socialLoginForm">
     <h2>TradeRiser makes it easier to trade successfully</h2>
@@ -85,7 +141,41 @@
 
 </ol>
 </section>
+*@
 
+
+
+
+
+
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="../../NewFrontEnd/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script>
+$(document).ready(function(){
+var header = $('body');
+
+var backgrounds = new Array(
+    'url(http://dev.traderiser.com/Images/imgB.jpg)',
+    'url(http://dev.traderiser.com/Images/imgD.jpg)',
+    'url(http://dev.traderiser.com/Images/imgGold.jpg)'
+);
+
+var current = 0;
+
+function nextBackground() {
+    current++;
+    current = current % backgrounds.length;
+    header.css('background-image', backgrounds[current]);
+}
+
+var selectionNo = Math.floor((Math.random() * 3));
+
+header.css('background-image', backgrounds[selectionNo]);
+});
+</script>
 
 </body>
 

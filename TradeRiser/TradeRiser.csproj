@@ -719,9 +719,10 @@
     <Content Include="Views\AppInfo\Index.cshtml" />
     <Content Include="Views\AppInfo\Manage.cshtml" />
     <Content Include="Views\AppInfo\Register.cshtml" />
-    <Content Include="Views\App\Index.cshtml" />
+    <Content Include="Views\App\IndexOld.cshtml" />
     <Content Include="Views\AppInfo\Feedback.cshtml" />
     <Content Include="Views\HelloWorld\Index.cshtml" />
+    <Content Include="Views\App\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
