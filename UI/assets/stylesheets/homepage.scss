@@ -1,0 +1,30 @@
+/*
+ Software Copyright Gyedi PLC 2015. All Rights Reserved.
+GYEDI, HASHTAGCAMPAIGN.org are trademarks of GYEDI PLC, LONDON
+plc and may be registered in certain jurisdictions.
+*/
+/* 
+    Created on : 03-Sep-2015, 11:28:40
+    Author     : RDAsante
+*/
+#header {
+    
+    .navbar-brand{
+        padding:5px 15px
+    }
+}
+.navbar-header img{
+    width:120px;
+}
+.search-container{
+    margin-top: 100px;
+}
+
+ul.search-menu-list li{
+   float: left; 
+}
+
+.search-history{
+    max-height: 150px;
+    overflow: auto;
+}

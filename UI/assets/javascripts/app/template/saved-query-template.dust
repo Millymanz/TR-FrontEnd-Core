@@ -1,0 +1,16 @@
+<div class="savedQuery" data-id="{QueryID}">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery pull-right">
+                    <button class="btn  btn-xs action-view btn-info">View</button>
+                    <button class="btn btn-xs btn-warning action-unsave" data-query-id="{QueryID}">
+                            <span class="glyphicon glyphicon-trash"></span>
+                          </button>
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+            		<div class="pull-left text text-warning"><span class="glyphicon glyphicon-star"></span></div>
+                <div class="query-text">{Query}</div>
+            </div>
+        </div>

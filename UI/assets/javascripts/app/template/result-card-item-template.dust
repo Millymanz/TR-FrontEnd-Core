@@ -1,0 +1,59 @@
+<div id={QueryID} {?selected}class="active"{/selected}>
+
+                    <table class="resultHeaderTable">
+                        <tr>
+                            <td>
+                                <div class="resultIcon">
+                                    {#ImageCollection}
+                                       <img src={.}  />
+                                    {/ImageCollection}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol">{Source}</div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol">{SymbolID}</div>
+                            </td>
+                            <td>
+                                <div class="resultStartDateTime">{StartDateTime}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="resultTimeFrame">{TimeFrame}</div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol">
+                                </div>
+                            </td>
+                            <td colspan="4">
+                                <div class="resultEndDateTime">{EndDateTime}</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="list-group-item-text resultFieldsTable" style="display:none">
+            <table class="table table-condensed">
+            <tbody>
+								{#KeyResultField}
+                                        <tr>
+                                            <td>{.[0]}:</td>
+                                            <td>{.[1]}</td>
+                                        </tr>
+
+
+
+								{/KeyResultField}
+								 </tbody>
+								  </table>
+								   <div class="blobhead">
+
+                                  <div class="pull-right">
+                              <a class="btn btn-xs btn-info" href="javascript:;">view</a>
+                              </button>
+
+                  			</div>
+            </div>
+        </div>

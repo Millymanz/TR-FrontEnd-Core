@@ -1,0 +1,17 @@
+
+<form method="get" action="#search/">
+                        <div class="input-group">
+                            <input type="text" autocomplete="off" class="form-control  search-text-box" name="q" value='{searchText}' placeholder="Enter your question" aria-describedby="sizing-addon1" required>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default search-question-btn"  type="button"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                    </form>
+<div class="search-term-holder search-pop-out" style="display:none">
+    <div class="repeat-search-type"></div>
+    <hr>
+    <h5><i class="fa fa-life-ring"></i> Search history</h5>
+    <div class="search-history">
+         <ul class="history-list"></ul>
+    </div>
+</div>
