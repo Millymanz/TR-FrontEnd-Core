@@ -1,0 +1,21 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02-Nov-2015, 09:32:10
+    Author     : rockyasante
+*/
+.tr-component-accordion-component-view .ui-corner-all, .tr-component-accordion-component-view .ui-corner-top, .tr-component-accordion-component-view .ui-corner-left, .tr-component-accordion-component-view .ui-corner-right, .tr-component-accordion-component-view .ui-corner-tl, .tr-component-accordion-component-view .ui-corner-tr {
+  border: none;
+  background: #eee;
+  margin: 1px; }
+.tr-component-accordion-component-view .ui-widget-content {
+  border: none; }
+.tr-component-accordion-component-view .accordion-header {
+  background: #ddd; }
+.tr-component-accordion-component-view .ui-state-active {
+  background: #ccc; }
+.tr-component-accordion-component-view .ui-accordion .ui-accordion-content {
+  padding: 3px; }

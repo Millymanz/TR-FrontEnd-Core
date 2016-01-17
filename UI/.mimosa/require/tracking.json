@@ -1,0 +1,480 @@
+{
+  "shims": {
+    "/javascripts/main.js": {
+      "underscore": {
+        "exports": "_"
+      },
+      "backboneCore": {
+        "deps": [
+          "underscore",
+          "jquery"
+        ],
+        "exports": "BackboneCore"
+      },
+      "backbone.fetch-cache": {
+        "deps": [
+          "backboneCore",
+          "underscore"
+        ]
+      },
+      "backbone-super": {
+        "deps": [
+          "backboneCore"
+        ]
+      },
+      "log4javascript": {
+        "exports": "log4javascript"
+      },
+      "jquery-layout": {
+        "deps": [
+          "jquery"
+        ]
+      },
+      "dynatable": {
+        "deps": [
+          "jquery"
+        ]
+      },
+      "jquery.cookie": [
+        "jquery"
+      ],
+      "jquery-ui": {
+        "deps": [
+          "jquery"
+        ]
+      },
+      "toastr": {
+        "deps": [
+          "jquery"
+        ]
+      },
+      "parsley": {
+        "deps": [
+          "jquery"
+        ]
+      },
+      "drawer": {
+        "deps": [
+          "bootstrap"
+        ]
+      },
+      "bootstrap": {
+        "deps": [
+          "jquery"
+        ]
+      },
+      "highstock-ext": {
+        "deps": [
+          "highstock"
+        ]
+      }
+    }
+  },
+  "deps": {
+    "/javascripts/app/collections/search-results-collection.js": [
+      "../models/search-results-card-model"
+    ],
+    "/javascripts/app/collections/serie-collection.js": [
+      "backbone",
+      "../components/models/serie-model"
+    ],
+    "/javascripts/app/components.js": [
+      "./components/models/highcharts-model",
+      "./components/views/high-chart-component-view",
+      "./components/models/tabs-component-model",
+      "./components/views/tabbed-component-view",
+      "./components/views/accordion-component-view"
+    ],
+    "/javascripts/app/components/models/highcharts-model.js": [
+      "backbone"
+    ],
+    "/javascripts/app/components/models/serie-model.js": [
+      "backbone"
+    ],
+    "/javascripts/app/components/models/tabs-component-model.js": [
+      "backbone"
+    ],
+    "/javascripts/app/components/views/accordion-component-view.js": [
+      "../../views/abstract-view",
+      "templates"
+    ],
+    "/javascripts/app/components/views/high-chart-component-view.js": [
+      "../../views/abstract-view",
+      "templates",
+      "../../collections/serie-collection",
+      "highstock",
+      "highstock-ext",
+      "drawer"
+    ],
+    "/javascripts/app/components/views/tabbed-component-view.js": [
+      "../../views/abstract-view",
+      "templates"
+    ],
+    "/javascripts/app/config/rest-utils.js": [
+      "../core/logging",
+      "toastr"
+    ],
+    "/javascripts/app/config/settings.js": [
+      "jquery",
+      "underscore",
+      "backbone",
+      "../models/session-model"
+    ],
+    "/javascripts/app/config/tr-chart-helper.js": [],
+    "/javascripts/app/controller/application-wrapper-controller.js": [
+      "backbone",
+      "../config/rest-utils"
+    ],
+    "/javascripts/app/controller/search-queries-controller.js": [
+      "../config/rest-utils"
+    ],
+    "/javascripts/app/controller/traderiser-chart-controller.js": [
+      "../views/abstract-view",
+      "backbone",
+      "../config/tr-chart-helper",
+      "highstock"
+    ],
+    "/javascripts/app/controller/user-controller.js": [],
+    "/javascripts/app/core.js": [
+      "./core/logging",
+      "./core/mvc"
+    ],
+    "/javascripts/app/core/logging.js": [
+      "log4javascript"
+    ],
+    "/javascripts/app/core/mvc.js": [
+      "backbone",
+      "./logging"
+    ],
+    "/javascripts/app/core/templates.js": [
+      "underscore",
+      "dust"
+    ],
+    "/javascripts/app/example-view.js": [
+      "jquery",
+      "templates"
+    ],
+    "/javascripts/app/models/heart-beat.js": [
+      "../config/rest-utils",
+      "backbone"
+    ],
+    "/javascripts/app/models/query-model.js": [
+      "backbone"
+    ],
+    "/javascripts/app/models/search-page-model.js": [
+      "backbone",
+      "../config/rest-utils"
+    ],
+    "/javascripts/app/models/search-results-card-model.js": [
+      "backbone"
+    ],
+    "/javascripts/app/models/session-model.js": [
+      "./user-model",
+      "../config/rest-utils",
+      "../controller/application-wrapper-controller",
+      "./heart-beat"
+    ],
+    "/javascripts/app/models/user-model.js": [
+      "../config/settings",
+      "../config/rest-utils"
+    ],
+    "/javascripts/app/router.js": [
+      "./views/homepage-view",
+      "./views/header-view",
+      "./views/searchpage-view",
+      "./views/login-view",
+      "./views/search-box-view"
+    ],
+    "/javascripts/app/views.js": [
+      "./views/header-view",
+      "./views/homepage-view",
+      "./views/search-results-view",
+      "./views/search-result-card-item-view",
+      "./views/search-box-view",
+      "./views/query-item-view",
+      "./views/queries-list-view",
+      "./views/searchpage-view",
+      "./views/favourites-list-view",
+      "./views/favourite-item-view",
+      "./views/following-results-list-view",
+      "./views/continues-results-list-view",
+      "./views/continues-result-item-view",
+      "./views/page-layout-view"
+    ],
+    "/javascripts/app/views/abstract-view.js": [
+      "jquery",
+      "underscore",
+      "backbone",
+      "../core/templates",
+      "../core/logging",
+      "dust",
+      "../core/mvc"
+    ],
+    "/javascripts/app/views/continues-result-item-view.js": [
+      "./abstract-view",
+      "templates"
+    ],
+    "/javascripts/app/views/continues-results-list-view.js": [
+      "./abstract-view",
+      "templates",
+      "./continues-result-item-view",
+      "toastr"
+    ],
+    "/javascripts/app/views/favourite-item-view.js": [
+      "./abstract-view",
+      "templates"
+    ],
+    "/javascripts/app/views/favourites-list-view.js": [
+      "./abstract-view",
+      "./favourite-item-view"
+    ],
+    "/javascripts/app/views/following-item-view.js": [
+      "./abstract-view",
+      "templates"
+    ],
+    "/javascripts/app/views/following-results-list-view.js": [
+      "./abstract-view",
+      "./following-item-view"
+    ],
+    "/javascripts/app/views/header-view.js": [
+      "./abstract-view",
+      "./search-box-view",
+      "templates",
+      "toastr"
+    ],
+    "/javascripts/app/views/homepage-view.js": [
+      "../controller/application-wrapper-controller",
+      "./abstract-view",
+      "templates",
+      "./search-box-view",
+      "../components/views/tabbed-component-view",
+      "../components/models/tabs-component-model",
+      "./queries-list-view",
+      "./following-results-list-view",
+      "parsley"
+    ],
+    "/javascripts/app/views/login-view.js": [
+      "./abstract-view",
+      "templates",
+      "parsley",
+      "vendor/jquery/parselyBootstrap"
+    ],
+    "/javascripts/app/views/page-layout-view.js": [
+      "./abstract-view",
+      "templates"
+    ],
+    "/javascripts/app/views/queries-list-view.js": [
+      "./abstract-view",
+      "./query-item-view",
+      "templates"
+    ],
+    "/javascripts/app/views/query-item-view.js": [
+      "./abstract-view",
+      "templates"
+    ],
+    "/javascripts/app/views/search-box-view.js": [
+      "./abstract-view",
+      "templates",
+      "parsley"
+    ],
+    "/javascripts/app/views/search-result-card-item-view.js": [
+      "./abstract-view",
+      "templates"
+    ],
+    "/javascripts/app/views/search-results-view.js": [
+      "./abstract-view",
+      "templates",
+      "./search-result-card-item-view",
+      "../collections/search-results-collection"
+    ],
+    "/javascripts/app/views/searchpage-view.js": [
+      "./abstract-view",
+      "../components/views/accordion-component-view",
+      "../collections/serie-collection",
+      "templates",
+      "../components/views/high-chart-component-view",
+      "../models/search-page-model",
+      "../components/models/highcharts-model",
+      "../controller/traderiser-chart-controller",
+      "../components/views/tabbed-component-view",
+      "./search-results-view",
+      "./following-results-list-view",
+      "./favourites-list-view",
+      "./continues-results-list-view",
+      "jquery-layout",
+      "jquery-ui"
+    ],
+    "/javascripts/app/wrappers/backbone.js": [
+      "underscore",
+      "backboneCore",
+      "backbone-super"
+    ],
+    "/javascripts/app/wrappers/dust.js": [
+      "underscore",
+      "templates",
+      "dustCore",
+      "dustHelpers",
+      "backbone-dust-helpers"
+    ],
+    "/javascripts/main.js": [
+      "backbone",
+      "underscore",
+      "jquery",
+      "app/router",
+      "app/core",
+      "app/config/settings",
+      "dust",
+      "app/components",
+      "app/views",
+      "jquery.cookie",
+      "bootstrap",
+      "dynatable",
+      "toastr",
+      "dust-dom"
+    ],
+    "/javascripts/templates.js": [
+      "vendor/dust"
+    ],
+    "/javascripts/tr-require.js": [
+      "./main"
+    ],
+    "/javascripts/vendor/dust.js": []
+  },
+  "aliases": {
+    "/javascripts/main.js": {
+      "underscore": "vendor/underscore/underscore",
+      "jquery": "vendor/jquery/jquery",
+      "dustCore": "vendor/dust/dust",
+      "dustHelpers": "vendor/dust/dust-helpers",
+      "backboneCore": "vendor/backbone/backbone",
+      "backbone-super": "vendor/backbone/backbone-super",
+      "localstorage": "vendor/backbone/backbone.localStorage-min",
+      "backbone.fetch-cache": "vendor/backbone/backbone.fetch.cache.min",
+      "log4javascript": "vendor/log4javascript",
+      "jquery.cookie": "vendor/jquery/jquery.cookie.min",
+      "jquery-ui": "vendor/jquery/jquery-ui.min",
+      "parsley": "vendor/jquery/parsley",
+      "moment": "vendor/moment",
+      "numeral": "vendor/numeral.min",
+      "bootstrap": "vendor/bootstrap/bootstrap.min",
+      "drawer": "vendor/bootstrap/drawer",
+      "jquery-layout": "vendor/jquery/jquery.layout-latest",
+      "highstock": "vendor/highcharts/js/highstock",
+      "toastr": "//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr",
+      "dynatable": "vendor/jquery/jquery.dynatable",
+      "highstock-ext": "vendor/highcharts/js/highstock-ext",
+      "dust-dom": "vendor/dust/dust.dom",
+      "backbone-dust-helpers": "vendor/dust/dust.backbone-helpers",
+      "dust": "./app/wrappers/dust",
+      "backbone": "./app/wrappers/backbone"
+    }
+  },
+  "mappings": {
+    "/javascripts/main.js": null
+  },
+  "packages": {
+    "/javascripts/main.js": null
+  },
+  "originalConfig": {
+    "shim": {
+      "underscore": {
+        "exports": "_"
+      },
+      "backboneCore": {
+        "deps": [
+          "underscore",
+          "jquery"
+        ],
+        "exports": "BackboneCore"
+      },
+      "backbone.fetch-cache": {
+        "deps": [
+          "backboneCore",
+          "underscore"
+        ]
+      },
+      "backbone-super": {
+        "deps": [
+          "backboneCore"
+        ]
+      },
+      "log4javascript": {
+        "exports": "log4javascript"
+      },
+      "jquery-layout": {
+        "deps": [
+          "jquery"
+        ]
+      },
+      "dynatable": {
+        "deps": [
+          "jquery"
+        ]
+      },
+      "jquery.cookie": [
+        "jquery"
+      ],
+      "jquery-ui": {
+        "deps": [
+          "jquery"
+        ]
+      },
+      "toastr": {
+        "deps": [
+          "jquery"
+        ]
+      },
+      "parsley": {
+        "deps": [
+          "jquery"
+        ]
+      },
+      "drawer": {
+        "deps": [
+          "bootstrap"
+        ]
+      },
+      "bootstrap": {
+        "deps": [
+          "jquery"
+        ]
+      },
+      "highstock-ext": {
+        "deps": [
+          "highstock"
+        ]
+      }
+    },
+    "paths": {
+      "underscore": "vendor/underscore/underscore",
+      "jquery": "vendor/jquery/jquery",
+      "dustCore": "vendor/dust/dust",
+      "dustHelpers": "vendor/dust/dust-helpers",
+      "backboneCore": "vendor/backbone/backbone",
+      "backbone-super": "vendor/backbone/backbone-super",
+      "localstorage": "vendor/backbone/backbone.localStorage-min",
+      "backbone.fetch-cache": "vendor/backbone/backbone.fetch.cache.min",
+      "log4javascript": "vendor/log4javascript",
+      "jquery.cookie": "vendor/jquery/jquery.cookie.min",
+      "jquery-ui": "vendor/jquery/jquery-ui.min",
+      "parsley": "vendor/jquery/parsley",
+      "moment": "vendor/moment",
+      "numeral": "vendor/numeral.min",
+      "bootstrap": "vendor/bootstrap/bootstrap.min",
+      "drawer": "vendor/bootstrap/drawer",
+      "jquery-layout": "vendor/jquery/jquery.layout-latest",
+      "highstock": "vendor/highcharts/js/highstock",
+      "toastr": "//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr",
+      "dynatable": "vendor/jquery/jquery.dynatable",
+      "highstock-ext": "vendor/highcharts/js/highstock-ext",
+      "dust-dom": "vendor/dust/dust.dom",
+      "backbone-dust-helpers": "vendor/dust/dust.backbone-helpers",
+      "dust": "./app/wrappers/dust",
+      "backbone": "./app/wrappers/backbone"
+    }
+  },
+  "requireFiles": [
+    "/javascripts/main.js",
+    "/javascripts/tr-require.js"
+  ]
+}
