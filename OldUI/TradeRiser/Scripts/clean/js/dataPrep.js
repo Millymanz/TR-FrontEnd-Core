@@ -94,6 +94,63 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                     }
                     break;
 
+                case 'EMA':
+                case 'TMA':
+                    {
+                        var indicatorName = presentationTypes.SubWidgets[ss];
+                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
+
+
+                        var dataResults = {};
+                        var widgetName = "";
+                        var currentCount = mulitipleWidgetLookUp[indicatorName];
+                        if (typeof currentCount !== 'undefined') {
+                            dataResults = dataLookUp[indicatorName + ss];
+                            widgetName = obj.CurrentResult.PresentationTypes[0].SubWidgetsAltName[ss];
+                        }
+                        else {
+                            dataResults = dataLookUp[indicatorName];
+                            widgetName = indicatorName;
+                        }
+
+
+                        if (dataResults != null || dataResults !== undefined) {
+                            var dataLength = dataResults.length;
+                            var smaData = [];
+
+                            for (var ri = 0; ri < dataLength; ri++) {
+                                smaData.push([
+                                    dataResults[ri][0], // the date
+                                    dataResults[ri][1] // the close
+                                ])
+                            }
+
+                            //For handling multilple widgets of the same
+                            //kind, this diversifies color
+                            var selectedColor = "purple";
+                            if (WidgetAlreadyUsed(indicatorName, widgetUsedList)) {
+                                selectedColor = GenerateRandomColour();
+                            }
+
+                            var smaChartItem = {
+                                code: indicatorName,
+                                name: widgetName,
+                                color: selectedColor,
+                                data: [smaData]
+                            }
+
+                            overlayArray.push(smaChartItem);
+
+                            allCountIter++;
+
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
+                        }
+                    }
+                    break;
+
                 case 'SMA':
                     {
                         var dataResults = {};
@@ -415,6 +472,12 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                     }
                     break;
 
+                case 'ROC':
+                case 'MFI':
+                case 'OBV':
+                case 'CCI':
+                case 'Ultimateoscillator':
+
                 case 'STDDEV':
                 case 'RSI':
                     {
@@ -437,17 +500,6 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 ])
                             }
 
-                            //var rsiChart = {
-                            //    type: 'line',
-                            //    name: indicatorName,
-                            //    data: rsiArray,
-                            //    yAxis: yAxisPos,
-                            //    dataGrouping: {
-                            //        units: groupingUnits
-                            //    }
-                            //}
-
-
                             var rsiChart = {
                                 type: 'line',
                                 name: indicatorName,
@@ -462,6 +514,162 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             var chartItemDef = {
                                 title: {
                                     text: indicatorName
+                                },
+                                top: indicatorPos,
+                                height: 100,
+                                offset: 0,
+                                lineWidth: 2
+                            };
+                            yAxisArray.push(chartItemDef);
+
+                            allCountIter++;
+
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
+                        }
+                    }
+                    break;
+
+
+                case 'TRIX':
+                    {
+                        var indicatorName = presentationTypes.SubWidgets[ss];
+
+                        selectChartKey = selectChartKey + indicatorName;
+
+                        var stochasticPKDataTemp = dataLookUp["OutSlowKData"];
+                        var stochasticPDDataTemp = dataLookUp["OutSlowDData"];
+
+
+                        if (stochasticPKDataTemp != null || stochasticPKDataTemp !== undefined) {
+                            var dataLength = stochasticPKDataTemp.length;
+                            var stochasticPKData = [];
+                            var stochasticPDData = [];
+
+                            for (var ri = 0; ri < dataLength; ri++) {
+
+                                stochasticPKData.push([
+                                    stochasticPKDataTemp[ri][0], // the date
+                                    stochasticPKDataTemp[ri][1] // the close
+                                ])
+
+                                stochasticPDData.push([
+                                    stochasticPDDataTemp[ri][0], // the date
+                                    stochasticPDDataTemp[ri][1] // the close
+                                ])
+                            }
+                            var axis = 1;
+
+                            //var macdChartItem ={
+                            //    type: 'line',
+                            //    name: 'Stochastic %K ',
+                            //    data: stochasticPKData,
+                            //    yAxis: axis,
+                            //    dashStyle: 'ShortDash',
+                            //    dataGrouping: {
+                            //        units: groupingUnits
+                            //    }
+                            //}
+
+                            var macdChartItem = {
+                                type: 'line',
+                                name: 'Stochastic %K ',
+                                data: stochasticPKData,
+                                yAxis: axis,
+                                dashStyle: 'ShortDash'
+                            }
+
+                            arraySeries.push(macdChartItem);
+
+                            var signalChartItem = {
+                                type: 'line',
+                                name: 'Stochastic %D ',
+                                data: stochasticPDData,
+                                dashStyle: 'LongDash',
+                                yAxis: axis
+                            }
+
+                            arraySeries.push(signalChartItem);
+
+                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
+
+                            var chartItemDef = {
+                                title: {
+                                    text: 'Stochastic'
+                                },
+                                top: indicatorPos,
+                                height: 100,
+                                offset: 0,
+                                lineWidth: 2
+                            };
+                            yAxisArray.push(chartItemDef);
+
+                            allCountIter++;
+
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
+                        }
+                    }
+                    break;
+
+                case 'StochRSI':
+                    {
+                        var indicatorName = presentationTypes.SubWidgets[ss];
+
+                        selectChartKey = selectChartKey + indicatorName;
+
+                        var stochasticPKDataTemp = dataLookUp["OutFastKData"];
+                        var stochasticPDDataTemp = dataLookUp["OutFastDData"];
+
+
+                        if (stochasticPKDataTemp != null || stochasticPKDataTemp !== undefined) {
+                            var dataLength = stochasticPKDataTemp.length;
+                            var stochasticPKData = [];
+                            var stochasticPDData = [];
+
+                            for (var ri = 0; ri < dataLength; ri++) {
+
+                                stochasticPKData.push([
+                                    stochasticPKDataTemp[ri][0], // the date
+                                    stochasticPKDataTemp[ri][1] // the close
+                                ])
+
+                                stochasticPDData.push([
+                                    stochasticPDDataTemp[ri][0], // the date
+                                    stochasticPDDataTemp[ri][1] // the close
+                                ])
+                            }
+                            var axis = 1;
+
+                            var macdChartItem = {
+                                type: 'line',
+                                name: 'StochRSI %K ',
+                                data: stochasticPKData,
+                                yAxis: axis,
+                                /*dashStyle: 'ShortDash'*/
+                            }
+
+                            arraySeries.push(macdChartItem);
+
+                            var signalChartItem = {
+                                type: 'line',
+                                name: 'StochRSI %D ',
+                                data: stochasticPDData,
+                                dashStyle: 'LongDash',
+                                yAxis: axis
+                            }
+
+                            arraySeries.push(signalChartItem);
+
+                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
+
+                            var chartItemDef = {
+                                title: {
+                                    text: 'StochRSI'
                                 },
                                 top: indicatorPos,
                                 height: 100,

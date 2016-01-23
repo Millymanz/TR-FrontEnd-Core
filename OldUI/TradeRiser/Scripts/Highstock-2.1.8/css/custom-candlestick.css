@@ -1,0 +1,38 @@
+.btn-display {
+    display: inline-block !important;
+    font-size: 12px;
+}
+
+.menu-box {
+    padding: 10px;
+}
+
+.horizontal-functional-buttons {
+    padding: 10px 0 10px 0;
+}
+
+.indicator-item {
+    font-size: 12px;
+    padding-top: 3px;
+}
+
+.indicator-item:hover {
+    background-color: #E9E5E5;
+}
+
+.table-header {
+    color: #000;
+}
+
+.active-list-item {
+    font-size: 12px;
+}
+
+.active-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.active-list-item-close-button {
+    font-size: 12px;
+}

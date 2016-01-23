@@ -1889,6 +1889,18 @@ function TradeRiserViewModel(tradeRiserProxy) {
             case 'Aroon Oscillator':
             case 'Aroon Up':
             case 'Aroon Down':
+
+            case 'StochRSI':
+            case 'TRIX':
+            case 'ROC':
+            case 'MFI':
+            case 'OBV':
+            case 'Ultimateoscillator':
+
+            case 'CCI':
+            case 'OBV':
+            case 'EMA':
+
             case 'MACD':
                 {
                     return true;

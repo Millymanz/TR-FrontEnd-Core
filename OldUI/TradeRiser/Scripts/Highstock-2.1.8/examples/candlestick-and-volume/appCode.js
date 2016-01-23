@@ -45,6 +45,18 @@ $(function() {
         volume = [],
         dataLength = data.length;
     var groupingUnits = [
+        [
+            'second', [1, 2, 5, 10, 15, 30]
+        ],
+        [
+            'minute', [1, 2, 5, 10, 15, 30]
+        ],
+        [
+            'hour', [1, 2, 3, 4, 6, 8, 12]
+        ],
+        [
+            'day', [1]
+        ],
         ['week', // unit name
             [1] // allowed multiples
         ],
@@ -250,8 +262,6 @@ $(function() {
             }
             // EMA26Data.push(d[0],EMA26);
         }
-        // console.log(aroonDown);
-        //console.log(overlay1Data);
         // split the data set into ohlc and volume
         ohlc = [];
         volume = [];
@@ -271,67 +281,100 @@ $(function() {
         }
         // set the allowed units for data grouping
         groupingUnits = [
+            [
+                'second', [1, 2, 5, 10, 15, 30]
+            ],
+            [
+                'minute', [1, 2, 5, 10, 15, 30]
+            ],
+            [
+                'hour', [1, 2, 3, 4, 6, 8, 12]
+            ],
+            [
+                'day', [1]
+            ],
             ['week', // unit name
                 [1] // allowed multiples
             ],
             ['month', [1, 2, 3, 4, 6]]
         ];
         higlighters = [{
-            colour: '#dddddd',
-            axisIndex: 1,
-            seriesIndex: 0,
-            startDate: Date.UTC(2013, 0, 20),
-            endDate: Date.UTC(2013, 0, 27)
-        }, {
-            colour: '#dddddd',
-            axisIndex: 1,
-            seriesIndex: 0,
-            startDate: Date.UTC(2013, 3, 23),
-            endDate: Date.UTC(2013, 3, 30),
-            speechBubbleHtml: '<b>Histogram </b> <br/> other comment '
-        }, {
+            //     colour: '#dddddd',
+            //     axisIndex: 0,
+            //     key: "ichimokuCloud",
+            //     startDate: Date.UTC(2013, 0, 20),
+            //     endDate: Date.UTC(2013, 0, 27)
+            // }, {
+            //     colour: '#dddddd',
+            //     axisIndex: 0,
+            //     key: "ichimokuCloud",
+            //     startDate: Date.UTC(2013, 3, 23),
+            //     endDate: Date.UTC(2013, 3, 30),
+            //     speechBubbleHtml: '<b>Histogram </b> <br/> other comment '
+            // }, {
             colour: '#daffbf',
-            axisIndex: 1,
-            seriesIndex: 1,
-            startDate: Date.UTC(2013, 4, 5),
-            endDate: Date.UTC(2013, 4, 9),
+            key: "massIndex",
+            // seriesKey: 'sma',
+            // axisIndex: 0,
+            // seriesIndex: 0,
+            id: 1,
+            startDate: 1449480600000,
+            endDate: 1449482400000,
             speechBubbleHtml: 'cccc 2'
         }, {
             colour: '#dddddd',
-            axisIndex: 2,
-            seriesIndex: 1,
-            startDate: Date.UTC(2013, 3, 23),
-            endDate: Date.UTC(2013, 3, 30),
+            // key: "massIndex",
+            axisIndex: 0,
+            seriesKey: 'sma',
+            id: 2,
+            startDate: 1449585900000,
+            endDate: 1449588600000,
             speechBubbleHtml: '<b>Histogram </b> <br/> other comment '
         }, {
             colour: '#efff2c',
+            // key: "massIndex",
             axisIndex: 0,
-            startDate: Date.UTC(2013, 0, 3),
-            endDate: Date.UTC(2013, 0, 7)
+            // seriesIndex: 0,
+            seriesKey: 'sma',
+            id: 3,
+            startDate: 1449559800000,
+            endDate: 1449561600000,
+            speechBubbleHtml: '<b>Speech Bubble </b> <br/> other comment '
+
         }, {
             colour: '#bfdaff',
+            // key: "massIndex",
             axisIndex: 0,
-            startDate: Date.UTC(2013, 3, 1),
-            endDate: Date.UTC(2013, 3, 8),
+            id: 4,
+            startDate: 1449574200000,
+            endDate: 1449576900000,
             speechBubbleHtml: 'aaaa'
         }, {
             colour: '#fbffd4',
+            // key: "massIndex",            
             axisIndex: 0,
-            startDate: Date.UTC(2013, 4, 5),
-            endDate: Date.UTC(2013, 4, 9),
+            id: 5,
+            startDate: 1449553500000,
+            endDate: 1449555300000,
             speechBubbleHtml: 'bbbb'
         }, {
             colour: '#bfdaff',
-            axisIndex: 3,
-            startDate: Date.UTC(2013, 3, 1),
-            endDate: Date.UTC(2013, 3, 8),
-            speechBubbleHtml: 'aaaa'
+            // key: "massIndex",
+            axisIndex: 0,
+            id: 6,
+            startDate: 1449568800000,
+            endDate: 1449571500000,
+            seriesKey: 'ichimokuCloud',
+            speechBubbleHtml: 'aaaa1'
         }, {
             colour: '#fbffd4',
-            axisIndex: 3,
-            startDate: Date.UTC(2013, 4, 5),
-            endDate: Date.UTC(2013, 4, 9),
-            speechBubbleHtml: 'bbbb'
+            // key: "massIndex",
+            axisIndex: 0,
+            seriesKey: 'ichimokuCloud',
+            id: 7,
+            startDate: 1449550800000,
+            endDate: 1449552600000,
+            speechBubbleHtml: 'bbbb3'
         }];
 
         // create the chart
@@ -339,7 +382,7 @@ $(function() {
     }
     var chart = $('#container').highcharts('StockChart', {
         rangeSelector: {
-            selected: 1
+            enabled: false
         },
         tooltip: {
             style: {
@@ -365,9 +408,18 @@ $(function() {
                 to: Date.UTC(2013, 3, 8)
             }]
         },
+        navigator: {
+            enabled: true
+        },
         plotOptions: {
             candlestick: {
-                lineWidth: 1
+                lineWidth: 1,
+                color: "#2f7ed8",
+                borderColor: "#FFFFFF",
+                lineColor: "#2f7ed8",
+                lineWidth: 1,
+                upColor: "silver",
+                upLineColor: "silver"
             },
             area: {
                 fillOpacity: 0.2
@@ -382,364 +434,73 @@ $(function() {
             title: {
                 text: 'OHLC'
             },
-            top: 200,
+            top: 100,
             height: 300,
             lineWidth: 2
-        }, {
-            title: {
-                text: 'Aroon'
-            },
-            top: 525,
-            height: 100,
-            offset: 0,
-            lineWidth: 1
-        }, {
-            title: {
-                text: 'MACD'
-            },
-            top: 650,
-            height: 100,
-            offset: 0,
-            lineWidth: 2
-        }, {
-            title: {
-                text: 'STD'
-            },
-            top: 775,
-            height: 100,
-            offset: 0,
-            lineWidth: 2
-        }, {
-            top: 900,
-            // right: 100,
-            title: {
-                text: 'Ichimoku Cloud'
-            },
-            offset: 0,
-            height: 200,
-            opposite: true
-
-        }, {
-
-            top: 525,
-            // right: 100,
-            offset: 0,
-            height: 100,
-            labels: {
-                enabled: false
-            },
-            opposite: true
-
-        }, {
-            top: 650,
-            // right: 100,
-            offset: 0,
-            labels: {
-                enabled: false
-            },
-            height: 100,
-            opposite: true
-
-        }, {
-            top: 775,
-            // right: 100,
-            offset: 0,
-            labels: {
-                enabled: false
-            },
-            height: 100,
-            opposite: true
-
         }],
-        series: [
-            /*{
-            type: 'line',
-            name: 'AAPL',
+        series: [{
+            type: 'candlestick',
+            name: 'EUR/USD:FXCM',
             data: ohlc,
-            dataGrouping: {
-            units: groupingUnits
-            }
-            },*/
-            {
-                type: 'candlestick',
-                name: 'AAPL',
-                data: ohlc,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'column',
-                name: 'MACDHistogram',
-                data: MACDHistogram,
-                yAxis: 2,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'signalLine',
-                data: signalLine,
-                yAxis: 2,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'MACDline',
-                data: MACDline,
-                yAxis: 2,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'Aroon Down',
-                data: aroonDown,
-                yAxis: 1,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'Aroon Up',
-                data: aroonUp,
-                yAxis: 1,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'area',
-                name: 'Aroon Oscillator',
-                data: aroonOsc,
-                yAxis: 1,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'RSI',
-                data: rsIndex,
-                yAxis: 1,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'Standard Deviation Ind',
-                data: stanDevData,
-                yAxis: 3,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'Stochastic %K ',
-                data: stochasticPKData,
-                yAxis: 3,
-                dashStyle: 'ShortDash',
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'Stochastic %D ',
-                data: stochasticPDData,
-                dashStyle: 'LongDash',
-                yAxis: 3,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'AVTRI',
-                data: avtrInd,
-                yAxis: 3,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'Conversion Line',
-                data: conversionLine,
-                yAxis: 4,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'Base Line',
-                data: baseLine,
-                yAxis: 4,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'Leading Span A',
-                data: leadingSpanA,
-                // color: "rgba(200, 0, 0, 0.2)",
-                yAxis: 4,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'Leading Span B',
-                data: leadingSpanB,
-                // color: "rgba(124, 181, 236,0.2)",
-                yAxis: 4,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'line',
-                name: 'Lagging Span',
-                data: laggingSpan,
-                yAxis: 4,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'column',
-                yAxis: 5,
-                name: 'Volume',
-                color: "rgba(176, 35, 123,0.3)",
-                data: volume,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'column',
-                yAxis: 6,
-                name: 'Volume',
-                enableMouseTracking: false,
-                color: "rgba(176, 35, 123,0.3)",
-                data: volume,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }, {
-                type: 'column',
-                yAxis: 7,
-                name: 'Volume',
-                enableMouseTracking: false,
-                color: "rgba(176, 35, 123,0.3)",
-                data: volume,
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            },
-        ],
-        // highlightRegion: [{
-        //     colour: '#efff2c',
-        //     startDate: Date.UTC(2013, 0, 3),
-        //     endDate: Date.UTC(2013, 0, 7)
-        // }, {
-        //     colour: '#bfdaff',
-        //     startDate: Date.UTC(2013, 3, 1),
-        //     endDate: Date.UTC(2013, 3, 8),
-        //     speechBubbleHtml: 'aaaa'
-        // }, {
-        //     colour: '#fbffd4',
-        //     startDate: Date.UTC(2013, 4, 5),
-        //     endDate: Date.UTC(2013, 4, 9),
-        //     speechBubbleHtml: 'bbbb'
-        // }],
-        // highlightRegionVolume : [
-        //     {
-        //         colour: '#dddddd',
-        //         startDate:Date.UTC(2013, 0, 20),
-        //         endDate:Date.UTC(2013, 0, 27)
-        //     },
-        //     {
-        //         colour: '#dddddd',
-        //         startDate:Date.UTC(2013, 3, 23),
-        //         endDate:Date.UTC(2013, 3, 30),
-        //         speechBubbleHtml:'cccc 1 <a href="http://www.google.com">click</a> <br/> 
-        //asda qweq2342  err4523423 2342342 3453 23423422 '
-        //     },
-        //     {
-        //         colour: '#daffbf',
-        //         startDate:Date.UTC(2013, 4, 5),
-        //         endDate:Date.UTC(2013, 4, 9),
-        //         speechBubbleHtml:'cccc 2'
-        //     }
-        // ],
-        highlighted: true,
-        highlightRegion: higlighters,
-        trendLines: [{
-            name: "Trend signalLine",
-            startDate: Date.UTC(2013, 4, 7),
-            lowColor: "#42ad5e",
-            highColor: "#4e66dc",
-            endDate: Date.UTC(2013, 3, 19)
-        }],
-        customLines: [{
-            name: "Axis Line",
-            lineWidth: 2,
-            startDate: Date.UTC(2013, 4, 7),
-            color: 'red',
-            value: 350
-        }, {
-            name: "Axis Line 2",
-            lineWidth: 3,
-            startDate: Date.UTC(2008, 4, 7),
-            value: 500
-        }],
-        customSlopeLines: [{
-            name: "Slope Line",
-            startDate: Date.UTC(2013, 3, 12),
-            lineWidth: 3,
-            // color: 'red',
-            startValue: 200,
-            endDate: 1368144000000,
-            endValue: 500,
             dataGrouping: {
                 units: groupingUnits
             }
         }],
-        overlay: [{
-                code: 'sma',
-                name: 'SMA',
-                color: 'red',
-                data: [overlay1Data],
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }
-            /*,
-                {
-                    code: 'ema',
-                    name:'EMA',
-                    color:'green',
-                    data:[overlay2Data]
-                }*/
-            , {
-                code: 'bbands',
-                name: 'Bolinger Bands',
-                color: 'blue',
-                data: [overlay3Data_1, overlay3Data_2],
-                dataGrouping: {
-                    units: groupingUnits
-                }
-            }
-        ]
+        highlighted: true,
+        highlightRegion: higlighters,
+        overlay: [],
     });
     // console.log(Highcharts.charts[0]);
     // $('#highlighted').prop('checked',true);
+    function addClickEvent() {
+        $("#records_table").find("tbody").find("tr").on("click", function(evt, x) {
+            var idx;
+            var indexId = this.getAttribute('data-index');
+            _.each(higlighters, function(item, index) {
+                if (item.id == indexId) {
+                    idx = index;
+                }
+            });
+            selectHighlighter(idx);
+            console.log('hey');
+        });
+    }
     $("#highlighted").on("change", function(evt) {
         Highcharts.charts[0].highlighted = $('#highlighted').prop('checked');
         Highcharts.charts[0].redraw();
         var trHTML = "";
         $.each(higlighters, function(i, item) {
-            trHTML += '<tr data-index="' + i + '" class="rowItem"><td>' + item.startDate + '</td><td>' + item.endDate + '</td></tr>';
+
+            trHTML += '<tr data-index="' + item.id + '" class="rowItem"><td>' + item.id + '</td><td>' + (new Date(item.startDate)) + '</td><td>' + (new Date(item.endDate)) + '</td><td>' + (item.key || item.seriesKey ? item.key || item.seriesKey : 'default') + '</td><td>' + item.speechBubbleHtml + '</td></tr>';
         });
         if ($('#highlighted').prop('checked')) {
             $(".rowItem").remove();
             $('#records_table').append(trHTML);
-            $(".rowItem").on("click", function(evt, x) {
-                selectHighlighter(this.getAttribute('data-index'));
-            });
+            // $(".rowItem").on("click", function(evt, x) {
+            //     selectHighlighter(this.getAttribute('data-index'));
+            // });
+
+            function myRowWriter(rowIndex, record, columns, cellWriter) {
+                var tr = '';
+
+                // grab the record's attribute for each column
+                for (var i = 0, len = columns.length; i < len; i++) {
+                    tr += cellWriter(columns[i], record);
+                }
+
+                return '<tr data-index=' + record.id + '>' + tr + '</tr>';
+            };
+            $("#records_table").dynatable({
+                writers: {
+                    _rowWriter: myRowWriter
+                },
+                dataset: {
+                    perPageDefault: 5,
+                }
+            }).bind('dynatable:afterProcess', addClickEvent);
+
+
+            addClickEvent();
         }
     });
     var highlightersLength = higlighters.length - 1;
@@ -803,6 +564,832 @@ $(function() {
         chart.series[6].setData(aroonOsc);
         chart.series[7].setData(rsIndex);
         Highcharts.charts[0].redraw();
+    });
+    var chart = Highcharts.charts[0];
+    var top = chart.yAxis[0].bottom;
+    var activeIndicators = [];
+
+    var addIndicator = function(key) {
+        // console.log(this);
+        var chart = Highcharts.charts[0];
+        var ichimokuSeries = [{
+            type: 'line',
+            name: 'Conversion Line',
+            data: conversionLine,
+            // yAxis: 4,
+            dataGrouping: {
+                units: groupingUnits
+            }
+        }, {
+            type: 'line',
+            name: 'Base Line',
+            data: baseLine,
+            // yAxis: 4,
+            dataGrouping: {
+                units: groupingUnits
+            }
+        }, {
+            type: 'line',
+            name: 'Leading Span A',
+            data: leadingSpanA,
+            // color: "rgba(200, 0, 0, 0.2)",
+            // yAxis: 4,
+            dataGrouping: {
+                units: groupingUnits
+            }
+        }, {
+            type: 'line',
+            name: 'Leading Span B',
+            data: leadingSpanB,
+            // color: "rgba(124, 181, 236,0.2)",
+            // yAxis: 4,
+            dataGrouping: {
+                units: groupingUnits
+            }
+        }, {
+            type: 'line',
+            name: 'Lagging Span',
+            data: laggingSpan,
+            // yAxis: 4,
+            dataGrouping: {
+                units: groupingUnits
+            }
+        }];
+        var indicator = key;
+        var addAxistoChart = function(title, indicator) {
+            var chart = Highcharts.charts[0];
+
+            var id = 'x' + (new Date().getUTCMilliseconds());
+
+            activeIndicators.push({
+                id: id,
+                indicator: indicator
+            });
+
+            chart.yAxis[0].update({
+                height: (100 - ((activeIndicators.length + 1) * 20)) + "%"
+            });
+            // top: (i === 0 ? 0 : i + 1) + "%",
+            //     height: (s === 100 ? 100 : s - 1) + "%"
+            chart.addAxis({
+                id: id,
+                // labels: {
+                //     enabled: false
+                // },
+                // height: "10%",
+                top: (100 - ((activeIndicators.length) * 20)) + "%",
+                height: 10 + "%",
+                // top: top + 20,
+                title: {
+                    text: title
+                },
+                opposite: true
+            });
+            chart.options.activeIndicators = activeIndicators;
+
+            // top += 100 + 20;
+            return id;
+        };
+        switch (indicator) {
+            case 'sma':
+                chart.options.overlay.push({
+                    code: 'sma',
+                    name: 'SMA',
+                    color: 'red',
+                    id: key,
+                    data: [overlay1Data],
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.render();
+                break;
+            case 'volume':
+                var id = addAxistoChart("Volume", indicator);
+                chart.addSeries({
+                    type: 'column',
+                    yAxis: id,
+                    name: 'Volume',
+                    enableMouseTracking: false,
+                    color: "rgba(176, 35, 123,0.3)",
+                    data: volume,
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.redraw();
+                break;
+            case 'standardDeviation':
+                var id = addAxistoChart("SDI", indicator);
+                chart.addSeries({
+                    type: 'line',
+                    name: 'Standard Deviation Ind',
+                    data: stanDevData,
+                    yAxis: id,
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.redraw();
+                break;
+            case 'aroon':
+                var id = addAxistoChart("Aroon", indicator);
+                chart.addSeries({
+                    type: 'line',
+                    name: 'Aroon Down',
+                    data: aroonDown,
+                    yAxis: id,
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.addSeries({
+                    type: 'line',
+                    name: 'Aroon Up',
+                    data: aroonUp,
+                    yAxis: id,
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.redraw();
+                break;
+            case 'aroonOscillator':
+                var id = addAxistoChart("AroonOscillator", indicator);
+                chart.addSeries({
+                    type: 'area',
+                    name: 'Aroon Oscillator',
+                    data: aroonOsc,
+                    yAxis: id,
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.redraw();
+                break;
+            case 'macd':
+                var id = addAxistoChart("MACD", indicator);
+                chart.addSeries({
+                    type: 'line',
+                    name: 'signalLine',
+                    data: signalLine,
+                    yAxis: id,
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.addSeries({
+                    type: 'line',
+                    name: 'MACDline',
+                    data: MACDline,
+                    yAxis: id,
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.redraw();
+                break;
+            case 'stochasticOscillator':
+                var id = addAxistoChart("Stochastic", indicator);
+                chart.addSeries({
+                    type: 'line',
+                    name: 'Stochastic %K ',
+                    data: stochasticPKData,
+                    yAxis: id,
+                    dashStyle: 'ShortDash',
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.addSeries({
+                    type: 'line',
+                    name: 'Stochastic %D ',
+                    data: stochasticPDData,
+                    dashStyle: 'LongDash',
+                    yAxis: id,
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.redraw();
+                break;
+            case 'macdHistogram':
+                var id = addAxistoChart("MACD Histogram", indicator);
+                chart.addSeries({
+                    type: 'column',
+                    name: 'MACDHistogram',
+                    data: MACDHistogram,
+                    yAxis: id,
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.redraw();
+                break;
+            case 'rsi':
+                var id = addAxistoChart("RSI", indicator);
+                chart.addSeries({
+                    type: 'line',
+                    name: 'RSI',
+                    data: rsIndex,
+                    yAxis: id,
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.redraw();
+                break;
+            case 'atr':
+                var id = addAxistoChart("ATR", indicator);
+                chart.addSeries({
+                    type: 'line',
+                    name: 'AVTRI',
+                    data: avtrInd,
+                    yAxis: id,
+                    dataGrouping: {
+                        units: groupingUnits
+                    }
+                });
+                chart.redraw();
+                break;
+            case 'bollinger':
+            case 'keltnerChannels':
+            case 'priceChannels':
+            case 'emaEnvelope':
+            case 'smaEnvelope':
+                // var id = addAxistoChart("keltnerChannels");
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+                    var plotData = [],
+                        plotData1 = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        plotData.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[0], data.data[i].v[1]])
+                        plotData1.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[2]]);
+                    }
+                    chart.addSeries({
+                        type: 'arearange',
+                        id: key,
+                        name: data.seriesConfig[0] ? data.seriesConfig[0].name : key,
+                        color: data.seriesConfig[0] ? data.seriesConfig[0].color : '',
+                        data: plotData,
+                        fillOpacity: 0.1,
+                        // yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                    chart.addSeries({
+                        type: 'line',
+                        // name: 'EMA',
+                        id: key + 1,
+                        data: plotData1,
+                        name: data.seriesConfig[2] ? data.seriesConfig[2].name : key,
+                        color: data.seriesConfig[2] ? data.seriesConfig[2].color : '',
+                        dashStyle: data.seriesConfig[2] ? data.seriesConfig[2].dashStyle : '',
+                        // yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        },
+                    });
+                });
+                break;
+
+            case 'chandelierExit':
+                // var id = addAxistoChart("keltnerChannels");
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+                    var plotData = [],
+                        plotData1 = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        plotData.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[0]])
+                        plotData1.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[1]]);
+                    }
+                    chart.addSeries({
+                        type: 'line',
+                        id: key,
+
+                        name: data.seriesConfig[0] ? data.seriesConfig[0].name : key,
+                        color: data.seriesConfig[0] ? data.seriesConfig[0].color : '',
+                        data: plotData,
+                        fillOpacity: 0.2,
+                        // yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                    chart.addSeries({
+                        type: 'line',
+                        // name: 'EMA',
+                        id: key + 1,
+                        data: plotData1,
+                        name: data.seriesConfig[1] ? data.seriesConfig[1].name : key,
+                        color: data.seriesConfig[1] ? data.seriesConfig[1].color : '',
+                        dashStyle: data.seriesConfig[1] ? data.seriesConfig[1].dashStyle : '',
+                        // yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                });
+                break;
+            case 'ema':
+            case 'wma':
+                // var id = addAxistoChart("keltnerChannels");
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+                    var plotData = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        plotData.push([(new Date(data.data[i].t)).getTime(), data.data[i].v])
+                    }
+                    chart.addSeries({
+                        type: 'line',
+                        id: i > 0 ? key + i : key,
+                        name: data.seriesConfig && data.seriesConfig[0] ? data.seriesConfig[0].name : key,
+                        color: data.seriesConfig && data.seriesConfig[0] ? data.seriesConfig[0].color : '',
+                        data: plotData,
+                        // fillOpacity: 0.2,
+                        // yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                });
+                break;
+            case 'dailyPivot':
+                // var id = addAxistoChart("keltnerChannels");
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+                    var info = {
+                        plotData0: [],
+                        plotData1: [],
+                        plotData2: [],
+                        plotData3: [],
+                        plotData4: [],
+                        plotData5: [],
+                        plotData6: []
+                    };
+                    for (var i = 0; i < data.data.length; i++) {
+                        info.plotData0.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[0]])
+                        info.plotData1.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[1]]);
+                        info.plotData2.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[2]]);
+                        info.plotData3.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[3]]);
+                        info.plotData4.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[4]]);
+                        info.plotData5.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[5]]);
+                        info.plotData6.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[6]]);
+                    }
+                    for (var i = 0; i < 8; i++) {
+                        chart.addSeries({
+                            type: 'line',
+                            // id: key,
+                            id: i > 0 ? key + i : key,
+
+                            name: data.seriesConfig[i] ? data.seriesConfig[i].name : key,
+                            color: data.seriesConfig[i] ? data.seriesConfig[i].color : '',
+                            data: info["plotData" + i],
+                            dashStyle: data.seriesConfig[i] ? data.seriesConfig[i].dashStyle : '',
+                            fillOpacity: 0.2,
+                            // yAxis: id,
+                            dataGrouping: {
+                                units: groupingUnits
+                            },
+                        });
+                    };
+                });
+                break;
+            case 'ichimokuCloud':
+                // var id = addAxistoChart("keltnerChannels");
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+                    var info = {
+                        plotData0: [],
+                        plotData1: [],
+                        plotData2: [],
+                        plotData3: [],
+                        plotData4: [],
+                        plotData5: [],
+                        plotData6: []
+                    };
+                    for (var i = 0; i < data.data.length; i++) {
+                        info.plotData0.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[0]])
+                        info.plotData1.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[1]]);
+                        info.plotData2.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[2]]);
+                        info.plotData3.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[3]]);
+                        info.plotData4.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[4]]);
+                        info.plotData5.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[5][0], data.data[i].v[5][1]]);
+                        info.plotData6.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[6][0], data.data[i].v[6][1]]);
+                    }
+                    for (var i = 0; i < 7; i++) {
+                        chart.addSeries({
+                            type: i < 5 ? 'line' : 'arearange',
+                            name: data.seriesConfig[i] ? data.seriesConfig[i].name : key,
+                            color: data.seriesConfig[i] ? data.seriesConfig[i].color : '',
+                            // id: key,
+                            id: i > 0 ? key + i : key,
+                            data: info["plotData" + i],
+                            dashStyle: data.seriesConfig[i] ? data.seriesConfig[i].dashStyle : '',
+                            fillOpacity: i < 5 ? 1 : 0.2,
+                            lineWidth: data.seriesConfig[i] && data.seriesConfig[i].lineWidth ? data.seriesConfig[i].lineWidth : 1,
+                            plotOffset: data.seriesConfig[i] && data.seriesConfig[i].plotOffset ? data.seriesConfig[i].plotOffset : '',
+                            // yAxis: id,
+                            dataGrouping: {
+                                units: groupingUnits
+                            },
+                        });
+                    };
+                });
+                break;
+            case 'adl':
+            case 'cci':
+            case 'coppock':
+            case 'emv':
+            case 'gapo':
+            case 'massIndex':
+            case 'mfi':
+            case 'obv':
+            case 'pgo':
+            case 'qStick':
+            case 'roc':
+            case 'stochRsi':
+            case 'uo':
+            case 'williamsR':
+                var id = addAxistoChart(key, indicator);
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+
+
+                    var plotData = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        plotData.push([(new Date(data.data[i].t)).getTime(), data.data[i].v])
+                    }
+                    chart.addSeries({
+                        type: 'line',
+                        name: data.seriesConfig && data.seriesConfig[0] ? data.seriesConfig[0].name : key,
+                        color: data.seriesConfig && data.seriesConfig[0] ? data.seriesConfig[0].color : '',
+                        data: plotData,
+                        // fillOpacity: 0.2,
+                        lineWidth: 0.5,
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                });
+                break;
+            case 'dpo':
+                var id = addAxistoChart(key, indicator);
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+                    var plotData = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        plotData.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[0], data.data[i].v[1]])
+                    }
+                    chart.addSeries({
+                        type: 'area',
+                        name: data.seriesConfig && data.seriesConfig[0] ? data.seriesConfig[0].name : key,
+                        color: data.seriesConfig && data.seriesConfig[0] ? data.seriesConfig[0].color : '',
+                        data: plotData,
+                        // fillOpacity: 0.2,
+                        lineWidth: 0.5,
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                });
+                break;
+            case 'forceIndex':
+                var id = addAxistoChart(key, indicator);
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+                    var plotData = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        plotData.push([(new Date(data.data[i].t)).getTime(), data.data[i].v]);
+                    }
+                    chart.addSeries({
+                        type: 'areaspline',
+                        name: data.seriesConfig && data.seriesConfig[0] ? data.seriesConfig[0].name : key,
+                        color: data.seriesConfig && data.seriesConfig[0] ? data.seriesConfig[0].color : '',
+                        data: plotData,
+                        fillOpacity: 0.2,
+                        lineWidth: 0.5,
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                });
+                break;
+            case 'bollingerBandwidth':
+                var id = addAxistoChart(key, indicator);
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+                    var plotData = [],
+                        plotData1 = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        plotData.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[0], data.data[i].v[1]])
+                        plotData1.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[2]]);
+                    }
+                    chart.addSeries({
+                        type: 'arearange',
+                        name: data.seriesConfig[0] ? data.seriesConfig[0].name : key,
+                        color: data.seriesConfig[0] ? data.seriesConfig[0].color : '',
+                        data: plotData,
+                        fillOpacity: 0.1,
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        },
+                    });
+                    chart.addSeries({
+                        type: 'line',
+                        data: plotData1,
+                        name: data.seriesConfig[2] ? data.seriesConfig[2].name : key,
+                        color: data.seriesConfig[2] ? data.seriesConfig[2].color : '',
+                        dashStyle: data.seriesConfig[2] ? data.seriesConfig[2].dashStyle : '',
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        },
+                    });
+
+                });
+                break;
+            case 'cog':
+            case 'cmo':
+            case 'fisherTransform':
+            case 'kst':
+            case 'pmo':
+            case 'trix':
+            case 'tsi':
+            case 'vtx':
+                var id = addAxistoChart(key, indicator);
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+                    var plotData = [],
+                        plotData1 = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        plotData.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[0]])
+                        plotData1.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[1]]);
+                    }
+                    chart.addSeries({
+                        type: 'line',
+                        name: data.seriesConfig[0] ? data.seriesConfig[0].name : key,
+                        color: data.seriesConfig[0] ? data.seriesConfig[0].color : '',
+                        data: plotData,
+                        fillOpacity: 0.2,
+                        lineWidth: 1,
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                    chart.addSeries({
+                        type: 'line',
+                        // name: 'EMA',
+                        data: plotData1,
+                        lineWidth: 1,
+                        name: data.seriesConfig[1] && data.seriesConfig[1].name ? data.seriesConfig[1].name : key,
+                        color: data.seriesConfig[1] ? data.seriesConfig[1].color : '',
+                        dashStyle: data.seriesConfig[1] ? data.seriesConfig[1].dashStyle : '',
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+
+                });
+                break;
+            case 'elderBBPower':
+                var id = addAxistoChart(key, indicator);
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+                    var plotData = [],
+                        plotData1 = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        plotData.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[0]])
+                        plotData1.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[1]]);
+                    }
+                    chart.addSeries({
+                        type: 'column',
+                        name: data.seriesConfig[0] ? data.seriesConfig[0].name : key,
+                        color: data.seriesConfig[0] ? data.seriesConfig[0].color : '',
+                        data: plotData,
+                        fillOpacity: 0.2,
+                        lineWidth: 1,
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                    chart.addSeries({
+                        type: 'column',
+                        // name: 'EMA',
+                        data: plotData1,
+                        lineWidth: 1,
+                        name: data.seriesConfig[1] && data.seriesConfig[1].name ? data.seriesConfig[1].name : key,
+                        color: data.seriesConfig[1] ? data.seriesConfig[1].color : '',
+                        dashStyle: data.seriesConfig[1] ? data.seriesConfig[1].dashStyle : '',
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                });
+                break;
+            case 'ppo':
+                var id = addAxistoChart(key, indicator);
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+                    var plotData = [],
+                        plotData1 = [],
+                        plotData2 = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        plotData.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[0]])
+                        plotData1.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[1]]);
+                        plotData2.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[2]]);
+                    }
+                    chart.addSeries({
+                        type: 'column',
+                        name: data.seriesConfig[0] ? data.seriesConfig[0].name : key,
+                        color: data.seriesConfig[0] ? data.seriesConfig[0].color : '',
+                        data: plotData,
+                        fillOpacity: 0.2,
+                        lineWidth: 1,
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                    chart.addSeries({
+                        type: 'line',
+                        // name: 'EMA',
+                        data: plotData1,
+                        lineWidth: 1,
+                        name: data.seriesConfig[1] && data.seriesConfig[1].name ? data.seriesConfig[1].name : key,
+                        color: data.seriesConfig[1] ? data.seriesConfig[1].color : '',
+                        dashStyle: data.seriesConfig[1] ? data.seriesConfig[1].dashStyle : '',
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                    chart.addSeries({
+                        type: 'line',
+                        // name: 'EMA',
+                        data: plotData2,
+                        lineWidth: 1,
+                        name: data.seriesConfig[2] && data.seriesConfig[2].name ? data.seriesConfig[2].name : key,
+                        color: data.seriesConfig[2] ? data.seriesConfig[2].color : '',
+                        dashStyle: data.seriesConfig[2] ? data.seriesConfig[2].dashStyle : '',
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                });
+                break;
+            case 'pvo':
+                var id = addAxistoChart(key, indicator);
+                $.getJSON('json/' + indicator + ".json", function(data) {
+                    console.log(data);
+                    var plotData = [],
+                        plotData1 = [],
+                        plotData2 = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        plotData.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[2]])
+                        plotData1.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[1]]);
+                        plotData2.push([(new Date(data.data[i].t)).getTime(), data.data[i].v[0]]);
+                    }
+                    chart.addSeries({
+                        type: 'column',
+                        name: data.seriesConfig[2] ? data.seriesConfig[2].name : key,
+                        color: data.seriesConfig[2] ? data.seriesConfig[2].color : '',
+                        data: plotData,
+                        fillOpacity: 0.2,
+                        lineWidth: 1,
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                    chart.addSeries({
+                        type: 'line',
+                        // name: 'EMA',
+                        data: plotData1,
+                        lineWidth: 1,
+                        name: data.seriesConfig[1] && data.seriesConfig[1].name ? data.seriesConfig[1].name : key,
+                        color: data.seriesConfig[1] ? data.seriesConfig[1].color : '',
+                        dashStyle: data.seriesConfig[1] ? data.seriesConfig[1].dashStyle : '',
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                    chart.addSeries({
+                        type: 'line',
+                        // name: 'EMA',
+                        data: plotData2,
+                        lineWidth: 1,
+                        name: data.seriesConfig[0] && data.seriesConfig[0].name ? data.seriesConfig[0].name : key,
+                        color: data.seriesConfig[0] ? data.seriesConfig[0].color : '',
+                        dashStyle: data.seriesConfig[0] ? data.seriesConfig[0].dashStyle : '',
+                        yAxis: id,
+                        dataGrouping: {
+                            units: groupingUnits
+                        }
+                    });
+                });
+                break;
+            default:
+                var id = addAxistoChart("indicator");
+                $.getJSON("json/" + indicator + ".json", function(data) {
+                    console.log(data);
+                });
+                break;
+        }
+
+    };
+    $('#myModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        console.log(button.context.innerHTML);
+        var recipient = button.context.innerHTML + ":" + button.data('key') + ""; // Extract info from data-* attributes
+        var modal = $(this);
+        modal.find('.modal-title').text(recipient);
+        // modal.find('.modal-body input').val(recipient);
+    });
+    $('#save_changes').on('click', function(event) {
+        $('#myModal').modal('hide');
+        var modal = $('#myModal');
+        var key = modal.find('.modal-title').text().split(":")[1];
+        var text = modal.find('.modal-title').text() + '<button class="close">x</button>';
+        $('.active-list').append('<li class="active-list-item">' + text + '</li>');
+        addIndicator(key);
+    });
+    $('.active-list').on('click', 'button', function(el) {
+
+        $(this).parent().remove();
+        var key = $(this).parent().text().split(":")[1];
+        key = key.slice(0, key.length - 1);
+        switch (key) {
+            case 'sma':
+            case 'ema':
+            case 'bollinger':
+                chart.options.overlay = _.reject(chart.options.overlay, function(item) {
+                    if (item.code == key) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+
+                chart.get(key).remove();
+                if (chart.get(key)) {
+                    chart.get(key).remove();
+                }
+                chart.redraw();
+                break;
+            case 'chandelierExit':
+            case 'dailyPivot':
+            case 'emaEnvelope':
+            case 'ichimokuCloud':
+            case 'keltnerChannels':
+            case 'priceChannels':
+            case 'smaEnvelope':
+            case 'wma':
+
+                $.each(chart.series, function(i, item) {
+                    if (item && item.userOptions.id && item.userOptions.id.indexOf(key) != -1) {
+                        item.hide(false);
+                    }
+                });
+                chart.redraw();
+                $.each(chart.series, function(i, item) {
+                    if (item && item.userOptions.id && item.userOptions.id.indexOf(key) != -1) {
+                        item.remove(false);
+                    }
+                });
+                chart.redraw();
+                break;
+            default:
+                activeIndicators = _.reject(activeIndicators, function(item) {
+                    if (item.indicator == key) {
+                        chart.get(item.id).remove();
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+
+
+                chart.options.activeIndicators = activeIndicators;
+                // chart.yAxis[0].update({
+                //     height: (100 - ((activeIndicators.length + 1) * 20)) + "%"
+                // });
+                break;
+        }
+
+        // console.log(activeIndicators);
+
     });
 
 });

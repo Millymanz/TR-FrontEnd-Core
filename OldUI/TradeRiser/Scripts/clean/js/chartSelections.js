@@ -125,6 +125,18 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
                 },
 
                 plotOptions: {
+                    candlestick: {
+                        lineWidth: 1,
+                        color: "#2f7ed8",
+                        borderColor: "#FFFFFF",
+                        lineColor: "#2f7ed8",
+                        lineWidth: 1,
+                        upColor: "silver",
+                        upLineColor: "silver"
+                    },
+                    area: {
+                        fillOpacity: 0.2
+                    },
                     series: {
                         dataGrouping: { enabled: false }
                     }

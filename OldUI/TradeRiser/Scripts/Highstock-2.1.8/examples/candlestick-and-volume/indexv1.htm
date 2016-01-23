@@ -6,7 +6,9 @@
     <title>Highstock Example</title>
     <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
     <link rel="stylesheet" type="text/css" href="../../css/speech-bubble.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/jquery.dynatable.css">
     <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script type="text/javascript" src="../../lib/jquery.dynatable.js"></script>
     <script type="text/javascript" src="appv1.js"></script>
     <script type="text/javascript" src="appCodev1.js">
     </script>
@@ -36,14 +38,14 @@
     <button id="nextData">Next Data</button>
     <hr/>
     <table id="records_table" border='1' style="display:inline-block;max-width: 225px;width:20%;vertical-align:top;">
-        <tr>
-            <th>StartDate</th>
-            <th>EndDate</th>
-        </tr>
+        <thead>
+            <tr>
+                <th class="table-header">StartDate</th>
+                <th class="table-header">EndDate</th>
+            </tr>
+        </thead>
     </table>
-	
-	<div class="dialogchart0" style="height: 850px; min-width: 500px;display:inline-block;width:80%"></div>
-<!--     <div id="container" style="height: 850px; min-width: 500px;display:inline-block;width:80%"></div> -->
+    <div id="container" style="height: 850px; min-width: 500px;display:inline-block;width:80%"></div>
     <!--<div id="container" style="height: 500px; margin-top: 50px;"></div>-->
 </body>
 

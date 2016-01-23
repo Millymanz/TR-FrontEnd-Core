@@ -76,29 +76,69 @@
                 var pointsVol = serieVol.points;
                 var regions = [];
                 H.each(chart.options.highlightRegion, function(region) {
-                    yAxisVol = chart.yAxis[region.axisIndex];
-                    // console.log(region);
-                    serieVol = region.seriesIndex ? yAxisVol.series[region.seriesIndex] : yAxisVol.series[0];
-                    pointsVol = serieVol.points;
-                    // console.log(serieVol, pointsVol);
-                    region.points = [];
-                    H.each(pointsVol, function(point) {
-                        if (point.x >= region.startDate && point.x <= region.endDate) {
-                            region.points.push({
-                                x: xAxisMain.toPixels(point.x),
-                                y: yAxisVol.toPixels(point.y),
-                                height: (serieVol.type == 'line' ? 0 : point.shapeArgs.height),
-                                width: (serieVol.type == 'line' ? 0 : point.shapeArgs.width)
-                            });
+                    var found, seriesFound;
+                    if (region.axisIndex || region.axisIndex === 0) {
+                        yAxisVol = chart.yAxis[region.axisIndex];
+                    } else if (region.key) {
+                        found = _.find(chart.options.activeIndicators, function(item) {
+                            return item.indicator == region.key
+                        });
+                        if (found) {
+                            yAxisVol = chart.get(found.id);
                         }
-                    });
-                    regions.push(region);
+                    }
+                    if (region.seriesKey) {
+                        seriesFound = _.find(chart.yAxis[0].series, function(item) {
+                            return item.userOptions.id == region.seriesKey
+                        });
+                    }
+                    // console.log(region);
+                    if (((found && region.key) || (region.axisIndex || region.axisIndex === 0)) && yAxisVol) {
+                        serieVol = region.seriesIndex ? yAxisVol.series[region.seriesIndex] : yAxisVol.series[0];
+                        if (seriesFound) {
+                            serieVol = seriesFound;
+                        }
+                        pointsVol = serieVol.points;
+                        // console.log(serieVol, pointsVol);
+                        region.points = [];
+                        H.each(pointsVol, function(point) {
+                            if (point.x >= region.startDate && point.x <= region.endDate) {
+                                region.points.push({
+                                    x: xAxisMain.toPixels(point.x),
+                                    y: yAxisVol.toPixels(point.y),
+                                    height: (serieVol.type == 'line' ? 0 : point.shapeArgs.height),
+                                    width: (serieVol.type == 'line' ? 0 : point.shapeArgs.width)
+                                });
+                            }
+                        });
+                        regions.push(region);
+                    }
                 });
                 var xFrom, xTo, yFrom, yTo, x, y, w, h, xFromVol, xToVol, volMaxHeight, r = 10;
                 H.each(regions, function(region) {
-                    yAxisVol = chart.yAxis[region.axisIndex];
+                    var found, seriesFound;
+                    // yAxisVol = chart.yAxis[region.axisIndex];
+                    if (region.axisIndex) {
+                        yAxisVol = chart.yAxis[region.axisIndex];
+                    } else if (region.key) {
+                        found = _.find(chart.options.activeIndicators, function(item) {
+                            return item.indicator == region.key
+                        });
+                        if (found) {
+                            yAxisVol = chart.get(found.id);
+                        }
+                    }
+                    if (region.seriesKey) {
+                        seriesFound = _.find(chart.yAxis[0].series, function(item) {
+                            return item.userOptions.id == region.seriesKey
+                        });
+                    }
                     // console.log(region);
                     serieVol = region.seriesIndex ? yAxisVol.series[region.seriesIndex] : yAxisVol.series[0];
+
+                    if (seriesFound) {
+                        serieVol = seriesFound;
+                    }
                     if (region.points.length == 0) {
                         return true; // continue
                     }
@@ -182,9 +222,17 @@
                 return;
             }
             H.each(chart.options.overlay, function(overlay) {
+                if (chart.get(overlay.code)) {
+                    chart.get(overlay.code).remove();
+                }
+                if (chart.get(overlay.code)) {
+                    chart.get(overlay.code).remove();
+                }
                 H.each(overlay.data, function(d) {
+
                     var options = {
                         name: overlay.name,
+                        id: overlay.code,
                         data: d,
                         lineWidth: 1,
                         marker: {

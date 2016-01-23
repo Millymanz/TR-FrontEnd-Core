@@ -1,50 +1,156 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Highstock Example</title>
-    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
     <link rel="stylesheet" type="text/css" href="../../css/speech-bubble.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/jquery.dynatable.css">
     <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script type="text/javascript" src="../../js/underscore.js"></script>
+    <script type="text/javascript" src="../../lib/jquery.dynatable.js"></script>
     <script type="text/javascript" src="app.js"></script>
-    <script type="text/javascript" src="appCode.js">
-    </script>
+    <script type="text/javascript" src="appCode.js"></script>
+    <script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css"> 
+   <link rel="stylesheet" type="text/css" href="custom-candlestick.css"> 
+
+
 </head>
 
 <body>
     <script type="text/javascript" src="../../js/highstock.src.js"></script>
+    <script type="text/javascript" src="../../js/highcharts-more.src.js"></script>
     <script type="text/javascript" src="../../js/highstock-ext.js"></script>
     <script type="text/javascript" src="../../js/modules/exporting.js"></script>
-    <script>
-    /*
-                                                            (function (H) {
-                                                                H.wrap(H.Series.prototype, 'drawGraph', function (proceed) {
-                                                                    // Before the original function
-                                                                    console.log("We are about to draw the graph:", this.graph);
-                                                                    // Now apply the original function with the original arguments,
-                                                                    // which are sliced off this function's arguments
-                                                                    proceed.apply(this, Array.prototype.slice.call(arguments, 1));
-                                                                    // Add some code after the original function
-                                                                    console.log("We just finished drawing the graph:", this.graph);
-                                                                });
-                                                            }(Highcharts));
-                                                            */
-    </script>
-    <label>Highlighted:</label>
-    <input type="checkbox" id="highlighted" />
-    <button id="prev" class="highlightButton">Prev</button>
-    <button id="next" class="highlightButton">Next</button>
-    <button id="nextData">Next Data</button>
+    <div class="horizontal-functional-buttons">
+        <div class="dropdown btn-display">
+            <button class="btn btn-default" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Highlighted:
+            </button>
+            <div class="dropdown-menu menu-box" style="width:600px">
+                <table id="records_table" border='1' class="table">
+                    <thead>
+                        <tr>
+                            <th class="table-header">Id</th>
+                            <th class="table-header">StartDate</th>
+                            <th class="table-header">EndDate</th>
+                            <th class="table-header">Key</th>
+                            <th class="table-header">Text</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <input type="checkbox" class="btn-display" id="highlighted" />
+        <!-- Indicators Start -->
+        <div class="dropdown btn-display">
+            <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default">
+                Indicators
+                <span class="caret"></span>
+            </button>
+            <div class="dropdown-menu menu-box" style="width:1000px" aria-labelledby="dLabel">
+                <div class="row">
+                    <div class="column col-md-3">
+                        <h4>Overlays</h4>
+                        <div data-key="bollinger" class="indicator-item" data-toggle="modal" data-target="#myModal">Bollinger Bands</div>
+                        <div data-key="chandelierExit" class="indicator-item" data-toggle="modal" data-target="#myModal">Chandelier Exit</div>
+                        <div data-key="dailyPivot" class="indicator-item" data-toggle="modal" data-target="#myModal">Daily Pivot</div>
+                        <div data-key="ema" class="indicator-item" data-toggle="modal" data-target="#myModal">Exponential Moving Average</div>
+                        <div data-key="emaEnvelope" class="indicator-item" data-toggle="modal" data-target="#myModal">Exponential Moving Average Envelope</div>
+                        <div data-key="ichimokuCloud" class="indicator-item" data-toggle="modal" data-target="#myModal">Ichimoku Cloud</div>
+                        <div data-key="keltnerChannels" class="indicator-item" data-toggle="modal" data-target="#myModal">Keltner Channels</div>
+                        <div data-key="priceChannels" class="indicator-item" data-toggle="modal" data-target="#myModal">Price Channels</div>
+                        <div data-key="sma" class="indicator-item" data-toggle="modal" data-target="#myModal">Simple Moving Average</div>
+                        <div data-key="smaEnvelope" class="indicator-item" data-toggle="modal" data-target="#myModal">Simple Moving Average Envelope</div>
+                        <div data-key="wma" class="indicator-item" data-toggle="modal" data-target="#myModal">Weighted Moving Average</div>
+                    </div>
+                    <div class="column col-md-3">
+                        <h4>Studies</h4>
+                        <div data-key="adl" class="indicator-item" data-toggle="modal" data-target="#myModal">Accumulation Distribution Line</div>
+                        <div data-key="aroon" class="indicator-item" data-toggle="modal" data-target="#myModal">Aroon</div>
+                        <div data-key="aroonOscillator" class="indicator-item" data-toggle="modal" data-target="#myModal">Aroon Oscillator</div>
+                        <div data-key="atr" class="indicator-item" data-toggle="modal" data-target="#myModal">Average True Range</div>
+                        <div data-key="bollingerBandwidth" class="indicator-item" data-toggle="modal" data-target="#myModal">Bollinger Bandwidth</div>
+                        <div data-key="bollingerB" class="indicator-item" data-toggle="modal" data-target="#myModal">Bollinger %B Indicator</div>
+                        <div data-key="cmf" class="indicator-item" data-toggle="modal" data-target="#myModal">Chaikin Money Flow</div>
+                        <div data-key="cog" class="indicator-item" data-toggle="modal" data-target="#myModal">Center of Gravity Oscillator</div>
+                        <div data-key="cmo" class="indicator-item" data-toggle="modal" data-target="#myModal">Chande Momentum Oscillator</div>
+                        <div data-key="cci" class="indicator-item" data-toggle="modal" data-target="#myModal">Commodity Channel Index</div>
+                        <div data-key="coppock" class="indicator-item" data-toggle="modal" data-target="#myModal">Coppock Curve</div>
+                        <div data-key="dpo" class="indicator-item" data-toggle="modal" data-target="#myModal">Detrended Price Oscillator</div>
+                    </div>
+                    <div class="column col-md-2">
+                        <h4>&nbsp;</h4>
+                        <div data-key="emv" class="indicator-item" data-toggle="modal" data-target="#myModal">Ease of Movement</div>
+                        <div data-key="elderBBPower" class="indicator-item" data-toggle="modal" data-target="#myModal">Elder Bull/Bear Power</div>
+                        <div data-key="fisherTransform" class="indicator-item" data-toggle="modal" data-target="#myModal">Fisher Transform</div>
+                        <div data-key="forceIndex" class="indicator-item" data-toggle="modal" data-target="#myModal">Force Index</div>
+                        <div data-key="gapo" class="indicator-item" data-toggle="modal" data-target="#myModal">Gopalakrishnan Range Index</div>
+                        <div data-key="kst" class="indicator-item" data-toggle="modal" data-target="#myModal">Know Sure Thing</div>
+                        <div data-key="macd" class="indicator-item" data-toggle="modal" data-target="#myModal">MACD</div>
+                        <div data-key="macdHistogram" class="indicator-item" data-toggle="modal" data-target="#myModal">MACD Histogram</div>
+                        <div data-key="massIndex" class="indicator-item" data-toggle="modal" data-target="#myModal">Mass Index</div>
+                        <div data-key="mfi" class="indicator-item" data-toggle="modal" data-target="#myModal">Money Flow Index</div>
+                        <div data-key="obv" class="indicator-item" data-toggle="modal" data-target="#myModal">On Balance Volume</div>
+                        <div data-key="ppo" class="indicator-item" data-toggle="modal" data-target="#myModal">Percentage Price Oscillator</div>
+                        <div data-key="pvo" class="indicator-item" data-toggle="modal" data-target="#myModal">Percentage Volume Oscillator</div>
+                    </div>
+                    <div class="column col-md-2">
+                        <h4>&nbsp;</h4>
+                        <div data-key="pgo" class="indicator-item" data-toggle="modal" data-target="#myModal">Pretty Good Oscillator</div>
+                        <div data-key="pmo" class="indicator-item" data-toggle="modal" data-target="#myModal">Price Momentum Oscillator</div>
+                        <div data-key="qStick" class="indicator-item" data-toggle="modal" data-target="#myModal">QStick</div>
+                        <div data-key="roc" class="indicator-item" data-toggle="modal" data-target="#myModal">Rate of Change</div>
+                        <div data-key="rsi" class="indicator-item" data-toggle="modal" data-target="#myModal">Relative Strength Index</div>
+                        <div data-key="standardDeviation" class="indicator-item" data-toggle="modal" data-target="#myModal">Standard Deviation (Volatility)</div>
+                        <div data-key="stochasticOscillator" class="indicator-item" data-toggle="modal" data-target="#myModal">Stochastic Oscillator</div>
+                        <div data-key="stochRsi" class="indicator-item" data-toggle="modal" data-target="#myModal">StochRSI</div>
+                        <div data-key="trix" class="indicator-item" data-toggle="modal" data-target="#myModal">TRIX</div>
+                        <div data-key="tsi" class="indicator-item" data-toggle="modal" data-target="#myModal">True Strength Index</div>
+                        <div data-key="uo" class="indicator-item" data-toggle="modal" data-target="#myModal">Ultimate Oscillator</div>
+                        <div data-key="volume" class="indicator-item" data-toggle="modal" data-target="#myModal">Volume</div>
+                        <div data-key="vtx" class="indicator-item" data-toggle="modal" data-target="#myModal">Vortex Indicator</div>
+                        <div data-key="williamsR" class="indicator-item" data-toggle="modal" data-target="#myModal">Williams %R</div>
+                    </div>
+                    <div class="column col-md-2">
+                        <h4>Active</h4>
+                        <ul class="active-list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Indicators End -->
+        <button id="prev" class="btn btn-default btn-display highlightButton">Prev</button>
+        <button id="next" class="btn btn-default btn-display highlightButton">Next</button>
+        <button id="nextData" class="btn btn-default btn-display">Next Data</button>
+    </div>
     <hr/>
-    <table id="records_table" border='1' style="display:inline-block;max-width: 225px;width:20%;vertical-align:top;">
-        <tr>
-            <th>StartDate</th>
-            <th>EndDate</th>
-        </tr>
-    </table>
-    <div id="container" style="height: 1250px; min-width: 500px;display:inline-block;width:80%"></div>
-    <!--<div id="container" style="height: 500px; margin-top: 50px;"></div>-->
+    <div id="container" style="height: 95%; position:absolute;min-width: 500px;display:inline-block; width:99%;"></div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Click on Save to add the Indicator.&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                    </button>
+                    <button type="button" id="save_changes" class="btn btn-primary">Save changes
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </body>
 
 </html>
