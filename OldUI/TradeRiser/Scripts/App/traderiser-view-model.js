@@ -92,6 +92,98 @@ function TradeRiserViewModel(tradeRiserProxy) {
         self.tokenChecker();
     };
 
+
+    this.fireNotification = function () {
+
+
+
+
+
+
+       // $('#reportArea').click(function () {
+            var shortCutFunction = $("#toastTypeGroup input:radio:checked").val();
+            var msg = $('#message').val();
+            var title = $('#title').val() || '';
+            var $showDuration = $('#showDuration');
+            var $hideDuration = $('#hideDuration');
+            var $timeOut = $('#timeOut');
+            var $extendedTimeOut = $('#extendedTimeOut');
+            var $showEasing = $('#showEasing');
+            var $hideEasing = $('#hideEasing');
+            var $showMethod = $('#showMethod');
+            var $hideMethod = $('#hideMethod');
+    
+            var addClear = $('#addClear').prop('checked');
+
+            //toastr.options = {
+            //    closeButton: $('#closeButton').prop('checked'),
+            //    debug: $('#debugInfo').prop('checked'),
+            //    newestOnTop: $('#newestOnTop').prop('checked'),
+            //    progressBar: $('#progressBar').prop('checked'),
+            //    positionClass: $('#positionGroup input:radio:checked').val() || 'toast-top-right',
+            //    preventDuplicates: $('#preventDuplicates').prop('checked'),
+            //    onclick: null
+            //};
+
+
+
+            toastr.options = {
+                closeButton: true,
+                debug: false,
+                newestOnTop: true,
+                progressBar: true,
+                positionClass: "toast-bottom-right",
+                preventDuplicates: false,
+                onclick: null,
+                showDuration: "300",
+                hideDuration: "1000",
+                timeOut: "5000",
+                extendedTimeOut: "1000",
+                showEasing: "swing",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut"
+            }
+
+
+
+            $('#toastrOptions').text('Command: toastr["'
+                    + shortCutFunction
+                    + '"]("'
+                    + msg
+                    + (title ? '", "' + title : '')
+                    + '")\n\ntoastr.options = '
+                    + JSON.stringify(toastr.options, null, 2)
+            );
+
+            var $toast = toastr[shortCutFunction](msg, title); // Wire up an event handler to a button in the toast, if it exists
+            $toastlast = $toast;
+
+            if (typeof $toast === 'undefined') {
+                return;
+            }
+
+            if ($toast.find('#okBtn').length) {
+                $toast.delegate('#okBtn', 'click', function () {
+                    alert('you clicked me. i was toast #' + toastIndex + '. goodbye!');
+                    $toast.remove();
+                });
+            }
+            if ($toast.find('#surpriseBtn').length) {
+                $toast.delegate('#surpriseBtn', 'click', function () {
+                    alert('Surprise! you clicked me. i was toast #' + toastIndex + '. You could perform an action here.');
+                });
+            }
+            if ($toast.find('.clear').length) {
+                $toast.delegate('.clear', 'click', function () {
+                    toastr.clear($toast, { force: true });
+                });
+            }
+       // });
+
+
+    };
+
     this.initialiseUI = function () {
         $("#testIndex").keypress(function (event) {
             var keycode = (event.keyCode ? event.keyCode : event.which);
@@ -844,13 +936,63 @@ function TradeRiserViewModel(tradeRiserProxy) {
         return obj !== self.UNDEFINED && obj !== null;
     };
 
+    this.fireAlert = function () {
+        alert('I have been clicked') 
+    };
+
+
+    this.displayToastrNotification = function (resultItem) {
+
+        var shortCutFunction = "info";
+
+      //  var msg = "How many times did the eurusd touch the upper Bollinger band in the 1min timeframe and the last time that the RSI, in the 1min timeframe was overbought in real time";
+        // var title = "Answer Update";
+
+        var title = "Update To Query Answer";
+        var msg = resultItem.Query;
+
+        var queryPassIn = { QueryID: resultItem.QueryID, Query: resultItem.Query }
+
+        toastr.options = {
+            closeButton: true,
+            debug: false,
+            newestOnTop: true,
+            progressBar: true,
+            positionClass: "toast-bottom-right",
+            preventDuplicates: false,
+            //onclick: self.updateMainQuery(msg),
+            onclick: function () { self.updateMainQuery(queryPassIn) },
+            showDuration: "300",
+            hideDuration: "1000",
+            timeOut: "15000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut"
+        }
+
+        //toastr.options.onclick = function () { self.fireAlert() };
+
+        $('#toastrOptions').text('Command: toastr["'
+                + shortCutFunction
+                + '"]("'
+                + msg
+                + (title ? '", "' + title : '')
+                + '")\n\ntoastr.options = '
+                + JSON.stringify(toastr.options, null, 2)
+        );
+
+        var $toast = toastr[shortCutFunction](msg, title); // Wire up an event handler to a button in the toast, if it exists
+        $toastlast = $toast;
+    };
+
     this.upDateContinousQueryResult = function (latestResultCard) {
 
-
-        var loadchart = document.getElementById("loadchartDia");
-        if (loadchart != null || loadchart != 'defined') {
-            loadchart.style.display = 'block';
-        }
+        //var loadchart = document.getElementById("loadchartDia");
+        //if (loadchart != null || loadchart != 'defined') {
+        //    loadchart.style.display = 'block';
+        //}
 
 
 
@@ -896,7 +1038,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
             MoreStandardData: latestResultCard.MoreStandardData,
             MoreKeyFields: latestResultCard.MoreKeyFields,
             QueryID: latestResultCard.QueryID,
-            SymbolImages: imageArray,
+            //SymbolImages: imageArray,
+            SymbolImages: latestResultCard.ImageCollection,
             ExtraFields: extraFieldsArray
 
 
@@ -925,15 +1068,17 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         self.continuousResults.unshift(resultItem);
 
-
-        setTimeout(function () {
-            if (loadchart != null || loadchart != 'defined') {
-                loadchart.style.display = 'none';
-            }
-        }, 3000);
+        self.displayToastrNotification(resultItem);
 
 
+        //setTimeout(function () {
+        //    if (loadchart != null || loadchart != 'defined') {
+        //        loadchart.style.display = 'none';
+        //    }
+        //}, 3000);
 
+
+       
 
 
     };

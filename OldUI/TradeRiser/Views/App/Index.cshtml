@@ -25,6 +25,13 @@
 <link rel="stylesheet" href="../../Scripts/Highstock-2.1.8/css/speech-bubble.css">
 <link rel="stylesheet" type="text/css" href="../../Scripts/Highstock-2.1.8/css/custom-candlestick.css">
 
+
+
+
+@*<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">*@
+<link href="../../Content/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+
+
 </head>
 <body>
 
@@ -46,7 +53,6 @@
                             placeholder="Enter what you would like query or know about the Forex markets?" class="inputbox transition input-search" autocomplete="off" />
                 <div data-bind="click: getAnswer" id="compute" value="SEARCH" class="btn btn-search transition" style="cursor: pointer;">GET ANSWER</div>
                         
-
                 <div id="queryDropDown">
                     <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" id="textArea"></textarea>
                     </div>
@@ -595,6 +601,12 @@ margin: 150px auto; left:0; right:0; width: 70px; height: 70px; position: absolu
 
 
 
+@* <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
+<script src="../../Scripts/toastr/toastr.min.js"></script>
+
+@*<script src="../../Scripts/toastr/glimpse.js"></script>
+<script src="../../Scripts/toastr/glimpse.toastr.js"></script>*@
+
 <script type="text/javascript">
 
         var tradeRiserViewModel = new TradeRiserViewModel(
@@ -694,6 +706,73 @@ margin: 150px auto; left:0; right:0; width: 70px; height: 70px; position: absolu
         }
 
 
+
+
+        //$('#showtoast').click(function () {
+        //    var shortCutFunction = "info";
+
+        //    var msg = "How many times did the eurusd touch the upper Bollinger band in the 1min timeframe and the last time that the RSI, in the 1min timeframe was overbought in real time";
+        //    var title = "Answer Update";
+
+        //    toastr.options = {
+        //        closeButton: true,
+        //        debug: false,
+        //        newestOnTop: true,
+        //        progressBar: true,
+        //        positionClass: "toast-bottom-right",
+        //        preventDuplicates: false,
+        //        onclick: null,
+        //        showDuration: "300",
+        //        hideDuration: "1000",
+        //        timeOut: "5000",
+        //        extendedTimeOut: "1000",
+        //        showEasing: "swing",
+        //        hideEasing: "linear",
+        //        showMethod: "fadeIn",
+        //        hideMethod: "fadeOut"
+        //    }
+
+        //    $('#toastrOptions').text('Command: toastr["'
+        //            + shortCutFunction
+        //            + '"]("'
+        //            + msg
+        //            + (title ? '", "' + title : '')
+        //            + '")\n\ntoastr.options = '
+        //            + JSON.stringify(toastr.options, null, 2)
+        //    );
+
+        //    var $toast = toastr[shortCutFunction](msg, title); // Wire up an event handler to a button in the toast, if it exists
+        //    $toastlast = $toast;
+
+        //    if (typeof $toast === 'undefined') {
+        //        return;
+        //    }
+
+        //    if ($toast.find('#okBtn').length) {
+        //        $toast.delegate('#okBtn', 'click', function () {
+        //            alert('you clicked me. i was toast #' + toastIndex + '. goodbye!');
+        //            $toast.remove();
+        //        });
+        //    }
+        //    if ($toast.find('#surpriseBtn').length) {
+        //        $toast.delegate('#surpriseBtn', 'click', function () {
+        //            alert('Surprise! you clicked me. i was toast #' + toastIndex + '. You could perform an action here.');
+        //        });
+        //    }
+        //    if ($toast.find('.clear').length) {
+        //        $toast.delegate('.clear', 'click', function () {
+        //            toastr.clear($toast, { force: true });
+        //        });
+        //    }
+        //});
+
+
+
+
+
+
+
+
 </script>
 
 
@@ -721,6 +800,13 @@ margin: 150px auto; left:0; right:0; width: 70px; height: 70px; position: absolu
 
                             <br/>
                             <div id="reportArea">Example Report</div>
+
+
+@*                            <button type="button" class="btn btn-primary" id="showtoast">Show Toast</button>*@
+
+
+
+
                             <div id="container" style="height: 610px; width: 100%;"></div>
                         </td>
                     </tr>

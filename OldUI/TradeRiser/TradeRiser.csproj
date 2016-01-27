@@ -201,6 +201,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\AppInfoController.cs" />
+    <Compile Include="Controllers\TesterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -233,6 +234,8 @@
     <Content Include="Content\clean\css\style - Copy.css" />
     <Content Include="Content\clean\css\style.css" />
     <Content Include="Content\jquery.dynatable.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\collapse.png" />
@@ -291,6 +294,8 @@
     <Content Include="Scripts\clean\js\themes\skies.js" />
     <Content Include="Scripts\clean\js\traderiser.js" />
     <Content Include="Scripts\clean\js\_notes\custom.js.mno" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\TradeRiser_Publish.pubxml" />
     <Content Include="Scripts\dynatable\jquery-1.7.2.min.js" />
     <Content Include="Scripts\dynatable\jquery.dynatable.js" />
@@ -937,6 +942,8 @@
     <Content Include="Scripts\Highstock-2.1.8\lib\LICENSE.txt" />
     <Content Include="Scripts\Highstock-2.1.8\lib\PROPRIETARY_LICENSE.html" />
     <Content Include="Scripts\Highstock-2.1.8\lib\vendor\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -978,7 +985,7 @@
     <Content Include="Views\AppInfo\Register.cshtml" />
     <Content Include="Views\App\IndexOld.cshtml" />
     <Content Include="Views\AppInfo\Feedback.cshtml" />
-    <Content Include="Views\HelloWorld\Index.cshtml" />
+    <Content Include="Views\Tester\Index.cshtml" />
     <Content Include="Views\App\Index.cshtml" />
     <Content Include="Scripts\Highstock-2.1.8\.DS_Store" />
     <Content Include="Scripts\Highstock-2.1.8\api\fonts\fontawesome-webfont.woff" />
