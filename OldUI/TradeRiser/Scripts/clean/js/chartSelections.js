@@ -47,12 +47,25 @@ function SelectHighlighter(highlightersLength, currenthighChartsId, chartLookUp)
 
                     );
 
+                    //get again
+                    chart = Highcharts.charts[g];
+
                     //open speech bubble
-                    for (var i = 0; i < chart.pins.length; i++) {
-                        if (higlighters[val].speechBubbleHtml == chart.pins[i].attr('data-comment')) {                            
-                            chart.pins[i].click();
-                        }
+                    //for (var i = 0; i < chart.pins.length; i++) {
+                    //    if (higlighters[val].speechBubbleHtml == chart.pins[i].attr('data-comment')) {                            
+                    //        chart.pins[i].click();
+                    //    }
+                    //}
+
+                    if (chart.pins.length < val) {
+                        val = val - chart.pins.length;
                     }
+
+                    chart.pins[val].click();
+
+
+
+
                 }
 
 
@@ -115,58 +128,58 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
             }
 
 
-            
+            try{
 
-            // create the chart
-            $(classOnly).highcharts('StockChart', {
 
-                credits: {
-                    enabled: false
-                },
+                // create the chart
+                $(classOnly).highcharts('StockChart', {
 
-                plotOptions: {
-                    candlestick: {
-                        lineWidth: 1,
-                        color: "#2f7ed8",
-                        borderColor: "#FFFFFF",
-                        lineColor: "#2f7ed8",
-                        lineWidth: 1,
-                        upColor: "silver",
-                        upLineColor: "silver"
+                    credits: {
+                        enabled: false
                     },
-                    area: {
-                        fillOpacity: 0.2
+
+                    plotOptions: {
+                        candlestick: {
+                            lineWidth: 1,
+                            color: "#2f7ed8",
+                            borderColor: "#FFFFFF",
+                            lineColor: "#2f7ed8",
+                            lineWidth: 1,
+                            upColor: "silver",
+                            upLineColor: "silver"
+                        },
+                        area: {
+                            fillOpacity: 0.2
+                        },
+                        series: {
+                            dataGrouping: { enabled: false }
+                        }
                     },
-                    series: {
-                        dataGrouping: { enabled: false }
-                    }
-                },
              
-                title: {
-                    text: symbolNames[0]
-                },
+                    title: {
+                        text: symbolNames[0]
+                    },
 
-                rangeSelector: buttonSetup,
+                    rangeSelector: buttonSetup,
 
-                yAxis: yAxisArray,
+                    yAxis: yAxisArray,
 
-                series: arraySeries,
+                    series: arraySeries,
 
-                highlighted: true,
-                highlightRegion: highlighterArray,
+                    highlighted: true,
+                    highlightRegion: highlighterArray,
 
-                customSlopeLines: trendsOverlayArray,                
+                    customSlopeLines: trendsOverlayArray,                
 
-                overlay: overlayArray
+                    overlay: overlayArray
 
-            });
+                });
+            }
+            catch (ex) {
+                alert(ex);
+            }
 
-
-
-          
-
-
-        }
+       }
     }
 
 
@@ -177,8 +190,6 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
                 Highcharts.charts[iterItem].redraw();
         }
     }  
-
-
 }
 
 

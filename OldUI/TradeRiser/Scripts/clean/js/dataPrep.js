@@ -10,7 +10,8 @@ var tr = '';
     for (var i = 0, len = columns.length; i < len; i++) {
         tr += cellWriter(columns[i], record);
     }
-    return '<tr style=cursor:pointer data-index=' + rowIndex + '>' + tr + '</tr>';
+    return '<tr style=cursor:pointer data-index=' + record.Id + '>' + tr + '</tr>';
+    //return '<tr style=cursor:pointer data-index=' + rowIndex + '>' + tr + '</tr>';
 }
 
 function WidgetAlreadyUsed(presentationItem, widgetUsedList) {
@@ -39,6 +40,10 @@ function GenerateRandomColour() {
 }
 
 function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray) {
+    
+    try
+    {
+
 
         //create selectChartKey from loop
         var allCount = 8;
@@ -57,8 +62,11 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
         }
 
         var indSpacing = 90;
-        var indicatorGap = 0; //handles gap between bottom chart indicators
+        // var indicatorGap = 0; //handles gap between bottom chart indicators
+
+        var indicatorGap = 20;
         var summariesSet = false;
+        indicatorPos = indicatorPos + 80;
 
         for (var ss = 0; ss < presentationTypes.SubWidgets.length; ss++) {
 
@@ -480,6 +488,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                 case 'STDDEV':
                 case 'RSI':
+                case 'ATR':
                     {
                         var indicatorName = presentationTypes.SubWidgets[ss];
                         var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
@@ -509,7 +518,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             arraySeries.push(rsiChart);
 
-                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
+                            indicatorPos = indicatorPos + indicatorGap;
 
                             var chartItemDef = {
                                 title: {
@@ -520,6 +529,8 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 offset: 0,
                                 lineWidth: 2
                             };
+                            indicatorPos = indicatorPos + 100;
+
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
@@ -593,7 +604,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             arraySeries.push(signalChartItem);
 
-                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
+                            indicatorPos = indicatorPos + indicatorGap;
 
                             var chartItemDef = {
                                 title: {
@@ -604,6 +615,8 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 offset: 0,
                                 lineWidth: 2
                             };
+                            indicatorPos = indicatorPos + 100;
+
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
@@ -665,7 +678,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             arraySeries.push(signalChartItem);
 
-                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
+                            indicatorPos = indicatorPos + indicatorGap;
 
                             var chartItemDef = {
                                 title: {
@@ -676,6 +689,9 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 offset: 0,
                                 lineWidth: 2
                             };
+
+                            indicatorPos = indicatorPos + 100;
+
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
@@ -691,6 +707,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                 case 'Stochastic':
                     {
                         var indicatorName = presentationTypes.SubWidgets[ss];
+                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
 
                         selectChartKey = selectChartKey + indicatorName;
 
@@ -716,39 +733,16 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 ])
                             }
                             var axis = 1;
-
-                            //var macdChartItem ={
-                            //    type: 'line',
-                            //    name: 'Stochastic %K ',
-                            //    data: stochasticPKData,
-                            //    yAxis: axis,
-                            //    dashStyle: 'ShortDash',
-                            //    dataGrouping: {
-                            //        units: groupingUnits
-                            //    }
-                            //}
-
+                            
                             var macdChartItem = {
                                 type: 'line',
                                 name: 'Stochastic %K ',
                                 data: stochasticPKData,
-                                yAxis: axis,
+                                yAxis: yAxisPos,
                                 dashStyle: 'ShortDash'
                             }
 
                             arraySeries.push(macdChartItem);
-
-
-                            //var signalChartItem = {
-                            //    type: 'line',
-                            //    name: 'Stochastic %D ',
-                            //    data: stochasticPDData,
-                            //    dashStyle: 'LongDash',
-                            //    yAxis: axis,
-                            //    dataGrouping: {
-                            //        units: groupingUnits
-                            //    }
-                            //}
 
 
                             var signalChartItem = {
@@ -756,12 +750,12 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 name: 'Stochastic %D ',
                                 data: stochasticPDData,
                                 dashStyle: 'LongDash',
-                                yAxis: axis
+                                yAxis: yAxisPos
                             }
 
                             arraySeries.push(signalChartItem);
 
-                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
+                            indicatorPos = indicatorPos + indicatorGap;
 
                             var chartItemDef = {
                                 title: {
@@ -772,6 +766,8 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 offset: 0,
                                 lineWidth: 2
                             };
+                            indicatorPos = indicatorPos + 100;
+
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
@@ -877,7 +873,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                             arraySeries.push(macdHistogramChartItem);
 
-                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
+                            indicatorPos = indicatorPos + indicatorGap;
 
                             var chartItemDef = {
                                 title: {
@@ -888,6 +884,10 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 offset: 0,
                                 lineWidth: 2
                             };
+
+                            indicatorPos = indicatorPos + 100;
+
+
                             yAxisArray.push(chartItemDef);
 
                             allCountIter++;
@@ -898,68 +898,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             }
                         }
                     }
-                    break;
-
-                case 'ATR':
-                    {
-                        var indicatorName = "ATR";
-                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
-
-                        selectChartKey = selectChartKey + "ATR";
-
-                        var dataResults = dataLookUp["ATR"];
-
-                        if (dataResults != null || dataResults !== undefined) {
-                            var dataLength = dataResults.length;
-                            var atrArray = [];
-
-                            for (var ri = 0; ri < dataLength; ri++) {
-                                atrArray.push([
-                                    dataResults[ri][0], // the date
-                                    dataResults[ri][1] // the close
-                                ])
-                            }
-                            //var atrChart = {
-                            //    type: 'line',
-                            //    name: 'ATR',
-                            //    data: atrArray,
-                            //    yAxis: yAxisPos,
-                            //    dataGrouping: {
-                            //        units: groupingUnits
-                            //    }
-                            //}
-
-                            var atrChart = {
-                                type: 'line',
-                                name: 'ATR',
-                                data: atrArray,
-                                yAxis: yAxisPos
-                            }
-
-                            arraySeries.push(atrChart);
-
-                            indicatorPos = indicatorPos + indSpacing + indicatorGap;
-
-                            var chartItemDef = {
-                                title: {
-                                    text: indicatorName
-                                },
-                                top: indicatorPos,
-                                height: 100,
-                                offset: 0,
-                                lineWidth: 2
-                            };
-                            yAxisArray.push(chartItemDef);
-
-                            allCountIter++;
-
-                            if (summariesSet === false) {
-                                GenerateSummary(obj, presentationTypeIndex);
-                                summariesSet = true;
-                            }
-                        }
-                    }
-                    break;
+                    break;                
 
                 case 'Trends':
                     {
@@ -1063,12 +1002,16 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                     }
                     break;
             }
-            indicatorGap = indicatorGap + 30;
+            //indicatorGap = indicatorGap + 30;
         }
 
         //if (bSubWidgetSet === true) {
         //    $("#resultCanvas").append($('<br/><hr style="border: 0; color: #9E9E9E; background-color: #9E9E9E; height: 1px; width: 100%; text-align: left;" />'));
         //}
+    }
+    catch (ex) {
+        alert(ex);
+    }
 }
 
 function GenerateSummary(obj, presentationTypeIndex) {

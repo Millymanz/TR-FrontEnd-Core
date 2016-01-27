@@ -1129,7 +1129,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
                 var dataLookUp = self.createLookUp(json);
                 var mulitipleWidgetLookUp = self.createMulitipleWidgetsLookUp(json);
 
-                var extIndicatorLookUp = self.createExternalIndicatorLookUp(json);
+                //var extIndicatorLookUp = self.createExternalIndicatorLookUp(json);
+                var extIndicatorLookUp = self.createExternalIndicatorLookUpNew(obj.CurrentResult.PresentationTypes[pp].SubWidgets);
 
 
                 switch (obj.CurrentResult.PresentationTypes[pp].MainWidget) {
@@ -1454,7 +1455,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             var chartClassName = 'chartspace dialogchart' + pp;
 
                             //function to confirm number of indicators involved
-                            var candlestickHeight = '610px';
+                            //var candlestickHeight = '610px';
+                            var candlestickHeight = '650px';
 
                             switch (extIndicatorLookUp.length)
                             {
@@ -1512,6 +1514,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     type: 'candlestick',
                                     name: symbolNames[0],
                                     data: ohlc_CandleStick,
+                                    yAxis: 0,
                                     dataGrouping: {
                                         units: groupingUnits
                                     }
@@ -1521,7 +1524,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     mainChartItem = {
                                         type: 'candlestick',
                                         name: symbolNames[0],
-                                        data: ohlc_CandleStick
+                                        data: ohlc_CandleStick,
+                                        yAxis: 0
                                     }
                                 }
                                 arraySeries.push(mainChartItem);
@@ -1673,11 +1677,25 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         function addClickEvent() {
             $('#' + idSelect).find("tr").on("click", function (evt, x) {
-                SelectHighlighter(this.getAttribute('data-index'), currenthighChartsId, self.chartLookUp);
+
+                var higlighters = self.chartLookUp[currenthighChartsId];
+                var incrementVal = 0;
+                var idx;
+                var indexId = this.getAttribute('data-index');
+                $.each(higlighters, function (item, index) {
+                    if (item == indexId) {
+                        //idx = index;
+                        idx = incrementVal;
+                    }
+                    incrementVal++;
+                });
+
+
+                SelectHighlighter(idx, currenthighChartsId, self.chartLookUp);
+
+                //SelectHighlighter(this.getAttribute('data-index'), currenthighChartsId, self.chartLookUp);
             });
         }
-
-
     };
 
     this.LoadPerformanceStatistics = function (obj) {
@@ -1890,6 +1908,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
             case 'Aroon Up':
             case 'Aroon Down':
 
+            case 'Stochastic':
             case 'StochRSI':
             case 'TRIX':
             case 'ROC':
@@ -1929,6 +1948,31 @@ function TradeRiserViewModel(tradeRiserProxy) {
         });
         tempIndicatorParentLookUp.indicatorLookUp = extIndicatorLookUp;
         tempIndicatorParentLookUp.length = j - 1;
+
+        return tempIndicatorParentLookUp;
+    };
+
+    this.createExternalIndicatorLookUpNew = function (json) {
+        var extIndicatorLookUp = {};
+
+        var tempIndicatorParentLookUp =
+        {
+            length: 0,
+            indicatorLookUp: {}
+        };
+
+        var j = 1;
+        //var j = 2;
+
+        json.forEach(function (el, i, arr) {
+            if (self.isExternalIndicator(el) == true) {
+                extIndicatorLookUp[el] = j;
+                j++;
+            }
+        });
+        tempIndicatorParentLookUp.indicatorLookUp = extIndicatorLookUp;
+        tempIndicatorParentLookUp.length = j - 1;
+        //tempIndicatorParentLookUp.length = j - 2;
 
         return tempIndicatorParentLookUp;
     };
