@@ -73,28 +73,52 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
             switch (presentationTypes.SubWidgets[ss]) {
                 case 'CorrelationTable':
                     {
-                        var indOne = obj.CurrentResult.ProcessedResults.KeyFieldIndex[0];
-                        var indTwo = obj.CurrentResult.ProcessedResults.KeyFieldIndex[1];
+                        //var correlTabStr = '<table cellpadding="12" cellspacing="12" border="1" style="border-color:#E0E0E0;"><tr style="border-color:#E0E0E0;"><td></td>';
+                        //var tempStr = '';
+
+                        //var pp = presentationTypeIndex;
+
+                        //var lineSeriesOptions = [],
+                        //   symbolNames = [],
+                        //   chartData = [];
+
+                        //for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+
+                        //    for (var vv = 0; vv < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].ColumnHeaders.length; vv++) {
+
+                        //        correlTabStr += '<td>' + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].ColumnHeaders[vv] + '</td>';
+                        //    }
+                        //    correlTabStr += '</tr>';
 
 
-                        var resultValue = dataLookUp["CorrelationRatio"];
+                        //    var cellLength = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].ColumnHeaders.length;
 
-                        var lineSeriesOptions = [],
-                            symbolNames = [];
+                        //    var rowHeader = 0;
+                        //    for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value.length; ss++) {
 
-                        for (var bb = 0; bb < obj.CurrentResult.ResultSymbols[presentationTypeIndex].length; bb++) {
-                            symbolNames.push(obj.CurrentResult.ResultSymbols[presentationTypeIndex][bb]);
-                        }
-
-                        var correlTabStr = '<table cellpadding="12" cellspacing="12" border="1" style="border-color:#E0E0E0;"><tr style="border-color:#E0E0E0;"><td></td><td>' + symbolNames[0] + '</td></tr>';
-                        var tempStr = '<tr style="border-color:#E0E0E0;"><td>' + symbolNames[1] + '</td><td>' + resultValue + '</td></tr></table>';
-
-                        var final = correlTabStr + tempStr;
-
-                        $('<br/>' + final).appendTo($("#celln"+ presentationTypeIndex));
+                        //        var counts = 0;
 
 
-                        dataResults = obj.CurrentResult.RawDataResults[0].ChartReadyDataResults;
+                        //        for (var vv = 0; vv < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[ss].length; vv++) {
+
+                        //            if (vv == 0) {
+                        //                tempStr += '<tr><td>' + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].RowHeaders[rowHeader] + '</td>';
+                        //            }
+
+                        //            tempStr += '<td>' + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[ss][vv] + '</td>';
+
+
+                        //           // tempStr += '<td>' + self.valueNotAvailableChecker(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[ss][vv]) + '</td>';
+
+                        //        }
+                        //        tempStr += '</tr>';
+                        //        rowHeader++;
+                        //    }
+                        //}
+
+                        //var final = correlTabStr + tempStr;
+
+                        //$("#tableCanvas  > tbody > tr > td").eq(pp).after("<td style='top:0px' id=celln" + pp + " width='100%' valign='top'>" + final + "</td>");
 
                         bSubWidgetSet = true;
 

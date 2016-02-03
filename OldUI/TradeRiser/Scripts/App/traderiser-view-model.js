@@ -1228,6 +1228,14 @@ function TradeRiserViewModel(tradeRiserProxy) {
         });
     };
 
+    this.valueNotAvailableChecker = function (value) {
+
+        if (value == -999999.9999) {
+            return '-';
+        }
+        return value;
+    };
+
     this.displayResult = function (obj) {
         //Change complex json to visuals
         //assuming chart for now
@@ -1279,8 +1287,106 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
                 switch (obj.CurrentResult.PresentationTypes[pp].MainWidget) {
-                    case 'Table':
+                    case 'SpecialTable':
                         {
+                            var correlTabStr = '<table width=80% cellpadding="12" cellspacing="12" border="1" style="border-color:#E0E0E0; "><tr style="border-color:#E0E0E0;"><td></td>';
+                            var tempStr = '';
+
+                            var lineSeriesOptions = [],
+                               symbolNames = [],
+                               chartData = [];
+                            var keySymbol = obj.CurrentResult.ResultSymbols[0][0];
+                            var keyColumn = 0;
+
+                            for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+                             
+                                for (var vv = 0; vv < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].ColumnHeaders.length; vv++) {
+
+                                    correlTabStr += '<td>' + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].ColumnHeaders[vv] + '</td>';
+
+                                    if (keySymbol == obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].ColumnHeaders[vv])
+                                    {
+                                        keyColumn = vv;
+                                    }
+                                  }
+                                  correlTabStr += '</tr>';
+
+
+                               var cellLength = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].ColumnHeaders.length;
+                                   
+                                var rowHeader = 0;
+                                for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value.length; ss++) {//column
+                                
+                                    var counts = 0;                                   
+
+                                    for (var vv = 0; vv < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[ss].length; vv++) {//row
+
+                                        if (vv == 0) {
+                                            tempStr += '<tr><td>' + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].RowHeaders[rowHeader] + '</td>';
+                                            symbolNames.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].RowHeaders[rowHeader]);
+                                        }
+
+                                        if (keyColumn == ss) //column
+                                        {
+                                            chartData.push(self.valueNotAvailableChecker(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[ss][vv]));
+                                        }
+
+                                        tempStr += '<td>' + self.valueNotAvailableChecker(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[ss][vv]) + '</td>';
+                                      
+                                    }
+                                    tempStr += '</tr>';
+                                    rowHeader++;
+                                }
+                            }
+
+
+
+                            var final = "<td><div>" + correlTabStr + tempStr + "</div></td>";
+
+
+                            var width = '40%';
+                            var height = '70%';
+                          
+                            var title = 'Correlation Analysis';
+                            var chartClassName = "columnChart";
+
+                            var markupFinal = "<div class='widgetTitle'>" + title + "</div><br/><br/>"
+                                + "<table cellpadding='15' cellspacing='15'><tr><td>"
+                                + "<div class='"
+                                + chartClassName + "' style='height: " + height + "; width:" + width + "'><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div></div>"
+                                + "</td>"
+                                + final
+                                + "</tr></table>";
+
+
+                            $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + pp + " valign='top'>" + markupFinal + "</td></tr>"));
+
+
+                            $('.columnChart').highcharts({
+                                chart: {
+                                    type: 'column'
+                                },
+                                title: {
+                                    text: 'Correlation ' + keySymbol
+                                },
+                                xAxis: {
+                                    categories: symbolNames
+                                },
+                                credits: {
+                                    enabled: false
+                                },
+                                series: [{
+                                    /*name: 'John',*/
+                                    data : chartData
+
+                                    //data: [5, 3, 4, -7, -2, 8, 4]
+                                }]
+                            });
+
+
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
+
+
 
                         } break;
 
@@ -1603,8 +1709,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             //var candlestickHeight = '610px';
                             var candlestickHeight = '650px';
 
-                            switch (extIndicatorLookUp.length)
-                            {
+                            switch (extIndicatorLookUp.length) {
                                 case 2: { candlestickHeight = '740px' } break;
                                 case 3: { candlestickHeight = '920px' } break;
                                 case 4: { candlestickHeight = '1040px' } break;
@@ -1653,7 +1758,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                         ])
                                     }
                                 }
-            
+
 
                                 var mainChartItem = {
                                     type: 'candlestick',
@@ -1685,7 +1790,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                         seriesIndex: rawDataResults[pp].HighLightRegion[hl].SeriesIndex,
                                         startDate: rawDataResults[pp].HighLightRegion[hl].StartDateTime,
                                         endDate: rawDataResults[pp].HighLightRegion[hl].EndDateTime,
-                                        speechBubbleHtml: rawDataResults[pp].HighLightRegion[hl].Comment 
+                                        speechBubbleHtml: rawDataResults[pp].HighLightRegion[hl].Comment
                                     }
                                     highlighterArray.push(highlighterItem);
                                 }
@@ -1701,7 +1806,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 yAxisArray.push(chartItemDef);
 
                                 presentationTypeIndex = pp;
-                               // var highId = Highcharts.charts[Highcharts.charts.length - 1].container.id;
+                                // var highId = Highcharts.charts[Highcharts.charts.length - 1].container.id;
 
                                 self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
 
@@ -1946,6 +2051,23 @@ function TradeRiserViewModel(tradeRiserProxy) {
         SelectHighlighter(clickindex);
     };
 
+    this.widgetPlacerWidth = function (index, total, title, height, width, chartClassName, iter) {
+
+        var remaining = total - index;
+        var remainder = index % 2;
+
+        var nthPos = 0;
+
+        //var preferredWidth = $('#pane').width() * 0.90;
+        //width = preferredWidth + 'px';
+
+        var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
+
+        $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
+
+    };
+
+
     this.widgetPlacerT = function (index, total, title, height, chartClassName, iter) {
 
         var remaining = total - index;
@@ -1967,30 +2089,35 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
 
 
+        //var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/> <div id='highlightControl" + index + "'></div><div id='container' style='height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto'></div>";
+
+
         $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
 
 
 
 
-        //if (remainder == 0) {
-        //    if (remaining > 1) {
-        //        $("#tableCanvas").append($("<tr><td style='top:0px' width='50%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
-
-        //    }
-        //    else {
-        //        $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
-        //    }
-        //}
-        //else {
-        //    var indset = index - 1;
-        //    var newId = "#celln" + indset;
-
-        //    $("#tableCanvas  > tbody > tr > " + newId).eq(nthPos).after("<td style='top:0px' id=celln" + index + " width='100%' valign='top'>" + markup + "</td>");
-        //}
 
 
 
+    };
 
+    this.widgetPlacerAlt = function (index, total, title, height, chartClassName, iter, markup) {
+
+        var remaining = total - index;
+        var remainder = index % 2;
+
+        var nthPos = 0;
+
+        var width = '100%';
+        var preferredWidth = $('#pane').width() * 0.90;
+        width = preferredWidth + 'px';
+
+
+        var markupFinal = "<div class='widgetTitle'>" + title + "</div><br/><br/> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'>"+ markup +"</div>";
+
+
+        $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markupFinal + "</td></tr>"));
 
     };
 
