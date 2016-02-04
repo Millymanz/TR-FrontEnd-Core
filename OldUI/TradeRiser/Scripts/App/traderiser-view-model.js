@@ -1341,7 +1341,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
 
-                            var final = "<td><div>" + correlTabStr + tempStr + "</div></td>";
+                            var final = "<td valign='top'><div> Correlation Matrix <br/><br/>" + correlTabStr + tempStr + "</div></td>";
 
 
                             var width = '40%';
@@ -1362,7 +1362,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + pp + " valign='top'>" + markupFinal + "</td></tr>"));
 
 
-                            $('.columnChart').highcharts({
+                            $(chartClassName).highcharts({
                                 chart: {
                                     type: 'column'
                                 },
@@ -1382,6 +1382,234 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     //data: [5, 3, 4, -7, -2, 8, 4]
                                 }]
                             });
+
+
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
+
+
+
+                        } break;
+
+                    case 'Basics':
+                        {
+                            var correlTabStr = '<table width=80% cellpadding="12" cellspacing="12" border="1" style="border-color:#E0E0E0; "><tr style="border-color:#E0E0E0;"><td></td>';
+                            var tempStr = '';
+
+                            var lineSeriesOptions = [],
+                               symbolNames = [],
+                               chartData = [];
+                            var keySymbol = obj.CurrentResult.ResultSymbols[0][0];
+                            var keyColumn = 0;
+
+                            var firstTable = '';
+                            var secondTable = '';
+
+                            var firstTableHeadings = '';
+                            var secondTableHeadings = '';
+
+                            //first table
+                            for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+
+                                for (var vv = 0; vv < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].ColumnHeaders.length; vv++) {
+
+                                    correlTabStr += '<td>' + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].ColumnHeaders[vv] + '</td>';
+
+                                    if (keySymbol == obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].ColumnHeaders[vv]) {
+                                        keyColumn = vv;
+                                    }
+                                }
+                                correlTabStr += '</tr>';
+
+                           
+
+                                var colLength = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].ColumnHeaders.length;
+                                var rowLength = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].RowHeaders.length;
+
+                                if (colLength == 0) {
+                                    
+                                    tempStr += '<tr><td></td>';
+                                    for (var gen = 0; gen < symbolNames.length; gen++) {
+                                        tempStr += '<td>' + symbolNames[gen] + '</td>';
+                                    }
+                                    tempStr += '</tr>';
+
+
+                                    colLength = 2;
+
+                                    for (var row = 0; row < rowLength; row++) {//row
+
+                                        var counts = 0;
+                                        var currentLength = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr.length;
+
+                                        for (var col = 0; col < currentLength; col++) {//column
+
+                                            if (col == 0) {
+                                                tempStr += '<tr><td>' + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].RowHeaders[row] + '</td>';
+                                                //symbolNames.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].RowHeaders[row]);
+                                            }
+
+                                            if (keyColumn == col) {
+                                                chartData.push(self.valueNotAvailableChecker(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[col][row]));
+                                            }
+
+                                            tempStr += '<td>' + self.valueNotAvailableChecker(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[col][row]) + '</td>';
+                                        }
+                                        tempStr += '</tr>';
+                                    }
+
+                                    if (bb == 1) {
+                                        secondTableHeadings = correlTabStr;
+                                        secondTable = "<br/><table width=80% cellpadding='12' cellspacing='12' border='1' style='border-color:#E0E0E0; '>" + tempStr + "</table>";
+                                        tempStr = '';
+                                        correlTabStr = '';
+                                    }
+
+                                }
+                                else {
+                                    for (var row = 0; row < rowLength; row++) {//row
+
+                                        var counts = 0;
+
+                                        for (var col = 0; col < colLength; col++) {//column
+
+                                            if (col == 0) {
+                                                tempStr += '<tr><td>' + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].RowHeaders[row] + '</td>';
+                                                symbolNames.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].RowHeaders[row]);
+                                            }
+
+                                            if (keyColumn == col) {
+                                                chartData.push(self.valueNotAvailableChecker(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[row][col]));
+                                            }
+
+                                            tempStr += '<td>' + self.valueNotAvailableChecker(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[row][col]) + '</td>';
+                                        }
+                                        tempStr += '</tr>';
+                                    }
+
+
+                                    if (bb == 0) {
+                                        firstTableHeadings = correlTabStr;
+                                        firstTable = tempStr + '</table>';
+                                        tempStr = '';
+                                        correlTabStr = '';
+                                    }
+                                }
+                            }
+
+
+
+                            var final = "<td valign='top'><div> Trade Data <br/><br/>" + firstTableHeadings + firstTable
+                                + "<br/><br/>"
+                                + "Fundamentals and Other Facts"
+                                + "<br/>"
+                                + secondTable
+                                + "</div></td>";
+
+
+
+
+
+
+
+
+
+                            var width = '40%';
+                            var height = '70%';
+
+                            var title = 'Correlation Analysis';
+                            var chartClassName = "linesChart";
+
+                            var markupFinal = "<div class='widgetTitle'>" + title + "</div><br/><br/>"
+                                + "<table cellpadding='15' cellspacing='15'><tr><td>"
+                                + "<div style='height: " + height + "; width:" + width + "'><div class='correlationChart' style='height: " + height + "; width:" + width + "'></div></div>"
+                                + "</td>"
+                                + final
+                                + "</tr></table>";
+
+
+                            $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + pp + " valign='top'>" + markupFinal + "</td></tr>"));
+
+
+                            //$(chartClassName).highcharts({
+                            //    chart: {
+                            //        type: 'column'
+                            //    },
+                            //    title: {
+                            //        text: 'Correlation ' + keySymbol
+                            //    },
+                            //    xAxis: {
+                            //        categories: symbolNames
+                            //    },
+                            //    credits: {
+                            //        enabled: false
+                            //    },
+                            //    series: [{
+                            //        data: chartData
+                            //    }]
+                            //});
+
+                            var lengthCount = symbolNames.length;
+
+                            if (lineSeriesOptions != null || lineSeriesOptions !== undefined) {
+                                var buttonSetup = { selected: 4 };
+                                for (var c = 0; c < lengthCount; c++) {
+                                    var dataKey = "RAW_COMPARISON" + "_" + symbolNames[c];
+                                    dataResults = dataLookUp[dataKey];
+
+                                    if (dataResults != null || dataResults !== undefined) {
+
+                                        var lineSeriesData = [];
+                                        workingKey = dataKey;
+
+                                        dataLength = dataResults.length;
+
+                                        for (i = 0; i < dataLength; i++) {
+                                            lineSeriesData.push([
+                                                dataResults[i][0], // the date
+                                                dataResults[i][4] // the volume
+                                            ])
+                                        }
+
+                                        lineSeriesOptions[c] = {
+                                            name: symbolNames[c],
+                                            data: lineSeriesData
+                                        }
+                                    }//new
+                                }//for loop end
+
+
+
+                                $('.correlationChart').highcharts('StockChart', {
+                                    chart: {
+                                    },
+                                    rangeSelector: buttonSetup,
+                                    yAxis: {
+                                        labels: {
+                                            formatter: function () {
+                                                return (this.value > 0 ? '+' : '') + this.value + '%';
+                                            }
+                                        },
+                                        plotLines: [{
+                                            value: 0,
+                                            width: 2,
+                                            color: 'silver'
+                                        }]
+                                    },
+                                    plotOptions: {
+                                        series: {
+                                            compare: 'percent'
+                                        }
+                                    },
+                                    tooltip: {
+                                        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+                                        valueDecimals: 2
+                                    },
+                                    series: lineSeriesOptions
+                                });
+
+                            }
+
+
 
 
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
