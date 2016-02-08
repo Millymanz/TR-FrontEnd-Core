@@ -1407,6 +1407,9 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             var firstTableHeadings = '';
                             var secondTableHeadings = '';
 
+                            var changeIndex = 0;
+                            var percentageChangeIndex = 0;
+
                             //first table
                             for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
 
@@ -1445,7 +1448,14 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                                             if (col == 0) {
                                                 tempStr += '<tr><td>' + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].RowHeaders[row] + '</td>';
-                                                //symbolNames.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].RowHeaders[row]);
+                                                
+                                                if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].RowHeaders[row] == 'Change') {
+                                                     changeIndex = row;                                                  
+                                                }
+
+                                                if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].RowHeaders[row] == 'Percentage Change From Previous Close') {
+                                                    percentageChangeIndex = row;
+                                                }
                                             }
 
                                             if (keyColumn == col) {
@@ -1516,12 +1526,41 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             var width = '40%';
                             var height = '70%';
 
-                            var title = 'Correlation Analysis';
-                            var chartClassName = "linesChart";
+                            var title = symbolNames.length > 1 ? 'Comparison' : symbolNames[0];
+                            var extraTitle = '';
 
-                            var markupFinal = "<div class='widgetTitle'>" + title + "</div><br/><br/>"
-                                + "<table cellpadding='15' cellspacing='15'><tr><td>"
-                                + "<div style='height: " + height + "; width:" + width + "'><div class='correlationChart' style='height: " + height + "; width:" + width + "'></div></div>"
+                            if (symbolNames.length > 1) {
+                                title = 'Comparison';
+                            }
+                            else {
+                                title = symbolNames[0];
+
+                                if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[1].GenericStr[0][changeIndex] < 0) {
+                                    var triangle = "<table><tr><td><div style='width: 0;height: 0;"
+                                        + "border-left: 10px solid transparent;border-right: 10px solid transparent; border-top: 20px solid red;'></div></td>";
+
+                                    extraTitle += triangle + "<td><div style='color:red'>" + 
+                                        obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[1].GenericStr[0][changeIndex] + " "
+                                         + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[1].GenericStr[0][percentageChangeIndex] + "%"
+                                        +"</div></td></tr></table>";
+                                }
+                                else 
+                                {
+                                    var triangle = "<table><tr><td><div style='width: 0;height: 0;"
+                                        + "border-left: 10px solid transparent;border-right: 10px solid transparent; border-bottom: 20px solid green;'></div></td>";
+
+                                    extraTitle += triangle + "<td><div style='color:green'>" +
+                                         obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[1].GenericStr[0][changeIndex] + " "
+                                         + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[1].GenericStr[0][percentageChangeIndex] + "%"
+                                          + "</div></td></tr></table>";
+                                }
+                            }
+
+                            var chartClassName = "linesChart";
+                         
+                            var markupFinal = "<div class='widgetTitle'>" + title + extraTitle + "</div><br/><br/>"
+                            + "<table cellpadding='15' cellspacing='15'><tr><td valign='top'>"
+                                + "<div style='height: " + height + "; width:" + width + "'><div class='comparisonChart' style='height: " + height + "; width:" + width + "'></div></div>"
                                 + "</td>"
                                 + final
                                 + "</tr></table>";
@@ -1529,24 +1568,6 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                             $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + pp + " valign='top'>" + markupFinal + "</td></tr>"));
 
-
-                            //$(chartClassName).highcharts({
-                            //    chart: {
-                            //        type: 'column'
-                            //    },
-                            //    title: {
-                            //        text: 'Correlation ' + keySymbol
-                            //    },
-                            //    xAxis: {
-                            //        categories: symbolNames
-                            //    },
-                            //    credits: {
-                            //        enabled: false
-                            //    },
-                            //    series: [{
-                            //        data: chartData
-                            //    }]
-                            //});
 
                             var lengthCount = symbolNames.length;
 
@@ -1570,50 +1591,120 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                             ])
                                         }
 
-                                        lineSeriesOptions[c] = {
-                                            name: symbolNames[c],
-                                            data: lineSeriesData
+
+                                        if (symbolNames.length == 1) {
+
+                                            lineSeriesOptions[c] = {
+                                                type: 'area',
+                                                name: symbolNames[c],
+                                                data: lineSeriesData
+                                            }
                                         }
+                                        else {
+                                            lineSeriesOptions[c] = {                                              
+                                                name: symbolNames[c],
+                                                data: lineSeriesData
+                                            }
+                                        }
+
+
                                     }//new
                                 }//for loop end
 
 
 
-                                $('.correlationChart').highcharts('StockChart', {
-                                    chart: {
-                                    },
-                                    rangeSelector: buttonSetup,
-                                    yAxis: {
-                                        labels: {
-                                            formatter: function () {
-                                                return (this.value > 0 ? '+' : '') + this.value + '%';
+                                //if (symbolNames.length == 1) {
+
+                                    $('.comparisonChart').highcharts('StockChart', {
+                                        chart: {
+                                        },
+                                        credits: {
+                                            enabled: false
+                                        },
+                                        rangeSelector: buttonSetup,
+                                        xAxis: {
+                                            type: 'datetime'
+                                        },
+                                        yAxis: {                                         
+                                        },
+                                        legend: {
+                                            enabled: false
+                                        },
+                                        plotOptions: {
+                                            area: {
+                                                fillColor: {
+                                                    linearGradient: {
+                                                        x1: 0,
+                                                        y1: 0,
+                                                        x2: 0,
+                                                        y2: 1
+                                                    },
+                                                    stops: [
+                                                        [0, Highcharts.getOptions().colors[0]],
+                                                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                                                    ]
+                                                },
+                                                marker: {
+                                                    radius: 2
+                                                },
+                                                lineWidth: 1,
+                                                states: {
+                                                    hover: {
+                                                        lineWidth: 1
+                                                    }
+                                                },
+                                                threshold: null
                                             }
                                         },
-                                        plotLines: [{
-                                            value: 0,
-                                            width: 2,
-                                            color: 'silver'
-                                        }]
-                                    },
-                                    plotOptions: {
-                                        series: {
-                                            compare: 'percent'
-                                        }
-                                    },
-                                    tooltip: {
-                                        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
-                                        valueDecimals: 2
-                                    },
-                                    series: lineSeriesOptions
-                                });
+                                        tooltip: {
+                                            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+                                            valueDecimals: 2
+                                        },
+                                        series: lineSeriesOptions
+                                    });
+
+                               /* }
+                                else {
+                                    $('.comparisonChart').highcharts('StockChart', {
+                                        chart: {
+                                        },
+                                        credits: {
+                                            enabled: false
+                                        },
+                                        rangeSelector: buttonSetup,
+                                        yAxis: {
+                                            labels: {
+                                                formatter: function () {
+                                                    return (this.value > 0 ? '+' : '') + this.value + '%';
+                                                }
+                                            },
+                                            plotLines: [{
+                                                value: 0,
+                                                width: 2,
+                                                color: 'silver'
+                                            }]
+                                        },
+                                        plotOptions: {
+                                            series: {
+                                                compare: 'percent'
+                                            }
+                                        },
+                                        tooltip: {
+                                            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+                                            valueDecimals: 2
+                                        },
+                                        series: lineSeriesOptions
+                                    });
+                                }
+                                */
+
+
+
+
 
                             }
 
-
-
-
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
-
 
 
                         } break;
