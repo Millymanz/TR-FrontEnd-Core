@@ -24,12 +24,31 @@
 <link rel="stylesheet" href="../../Content/jquery.dynatable.css">
 <link rel="stylesheet" href="../../Scripts/Highstock-2.1.8/css/speech-bubble.css">
 <link rel="stylesheet" type="text/css" href="../../Scripts/Highstock-2.1.8/css/custom-candlestick.css">
-
-
-
-
-@*<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">*@
 <link href="../../Content/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="../../Scripts/AutoSuggest/css/ddEdit_bootstrap.css">
+
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">*@
+@*<link href="../../Scripts/AutoSuggest/css/sticky-footer-navbar.css" rel="stylesheet">*@
+
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">*@
+
+
+<link rel="stylesheet" href="../../Scripts/AutoSuggest/css/bootstrap-suggest.css">
+
+
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="../../Scripts/AutoSuggest/js/ie-emulation-modes-warning.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../Scripts/AutoSuggest/js/ie10-viewport-bug-workaround.js"></script>
+
+
 
 
 </head>
@@ -51,27 +70,33 @@
             <form id="searchForm" method="post">
                 <input data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" id="testIndex" name="searchQuery" size="72"
                             placeholder="Enter what you would like query or know about the Forex markets?" class="inputbox transition input-search" autocomplete="off" />
-                <div data-bind="click: getAnswer" id="compute" value="SEARCH" class="btn btn-search transition" style="cursor: pointer;">GET ANSWER</div>
+                <div data-bind="click: getAnswer" id="compute" value="SEARCH" class="btnSearcher btn-search transition" style="cursor: pointer;">GET ANSWER</div>
                         
                 <div id="queryDropDown">
+                    <div class="form-group">
+                        <br /><br />
                     <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" id="textArea"></textarea>
+                        </div>
                     </div>
                    </form>
               </div>
 
 
+@*           <form id="searchForm" method="post">
+                <input data-bind="value: mainQuery" id="testIndex" name="searchQuery" size="72"
+                            placeholder="Enter what you would like query or know about the Forex markets?" class="inputbox transition input-search" autocomplete="off" />
+                <div data-bind="click: getAnswer" id="compute" value="SEARCH" class="btn btn-search transition" style="cursor: pointer;">GET ANSWER</div>
+                        
+                <div id="queryDropDown">
+                    <textarea data-bind="value: mainQuery" rows="7" cols="101" name="textArea" id="textArea"></textarea>
 
-@*      <div id="contenthandle">
-        <form id="searchForm" method="post">
+                    </div>
+                   </form>
+              </div>*@
 
 
-          <input type="text" id="testIndex" name="searchQuery" size="72" placeholder="Stocks, forex, commodities or query..." class="inputbox transition input-search" autocomplete="off" />
-          <input type="submit" value="GET ANSWER" class="btn btn-search transition">
-          <div id="queryDropDown">
-          <textarea rows="7" cols="101" name="textArea" id="textArea"></textarea>
-          </div>
-        </form>
-      </div>*@
+
+
 
 
     </div>
@@ -112,14 +137,16 @@
                 <ul class="drop">
  
                     <li class="logoutItem">
+                        
+                        <div id="autoSuggest"><span style="text-align: center"><input type="checkbox" checked="checked" id="autoSuggestTicker">&nbsp Auto Suggest</span></div>
 
                          @using (Html.BeginForm("LogOut", "AppInfo", FormMethod.Post, new { id = "logoutForm" }))
                          {
                            <input type="hidden" value=@Model.Username id='u_n' class='h_v' name="hiddens">
                            <input type="hidden" value=@Model.AccessToken id='a_t' class='h_v' name="hiddens">
                            <input type="hidden" value=@Model.Password id='p_d' class='h_v' name="hiddens">
-                             
-                             <a href="#" style="text-align: center">Log off</a>
+                           
+                           <a href="#" id="logOffAction" style="text-align: center">Log off</a>
                          }
 
                     </li>
@@ -600,6 +627,14 @@ margin: 150px auto; left:0; right:0; width: 70px; height: 70px; position: absolu
 
 
 
+<!--bootstrap suggest-->
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>*@
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="../../Scripts/AutoSuggest/js/marked.min.js"></script>
+<script src="../../Scripts/AutoSuggest/js/highlight.pack.js"></script>
+<script src="../../Scripts/AutoSuggest/js/bootstrap-suggest.js"></script>
+    
+
 @*<script src="../../NewFrontEnd/js/jquery.caretposition.js"></script>
 <script src="../../NewFrontEnd/js/typeahead.js"></script>
 <script src="../../NewFrontEnd/js/typeahead.fn.js"></script>
@@ -773,6 +808,116 @@ margin: 150px auto; left:0; right:0; width: 70px; height: 70px; position: absolu
         //        });
         //    }
         //});
+
+
+
+        hljs.initHighlightingOnLoad();
+        // configure marked
+        var renderer = new marked.Renderer();
+        renderer.table = function (header, body) {
+            return '\
+  				<table class="table table-bordered table-striped table-hover">\
+  					<thead>\
+  						' + header + '\
+  					</thead>\
+  					<tbody>\
+  						' + body + '\
+  					</tbody>\
+  				</table>';
+        },
+
+  		marked.setOptions({
+  		    sanitize: false,
+  		    highlight: function (code) {
+  		        return hljs.highlightAuto(code).value;
+  		    },
+  		    renderer: renderer,
+  		    breaks: true
+  		});
+
+        $.fn.extend({
+            marked: function () {
+                this.each(function () {
+                    $this = $(this);
+                    $this.html(marked($this.html()));
+                })
+
+                return this;
+            },
+        });
+
+        $(function () {
+
+            $('.markdown').marked();
+
+            // data
+            var users = [
+              { fullname: 'foo' },
+              { fullname: 'bar' },
+              { fullname: 'twbs' },
+              { fullname: 'eurusd' },
+              { fullname: 'eursek' },
+              { fullname: 'eurjpy' },
+              { fullname: 'eurnok' },
+              { fullname: 'eurnzd' },
+              { fullname: 'eurpln' },
+              { fullname: 'eurpln bullish price changes' },
+              { fullname: 'correlation' },
+              { fullname: 'audcad' },
+              { fullname: 'daily' },
+              { fullname: 'the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
+              { fullname: 'did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
+              { fullname: 'times did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
+              { fullname: 'many times did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
+              { fullname: 'How many times did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
+              { fullname: 'to exhaust or continue in the same direction for a similar movement after gaining/losing 52 pips in a day, between 01/02/2015 to 20/9/2015' },
+              { fullname: 'more likely to exhaust or continue in the same direction for a similar movement after gaining/losing 52 pips in a day, between 01/02/2015 to 20/9/2015' },
+              { fullname: 'Is EUR/CAD more likely to exhaust or continue in the same direction for a similar movement after gaining/losing 52 pips in a day, between 01/02/2015 to 20/9/2015' },
+              { fullname: 'the USD/CAD on the 1h timeframe for the between 21/5/2015 to 10/08/2015' },
+              { fullname: 'for the USD/CAD on the 1h timeframe for the between 21/5/2015 to 10/08/2015' },
+              { fullname: 'trends for the USD/CAD on the 1h timeframe for the between 21/5/2015 to 10/08/2015' },
+              { fullname: 'show trends for the GBP/CAD on the 1h timeframe for the between 21/5/2015 to 10/08/2015' },
+              { fullname: 'show trends on the eurjpy on 1H timeframe for the between 1/5/2015 to 20/08/2015' },
+              { fullname: 'identify bullish price action signals above 20 pips on the eurjpy daily timeframe' },
+              { fullname: 'identify bearish price action signals below 20 pips on the eurpln daily timeframe' },
+              { fullname: 'usdjpy' }
+            ];
+
+            $('#testIndex').suggest("-", {
+                position: 'caret',
+                data: users,
+                map: function (user) {
+                    return {
+                        value: user.fullname,
+                        text: '<small>' + user.fullname + '</small>'
+                    }
+                }
+            })
+
+            $('#textArea').suggest("-", {
+                position: 'caret',
+                data: users,
+                map: function (user) {
+                    return {
+                        value: user.fullname,
+                        text: '<small>' + user.fullname + '</small>'
+                    }
+                }
+            })
+
+
+
+
+
+
+
+
+        })
+
+
+
+
+
 
 
 

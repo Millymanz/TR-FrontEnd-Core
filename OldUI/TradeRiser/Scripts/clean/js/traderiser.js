@@ -28,11 +28,22 @@
         var outerHeight = $('#testIndex').outerHeight();
         $('#compute').height(outerHeight);
 
+        //All of this should be in the view model
+        //$("#autoSuggest").click(function () {
 
+        //    if (document.getElementById('autoSuggestTicker').checked) {
+        //        $("#autoSuggestTicker").prop('checked', false);
+        //    }
+        //    else {
+        //        $("#autoSuggestTicker").prop('checked', true);
+        //    }
 
-	$(".logoutItem").click(function () {
-	    document.getElementById('logoutForm').submit();
-	});
+	        
+        //});
+
+        $("#logOffAction").click(function () {
+	        document.getElementById('logoutForm').submit();
+	    });
 
 
 

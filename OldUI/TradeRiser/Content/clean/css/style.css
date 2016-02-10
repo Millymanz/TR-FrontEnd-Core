@@ -316,7 +316,7 @@ a:focus, input:focus, textarea:focus {
 	height:22px;
 	display:none;
 }
-.btn {
+.btnSearcher {
 	display: inline-block;
 	font-size: 13px;
 	font-weight: 700;
@@ -344,6 +344,61 @@ box-shadow:1px 1px 2px rgba(0,0,0,0.07) ,inset 1px 1px 0px rgba(255,255,255,0.25
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
 }
+
+/*Css for auto suggest*/
+.suggest {
+    top: 7px;
+    z-index: 30;
+    text-align: left;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.suggest>.dropdown-menu {
+    margin-top: 15px;
+    position: absolute;
+    padding: 0;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.hidden {
+    display: none!important;
+    visibility: hidden!important;
+}
+
+.suggest>.dropdown-menu>li {
+    border-bottom: 1px solid #eee;
+}
+
+/***auto suggest end**/
+
+
+
+
 .btn:hover {
 	background-position:0px -25px;
 }
@@ -356,6 +411,8 @@ box-shadow:1px 1px 2px rgba(0,0,0,0.07) ,inset 1px 1px 0px rgba(255,255,255,0.25
     border-top-left-radius: 0px;
     padding-top: 12px;
     padding-bottom: 12px;
+
+    height:41px;
 }
 
 /*#compute {
@@ -632,7 +689,7 @@ box-shadow:1px 1px 2px rgba(0,0,0,0.07) ,inset 1px 1px 0px rgba(255,255,255,0.25
 	list-style-type: none;	
 	display:none;
 }
-.drop li a {
+.drop li a, .drop li span{
 	border-top:solid 1px #000;
 	display: block;
 	font-size: 13px;
@@ -644,8 +701,9 @@ box-shadow:1px 1px 2px rgba(0,0,0,0.07) ,inset 1px 1px 0px rgba(255,255,255,0.25
 	padding-left: 12px;
 	color: #CCC;
 	text-decoration: none;
+    cursor: pointer;
 }
-.drop li a:hover {
+.drop li a:hover, .drop li span:hover {
 	background-color:#262626;
 }
 
@@ -1079,7 +1137,7 @@ background-position:0px 0px;
    cursor: pointer;
 }
 
-.followingQuery {
+.tab-inner .followingQuery {
 	background-color: #F4F7F7;
 	padding-right: 12px;
 	padding-bottom: 10px;

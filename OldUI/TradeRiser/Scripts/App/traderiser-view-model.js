@@ -207,6 +207,16 @@ function TradeRiserViewModel(tradeRiserProxy) {
             alert('1225654');
         });
 
+        $("#autoSuggest").click(function () {
+
+            if (document.getElementById('autoSuggestTicker').checked) {
+                $("#autoSuggestTicker").prop('checked', false);
+            }
+            else {
+                $("#autoSuggestTicker").prop('checked', true);
+            }
+
+        });
 
 
 
