@@ -209,6 +209,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         $("#autoSuggest").click(function () {
 
+            //the on and off feature has been hacked
             if (document.getElementById('autoSuggestTicker').checked) {
                 $("#autoSuggestTicker").prop('checked', false);
             }

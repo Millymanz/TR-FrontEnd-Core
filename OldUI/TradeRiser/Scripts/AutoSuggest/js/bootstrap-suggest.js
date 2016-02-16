@@ -482,7 +482,11 @@
 
 			if (!this.isShown) {
 
-				this.$dropdown.addClass('open');
+                //Hack Dennis
+			    if (document.getElementById('autoSuggestTicker').checked) {
+			        this.$dropdown.addClass('open');
+			    }
+
 				if (options.position !== false) {
 
 					caretPos = this.__getCaretPos(this._keyPos);
