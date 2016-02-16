@@ -179,14 +179,21 @@ textarea {
 optgroup {
   font-weight: bold;
 }
-table {
+
+
+/*table {
   border-spacing: 0;
   border-collapse: collapse;
-}
-td,
+}*/
+
+
+/*td,
 th {
   padding: 0;
-}
+}*/
+
+
+
 @media print {
   * {
     color: #000 !important;
@@ -878,7 +885,9 @@ th {
 .glyphicon-tree-deciduous:before {
   content: "\e200";
 }
-* {
+
+
+/** {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
@@ -888,7 +897,7 @@ th {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-}
+}*/
 
 
 /*html {

@@ -933,7 +933,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         catch (ex) {
             var displayError = document.getElementById("noresults");
             displayError.style.display = 'block';
-            //alert(ex);
+            alert(ex);
         }
 
     };
