@@ -485,39 +485,39 @@
                 //Hack Dennis
 			    if (document.getElementById('autoSuggestTicker').checked) {
 			        this.$dropdown.addClass('open');
+
+			        if (options.position !== false) {
+
+			            caretPos = this.__getCaretPos(this._keyPos);
+
+			            if (typeof options.position == 'string') {
+			                switch (options.position) {
+			                    case 'bottom':
+			                        position.top = $el.outerHeight() - parseFloat($dropdownMenu.css('margin-top'));
+			                        position.left = 0;
+			                        position.right = 0;
+			                        break;
+			                    case 'top':
+			                        position.top = -($dropdownMenu.outerHeight(true) + parseFloat($dropdownMenu.css('margin-top')));
+			                        position.left = 0;
+			                        position.right = 0;
+			                        break;
+			                    case 'caret':
+			                        position.top = caretPos.top - el.scrollTop;
+			                        position.left = caretPos.left - el.scrollLeft;
+			                        break;
+			                }
+
+			            } else {
+			                position = $.extend(position, typeof options.position == 'function' ? options.position(el, caretPos) : options.position);
+			            }
+
+			            $dropdownMenu.css(position);
+			        }
+
+			        this.isShown = true;
+			        $el.trigger($.extend({ type: 'suggest.show' }, this));
 			    }
-
-				if (options.position !== false) {
-
-					caretPos = this.__getCaretPos(this._keyPos);
-
-					if (typeof options.position == 'string') {
-						switch (options.position) {
-							case 'bottom':
-								position.top = $el.outerHeight() - parseFloat($dropdownMenu.css('margin-top'));
-								position.left = 0;
-								position.right = 0;
-								break;
-							case 'top':
-								position.top = -($dropdownMenu.outerHeight(true) + parseFloat($dropdownMenu.css('margin-top')));
-								position.left = 0;
-								position.right = 0;
-								break;
-							case 'caret':
-								position.top = caretPos.top - el.scrollTop;
-								position.left = caretPos.left - el.scrollLeft;
-								break;
-						}
-
-					} else {
-						position = $.extend(position, typeof options.position == 'function' ? options.position(el, caretPos) : options.position);
-					}
-
-					$dropdownMenu.css(position);
-				}
-
-				this.isShown = true;
-				$el.trigger($.extend({type: 'suggest.show'}, this));
 			}
 		}
 	};
