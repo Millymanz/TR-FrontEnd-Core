@@ -233,7 +233,14 @@ namespace TradeRiser.Models
 
             var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(search);
 
+            DateTime start = DateTime.Now;
             string response = PostToRestService(apiUrl, serialized, accessToken);
+
+            DateTime end = DateTime.Now;
+            var timespan = end - start;
+            System.Diagnostics.Debug.WriteLine("Prior Frontend Timespan :: "
+                + timespan.TotalSeconds);
+
             return response;
         }
 
@@ -461,8 +468,163 @@ namespace TradeRiser.Models
             return "";
         }
 
-
         private string PostToRestService(string url, string serialized, string accessTokenItem)
+        {
+            try
+            {
+                var accessToken = accessTokenItem;
+                var apiUrl = url;
+
+                WebRequest request = WebRequest.Create(apiUrl);
+                request.Proxy = GlobalProxySelection.GetEmptyWebProxy();
+
+                // Set the Method property of the request to POST.
+                request.Method = "POST";
+
+                request.Headers.Add("Authorization", "Bearer " + accessToken);
+
+
+                // Create POST data and convert it to a byte array.
+                string postData = serialized;
+                byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+                // Set the ContentType property of the WebRequest.
+                //request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentType = "application/json";
+
+
+                // Set the ContentLength property of the WebRequest.
+                request.ContentLength = byteArray.Length;
+                // Get the request stream.
+                Stream dataStream = request.GetRequestStream();
+                // Write the data to the request stream.
+                dataStream.Write(byteArray, 0, byteArray.Length);
+                // Close the Stream object.
+                dataStream.Close();
+
+                // Get the response.
+                WebResponse response = request.GetResponse();
+
+
+                // Display the status.
+                Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+                // Get the stream containing content returned by the server.
+                dataStream = response.GetResponseStream();
+                // Open the stream using a StreamReader for easy access.
+
+                using (BufferedStream buffer = new BufferedStream(dataStream))//10000 //2000
+                {
+                    using (StreamReader reader = new StreamReader(buffer))
+                    {
+                        DateTime start = DateTime.Now;
+
+
+                        // Read the content.
+                        string responseFromServer = reader.ReadToEnd();
+                        // Display the content.
+                        Console.WriteLine(responseFromServer);
+
+
+                        DateTime end = DateTime.Now;
+                        var timespan = end - start;
+                        System.Diagnostics.Debug.WriteLine("Closing Stream Timespan :: "
+                            + timespan.TotalSeconds);
+
+                        response.Close();
+
+                        return responseFromServer;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return "";
+        }
+
+
+        private string PostToRestServiceChanged(string url, string serialized, string accessTokenItem)
+        {
+            try
+            {
+                var accessToken = accessTokenItem;
+                var apiUrl = url;
+
+                WebRequest request = WebRequest.Create(apiUrl);
+                request.Proxy = GlobalProxySelection.GetEmptyWebProxy();
+
+                // Set the Method property of the request to POST.
+                request.Method = "POST";
+
+                request.Headers.Add("Authorization", "Bearer " + accessToken);
+
+
+                // Create POST data and convert it to a byte array.
+                string postData = serialized;
+                byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+                // Set the ContentType property of the WebRequest.
+                //request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentType = "application/json";
+
+
+                // Set the ContentLength property of the WebRequest.
+                request.ContentLength = byteArray.Length;
+                // Get the request stream.
+                Stream dataStream = request.GetRequestStream();
+                // Write the data to the request stream.
+                dataStream.Write(byteArray, 0, byteArray.Length);
+                // Close the Stream object.
+                dataStream.Close();
+
+
+                // Get the response.
+                WebResponse response = request.GetResponse();
+
+
+
+                // Display the status.
+                Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+                // Get the stream containing content returned by the server.
+                dataStream = response.GetResponseStream();
+                // Open the stream using a StreamReader for easy access.
+                // StreamReader reader = new StreamReader(dataStream);
+
+
+
+                using (BufferedStream buffer = new BufferedStream(dataStream))
+                {
+                    using (StreamReader reader = new StreamReader(buffer))
+                    {
+                        DateTime start = DateTime.Now;
+
+                        // Read the content.
+                        string responseFromServer = reader.ReadToEnd();
+                        // Display the content.
+                        Console.WriteLine(responseFromServer);
+
+
+                        DateTime end = DateTime.Now;
+                        var timespan = end - start;
+                        System.Diagnostics.Debug.WriteLine("Closing Stream Timespan :: "
+                            + timespan.TotalSeconds);
+
+                        response.Close();
+
+                        return responseFromServer;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return "";
+        }
+
+
+        private string PostToRestServiceTT(string url, string serialized, string accessTokenItem)
         {
             //store access token locally for reuse- if it expires then
             //login again
@@ -513,14 +675,29 @@ namespace TradeRiser.Models
                 dataStream = response.GetResponseStream();
                 // Open the stream using a StreamReader for easy access.
                 StreamReader reader = new StreamReader(dataStream);
+
+                DateTime start = DateTime.Now;
+
                 // Read the content.
                 string responseFromServer = reader.ReadToEnd();
                 // Display the content.
                 Console.WriteLine(responseFromServer);
+
+
+                DateTime end = DateTime.Now;
+                var timespan = end - start;
+                System.Diagnostics.Debug.WriteLine("Closing Stream Timespan :: "
+                    + timespan.TotalSeconds);
+
+
+
                 // Clean up the streams.
                 reader.Close();
                 dataStream.Close();
                 response.Close();
+
+
+
 
                 return responseFromServer;
             }
