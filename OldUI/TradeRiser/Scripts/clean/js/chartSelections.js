@@ -169,7 +169,13 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
                     highlighted: true,
                     highlightRegion: highlighterArray,
 
-                    customSlopeLines: trendsOverlayArray,                
+                    customSlopeLines: trendsOverlayArray,
+
+                    /*customLines: [{
+                        name: "Axis Line 2",
+                        startDate: 1430673300000,
+                        value: 1.13
+                    }],*/
 
                     overlay: overlayArray
 
@@ -190,6 +196,123 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
                 Highcharts.charts[iterItem].redraw();
         }
     }  
+}
+
+function ReBuildChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray, trendsOverlayArray) {
+
+    var chartClassName = 'chartspace dialogchart' + presentationTypeIndex;
+
+    var classOnly = '.dialogchart' + presentationTypeIndex;
+
+    var dataPrep = [];
+    var d, datePoint;
+
+
+    var dataResultsT = dataLookUp["RAW"];
+
+    if (dataResultsT != null || dataResultsT !== undefined) {
+
+        var lineSeriesOptions = [],
+            symbolNames = [];
+
+        var volume_CandleStick = [];
+
+        for (var bb = 0; bb < obj.CurrentResult.ResultSymbols[presentationTypeIndex].length; bb++) {
+            symbolNames.push(obj.CurrentResult.ResultSymbols[presentationTypeIndex][bb] + " " + obj.CurrentResult.RawDataResults[presentationTypeIndex].DataTimeFrame);
+        }
+
+
+
+        var dataLength = dataResultsT.length;
+
+        if (dataLength > 0) {
+
+            var dateTimeTemp = dataResultsT[1][0] - dataResultsT[0][0];
+
+            var bIntradayChart = true;
+
+            if (dateTimeTemp >= 86400000) {
+                bIntradayChart = false;
+            }
+
+
+
+            var buttonsArray = SelectButtonArray(obj.CurrentResult.RawDataResults[presentationTypeIndex].DataTimeFrame);
+            buttonSetup = {
+                buttons: buttonsArray,
+                selected: 1,
+                inputEnabled: false,
+                buttonTheme: {
+                    width: 70
+                }
+            }
+            if (yAxisArray.length == 1) {
+                yAxisArray[0].height = 400;
+            }
+
+
+            try {
+
+
+                // create the chart
+                $(classOnly).highcharts('StockChart', {
+
+                    credits: {
+                        enabled: false
+                    },
+
+                    plotOptions: {
+                        candlestick: {
+                            lineWidth: 1,
+                            color: "#2f7ed8",
+                            borderColor: "#FFFFFF",
+                            lineColor: "#2f7ed8",
+                            lineWidth: 1,
+                            upColor: "silver",
+                            upLineColor: "silver"
+                        },
+                        area: {
+                            fillOpacity: 0.2
+                        },
+                        series: {
+                            dataGrouping: { enabled: false }
+                        }
+                    },
+
+                    title: {
+                        text: symbolNames[0]
+                    },
+
+                    rangeSelector: buttonSetup,
+
+                    yAxis: yAxisArray,
+
+                    series: arraySeries,
+
+                    highlighted: true,
+                    highlightRegion: highlighterArray,
+
+                    customSlopeLines: trendsOverlayArray,
+
+                    overlay: overlayArray
+
+                });
+            }
+            catch (ex) {
+                alert(ex);
+            }
+
+        }
+    }
+
+
+    for (var iterItem = 0; iterItem < Highcharts.charts.length; iterItem++) {
+
+        if (Highcharts.charts[iterItem] != null && Highcharts.charts[iterItem] !== undefined) {
+            Highcharts.charts[iterItem].highlighted = true;
+            Highcharts.charts[iterItem].redraw();
+        }
+    }
 }
 
 

@@ -837,37 +837,18 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                     dataMACDHistogram[ri][1] // the close
                                 ])
                             }
-                            var axis = 1;
+                            var axis = extIndicatorLookUp.indicatorLookUp[indicatorName];
 
-                            //var macdChartItem = {
-                            //    type: 'line',
-                            //    name: 'MACDline',
-                            //    data: macdArray,
-                            //    yAxis: axis,
-                            //    dataGrouping: {
-                            //        units: groupingUnits
-                            //    }
-                            //}
 
-                            var macdChartItem = {
+                          var macdChartItem = {
                                 type: 'line',
                                 name: 'MACDline',
                                 data: macdArray,
                                 yAxis: axis
                             }
-
                             arraySeries.push(macdChartItem);
 
 
-                            //var signalChartItem = {
-                            //    type: 'line',
-                            //    name: 'signalLine',
-                            //    data: macdSignalArray,
-                            //    yAxis: axis,
-                            //    dataGrouping: {
-                            //        units: groupingUnits
-                            //    }
-                            //}
 
                             var signalChartItem = {
                                 type: 'line',
@@ -878,23 +859,13 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             arraySeries.push(signalChartItem);
 
 
-                            //var macdHistogramChartItem = {
-                            //    type: 'column',
-                            //    name: 'MACDHistogram',
-                            //    data: macdHistogramArray,
-                            //    yAxis: axis,
-                            //    dataGrouping: {
-                            //        units: groupingUnits
-                            //    }
-                            //}
-
                             var macdHistogramChartItem = {
                                 type: 'column',
+                                color: '#ff4d4d',
                                 name: 'MACDHistogram',
                                 data: macdHistogramArray,
                                 yAxis: axis
                             }
-
                             arraySeries.push(macdHistogramChartItem);
 
                             indicatorPos = indicatorPos + indicatorGap;
@@ -1069,7 +1040,7 @@ function GenerateSummary(obj, presentationTypeIndex) {
         if (ignoreMoreSummary === false) {
 
             genTabStr += "<td valign='top' style='width:40%; border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;'>";
-            genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Tabular Summary:</strong> </span><br/> <br/>";
+            genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Tabular Summary:</strong> </span><br/><br/>";
             genTabStr += firstSummary;
             genTabStr += "</div></td>";
         }
@@ -1080,7 +1051,7 @@ function GenerateSummary(obj, presentationTypeIndex) {
         if (typeof summaryMore !== 'undefined') {
 
             genTabStr += "<td valign='top' style='border-left: 0px solid grey; border-right: 0px solid grey; vertical-align: top;>";
-            genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Analysis Summary:</strong> </span><br/>" +
+            genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Analysis Summary:</strong> </span><br/><br/>" +
                 summaryMore + "</td>";
         }
     }

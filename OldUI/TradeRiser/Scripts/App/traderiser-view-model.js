@@ -2109,10 +2109,13 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     }
                                 }
                                 arraySeries.push(mainChartItem);
-
+                             
                                 for (var hl = 0; hl < rawDataResults[pp].HighLightRegion.length; hl++) {
 
                                     rawDataResults[pp].HighLightRegion[hl].Comment.split("**");
+
+                                    var ffaxisIndex = rawDataResults[pp].HighLightRegion[hl].AxisIndex;
+                                    var fhgseriesIndex = rawDataResults[pp].HighLightRegion[hl].SeriesIndex;
 
                                     var highlighterItem = {
                                         colour: rawDataResults[pp].HighLightRegion[hl].Colour,
@@ -2150,6 +2153,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                                     $("#highlightControl" + pp).append($("<label>HighLighters : </label><input type='checkbox' checked id='highlightControlCheckBoxSplit" + highId + "'>"));
 
+                                    //$("#highlightControl" + pp).append($("<label>HighLighters : </label><input type='checkbox' checked id='highlightControlCheckBoxSplit" + highId + "'>&nbsp&nbsp<button id='viewMoreSplit" + highId + "'>View More</button>"));
+
                                     $("#highlightControlCheckBoxSplit" + highId).bind("change", function (e) {
 
                                         var splitArrayTxt = e.target.id.split('Split');
@@ -2169,18 +2174,16 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                                         };
                                                     }
 
-
-
                                                     Highcharts.charts[g].highlighted = $("#highlightControlCheckBoxSplit" + clikedItemId).prop('checked');
                                                     Highcharts.charts[g].redraw();
-
-
 
 
                                                 }
                                             }
                                         }
                                     })
+
+
 
                                 }
 
