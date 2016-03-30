@@ -39,12 +39,11 @@ function GenerateRandomColour() {
     return textArray[randomNumber];
 }
 
-function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray) {
+function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount) {
     
     try
     {
-
-
+        
         //create selectChartKey from loop
         var allCount = 8;
         var allCountIter = 0;
@@ -185,17 +184,42 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                 case 'SMA':
                     {
+                        //var dataResults = {};
+                        //var widgetName = presentationTypes.SubWidgets[ss];
+                        //var currentCount = mulitipleWidgetLookUp["SMA"];
+
+                        //if (typeof currentCount !== 'undefined') {
+                        //    dataResults = dataLookUp["SMA" + ss];
+                        //    widgetName = obj.CurrentResult.PresentationTypes[0].SubWidgetsAltName[ss];
+                        //}
+                        //else {
+                        //    dataResults = dataLookUp["SMA"];
+                        //    widgetName = "SMA";
+                        //}
+
+                        // dataResults = dataLookUp["SMA" + ss];
+
                         var dataResults = {};
-                        var widgetName = "";
-                        var currentCount = mulitipleWidgetLookUp["SMA"];
+
+                        var widgetName = presentationTypes.SubWidgets[ss];
+
+                        var currentCount = mulitipleWidgetLookUp[widgetName];
+                        var startIndex = uniqueLookUpCount[widgetName];
+                        var lineIndx = startIndex;
+
+                        dataResults = dataLookUp[widgetName + lineIndx];
+
                         if (typeof currentCount !== 'undefined') {
-                            dataResults = dataLookUp["SMA" + ss];
-                            widgetName = obj.CurrentResult.PresentationTypes[0].SubWidgetsAltName[ss];
+                            uniqueLookUpCount[widgetName] = lineIndx + 1;
                         }
                         else {
-                            dataResults = dataLookUp["SMA"];
-                            widgetName = "SMA";
+                            dataResults = dataLookUp[widgetName];
                         }
+
+
+
+
+
                         
 
                         if (dataResults != null || dataResults !== undefined) {
@@ -247,9 +271,49 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                 case 'BollingerBands':
                     {
-                        var dataUpperBand = dataLookUp["UpperBand"];
-                        var dataLowerBand = dataLookUp["LowerBand"];
-                        var dataMiddleBand = dataLookUp["MiddleBand"];
+                        //var widgetName = "";
+
+                        //var lowerBollingerBandsIndx = ss + 2;
+                        //var upperBollingerBandsIndx = ss + 1;
+                        //var middleBollingerBandsIndx = ss + 0;
+
+                        //var dataUpperBand = dataLookUp["UpperBand" + upperBollingerBandsIndx];
+                        //var dataLowerBand = dataLookUp["LowerBand" + lowerBollingerBandsIndx];
+                        //var dataMiddleBand = dataLookUp["MiddleBand" + middleBollingerBandsIndx];
+
+
+
+                        var widgetName = "BollingerBands";
+
+                        var startIndex = uniqueLookUpCount[widgetName];
+
+
+                        var lowerBollingerBandsIndx = startIndex + 2;
+                        var upperBollingerBandsIndx = startIndex + 1;
+                        var middleBollingerBandsIndx = startIndex + 0;
+
+                        var dataUpperBand = dataLookUp["UpperBand" + upperBollingerBandsIndx];
+                        var dataLowerBand = dataLookUp["LowerBand" + lowerBollingerBandsIndx];
+                        var dataMiddleBand = dataLookUp["MiddleBand" + middleBollingerBandsIndx];
+
+
+                        if (typeof dataUpperBand !== 'undefined' && typeof dataLowerBand !== 'undefined') {
+                            //Add 2 because of OutSlowKData and OutSlowDData 
+                            uniqueLookUpCount[widgetName] = uniqueLookUpCount[widgetName] + 2;
+                        }
+                        else {
+                            dataUpperBand = dataLookUp["UpperBand"];
+                            dataLowerBand = dataLookUp["LowerBand"];
+                            dataMiddleBand = dataLookUp["MiddleBand"];
+                        }
+
+
+
+
+
+
+
+
 
                         if (dataMiddleBand != null || dataMiddleBand !== undefined) {
                             var smaOverlayArray = [];
@@ -275,15 +339,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 ])
                             }
 
-                            //var smaChartItem = {
-                            //    code: 'sma',
-                            //    name: 'SMA',
-                            //    color: 'red',
-                            //    data: [smaOverlayArray],
-                            //    dataGrouping: {
-                            //        units: groupingUnits
-                            //    }
-                            //}
+                          
 
                             var smaChartItem = {
                                 code: 'sma',
@@ -514,13 +570,35 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                 case 'RSI':
                 case 'ATR':
                     {
-                        var indicatorName = presentationTypes.SubWidgets[ss];
-                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
+                        var dataResults = {};
+
+                        var widgetName = presentationTypes.SubWidgets[ss];
+
+                       // var currentCount = mulitipleWidgetLookUp[widgetName];
+
+                        var startIndex = uniqueLookUpCount[widgetName];
+                        var lineIndx = startIndex;
+
+                        dataResults = dataLookUp[widgetName + lineIndx];
+
+                        if (typeof dataResults !== 'undefined') {
+                            uniqueLookUpCount[widgetName] = lineIndx + 1;
+                        }
+                        else {
+                            dataResults = dataLookUp[widgetName];
+                        }
 
 
+                        var indicatorName = widgetName;
+                        //var selectIndicator = ss + 1;
+                        //var selectIndicator = lineIndx + 1;
+
+                        //var selectIndicator = lineIndx + 1;
+
+                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName + ss];
+                        
                         selectChartKey = selectChartKey + indicatorName;
-
-                        var dataResults = dataLookUp[indicatorName];
+                       
 
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
@@ -730,13 +808,55 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
 
                 case 'Stochastic':
                     {
+                        var stochasticPKDataTemp = {};
+                        var stochasticPDDataTemp = {};
+
+                        var widgetName = "Stochastic";
+
+                        var startIndex = uniqueLookUpCount[widgetName];
+
+                        var outSlowKDataIndx = startIndex + 1;
+                        var outSlowDDataIndx = startIndex + 0;
+
+                        stochasticPKDataTemp = dataLookUp["OutSlowKData" + outSlowKDataIndx];
+                        stochasticPDDataTemp = dataLookUp["OutSlowDData" + outSlowDDataIndx];
+
+                        if (typeof stochasticPKDataTemp !== 'undefined' && typeof stochasticPDDataTemp !== 'undefined') {
+                            //Add 2 because of OutSlowKData and OutSlowDData 
+                            uniqueLookUpCount[widgetName] = uniqueLookUpCount[widgetName] + 2;
+                        }
+                        else {
+                            stochasticPKDataTemp = dataLookUp["OutSlowKData"];
+                            stochasticPDDataTemp = dataLookUp["OutSlowDData"];
+                        }
+
+
+                        //var currentCount = mulitipleWidgetLookUp["OutSlowKData"];
+                        //var currentAltCount = mulitipleWidgetLookUp["OutSlowDData"];
+                        //if (typeof currentCount !== 'undefined' && typeof currentAltCount !== 'undefined') {
+
+                        //    stochasticPKDataTemp = dataLookUp["OutSlowKData" + ss];
+                        //    stochasticPDDataTemp = dataLookUp["OutSlowDData"+ ss];
+
+                        //    widgetName = obj.CurrentResult.PresentationTypes[presentationTypeIndex].SubWidgetsAltName[ss];
+                        //}
+                        //else {
+                        //    stochasticPKDataTemp = dataLookUp["OutSlowKData"];
+                        //    stochasticPDDataTemp = dataLookUp["OutSlowDData"];
+                        //    widgetName = "Stochastic";
+                        //}
+
                         var indicatorName = presentationTypes.SubWidgets[ss];
-                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
+                        var selectIndicator = ss + 1;
+                        //var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName + selectIndicator];
+
+                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName + ss];
+
 
                         selectChartKey = selectChartKey + indicatorName;
 
-                        var stochasticPKDataTemp = dataLookUp["OutSlowKData"];
-                        var stochasticPDDataTemp = dataLookUp["OutSlowDData"];
+                        //var stochasticPKDataTemp = dataLookUp["OutSlowKData"];
+                        //var stochasticPDDataTemp = dataLookUp["OutSlowDData"];
                        
 
                         if (stochasticPKDataTemp != null || stochasticPKDataTemp !== undefined) {

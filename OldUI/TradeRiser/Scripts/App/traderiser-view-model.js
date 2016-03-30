@@ -1290,12 +1290,13 @@ function TradeRiserViewModel(tradeRiserProxy) {
             for (var pp = 0; pp < presentationTypeCount; pp++, iterRow++) {
 
                 var json = rawDataResults[pp].ChartReadyDataResults;
-                var dataLookUp = self.createLookUp(json);
+                var dataLookUp = self.createLookUp(json, obj.CurrentResult.PresentationTypes[pp].SubWidgets);
                 var mulitipleWidgetLookUp = self.createMulitipleWidgetsLookUp(json);
 
                 //var extIndicatorLookUp = self.createExternalIndicatorLookUp(json);
                 var extIndicatorLookUp = self.createExternalIndicatorLookUpNew(obj.CurrentResult.PresentationTypes[pp].SubWidgets);
 
+                var uniqueLookUpCount = self.createStartingValueLookUp(obj.CurrentResult.PresentationTypes[pp].SubWidgets);
 
                 switch (obj.CurrentResult.PresentationTypes[pp].MainWidget) {
                     case 'SpecialTable':
@@ -1395,7 +1396,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             });
 
 
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount);
 
 
 
@@ -1715,8 +1716,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                             }
 
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
-
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount);
 
                         } break;
 
@@ -1826,7 +1826,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 series: tempSeries
                             });
 
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount);
 
                         } break;
 
@@ -1897,7 +1897,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     name: 'Currency'
                                 }]
                             });
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount);
 
                         } break;
 
@@ -2021,7 +2021,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     series: lineSeriesOptions
                                 });
                             }
-                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount);
 
                         } break;
 
@@ -2141,7 +2141,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 presentationTypeIndex = pp;
                                 // var highId = Highcharts.charts[Highcharts.charts.length - 1].container.id;
 
-                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
+                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount);
 
                                 SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray, trendsOverlayArray);
                                 self.initialiseDynaTable(highlighterArray);
@@ -2566,12 +2566,17 @@ function TradeRiserViewModel(tradeRiserProxy) {
             indicatorLookUp: {}
         };
 
-        var j = 1;
+        var j = 1; //current
         //var j = 2;
+        //j = 0;
 
         json.forEach(function (el, i, arr) {
             if (self.isExternalIndicator(el) == true) {
-                extIndicatorLookUp[el] = j;
+                //extIndicatorLookUp[el] = j;
+                var valName = j - 1;
+
+                extIndicatorLookUp[el + valName] = j;
+
                 j++;
             }
         });
@@ -2582,27 +2587,354 @@ function TradeRiserViewModel(tradeRiserProxy) {
         return tempIndicatorParentLookUp;
     };
 
-    this.createLookUp = function (json) {
+    this.createStartingValueLookUp = function (json) {        
+            var i,
+                len = json.length,
+                out = [],
+                obj = {};
+            var dataLookUp = {};
+
+            for (i = 0; i < len; i++) {
+                obj[json[i]] = 0;
+            }
+            for (i in obj) {
+                dataLookUp[i] = 0;
+                //out.push(i);
+            }
+            return dataLookUp;
+    };
+
+    //creates unique list with flag to handle repeated indicators
+    this.createStartingValueLookUpSpecial = function (json) {
+        var i,
+            len = json.length,
+            out = [],
+            obj = {};
+        var dataLookUp = {};
+
+        for (i = 0; i < len; i++) {
+            obj[json[i]] = 0;
+        }
+        for (i in obj) {
+            dataLookUp[i] = { firstRepeatflag: false, currentCount: 0 };
+        }
+        return dataLookUp;
+    };
+
+    this.repeatedIndicatorHandling = function (currentElement, repeatedList) {
+
+        var indicatorKey = '';
+        var counterFlag = repeatedList[currentElement];
+
+        if (typeof counterFlag !== 'undefined') {
+            switch (currentElement) {
+                case 'OutSlowKData':
+                    {
+                        if (counterFlag.firstRepeatflag == false) {
+                            counterFlag.firstRepeatflag = true;
+                            counterFlag.currentCount = 1;
+                        }
+                        else {
+                            counterFlag.currentCount = counterFlag.currentCount + 2;
+                        }
+                    } break;
+
+                case 'OutSlowDData':
+                    {
+                        if (counterFlag.firstRepeatflag == false) {
+                            counterFlag.firstRepeatflag = true;
+                            counterFlag.currentCount = 0;
+                        }
+                        else {
+                            counterFlag.currentCount = counterFlag.currentCount + 2;
+                        }
+                    }
+                    break;
+
+                case 'UpperBand':
+                    {
+                        if (counterFlag.firstRepeatflag == false) {
+                            counterFlag.firstRepeatflag = true;
+                            counterFlag.currentCount = 1;
+                        }
+                        else {
+                            counterFlag.currentCount = counterFlag.currentCount + 3;
+                        }
+                    } break;
+
+                case 'LowerBand':
+                    {
+                        if (counterFlag.firstRepeatflag == false) {
+                            counterFlag.firstRepeatflag = true;
+                            counterFlag.currentCount = 1;
+                        }
+                        else {
+                            counterFlag.currentCount = counterFlag.currentCount + 3;
+                        }
+                    }
+                    break;
+
+                case 'MiddleBand':
+                    {
+                        if (counterFlag.firstRepeatflag == false) {
+                            counterFlag.firstRepeatflag = true;
+                            counterFlag.currentCount = 0;
+                        }
+                        else {
+                            counterFlag.currentCount = counterFlag.currentCount + 3;
+                        }
+                    }
+                    break;
+
+                case 'ATR':
+                case 'STDEV':
+                case 'RSI':
+                case 'SMA':
+                case 'CCI':
+                case 'OBV':
+                case 'EMA':
+                    {
+                        if (counterFlag.firstRepeatflag == false) {
+                            counterFlag.firstRepeatflag = true;
+                            counterFlag.currentCount = 0;
+                        }
+                        else {
+                            counterFlag.currentCount = counterFlag.currentCount + 1;
+                        }
+                    }
+                    break;
+            }
+        }
+
+        if (typeof counterFlag === 'undefined') {
+            indicatorKey = currentElement;
+        }
+        else {
+            indicatorKey = currentElement + counterFlag.currentCount;
+        }
+
+
+        var final = { Indicator : indicatorKey, UpdatedLookup : repeatedList };
+        return final;
+    };
+
+    this.createLookUp = function (json, subWidgets) {
         var dataLookUp = {};
         var tempLookUp = {};
+        var dataListKey = [];
+
+        var subWidgetsMarking = [];
 
         json.forEach(function (el, i, arr) {
+            var currentCount = tempLookUp[el.Key];
+            if (typeof currentCount !== 'undefined') {
+                tempLookUp[el.Key] = currentCount + 1;
+            }
+            else {
+                tempLookUp[el.Key] = 1;
+            }
 
-            json.forEach(function (nu, j, arrd) {
+            subWidgetsMarking.push([el.Key, el.Value, false]);
+            //dataListKey.push(el.Key);
+        });
 
-                if (el.Key == nu.Key && i != j) {
-                    
-                    var currentCount = tempLookUp[el.Key];
-                    if (typeof currentCount !== 'undefined') {
-                        tempLookUp[el.Key] = currentCount + 1;
-                    }
-                    else {
-                        tempLookUp[el.Key] = 1;
+        //Repeated Indicators only
+        json.forEach(function (firstElement, i, arr) {
+            json.forEach(function (secondElement, j, arr) {
+                if (i != j && firstElement.Key == secondElement.Key) {
+                    dataListKey.push(firstElement.Key);
+                }
+            });
+        });
+
+
+        var repeatedIndicatorLookupWithFlags = self.createStartingValueLookUpSpecial(dataListKey);
+
+
+        var ManySet = false;
+        // generate the lookup table for reuse
+        json.forEach(function (el, i, arr) {
+
+            var index = i - 1;
+            if (index === -1) index = 0;
+
+            var nameLookUp = el.Key + "" + index;
+
+            var currentCount = tempLookUp[el.Key];
+            if (typeof currentCount !== 'undefined') {
+                index = currentCount - 1;
+                tempLookUp[el.Key] = index;
+
+                //nameLookUp = el.Key + "" + index;
+
+                var nameLookUp = self.repeatedIndicatorHandling(el.Key, repeatedIndicatorLookupWithFlags);
+
+                dataLookUp[nameLookUp.Indicator] = el.Value;
+
+
+
+            }
+            else {
+                nameLookUp = el.Key;
+            }
+
+            if (el.Key == "RAW") {
+                nameLookUp = el.Key;
+                dataLookUp[nameLookUp] = el.Value;
+            }
+
+
+            //else {
+            //    var found = false;
+            //    for (var e = 0; e < subWidgetsMarking.length; e++) {
+            //        if (el.Key == subWidgetsMarking[e][0]
+            //            && false == subWidgetsMarking[e][2]) {
+            //            var nameIndx = e - 1
+            //            var nameLookUpSet = subWidgetsMarking[e][0] + "" + nameIndx;
+            //            dataLookUp[nameLookUpSet] = subWidgetsMarking[e][1];
+
+            //            subWidgetsMarking[e][2] = true;
+            //        }
+            //    }
+            //}
+
+
+        });
+
+
+
+
+        return dataLookUp;
+    };
+
+
+    this.createLookUpOld = function (json, subWidgets) {
+        var dataLookUp = {};
+        var tempLookUp = {};
+        var subWidgetsMarking = [];
+
+        json.forEach(function (el, i, arr) {
+            var currentCount = tempLookUp[el.Key];
+            if (typeof currentCount !== 'undefined') {
+                tempLookUp[el.Key] = currentCount + 1;
+            }
+            else {
+                tempLookUp[el.Key] = 1;
+            }
+
+            subWidgetsMarking.push([el.Key, el.Value, false]);
+
+        });
+
+
+        for (var i = 0; i < subWidgets.length; i++){
+            var nameLookUp = subWidgets[i] + "" + i; 
+            //dataLookUp[nameLookUp];
+        }
+        
+
+        var ManySet = false;
+        // generate the lookup table for reuse
+        json.forEach(function (el, i, arr) {
+
+            var index = i - 1;
+            if (index === -1) index = 0;
+
+            var nameLookUp = el.Key + "" + index;
+
+            var currentCount = tempLookUp[el.Key];
+            if (typeof currentCount !== 'undefined') {
+                index = currentCount - 1;
+                tempLookUp[el.Key] = index;
+
+                nameLookUp = el.Key + "" + index;
+            }
+            else {
+                nameLookUp = el.Key;
+            }
+
+            if (el.Key == "RAW") {
+                nameLookUp = el.Key;
+                dataLookUp[nameLookUp] = el.Value;
+            }
+            else {
+                var found = false;
+                for (var e = 0; e < subWidgetsMarking.length; e++) {
+                    if (el.Key == subWidgetsMarking[e][0]
+                        && false == subWidgetsMarking[e][2])
+                    {
+                        var nameIndx = e - 1
+                        var nameLookUpSet = subWidgetsMarking[e][0] + "" + nameIndx;
+                        dataLookUp[nameLookUpSet] = subWidgetsMarking[e][1];
+
+                        subWidgetsMarking[e][2] = true;
+
+                        //subWidgetsMarking.push(el.Key, true);
+
+                       // subWidgets.splice(e, 1);
+                        //break;
                     }
                 }
 
-            });
+                //for (var i = 0; i < subWidgets.length; i++) {
+                //    var nameLookUpSet = subWidgets[i] + "" + i;
+                //    dataLookUp[nameLookUpSet] = el.Value;
+                //}
+
+            }
+
+
         });
+
+
+
+
+        return dataLookUp;
+    };
+
+    this.createLookUpOriginalOld = function (json) {
+        var dataLookUp = {};
+        var tempLookUp = {};
+
+        //json.forEach(function (el, i, arr) {
+
+        //    json.forEach(function (nu, j, arrd) {
+
+        //        if (el.Key == nu.Key && i != j) {
+                    
+        //            var currentCount = tempLookUp[el.Key];
+        //            if (typeof currentCount !== 'undefined') {
+        //                tempLookUp[el.Key] = currentCount + 1;
+        //            }
+        //            else {
+        //                tempLookUp[el.Key] = 1;
+        //            }
+        //        }
+
+        //    });
+        //});
+
+
+        json.forEach(function (el, i, arr) {
+            //if (el.Key == nu.Key && i != j) {
+
+                var currentCount = tempLookUp[el.Key];
+                if (typeof currentCount !== 'undefined') {
+                    tempLookUp[el.Key] = currentCount + 1;
+                }
+                else {
+                    tempLookUp[el.Key] = 1;
+                }
+            //}
+        });
+
+
+
+
+
+
+
+
 
         var ManySet = false;
         // generate the lookup table for reuse
@@ -2652,9 +2984,9 @@ function TradeRiserViewModel(tradeRiserProxy) {
     };
 
 
-    this.initalizeSubWidgets = function (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray) {
+    this.initalizeSubWidgets = function (presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount) {
 
-        PrepareChartData(presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray);
+        PrepareChartData(presentationTypes, index, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount);
     }
 
     this.convertToNumericKeyID = function (selectChartKey) {
