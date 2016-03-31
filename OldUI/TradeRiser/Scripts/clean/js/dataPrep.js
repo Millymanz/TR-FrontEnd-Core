@@ -39,7 +39,7 @@ function GenerateRandomColour() {
     return textArray[randomNumber];
 }
 
-function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount) {
+function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly) {
     
     try
     {
@@ -589,13 +589,13 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         }
 
 
-                        var indicatorName = widgetName;
+                       var indicatorName = extIndicatorLookUpNamesOnly[ss];
                         //var selectIndicator = ss + 1;
                         //var selectIndicator = lineIndx + 1;
 
                         //var selectIndicator = lineIndx + 1;
 
-                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName + ss];
+                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
                         
                         selectChartKey = selectChartKey + indicatorName;
                        
@@ -846,11 +846,14 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         //    widgetName = "Stochastic";
                         //}
 
-                        var indicatorName = presentationTypes.SubWidgets[ss];
+                        //var indicatorName = presentationTypes.SubWidgets[ss];
                         var selectIndicator = ss + 1;
+
+                         var indicatorName = extIndicatorLookUpNamesOnly[ss];
+
                         //var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName + selectIndicator];
 
-                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName + ss];
+                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
 
 
                         selectChartKey = selectChartKey + indicatorName;
