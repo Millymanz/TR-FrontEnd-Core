@@ -930,12 +930,36 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                 case 'MACD':
                     {
                         var indicatorName = "MACD";
+                        var widgetName = indicatorName;
 
                         selectChartKey = selectChartKey + "MACD";
 
-                        var dataMACD = dataLookUp["MACDLine"];
-                        var dataSignal = dataLookUp["SignalLine"];
-                        var dataMACDHistogram = dataLookUp["MACDHistogram"];
+                        var startIndex = uniqueLookUpCount[widgetName];
+
+                        var macdLineIndx = startIndex + 2;
+                        var signalLineIndx = startIndex + 1;
+                        var macdHistogramIndx = startIndex + 0;
+
+
+                        var dataMACD = dataLookUp["MACDLine" + macdLineIndx];
+                        var dataSignal = dataLookUp["SignalLine" + signalLineIndx];
+                        var dataMACDHistogram = dataLookUp["MACDHistogram" + macdHistogramIndx];
+
+                        var indicatorName = extIndicatorLookUpNamesOnly[ss];
+                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
+                        selectChartKey = selectChartKey + indicatorName;
+
+                        if (typeof dataMACD !== 'undefined' && typeof dataSignal !== 'undefined' && typeof dataMACDHistogram !== 'undefined') {
+      
+                            uniqueLookUpCount[widgetName] = uniqueLookUpCount[widgetName] + 3;
+                        }
+                        else {
+                            dataMACD = dataLookUp["MACDLine"];
+                            dataSignal = dataLookUp["SignalLine"];
+                            dataMACDHistogram = dataLookUp["MACDHistogram"];
+                        }
+
+
 
                         if (dataMACD != null || dataMACD !== undefined) {
                             var dataLength = dataMACD.length;
@@ -960,14 +984,12 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                     dataMACDHistogram[ri][1] // the close
                                 ])
                             }
-                            var axis = extIndicatorLookUp.indicatorLookUp[indicatorName];
-
 
                           var macdChartItem = {
                                 type: 'line',
                                 name: 'MACDline',
                                 data: macdArray,
-                                yAxis: axis
+                                yAxis: yAxisPos
                             }
                             arraySeries.push(macdChartItem);
 
@@ -977,7 +999,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 type: 'line',
                                 name: 'signalLine',
                                 data: macdSignalArray,
-                                yAxis: axis
+                                yAxis: yAxisPos
                             }
                             arraySeries.push(signalChartItem);
 
@@ -987,7 +1009,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                                 color: '#ff4d4d',
                                 name: 'MACDHistogram',
                                 data: macdHistogramArray,
-                                yAxis: axis
+                                yAxis: yAxisPos
                             }
                             arraySeries.push(macdHistogramChartItem);
 

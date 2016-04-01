@@ -2701,6 +2701,41 @@ function TradeRiserViewModel(tradeRiserProxy) {
                     }
                     break;
 
+                case 'MACDLine':
+                    {
+                        if (counterFlag.firstRepeatflag == false) {
+                            counterFlag.firstRepeatflag = true;
+                            counterFlag.currentCount = 2;
+                        }
+                        else {
+                            counterFlag.currentCount = counterFlag.currentCount + 3;
+                        }
+                    } break;
+
+                case 'SignalLine':
+                    {
+                        if (counterFlag.firstRepeatflag == false) {
+                            counterFlag.firstRepeatflag = true;
+                            counterFlag.currentCount = 1;
+                        }
+                        else {
+                            counterFlag.currentCount = counterFlag.currentCount + 3;
+                        }
+                    }
+                    break;
+
+                case 'MACDHistogram':
+                    {
+                        if (counterFlag.firstRepeatflag == false) {
+                            counterFlag.firstRepeatflag = true;
+                            counterFlag.currentCount = 0;
+                        }
+                        else {
+                            counterFlag.currentCount = counterFlag.currentCount + 3;
+                        }
+                    }
+                    break;
+
                 case 'ATR':
                 case 'STDEV':
                 case 'RSI':
