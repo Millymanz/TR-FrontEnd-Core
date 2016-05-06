@@ -27,7 +27,6 @@ namespace TradeRiser
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
-
             TradeRiser.Logger.Setup();
             TradeUtility.Setup();
         }
