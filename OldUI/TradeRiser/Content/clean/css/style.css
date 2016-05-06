@@ -560,6 +560,32 @@ box-shadow:1px 1px 2px rgba(0,0,0,0.07) ,inset 1px 1px 0px rgba(255,255,255,0.25
     left:15px;
 }*/
 
+/*.simpleEconomicTable {
+
+}*/
+
+.simpleEconomicTable table {
+    /*border-collapse: collapse;
+    width: 100%;
+    border: 1px solid grey;*/
+
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 0px solid #cbcbcb;
+    width: 1000px;
+    position:absolute;
+
+    color: #777;
+    line-height: 1.6;
+}
+.simpleEconomicTable tr:nth-child(even){background-color: #f2f2f2}
+.simpleEconomicTable th, .simpleEconomicTable td {
+    text-align: left;
+    padding: 8px;
+    border: 0px solid grey;
+}
+
 .genericResultsTable {
     /*border: 1px solid black;*/
     border-collapse: separate;

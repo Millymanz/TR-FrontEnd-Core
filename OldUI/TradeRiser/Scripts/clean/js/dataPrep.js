@@ -183,6 +183,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                     break;
 
                 case 'SMA':
+                case 'NORMAL':
                     {
                         //var dataResults = {};
                         //var widgetName = presentationTypes.SubWidgets[ss];
