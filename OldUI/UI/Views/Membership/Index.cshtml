@@ -1,0 +1,89 @@
+﻿@using TradeRiser.Core.Membership
+@using TradeRiser.UI
+@model TradeRiser.UI.Models.UserModel
+@{
+    //this.ViewBag.Title = TradeRiserUIResource.Account_Title;
+    //TradeRiser.UI.TradeRiserUIResource
+    var tex = string.Empty;
+}
+@section jQueryLoad
+{
+    
+}
+    @section ribbon
+{
+       <li class="nav-item">
+        <a href="@Url.Action("New", "Membership")" class="nav-link">
+            <span class="fa fa-fw fa-plus-circle"></span>@Html.Raw(TradeRiserUIResource.Ribbon_Membership_NewGroup)
+        </a>
+    </li>
+    @*<li class="nav-item">
+        <a id="membership-button-edit" class="disabled nav-link" href="">
+            <span class="fa fa-fw fa-pencil"></span>@Html.Raw(TradeRiserUIResource.Ribbon_Membership_EditGroup)
+        </a>
+    </li>
+    <li class="nav-item">
+        <a id="membership-button-delete" class="disabled nav-link" href="">
+            <span class="fa fa-fw fa-trash-o"></span>@Html.Raw(TradeRiserUIResource.Ribbon_Membership_DeleteGroup)
+        </a>
+    </li>
+    <li class="nav-item">
+        <a id="membership-button-disable" class="disabled nav-link" href="">
+            <span class="fa fa-fw fa-toggle-off"></span>@Html.Raw(TradeRiserUIResource.Ribbon_Membership_DisableGroup)
+        </a>
+    </li>
+    <li class="nav-item">
+        <a id="membership-button-enable" class="disabled nav-link" href="">
+            <span class="fa fa-fw fa-toggle-on"></span>@Html.Raw(TradeRiserUIResource.Ribbon_Membership_EnableGroup)
+        </a>
+    </li>*@
+         
+    }
+    @section subnav
+{
+        @*@{this.Html.RenderPartial("_UserMenu", "account");}*@
+    }
+    @*3196 CFP Header updates added settings-contents class -style="margin-top: 20px;*@
+<div class="settings-content page-content">
+    <div class="section">
+        <div class="section-title">
+            <div class="title-wrapper">
+                @* @TradeRiserUIResource.PersonalInformation_SectionHeading*@
+            </div>
+        </div>
+        @*<div class="section-title-empty" ></div>*@
+        <div class="section-content" id="security-settings">
+            <table>
+                <thead>
+                    <tr>
+                        <th>UserName</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Last LogOn Date</th>
+                        <th>Locked</th>
+                        <th>Disabled</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                   
+                        @foreach (User user in this.Model.Users)
+                        {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>@user.FirstName</td>
+                            <td>@user.LastName</td>
+                            <td>@user.Email</td>
+                            <td>@user.LastLogOnDate</td>
+                            <td>@user.Locked</td>
+                            <td>@user.Disabled</td>
+                             <td><a href="~/membership/edit/@user.UserName">Edit</a></td>
+                        </tr>
+                        }
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

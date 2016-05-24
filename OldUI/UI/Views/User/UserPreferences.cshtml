@@ -1,0 +1,74 @@
+﻿@using TradeRiser.Core
+@using TradeRiser.UI.Areas.Cpf
+@using TradeRiser.UI.Areas.Cpf
+@model TradeRiser.Core.Models.UserModel
+
+@{
+    this.ViewBag.Title = TradeRiserUIResource.Preferences_Title;
+    this.ViewBag.ShowHeader = TradeRiser.UI.ShowHeader.Show;
+    string selected = this.Model.ExistingValues.Key;
+
+    string[] ignoredApps = this.Director.Configuration.GetConfigItem<string>("Core.DisabledApplications", "").Split(',');
+}
+@section jQueryLoad
+{
+    userpreferences.load();
+}
+@section head
+{
+    <script type="text/javascript">
+        $(function () {
+            userpreferences.user = '@this.Model.FirstName' + ' ' + '@this.Model.LastName';
+
+            //$('#wheel').minicolors();
+        });
+    </script>
+
+    <link href="@this.Url.CpfContent("~/styles/jquery.minicolors.css", this.Director)" rel="stylesheet" type="text/css" />
+
+}
+@section ribbon
+{
+    @*<div class="section" data-title="@TradeRiserUIResource.Ribbon_MySettings">*@
+
+    <li class="nav-item">
+        <a id="save" href="#" class="nav-link">
+            <span class="fa fa-fw fa-save"></span>@Html.Raw(TradeRiserUIResource.Ribbon_User_Save)
+        </a>
+    </li>
+
+    @*</div>*@
+}
+@section subnav
+{
+    @{this.Html.RenderPartial("_UserMenu", "userpreferences");}
+}
+<div class="settings-content page-content">
+    <div class="section">
+        <div class="section-title">
+            <div class="title-wrapper">@TradeRiserUIResource.UserPreferences_Title_HomePage</div>
+        </div>
+        <ul class="section-content" id="user-apps-list">
+            @{
+                List<TradeRiser.Core.Membership.Apps> apps = this.Model.Apps;
+                foreach (TradeRiser.Core.Membership.Apps app in apps)
+                {
+                    <li>
+                        @if (@app.Name == selected)
+                        {
+                        <label>
+                            <input class="settings-app-radio" type="radio" app-url="@app.Url" data-app-name="@app.Name" name="user-apps" checked /><span class="fa-fw fa">@Html.Raw(app.IconImagePath)</span><span>@this.Director.VariableParser.Parse(app.DisplayName)</span>
+                        </label>
+                        }
+                        else
+                        {
+                        <label>
+                            <input class="settings-app-radio" type="radio" app-url="@app.Url" data-app-name="@app.Name" name="user-apps" /><span class="fa-fw fa">@Html.Raw(app.IconImagePath)</span><span>@this.Director.VariableParser.Parse(app.DisplayName)</span>
+                        </label>
+                        }
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>

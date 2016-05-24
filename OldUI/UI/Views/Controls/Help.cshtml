@@ -1,0 +1,7 @@
+﻿@{
+    Layout = null;
+}
+
+@model TradeRiser.UI.Controls.HelpControl
+
+<a tabindex="0" id="@this.Model.TargetID-help-link" class="help-link fa fa-question-circle bd-popover @this.Model.CSSClass" role="button" data-toggle="popover" data-trigger="focus" title="Help" data-placement="bottom" data-content="@this.Model.Content"></a>

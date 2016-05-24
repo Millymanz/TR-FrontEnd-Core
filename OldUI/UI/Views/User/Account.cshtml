@@ -1,0 +1,57 @@
+﻿@using TradeRiser.Core
+@using TradeRiser.UI
+@model TradeRiser.UI.Models.UserModel
+@{
+    this.ViewBag.Title = TradeRiserUIResource.Account_Title;
+
+    /*3196 CFP Header updates*/
+    this.ViewBag.ShowHeader = TradeRiser.UI.ShowHeader.Show;
+}
+@section jQueryLoad
+{
+    settings.details.load();
+}
+@section ribbon
+{
+    @*<div class="section" data-title="@TradeRiserUIResource.Ribbon_MySettings" >*@
+
+    <li class="nav-item">
+        <a id="save" href="#" class="nav-link">
+            <span class="fa fa-fw fa-save"></span>@Html.Raw(TradeRiserUIResource.Ribbon_User_Save)
+        </a>
+    </li>
+
+    @*</div>*@
+}
+@section subnav
+{
+    @{this.Html.RenderPartial("_UserMenu", "account");}
+}
+@*3196 CFP Header updates added settings-contents class -style="margin-top: 20px;*@
+<div class="settings-content page-content">
+    <div class="section">
+        <div class="section-title">
+            <div class="title-wrapper">
+                @TradeRiserUIResource.PersonalInformation_SectionHeading
+            </div>
+        </div>
+        @*<div class="section-title-empty" ></div>*@
+        <div class="section-content" id="security-settings">
+            <label for="first-name">@TradeRiserUIResource.Settings_FirstName @Html.ValidationControl("first-name", true)</label>
+            <input type="text" id="first-name" name="first-name" maxlength="255" class="form-control cpftxt" value="@Model.FirstName" @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />
+            <label for="last-name">@TradeRiserUIResource.Settings_LastName @Html.ValidationControl("last-name", true)</label>
+            <input type="text" id="last-name" name="last-name" maxlength="255" class="form-control cpftxt" value="@Model.LastName" @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />
+            <label for="email">@TradeRiserUIResource.Settings_Email @Html.ValidationControl("email", true)</label>
+            <input type="text" id="email" name="email" maxlength="255" class="form-control cpftxt" value="@Model.EmailAddress" @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />
+            <label for="select-language">
+                @TradeRiserUIResource.Settings_Language
+        </label>
+        <select id="select-language" name="language">
+            @foreach (KeyValuePair<string, string> language in this.Model.LanguageList)
+            {
+                <option value="@language.Key" label="@language.Value" @(language.Key == this.Model.Language ? "selected='selected'" : string.Empty)>@language.Value</option>
+            }
+        </select>
+    </div>
+</div>
+</div>
