@@ -71,9 +71,7 @@
                 <input type="text" placeholder="Email*"  id="email" name="email" maxlength="255" class="form-control cpftxt" value="@Model.Email" @Html.ValidationAttributes(new ValidationAttributes() { Required = true, Email = true }) />
                 
            
-                   <label for="country">
-                    Country
-                </label>
+                   <label for="country">Country</label>
                  <div class="select-wrapper">
                     <select id="country" name="country" @Html.ValidationAttributes(new ValidationAttributes() { Required = true })>
                         @foreach (KeyValuePair<string, string> country in @Model.Countries)

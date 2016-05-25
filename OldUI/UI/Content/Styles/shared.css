@@ -99,15 +99,15 @@ h1 {
     font-size: 1.75em;
 }*/
 
-h2 {
+.section h2 {
     font-size: 1.7em;
 }
 
-h3 {
+.section h3 {
     font-size: 1.2em;
 }
 
-h4 {
+.section h4 {
     font-size: 1.1em;
 }
 
@@ -327,7 +327,7 @@ label {
     }
 
     .btn:hover {
-       background: #123C65; 
+       background: transparent; 
     }
 
     .btn.btn-secondary:hover {
@@ -363,7 +363,7 @@ label {
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi) {
     .select-wrapper {
-        background-image: url(../Images/$(SortIcon)@2x.png);
+        /*background-image: url(../Images/$(SortIcon)@2x.png);*/
         background-size: .4375rem .625rem;
     }
 }

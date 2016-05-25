@@ -95,12 +95,12 @@ a.sign-up:link ,sign-up a:visited {
     text-align: center;
     font-size: 0.8125rem;
     line-height: 1rem;
-    color: $(TextMuted);
+    /*color: $(TextMuted);*/
     padding:20px 45px 20px 45px;
     /*position:absolute;*/
-    background-color:#000;
-    opacity:0.95;
-    min-height:420px !important;
+    background-color:#303030;/*#000;*/
+    /*opacity:0.95;*/
+    min-height:385px !important;
     
     
 }
@@ -112,16 +112,22 @@ a.sign-up:link ,sign-up a:visited {
     text-align: center;
     font-size: 0.8125rem;
     line-height: 1rem;
-    color: $(TextMuted);
+   /* color: $(TextMuted);*/
     padding:20px;
     /*position:absolute;*/
-    background-color:#000;
-    opacity:0.95;
-    min-height:420px !important;
+    background-color: #303030 ; /*#000;
+    opacity:0.95;*/
+    min-height:385px !important;
     vertical-align:top;
     
 }
 
+#forgot-password-section{
+    padding-top:20px;
+}
+#forgot-button-section {
+    padding-top:50px;
+}
 .signin-section .logon-label {
     padding: 25px 0 15px 0;
 }
@@ -158,6 +164,7 @@ ul li.new-label {
     text-align: left;
     margin-top: 0;
 }
+
 
 #remember-me-section label {
     text-align: center;
