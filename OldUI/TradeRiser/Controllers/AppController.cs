@@ -30,18 +30,21 @@ namespace TradeRiser.Controllers
         [OutputCache(NoStore = true, Duration = 0)]
         public ActionResult Index()
         {
-            var customTokenItem = Session["accesstoken"];
+            var customToken = new CustomToken();
+            return View(customToken);
 
-            if (customTokenItem != null)
-            {
-                var customToken = (CustomToken)customTokenItem;
+            //var customTokenItem = Session["accesstoken"];
 
-                if (customToken != null)
-                {
-                    return View(customToken);
-                }
-            }
-            return RedirectToAction("Index", "AppInfo");
+            //if (customTokenItem != null)
+            //{
+            //    var customToken = (CustomToken)customTokenItem;
+
+            //    if (customToken != null)
+            //    {
+            //        return View(customToken);
+            //    }
+            //}
+            //return RedirectToAction("Index", "AppInfo");
 
         }
 

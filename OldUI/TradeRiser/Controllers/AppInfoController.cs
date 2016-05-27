@@ -28,27 +28,32 @@ namespace TradeRiser.Controllers
         }
            
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        [OutputCache(NoStore = true, Duration = 0)]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //[OutputCache(NoStore = true, Duration = 0)]
         public ActionResult Index(LoginModel model, string returnUrl)
         {
-            var restClient = new RestClient();
+            returnUrl = "/App";
+            return RedirectToLocal(returnUrl);
 
-            var customToken = restClient.AuthenticateUser(model.UserName, model.Password);
-            if (customToken != null)
-            {
-                returnUrl = "/App";
 
-                FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                Session.Add("accesstoken", customToken);
 
-                return RedirectToLocal(returnUrl);
-            }
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            //var restClient = new RestClient();
 
-            return View(model);
+            //var customToken = restClient.AuthenticateUser(model.UserName, model.Password);
+            //if (customToken != null)
+            //{
+            //    returnUrl = "/App";
+
+            //    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+            //    Session.Add("accesstoken", customToken);
+
+            //    return RedirectToLocal(returnUrl);
+            //}
+            //// If we got this far, something failed, redisplay form
+            //ModelState.AddModelError("", "The user name or password provided is incorrect.");
+
+            //return View(model);
         }
 
         [HttpPost]
