@@ -176,3 +176,79 @@ input[type="text"], input[type="password"], select, textarea, .form-control {
 input.input-validation-error {
     border: 1px solid #e80c4d;
 }
+
+/************************** Alert **************************/
+
+#alert, 
+#forgot-password-alert,
+#refresh-results-box {
+    position: fixed;
+    bottom: 1.25rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 120;
+    display: none;
+    border: 0;
+    background: transparent;
+}
+
+.alert-body {
+    padding: 1rem;
+    background: red;
+    color: red;
+    position: relative;
+    display: inline-block;
+    border: 1px solid green;
+    line-height: 1rem;
+    max-width: 70%;
+}
+
+.alert-body .btn {
+    border-color: $(TextContrast);
+    color: $(TextContrast);
+}
+
+    .alert-body .btn:hover {
+        background: red;
+        color: red;
+    }
+
+.alert-body .message {
+    margin-right: .5rem;
+}
+
+.alert-body.bg-success {
+    background: green;
+}
+
+.alert-body.bg-warning {
+    background: yellow;
+}
+
+.alert-body.bg-danger {
+    background: red;
+}
+
+
+#show-errorlogs-button {
+    display: none;
+}
+
+    #show-errorlogs-button .down {
+        display: none;
+    }
+
+#error-logs-wrapper {
+    position: relative;
+    margin-top: 1rem;
+    padding: 1rem;
+    display: none;
+    z-index: 99;
+}
+
+.closebutton-wrapper {
+    cursor: pointer;
+    float: right;
+    margin-left: .375rem;
+}

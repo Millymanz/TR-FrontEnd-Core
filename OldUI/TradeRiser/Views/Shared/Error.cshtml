@@ -8,3 +8,38 @@
     <h1 class="error">Error.</h1>
     <h2 class="error">An error occurred while processing your request.</h2>
 </hgroup>
+@*@using TradeRiser.UI
+@model TradeRiser.UI.ErrorDetails 
+@{
+    switch (this.Model.ErrorType)
+    {
+        case ErrorType.Information:
+            this.ViewBag.Title = TradeRiserUIResource.Error_PageTitle;
+            break;
+        case ErrorType.Warning:
+            this.ViewBag.Title = TradeRiserUIResource.Warning_PageTitle;
+            break;
+        case ErrorType.Forbidden:
+            this.ViewBag.Title = TradeRiserUIResource.Forbidden_PageTitle;
+            break;
+        default:
+            this.ViewBag.Title = TradeRiserUIResource.Error_PageTitle;
+            break;
+    }
+}
+@section  head
+{
+}
+@section subnav{
+}
+@section ribbon
+            {
+
+    <li class="nav-item">
+        <button id="back-button" onclick="window.history.back()" class="nav-link">
+            <span class="fa fa-fw fa-chevron-left"></span>@Html.Raw(TradeRiserUIResource.Ribbon_BackButton)
+        </button>
+    </li>
+    
+}
+@Html.Partial("~/views/shared/_ErrorDetails.cshtml", this.Model)*@

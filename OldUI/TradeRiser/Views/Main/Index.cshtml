@@ -1,0 +1,1019 @@
+﻿@model TradeRiser.Models.CustomToken
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TradeRiser - Demo</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../../NewFrontEnd/css/jquery-ui-1.10.3.custom.min.css">
+
+    <link rel="stylesheet" href="../../Content/clean/css/style.css">
+
+    @*<link rel="stylesheet" href="../../NewFrontEnd/css/style.css">*@
+
+    <link rel="shortcut icon" href="../../Images/traderiser.ico" />
+    <link rel="stylesheet" href="../../Content/jquery.dynatable.css">
+    <link rel="stylesheet" href="../../Scripts/Highstock-2.1.8/css/speech-bubble.css">
+    <link rel="stylesheet" type="text/css" href="../../Scripts/Highstock-2.1.8/css/custom-candlestick.css">
+    <link href="../../Content/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../Scripts/AutoSuggest/css/ddEdit_bootstrap.css">
+
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">*@
+    @*<link href="../../Scripts/AutoSuggest/css/sticky-footer-navbar.css" rel="stylesheet">*@
+
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">*@
+
+
+    <link rel="stylesheet" href="../../Scripts/AutoSuggest/css/bootstrap-suggest.css">
+
+
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../Scripts/AutoSuggest/js/ie-emulation-modes-warning.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../Scripts/AutoSuggest/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+
+</head>
+<body>
+
+    <!-- Header bar -->
+    <div class="headerApp">
+
+        <div class="searchbox">
+            <!-- <a href="#" class="btnBottom-splitter">Hide Summary Toolbar</a> -->
+
+            <div class="searchact">
+                <a href="#" class="btn-act btn-chart transition">Chart</a>
+                <a href="#" class="btn-act btn-drop transition">Drop</a>
+            </div>
+            <div id="searchboxArea">
+
+                <div id="contenthandle">
+                    <form id="searchForm" method="post">
+                        <input data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" id="testIndex" name="searchQuery" size="72"
+                            placeholder="Enter what you would like query or know about the Forex markets?" class="inputbox transition input-search" autocomplete="off" />
+                        <div data-bind="click: getAnswer" id="compute" value="SEARCH" class="btnSearcher btn-search transition" style="cursor: pointer;">GET ANSWER</div>
+
+                        <div id="queryDropDown">
+                            <div class="form-group">
+                                <br />
+                                <br />
+                                <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" id="textArea"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                @*           <form id="searchForm" method="post">
+                <input data-bind="value: mainQuery" id="testIndex" name="searchQuery" size="72"
+                            placeholder="Enter what you would like query or know about the Forex markets?" class="inputbox transition input-search" autocomplete="off" />
+                <div data-bind="click: getAnswer" id="compute" value="SEARCH" class="btn btn-search transition" style="cursor: pointer;">GET ANSWER</div>
+                        
+                <div id="queryDropDown">
+                    <textarea data-bind="value: mainQuery" rows="7" cols="101" name="textArea" id="textArea"></textarea>
+
+                    </div>
+                   </form>
+              </div>*@
+
+
+
+
+
+
+            </div>
+            <div id="divTextArea" class="dimension"></div>
+            <div id="divLineLenght" class="dimension"></div>
+            <input type="text" id="hidden_typehead" />
+            <input type="text" id="hidden_height_line" />
+            <div id="tip" style='width: 20px; height: 5px; background-color: red; display: none; position: absolute; background-color: red; font-size: 0;'></div>
+        </div>
+
+        <div style="top: 7px; left: 5px; position: absolute">
+            <img alt="TradeRiser" src="../../../Images/TradeRiser_Web.png" border="0" height="50" width="235">
+        </div>
+
+        <div class="brokerLogo">
+            BROKER LOGO
+        </div>
+
+        @*  <div class="user">
+    <a href="#" class="btn-user transition">
+      
+      JOHN DOE<i class="icn icn-carret"></i>
+    </a>
+    <ul class="drop">
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </div>*@
+
+        <div class="user">
+            @if (Request.IsAuthenticated)
+            {
+                <a href="#" class="btn-user transition">
+
+                    @User.Identity.Name
+                    <i class="icn icn-carret"></i>
+                </a>
+                <ul class="drop">
+
+                    <li class="logoutItem">
+
+                        <div id="autoSuggest"><span style="text-align: center">
+                            <input type="checkbox" id="autoSuggestTicker">&nbsp Auto Suggest</span></div>
+                        <div class="logged-out-user-section">
+                            @{ <text> @User.Identity.Name!</text>}
+                            <a class="sign-up" id="menu-bar-sign-out" href="@string.Format("{0}core/logoff", this.Director.ApplicationPath)">Log off</a>
+                        </div>
+                        @*  @using (Html.BeginForm("LogOut", "AppInfo", FormMethod.Post, new { id = "logoutForm" }))
+                         {
+                           <input type="hidden" value=@Model.Username id='u_n' class='h_v' name="hiddens">
+                           <input type="hidden" value=@Model.AccessToken id='a_t' class='h_v' name="hiddens">
+                           <input type="hidden" value=@Model.Password id='p_d' class='h_v' name="hiddens">
+                           
+                           <a href="#" id="logOffAction" style="text-align: center">Log off</a>
+                         }*@
+
+                    </li>
+                </ul>
+            }
+            else
+            {
+                <ul>
+                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                </ul>
+            }
+        </div>
+
+
+
+
+
+    </div>
+    <!-- End Header bar -->
+
+
+
+    <!-- Sidebar -->
+    <div class="sidebar closed">
+
+        <a href="#" class="btn-splitter"></a>
+        <div class="sidebar-inner">
+
+            <!-- Tabs -->
+            <div id="tab-container" class="side-tabs">
+                <ul class='etabs'>
+                    <li class='tab'><a href="#tabs1-tab1" class="first transition"><i class="icn icn-tab1"></i></a></li>
+                    <li class='tab'><a href="#tabs1-tab2" class="transition"><i class="icn icn-tab2"></i></a></li>
+                    <li class='tab'><a href="#tabs1-tab3" class="last transition"><i class="icn icn-tab3"></i></a></li>
+                </ul>
+
+                <!-- Tab 1 -->
+                <div id="tabs1-tab1" class="tabpanel">
+
+                    <div class="titleleftHeader">
+                        <div class="leftSidebarNewTitle">
+                            Query Results
+                        </div>
+                        <div class="subtitleNewHeader">The answers to your query</div>
+
+                        <div class="tab-inner" id="queryResults">
+                            <div data-bind="foreach: onDemandResults">
+                                <div data-bind="template: { name: 'resultCardTemplate', data: $data }, hoverToggle: 'resultCardHover',
+    click: function (data, event) { $parent.retrieveDataResults(data, event) }">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- End Tab 1 -->
+
+                <!-- Tab 2 -->
+                <div id="tabs1-tab2" class="tabpanel">
+                    <div class="titleleftHeader">
+                        <div class="leftSidebarNewTitle">
+                            Notification Results
+                        </div>
+                        <div class="subtitleNewHeader">Continuous query results - Alerts/Notification/Updates</div>
+
+                        <div class="tab-inner" id="emergingResults">
+                            <div data-bind="foreach: continuousResults">
+                                <div data-bind="template: { name: 'continousResultCardTemplate', data: $data }, hoverToggle: 'resultCardHover'">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Tab 2 -->
+
+                <!-- Tab 3 -->
+                <div id="tabs1-tab3" class="tabpanel">
+                    <div class="titleleftHeader">
+                        <div class="leftSidebarNewTitle">
+                            Saved Queries
+                        </div>
+                        <div class="subtitleNewHeader">Saved query results - User favourite queries</div>
+
+                        <div class="tab-inner" id="savedQueries">
+
+                            <div data-bind="foreach: queriesSaved">
+                                <div data-bind="template: { name: 'savedQueryTemplate', data: $data } ">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Tab 3 -->
+
+            </div>
+            <!-- End Tabs -->
+
+        </div>
+    </div>
+    <!-- End Sidebar -->
+
+
+    <!-- Right Sidebar -->
+    <div class="rightSidebar closed">
+
+        <a href="#" class="btnRight-splitter"></a>
+
+        <div class="topRight">
+
+
+            <!-- Tabs -->
+            <div id="tab-containerFollow" class="side-tabs">
+                <ul class='etabs'>
+                    <li class='tab'><a href="#follow-tab1" class="first transition"><i class="icn icn-tab1"></i></a></li>
+                    <li class='tab'><a href="#historic-tab2" class="last transition"><i class="icn icn-tab2"></i></a></li>
+                    <!--<li class='tab'><a href="#tabs1-tab3" class="last transition"><i class="icn icn-tab3"></i></a></li> -->
+                </ul>
+
+                <!-- Tab 1 -->
+                <div id="follow-tab1" class="tabpanel">
+
+                    <div class="titleleftHeader">
+                        <div class="rightSidebarTitle">
+                            Following
+                        </div>
+                        <div class="subtitleHeader">The queries you currently subscribe to</div>
+
+                        <div class="tab-inner" id="followedQueries">
+
+                            <div data-bind="foreach: queriesSubscription">
+                                <div data-bind="template: { name: 'followingQueryTemplate', data: $data } ">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End Tab 1 -->
+
+
+                <!-- Tab 2 -->
+                <div id="historic-tab2" class="tabpanel">
+                    <div class="titleleftHeader">
+                        <div class="rightSidebarTitle">
+                            Historic Queries
+                        </div>
+                        <div class="subtitleHeader">Queries made in the past</div>
+
+                        <div class="tab-inner" id="historicQueries">
+
+                            <div data-bind="foreach: historicQueries">
+                                <div data-bind="template: { name: 'historicQueryTemplate', data: $data }">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Tab 2 -->
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <!-- End Sidebar -->
+
+
+
+
+
+
+
+
+    <!-- bottom Sidebar -->
+    <div class="bottomSidebar closed">
+
+        <div>
+            <a href="#" id="bottombtn-splitter" data-bind="click: toolBottomBar, text: toolBottomBarMessage"></a>
+        </div>
+        <div id="summaryResults"></div>
+
+    </div>
+    <!-- End Sidebar -->
+
+
+
+
+
+
+
+
+    <!-- Bottom Sidebar -->
+    <!-- <div class="bottomSidebar">
+
+  <a href="#" class="btnBottom-splitter"></a>
+  <div class="sidebar-innertest"> 
+    
+  
+    <div  class="side-tabs">     
+ wefwegwe
+      </ul>
+    
+    </div>   
+    
+  </div>
+</div>-->
+    <!-- End Sidebar -->
+
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="content-inner">
+            <div class="pane" id="pane">
+                <!-- Space for app content -->
+            </div>
+        </div>
+    </div>
+
+    <div id="loadchartDia" style="display: none; z-index: 50000; color: black; margin: 150px auto; left: 0; right: 0; width: 70px; height: 70px; position: absolute;">
+    </div>
+
+
+
+
+    <!-- End Main Content -->
+
+
+
+    <!-- Template Collection -->
+
+    <script type="text/html" id="resultCardTemplate">
+        <div class="leftSideQueryItems" data-bind="attr: { id: QueryID }">
+            <div class="blobhead">
+                <div class="resultHeader">
+                    <table class="resultHeaderTable">
+                        <tr>
+                            <td>
+                                <div class="resultIcon">
+                                    <div data-bind="foreach: SymbolImages">
+                                        <img data-bind="attr: { src: $data }" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: Source">-</div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: SymbolID"></div>
+                            </td>
+                            <td>
+                                <div class="resultStartDateTime" data-bind="text: StartDateTime"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="resultTimeFrame" data-bind="text: TimeFrame"></div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol">
+                                </div>
+                            </td>
+                            <td colspan="4">
+                                <div class="resultEndDateTime" data-bind="text: EndDateTime"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="blobcontent">
+
+                <table class="resultFieldsTable" data-bind="foreach: ExtraFields">
+                    <tbody data-bind="foreach: $data">
+                        <tr>
+                            <td data-bind="text: keyfield">:</td>
+                            <td data-bind="text: keydata"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </script>
+
+
+
+    <script type="text/html" id="continousResultCardTemplate">
+        <div class="leftSideQueryItems" data-bind="attr: { id: QueryID }, click: function (Query) {
+    $root.updateMainQuery(Query);
+}">
+            <div class="blobhead">
+                <div class="resultHeader">
+                    <table class="resultHeaderTable">
+                        <tr>
+                            <td colspan="4">
+                                <strong>
+                                    <div class="resultTimeFrame" data-bind="text: Query"></div>
+                                </strong>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="resultIcon">
+                                    <div data-bind="foreach: SymbolImages">
+                                        <img data-bind="attr: { src: $data }" />
+                                    </div>
+
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: Source">-</div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: SymbolID"></div>
+                            </td>
+                            <td>
+                                <div class="resultStartDateTime" data-bind="text: StartDateTime"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="resultTimeFrame" data-bind="text: TimeFrame"></div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol">
+                                </div>
+                            </td>
+                            <td colspan="4">
+                                <div class="resultEndDateTime" data-bind="text: EndDateTime"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="blobcontent">
+
+                <table class="resultFieldsTable" data-bind="foreach: ExtraFields">
+                    <tbody data-bind="foreach: $data">
+                        <tr>
+                            <td data-bind="text: keyfield">:</td>
+                            <td data-bind="text: keydata"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="savedQueryTemplate">
+        <div class="followingQuery" data-bind="attr: { id: QueryID }">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function (Query) {
+    $root.updateMainQuery(Query);
+}">
+                        View
+                    </div>
+
+                    <div class="btnUnfollow" data-bind="click: function (QueryID) {
+    $root.unSaveQuery(QueryID);
+}">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow: 1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query"></div>
+            </div>
+        </div>
+    </script>
+
+
+    <script type="text/html" id="followingQueryTemplate">
+        <div class="followingQuery" data-bind="attr: { id: QueryID }">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function (Query) {
+    $root.updateMainQuery(Query);
+}">
+                        View
+                    </div>
+
+                    <div class="btnUnfollow" data-bind="click: function (QueryID) {
+    $root.unFollowQuery(QueryID);
+}">
+                        Unfollow-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow: 1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query"></div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="historicQueryTemplate">
+        <div class="historicQuery" data-bind="attr: { id: QueryID }">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function (Query) {
+    $root.updateMainQuery(Query);
+}">
+                        View
+                    </div>
+
+                    <div class="btnFollow" data-bind="click: function (QueryID) {
+    $root.saveQuery(QueryID);
+}">
+                        Save
+                    </div>
+
+                    <div class="btnFollow" data-bind="click: function (QueryID) {
+    $root.followQuery(QueryID);
+}">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow: 1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query"></div>
+            </div>
+        </div>
+    </script>
+
+    <!-- Template End --->
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="../../NewFrontEnd/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="../../NewFrontEnd/js/jquery.dialogextend.min.js"></script>
+    <script src="../../NewFrontEnd/js/jquery.easytabs.min.js"></script>
+    <script src="../../NewFrontEnd/js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
+
+    @*<script src="http://code.highcharts.com/stock/highstock.js"></script>
+<script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="http://twitter.github.com/hogan.js/builds/2.0.0/hogan-2.0.0.js"></script>*@
+
+    @*<script src="../../NewFrontEnd/js/jquery.caretposition.js"></script>
+<script src="../../NewFrontEnd/js/typeahead.js"></script>
+<script src="../../NewFrontEnd/js/typeahead.fn.js"></script>
+<script src="../../NewFrontEnd/js/typeahead.mod.js"></script>
+<script src="../../NewFrontEnd/js/custom.js"></script>*@
+
+
+
+
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="../../Scripts/raphael-min.js"></script>
+    <script src="../../Scripts/Highstock-2.1.8/js/jquery.js"></script>
+
+
+    <script src="../../Scripts/Highstock-2.1.8/js/highstock.src.js"></script>
+    <script src="../../Scripts/Highstock-2.1.8/js/highstock-ext.js"></script>
+
+
+
+
+
+
+    <script src="../../Scripts/clean/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="../../Scripts/clean/js/jquery.easytabs.min.js"></script>
+    <script src="../../Scripts/clean/js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
+    <script src="../../scripts/dynatable/jquery.dynatable.js"></script>
+    <script src="../../Scripts/clean/js/traderiser.js"></script>
+    <script src="../../Scripts/clean/js/testRun.js"></script>
+    <script src="../../Scripts/clean/js/dataPrep.js"></script>
+    <script src="../../Scripts/clean/js/chartSelections.js"></script>
+    <script src="../../Scripts/knockout-3.2.0.js"></script>
+    <script src="../../Scripts/App/traderiser-view-model.js"></script>
+    <script src="../../Scripts/App/traderiser-proxy.js"></script>
+    <script src="//js.pusher.com/2.2/pusher.min.js"></script>
+
+
+
+    <!--bootstrap suggest-->
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>*@
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="../../Scripts/AutoSuggest/js/marked.min.js"></script>
+    <script src="../../Scripts/AutoSuggest/js/highlight.pack.js"></script>
+    <script src="../../Scripts/AutoSuggest/js/bootstrap-suggest.js"></script>
+
+
+    @*<script src="../../NewFrontEnd/js/jquery.caretposition.js"></script>
+<script src="../../NewFrontEnd/js/typeahead.js"></script>
+<script src="../../NewFrontEnd/js/typeahead.fn.js"></script>
+<script src="../../NewFrontEnd/js/typeahead.mod.js"></script>*@
+
+    @*<script src="../../NewFrontEnd/js/custom.js"></script>*@
+
+
+
+    @* <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
+    <script src="../../Scripts/toastr/toastr.min.js"></script>
+
+    @*<script src="../../Scripts/toastr/glimpse.js"></script>
+<script src="../../Scripts/toastr/glimpse.toastr.js"></script>*@
+
+    <script type="text/javascript">
+
+        var tradeRiserViewModel = new TradeRiserViewModel(
+            new TradeRiserProxy());
+
+        tradeRiserViewModel.initialiseUI();
+        tradeRiserViewModel.init();
+
+
+        ko.applyBindings(tradeRiserViewModel);
+
+
+
+
+
+        // Enable pusher logging - don't include this in production
+        Pusher.log = function (message) {
+            if (window.console && window.console.log) {
+                window.console.log(message);
+            }
+        };
+
+        var pusher = new Pusher('0c52bffe086a83952d16');
+
+        var hvnme = $('#u_n').val();
+        var channel = pusher.subscribe(hvnme);
+        /*var pageLoader = document.getElementById("pageLoader");
+        pageLoader.style.display = 'none';
+        */
+
+        channel.bind('my_event', function (data) {
+            //alert(data.message);
+            UpdateContinousQueryResultCard(data);
+
+        });
+
+
+
+        function UpdateContinousQueryResultCard(resultCard) {
+
+            tradeRiserViewModel.upDateContinousQueryResult(resultCard);
+        }
+
+        function updateResultsTable() {
+            var mouseOverColor = '#33A1DE';
+            var bgOverColor = '#FFFFFF';
+            $('#first').after('<div class="blob transition"><div class="blobhead"><p class="date">15.03.2014 - 15.05.2014</p><div class="blobuser"><span class="imgbox"><img src="pix/user-avatar.png" width="35" height="35" alt="John Doe"></span><p>Count ' + positionCount + '</p></div></div><div class="blobcontent"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, urna a elementum gravida, lorem quam vestibulum purus, eu fermentum erat risus egestas mauris.</p></div></div>');
+
+
+            //$('#resultsTable tr:first').before('<tr onMouseUp="javascipt:resultItemClicked()" bgcolor=' + bgOverColor + ' onMouseOver=this.bgColor="' + mouseOverColor + '" onMouseOut=this.bgColor="' + bgOverColor + '"><td>eBay Inc (EBAY) - Nasdaq  - ' + positionCount + '<br /> <div style="font-size:smaller">51.65   |   0.57 (1.12%)</div></td></tr>');
+
+        }
+
+
+
+        var remove = spinner("loadchartDia", 50, 120, 20, 25, "#696969");
+
+        function spinner(holderid, R1, R2, count, stroke_width, colour) {
+            var sectorsCount = count || 12,
+                color = colour || "#fff",
+                width = stroke_width || 15,
+                r1 = Math.min(R1, R2) || 35,
+                r2 = Math.max(R1, R2) || 60,
+                cx = r2 + width,
+                cy = r2 + width,
+                r = Raphael(holderid, r2 * 2 + width * 2, r2 * 2 + width * 2),
+
+                sectors = [],
+                opacity = [],
+                beta = 2 * Math.PI / sectorsCount,
+
+                pathParams = { stroke: color, "stroke-width": width, "stroke-linecap": "round" };
+            Raphael.getColor.reset();
+            for (var i = 0; i < sectorsCount; i++) {
+                var alpha = beta * i - Math.PI / 2,
+                    cos = Math.cos(alpha),
+                    sin = Math.sin(alpha);
+                opacity[i] = 1 / sectorsCount * i;
+                sectors[i] = r.path([["M", cx + r1 * cos, cy + r1 * sin], ["L", cx + r2 * cos, cy + r2 * sin]]).attr(pathParams);
+                if (color == "rainbow") {
+                    sectors[i].attr("stroke", Raphael.getColor());
+                }
+            }
+            var tick;
+            (function ticker() {
+                opacity.unshift(opacity.pop());
+                for (var i = 0; i < sectorsCount; i++) {
+                    sectors[i].attr("opacity", opacity[i]);
+                }
+                r.safari();
+                tick = setTimeout(ticker, 1000 / sectorsCount);
+            })();
+            return function () {
+                clearTimeout(tick);
+                r.remove();
+            };
+        }
+
+
+
+
+        //$('#showtoast').click(function () {
+        //    var shortCutFunction = "info";
+
+        //    var msg = "How many times did the eurusd touch the upper Bollinger band in the 1min timeframe and the last time that the RSI, in the 1min timeframe was overbought in real time";
+        //    var title = "Answer Update";
+
+        //    toastr.options = {
+        //        closeButton: true,
+        //        debug: false,
+        //        newestOnTop: true,
+        //        progressBar: true,
+        //        positionClass: "toast-bottom-right",
+        //        preventDuplicates: false,
+        //        onclick: null,
+        //        showDuration: "300",
+        //        hideDuration: "1000",
+        //        timeOut: "5000",
+        //        extendedTimeOut: "1000",
+        //        showEasing: "swing",
+        //        hideEasing: "linear",
+        //        showMethod: "fadeIn",
+        //        hideMethod: "fadeOut"
+        //    }
+
+        //    $('#toastrOptions').text('Command: toastr["'
+        //            + shortCutFunction
+        //            + '"]("'
+        //            + msg
+        //            + (title ? '", "' + title : '')
+        //            + '")\n\ntoastr.options = '
+        //            + JSON.stringify(toastr.options, null, 2)
+        //    );
+
+        //    var $toast = toastr[shortCutFunction](msg, title); // Wire up an event handler to a button in the toast, if it exists
+        //    $toastlast = $toast;
+
+        //    if (typeof $toast === 'undefined') {
+        //        return;
+        //    }
+
+        //    if ($toast.find('#okBtn').length) {
+        //        $toast.delegate('#okBtn', 'click', function () {
+        //            alert('you clicked me. i was toast #' + toastIndex + '. goodbye!');
+        //            $toast.remove();
+        //        });
+        //    }
+        //    if ($toast.find('#surpriseBtn').length) {
+        //        $toast.delegate('#surpriseBtn', 'click', function () {
+        //            alert('Surprise! you clicked me. i was toast #' + toastIndex + '. You could perform an action here.');
+        //        });
+        //    }
+        //    if ($toast.find('.clear').length) {
+        //        $toast.delegate('.clear', 'click', function () {
+        //            toastr.clear($toast, { force: true });
+        //        });
+        //    }
+        //});
+
+
+
+        hljs.initHighlightingOnLoad();
+        // configure marked
+        var renderer = new marked.Renderer();
+        renderer.table = function (header, body) {
+            return '\
+  				<table class="table table-bordered table-striped table-hover">\
+  					<thead>\
+  						' + header + '\
+  					</thead>\
+  					<tbody>\
+  						' + body + '\
+  					</tbody>\
+  				</table>';
+        },
+
+  		marked.setOptions({
+  		    sanitize: false,
+  		    highlight: function (code) {
+  		        return hljs.highlightAuto(code).value;
+  		    },
+  		    renderer: renderer,
+  		    breaks: true
+  		});
+
+        $.fn.extend({
+            marked: function () {
+                this.each(function () {
+                    $this = $(this);
+                    $this.html(marked($this.html()));
+                })
+
+                return this;
+            },
+        });
+
+        $(function () {
+
+            $('.markdown').marked();
+
+            // data
+            var users = [
+              { fullname: 'foo' },
+              { fullname: 'bar' },
+              { fullname: 'twbs' },
+              { fullname: 'eurusd' },
+              { fullname: 'eursek' },
+              { fullname: 'eurjpy' },
+              { fullname: 'eurnok' },
+              { fullname: 'eurnzd' },
+              { fullname: 'eurpln' },
+              { fullname: 'eurpln bullish price changes' },
+              { fullname: 'correlation' },
+              { fullname: 'audcad' },
+              { fullname: 'daily' },
+              { fullname: 'the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
+              { fullname: 'did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
+              { fullname: 'times did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
+              { fullname: 'many times did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
+              { fullname: 'How many times did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
+              { fullname: 'to exhaust or continue in the same direction for a similar movement after gaining/losing 52 pips in a day, between 01/02/2015 to 20/9/2015' },
+              { fullname: 'more likely to exhaust or continue in the same direction for a similar movement after gaining/losing 52 pips in a day, between 01/02/2015 to 20/9/2015' },
+              { fullname: 'Is EUR/CAD more likely to exhaust or continue in the same direction for a similar movement after gaining/losing 52 pips in a day, between 01/02/2015 to 20/9/2015' },
+              { fullname: 'the USD/CAD on the 1h timeframe for the between 21/5/2015 to 10/08/2015' },
+              { fullname: 'for the USD/CAD on the 1h timeframe for the between 21/5/2015 to 10/08/2015' },
+              { fullname: 'trends for the USD/CAD on the 1h timeframe for the between 21/5/2015 to 10/08/2015' },
+              { fullname: 'show trends for the GBP/CAD on the 1h timeframe for the between 21/5/2015 to 10/08/2015' },
+              { fullname: 'show trends on the eurjpy on 1H timeframe for the between 1/5/2015 to 20/08/2015' },
+              { fullname: 'identify bullish price action signals above 20 pips on the eurjpy daily timeframe' },
+              { fullname: 'identify bearish price action signals below 20 pips on the eurpln daily timeframe' },
+              { fullname: 'usdjpy' }
+            ];
+
+            $('#testIndex').suggest("-", {
+                position: 'caret',
+                data: users,
+                map: function (user) {
+                    return {
+                        value: user.fullname,
+                        text: '<small>' + user.fullname + '</small>'
+                    }
+                }
+            })
+
+            $('#textArea').suggest("-", {
+                position: 'caret',
+                data: users,
+                map: function (user) {
+                    return {
+                        value: user.fullname,
+                        text: '<small>' + user.fullname + '</small>'
+                    }
+                }
+            })
+
+
+
+
+
+
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+     @Scripts.Render("~/bundles/cpf")
+   
+
+    <!-- Dialog1 -->
+    <div class="dia dialog1">
+        <div class="content-inner">
+
+            <div id="noresults" style="z-index: 50000; display: none; font-size: medium; font-family: 'PT Sans', Arial, Helvetica, sans-serif; margin: 200px auto; color: #686665; left: 0; right: 0; width: 600px; position: absolute; padding: 5px 5px 5px 5px; border-radius: 5px; box-shadow: 0 0 7px 1px #BFCFD0;">
+                <b>TradeRiser does not understand your input. 
+                    <br />
+                    Please check the spelling and ensure your query is related to trading.</b>
+            </div>
+
+            <div class="pane" id="resultCanvas">
+                <!-- Space for app content -->
+                <table width="95%" cellspacing="1" border="1" style="border-color: #E0E0E0; margin: 0 auto;">
+                    <tr>
+                        <td>
+
+
+
+
+
+                            <br />
+                            <div id="reportArea">Example Report</div>
+
+
+                            @*                            <button type="button" class="btn btn-primary" id="showtoast">Show Toast</button>*@
+
+
+
+
+                            <div id="container" style="height: 610px; width: 100%;"></div>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+
+
+                <div id="riskDisclaimer">
+                    <h2>Risk Disclaimer</h2>
+
+                    <p>
+                        Please acknowledge the following:
+                        <br />
+                        The Charts are provided 'as is', without warranty or guarantee of any kind, including but not limited to the warranties of merchantability and fitness for a particular purpose. In no event shall TradeRiser Limited and its affiliates or any third party contributor be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the use of or other dealings in the Charts. 
+The Charts run on pricing data provided by us to a third party charting administrator. You accept that the price data displayed in the Charts may be delayed and that we do not guarantee the accuracy or completeness of the data and that we do not guarantee that the service will be uninterrupted.
+                    </p>
+
+
+                    <p>
+                        Disclaimer
+
+The TradeRiser service includes analysis of financial instruments. There are potential risks relating to investing and trading. You must be aware of such risks and familiarize yourself in regard to such risks and to seek independent advice relating thereto. You should not trade with money that you cannot afford to lose. The TradeRiser service and its content should not be construed as a solicitation to invest and/or trade. You should seek independent advice in this regard. Past performance is not indicative of future performance. No representation is being made that any results discussed within the service and its related media content will be achieved. TradeRiser, their members, shareholders, employees, agents, representatives and resellers do not warrant the completeness, accuracy or timeliness of the information supplied, and they shall not be liable for any loss or damages, consequential or otherwise, which may arise from the use or reliance of the TradeRiser service and its content.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Dialog1 -->
+
+
+
+</body>
+</html>

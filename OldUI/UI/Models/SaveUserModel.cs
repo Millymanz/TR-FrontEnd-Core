@@ -184,18 +184,30 @@ namespace TradeRiser.UI.Models
             return user;
         }
 
-        public Dictionary<string, string> Countries { get; set; }
+        public List<string> Countries { get; set; }
 
-        private Dictionary<string, string> GetCountries()
+        private List<string> GetCountries()
         {
-            Dictionary<string, string> countries = new Dictionary<string, string>();
-            foreach (CultureInfo ci in CultureInfo.GetCultures(CultureTypes.SpecificCultures))
+            //RegionInfo region = new RegionInfo(culture.LCID);
+            //CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures);
+            ////make sure out generic list doesnt already
+            ////contain this country
+            //if (!(cultureList.Contains(region.EnglishName)))
+
+            //    cultureList.Add(region.EnglishName);
+
+
+            List<string> countries = new List<string>();
+            foreach (CultureInfo cultureInfo in CultureInfo.GetCultures(CultureTypes.SpecificCultures))
             {
-                var ri = new RegionInfo(ci.Name);
-                countries.Add(ci.Name, ri.DisplayName);
+                var region = new RegionInfo(cultureInfo.LCID);
+                if (!(countries.Contains(region.EnglishName)))
+                {
+                    countries.Add(region.EnglishName);
+                }
             }
 
-            return countries.OrderBy(n => n.Value).ToDictionary(t => t.Key, t => t.Value);
+            return countries;
         }
 
         #endregion Methods

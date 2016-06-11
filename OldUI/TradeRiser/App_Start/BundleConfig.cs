@@ -36,7 +36,15 @@ namespace TradeRiser
             "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
-
+           
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/Styles/bootstrap.css", "~/Content/Styles/form.css", "~/Content/Styles/shared.css"));
+            bundles.Add(new ScriptBundle("~/bundles/cpf").Include(
+                                  "~/Content/Scripts/corejsmvc.js",
+                                  "~/Content/Scripts/validation.js",
+                                    "~/Content/Scripts/members.js",
+                                     "~/Content/Scripts/settings.js",
+                                     "~/Content/Scripts/changepassword.js"
+                                  ));
             /* bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/main.css"));
              bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/ormalize.min.css"));
              */

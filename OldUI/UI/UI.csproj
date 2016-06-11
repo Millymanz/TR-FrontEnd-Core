@@ -118,7 +118,7 @@
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
-      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+      <HintPath>..\References\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -11,15 +11,16 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TradeRiser</RootNamespace>
-    <AssemblyName>TradeRiser</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>TradeRiser.UI</RootNamespace>
+    <AssemblyName>TradeRiser.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -91,7 +92,7 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PokeIn">
-      <HintPath>PokeIn_Commercial_2292_JXC\PokeIn Commercial\ASP.NET\NET 4.0, 4.5\PokeIn.dll</HintPath>
+      <HintPath>..\References\PokeIn.dll</HintPath>
     </Reference>
     <Reference Include="PusherClient">
       <HintPath>..\packages\PusherClient.0.2.0\lib\net40\PusherClient.dll</HintPath>
@@ -104,6 +105,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Extensions">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\net45\System.Net.Http.Extensions.dll</HintPath>
@@ -121,8 +123,7 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -135,21 +136,21 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+      <HintPath>..\References\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+      <HintPath>..\References\System.Web.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+      <HintPath>..\References\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -159,9 +160,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -177,9 +176,10 @@
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <HintPath>..\References\WebGrease.dll</HintPath>
     </Reference>
     <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -199,18 +199,59 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Contract\AlertType.cs" />
+    <Compile Include="Contract\Attributes\AuthorizedPermissionAttribute.cs" />
+    <Compile Include="Contract\Attributes\CompressionAttribute.cs" />
+    <Compile Include="Contract\Attributes\Compressions.cs" />
+    <Compile Include="Contract\Attributes\PermissionAttribute.cs" />
+    <Compile Include="Contract\Attributes\UnprotectedAttribute.cs" />
+    <Compile Include="Contract\Controls\HelpControl.cs" />
+    <Compile Include="Contract\Controls\HtmlHelperExtensions.cs" />
+    <Compile Include="Contract\Controls\ICpfControl.cs" />
+    <Compile Include="Contract\Controls\ValidationAttributes.cs" />
+    <Compile Include="Contract\Controls\ValidationHelp.cs" />
+    <Compile Include="Contract\Controls\ValidationHelpBinder.cs" />
+    <Compile Include="Contract\CoreConstants.cs" />
+    <Compile Include="Contract\CpfController.cs" />
+    <Compile Include="Contract\CpfModelBinder.cs" />
+    <Compile Include="Contract\CpfWebViewPage.cs" />
+    <Compile Include="Contract\ErrorDetails.cs" />
+    <Compile Include="Contract\ErrorType.cs" />
+    <Compile Include="Contract\HttpBrowserExtensions.cs" />
+    <Compile Include="Contract\JsonActionResult.cs" />
+    <Compile Include="Contract\ResultBag.cs" />
+    <Compile Include="Contract\Security\AreaPermission.cs" />
+    <Compile Include="Contract\Security\Authenticator.cs" />
+    <Compile Include="Contract\Security\CookieManager.cs" />
+    <Compile Include="Contract\Security\FatInfo.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\AppInfoController.cs" />
+    <Compile Include="Controllers\ControlsController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\CoreController.cs" />
+    <Compile Include="Controllers\MembershipController.cs" />
     <Compile Include="Controllers\TesterController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ChangePasswordRequest.cs" />
     <Compile Include="Models\EmailManager.cs" />
     <Compile Include="Models\Logger.cs" />
+    <Compile Include="Models\PasswordModel.cs" />
     <Compile Include="Models\RestClient.cs" />
+    <Compile Include="Models\SaveUserModel.cs" />
+    <Compile Include="Models\SaveUserModelBinder.cs" />
     <Compile Include="Models\TradeUtility.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\UserModelBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TradeRiserUIResource.Designer.cs">
+      <DependentUpon>TradeRiserUIResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\clean\css\images\animated-overlay.gif" />
@@ -233,7 +274,25 @@
     <Content Include="Content\clean\css\pin.png" />
     <Content Include="Content\clean\css\style - Copy.css" />
     <Content Include="Content\clean\css\style.css" />
+    <Content Include="Content\Images\TradeRiser.png" />
+    <Content Include="Content\Images\TradeRiser_Web.png" />
     <Content Include="Content\jquery.dynatable.css" />
+    <Content Include="Content\Scripts\changepassword.js" />
+    <Content Include="Content\Scripts\corejsmvc.js" />
+    <Content Include="Content\Scripts\jquery.js" />
+    <Content Include="Content\Scripts\jstorage.js" />
+    <Content Include="Content\Scripts\logon.js" />
+    <Content Include="Content\Scripts\members.js" />
+    <Content Include="Content\Scripts\settings.js" />
+    <Content Include="Content\Scripts\validation.js" />
+    <Content Include="Content\Styles\bootstrap.css" />
+    <Content Include="Content\Styles\custom.css" />
+    <Content Include="Content\Styles\font-awesome.min.css" />
+    <Content Include="Content\Styles\form.css" />
+    <Content Include="Content\Styles\logon.css" />
+    <Content Include="Content\Styles\shared.css" />
+    <Content Include="Content\Styles\site.css" />
+    <Content Include="Content\Styles\style.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
@@ -296,6 +355,7 @@
     <Content Include="Scripts\clean\js\_notes\custom.js.mno" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="Content\Styles\form.less" />
     <None Include="Properties\PublishProfiles\TradeRiser_Publish.pubxml" />
     <Content Include="Scripts\dynatable\jquery-1.7.2.min.js" />
     <Content Include="Scripts\dynatable\jquery.dynatable.js" />
@@ -677,9 +737,9 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_TR_Default_Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_TR_Default_Layout.cshtml" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -844,6 +904,31 @@
     <Content Include="Scripts\Highstock-2.1.8\lib\CONTRIBUTING.md" />
     <Content Include="Scripts\Highstock-2.1.8\lib\package.json" />
     <Content Include="Scripts\Highstock-2.1.8\lib\README.md" />
+    <Content Include="Views\Core\ChangePassword.cshtml" />
+    <Content Include="Views\Core\Copy of Copy of Logon.cshtml" />
+    <Content Include="Views\Core\ForgotPassword.cshtml" />
+    <Content Include="Views\Core\Logon.cshtml" />
+    <Content Include="Views\Core\new_Logon.cshtml" />
+    <Content Include="Views\Controls\Help.cshtml" />
+    <Content Include="Views\Controls\ValidationHelp.cshtml" />
+    <Content Include="Views\Controls\ValidationToolTip.cshtml" />
+    <Content Include="Views\Membership\Copy of Edit.cshtml" />
+    <Content Include="Views\Membership\Edit.cshtml" />
+    <Content Include="Views\Membership\Index.cshtml" />
+    <Content Include="Views\Membership\SignUp.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\User\_UserMenu.cshtml" />
+    <Content Include="Views\User\Account.cshtml" />
+    <Content Include="Views\User\Alerting.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Panel.cshtml" />
+    <Content Include="Views\User\Password.cshtml" />
+    <Content Include="Views\User\Preferences.cshtml" />
+    <Content Include="Views\User\ThemeOptions.cshtml" />
+    <Content Include="Views\User\UserPreferences.cshtml" />
+    <Content Include="Views\Main\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -852,6 +937,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{9bf528e9-f38d-4527-bcfe-9c778b5e73e6}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TradeRiserUIResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TradeRiserUIResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -9,9 +9,10 @@ using System.Web.Routing;
 
 using System.Threading;
 using TradeRiser.Models;
+using TradeRiser.UI.Models;
 
 
-namespace TradeRiser
+namespace TradeRiser.UI
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
@@ -20,8 +21,16 @@ namespace TradeRiser
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
 
+            //AreaRegistration.RegisterAllAreas();
+           
+           // WebApiConfig.Register(GlobalConfiguration.Configuration);
+           // FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            //RouteConfig.RegisterRoutes(RouteTable.Routes);
+           // BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            AreaRegistration.RegisterAllAreas();
+            ModelBinders.Binders.Add(typeof(SaveUserModel), new SaveUserModelBinder());
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
