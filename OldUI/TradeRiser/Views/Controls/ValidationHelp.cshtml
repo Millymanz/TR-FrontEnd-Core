@@ -1,0 +1,18 @@
+﻿@{
+    Layout = null;
+}
+@using TradeRiser.UI
+
+@model TradeRiser.UI.Controls.ValidationHelp
+<span class="validation-wrapper">
+@if (this.Model.Required)
+{
+    <span class="required" title="@TradeRiserUIResource.RequiredValidationHelpTitle" >*
+    </span>
+}
+
+<button id="@this.Model.InputControl-field-validation" data-valmsg-replace="true" 
+      data-valmsg-for="@this.Model.InputControl" title="@this.Model.InputControl" 
+      class="field-validation-valid" data-toggle="tooltip" data-placement="bottom">    
+</button>
+</span>

@@ -1,0 +1,79 @@
+﻿@using TradeRiser.Core
+@using TradeRiser.UI.Areas.Cpf
+@{
+    ViewBag.Title = TradeRiserUIResource.Alerting_Title;
+
+    /*3196 CFP Header updates*/
+    this.ViewBag.ShowHeader = TradeRiser.UI.ShowHeader.Show;
+}
+@section head
+{
+    <script type="text/javascript">
+        var CURRENTUSER = '@ViewBag.User';
+    </script>
+}
+
+@section jQueryLoad
+{
+    settings.alerting.load();
+}
+
+@section ribbon
+{
+    @*<div class="section" data-title="@TradeRiserUIResource.Ribbon_MySettings">*@
+
+    <li class="nav-item">
+        <a id="save" title="" href="#" class="nav-link">
+            <span class="button-icon fa">@Html.Raw(TradeRiserUIResource.Icon_Save)</span>@Html.Raw(TradeRiserUIResource.Ribbon_User_Save)
+        </a>
+    </li>
+
+    @*</div>*@
+}
+@section subnav
+{
+    @{this.Html.RenderPartial("_UserMenu", "alerting");}
+}
+
+@*3196 CFP Header updates, added settings-content class*@
+<div class="settings-content page-content">
+    <div class="section">
+        <div class="section-title">
+            <div class="title-wrapper">@TradeRiserUIResource.SetAlertingOptions</div>
+        </div>
+
+        <div class="section-content">
+            <label>
+                <input type="checkbox" id="forward" @if (this.ViewBag.SendAlertsAsEmail) { <text> checked="checked" </text>  } />
+                <span class="alert-tick">@TradeRiserUIResource.ForwardAllAlertsToMyEmailAddress</span>
+            </label>
+            @*<br /><br />
+                <label>
+                    <input type="checkbox" id="escalate" @if (this.ViewBag.EscalationUserID != Guid.Empty) { <text>checked="checked"</text> } />
+                    <span class="alert-tick">@TradeRiserUIResource.EscalateExpiredAlertsToTheFollowingPerson:</span>
+                </label>
+
+                @Html.Action("autocompletegrid", "controls", new { area = "cpf", model = this.ViewBag.AutoComplete[0] })*@
+        </div>
+    </div>
+
+    @*<div class="section">
+            <div class="section-title">
+                <div class="title-wrapper">@TradeRiserUIResource.SetYourOutOfOfficeStatus</div>
+            </div>
+
+            <div class="section-content" >
+                <label>
+                    <input type="checkbox" id="outOfOffice" @if (this.ViewBag.OutOfOffice) { <text>checked="checked"</text> } />
+                    <span class="alert-tick">@TradeRiserUIResource.IAmNowOutOfTheOffice</span>
+                </label>
+                <br /><br />
+                <label>
+                    <input type="checkbox" id="redirect" @if (this.ViewBag.DelegateUserID != Guid.Empty) { <text>checked="checked"</text> } />
+                    <span class="alert-tick">@TradeRiserUIResource.PleaseRedirectAllAlertsToTheFollowingPerson:</span>
+                </label>
+
+                @Html.Action("autocompletegrid", "controls", new { area = "cpf", model = this.ViewBag.AutoComplete[1] })
+            </div>
+        </div>*@
+</div>

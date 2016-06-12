@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9BF528E9-F38D-4527-BCFE-9C778B5E73E6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TradeRiser.Core</RootNamespace>
+    <AssemblyName>TradeRiser.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\References\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CertificateHelper.cs" />
+    <Compile Include="Common\DateDifferencePolicy.cs" />
+    <Compile Include="Common\Exceptions\PermissionException.cs" />
+    <Compile Include="Common\Hash.cs" />
+    <Compile Include="Common\ICryptoProvider.cs" />
+    <Compile Include="Common\IPolicyLoader.cs" />
+    <Compile Include="Common\LimitPolicyBase.cs" />
+    <Compile Include="Common\LowercaseCharactersPolicy.cs" />
+    <Compile Include="Common\MD5CryptHelper.cs" />
+    <Compile Include="Common\MinimumDigitsPolicy.cs" />
+    <Compile Include="Common\MinimumLengthPolicy.cs" />
+    <Compile Include="Common\PolicyBase.cs" />
+    <Compile Include="Common\PolicyLoaderBase.cs" />
+    <Compile Include="Common\PolicySet.cs" />
+    <Compile Include="Common\PolicySetting.cs" />
+    <Compile Include="Common\RegexLibrary.cs" />
+    <Compile Include="Common\Resx.cs" />
+    <Compile Include="Common\RSAEncryptor.cs" />
+    <Compile Include="Common\SymmetricEncryptor.cs" />
+    <Compile Include="Common\TypeConverter.cs" />
+    <Compile Include="Common\UppercaseCharactersPolicy.cs" />
+    <Compile Include="Common\Validate.cs" />
+    <Compile Include="Common\ValidationError.cs" />
+    <Compile Include="Common\Validator.cs" />
+    <Compile Include="Common\ValueExceededLimitPolicy.cs" />
+    <Compile Include="Common\ValueReachedLimitPolicy.cs" />
+    <Compile Include="Configuration\Client\Class1.cs" />
+    <Compile Include="Configuration\Contract\ConfigPolicySetting.cs" />
+    <Compile Include="Configuration\Contract\ConfigurationItem.cs" />
+    <Compile Include="Configuration\Core\ConfigurationDataAccess.cs" />
+    <Compile Include="Configuration\Core\ConfigurationService.cs" />
+    <Compile Include="Configuration\Core\IVaultSpinUp.cs" />
+    <Compile Include="Data\Contract\ConnectionConfigurationSection.cs" />
+    <Compile Include="Data\Contract\ConnectionInfo.cs" />
+    <Compile Include="Data\Contract\CoreConnections.cs" />
+    <Compile Include="Data\Contract\DataParameters.cs" />
+    <Compile Include="Data\Contract\DataResult.cs" />
+    <Compile Include="Data\Contract\DataSettings.cs" />
+    <Compile Include="Data\Contract\Factory.cs" />
+    <Compile Include="Data\Contract\IDataAccess.cs" />
+    <Compile Include="Data\Contract\DataParameter.cs" />
+    <Compile Include="Data\Contract\IDatabaseProvider.cs" />
+    <Compile Include="Data\Contract\IVaultDataBound.cs" />
+    <Compile Include="Data\Core\DataAccess.cs" />
+    <Compile Include="Data\Core\IReader.cs" />
+    <Compile Include="Data\Core\SqlServerDatabaseProvider.cs" />
+    <Compile Include="Data\Core\SqlServerReader.cs" />
+    <Compile Include="Director\Contract\IDirector.cs" />
+    <Compile Include="Director\Contract\IRequestDescriptor.cs" />
+    <Compile Include="Director\Contract\JintResult.cs" />
+    <Compile Include="Director\Contract\NameValueCollectionWrapper.cs" />
+    <Compile Include="Director\Contract\RequestDescriptor.cs" />
+    <Compile Include="Director\Contract\VariableParser.cs" />
+    <Compile Include="Director\Core\Director.cs" />
+    <Compile Include="Email\Email.cs" />
+    <Compile Include="Email\EmailAttachment.cs" />
+    <Compile Include="Email\EmailClientSettings.cs" />
+    <Compile Include="Email\EmailSender.cs" />
+    <Compile Include="Email\IEmail.cs" />
+    <Compile Include="Email\IEmailClient.cs" />
+    <Compile Include="Email\IEmailClientSettings.cs" />
+    <Compile Include="Email\MultipartEmail.cs" />
+    <Compile Include="Email\SmtpEmailClient.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\DataExtentions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\IntExtensions.cs" />
+    <Compile Include="Extensions\JsonExtension.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\XmlExtensions.cs" />
+    <Compile Include="Logging\Contract\ILogProvider.cs" />
+    <Compile Include="Logging\Contract\LogMessage.cs" />
+    <Compile Include="Logging\Contract\LogMessageType.cs" />
+    <Compile Include="Logging\Core\ConfigurationProvider.cs" />
+    <Compile Include="Logging\Core\EventLogProvider.cs" />
+    <Compile Include="Logging\Core\Log.cs" />
+    <Compile Include="Logging\Core\LogConfigurationSection.cs" />
+    <Compile Include="Logging\Core\SqlLogProvider.cs" />
+    <Compile Include="Membership\Contract\CreateUserResult.cs" />
+    <Compile Include="Membership\Contract\IAuthenticator.cs" />
+    <Compile Include="Membership\Contract\IMembershipService.cs" />
+    <Compile Include="Membership\Contract\LoginPageInfoCode.cs" />
+    <Compile Include="Membership\Contract\LogOnResult.cs" />
+    <Compile Include="Membership\Contract\MembershipConstants.cs" />
+    <Compile Include="Membership\Core\MembershipService.cs" />
+    <Compile Include="Membership\Contract\PasswordActionResult.cs" />
+    <Compile Include="Membership\Contract\PasswordHistory.cs" />
+    <Compile Include="Membership\Contract\SystemUser.cs" />
+    <Compile Include="Membership\Contract\User.cs" />
+    <Compile Include="Membership\Core\CpfHash.cs" />
+    <Compile Include="Membership\Core\MembershipConfiguration.cs" />
+    <Compile Include="Membership\Core\MembershipDataAccess.cs" />
+    <Compile Include="Membership\Core\MembershipPolicy.cs" />
+    <Compile Include="Membership\Core\MembershipPolicyLoader.cs" />
+    <Compile Include="Membership\Core\PasswordGenerator.cs" />
+    <Compile Include="Membership\Core\PasswordValidator.cs" />
+    <Compile Include="Membership\Core\PermissionService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sign On\Contract\IUserSignOnService.cs" />
+    <Compile Include="Sign On\Contract\PasswordResetRequest.cs" />
+    <Compile Include="Sign On\Core\PasswordHash.cs" />
+    <Compile Include="Sign On\Core\UserSignOnDataAccess.cs" />
+    <Compile Include="Sign On\Core\UserSignOnService.cs" />
+    <Compile Include="TradeRiserCoreResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TradeRiserCoreResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TradeRiserCoreResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TradeRiserCoreResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

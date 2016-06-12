@@ -1,0 +1,386 @@
+﻿html {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color:#000;
+    height:60px;
+    box-shadow:0px 1px 3px rgba(0,0,0,0.25);
+    z-index :600;
+    position:fixed;
+    top:0;
+    width:100%;
+}
+
+.logged-out-user-section {
+position:absolute;
+right:0;
+/**/margin:5px;
+bottom:0;
+}
+
+a.sign-up {
+   /* padding:10px;
+    position:absolute;
+    right:0;
+    margin:2px 5px 10px 5px;
+    bottom:0;*/
+   margin:2px 5px 10px 5px;
+}
+a.sign-up:hover {
+    background-color:blue;
+    text-decoration:none;
+}
+
+a.sign-up:link ,sign-up a:visited { 
+    /*color: green;*/
+    text-decoration:none;
+    cursor: auto;
+    text-decoration-color:white;
+}
+
+.section a {
+    color: #333;
+    outline: none;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-decoration: underline;
+}
+
+    .section a:link, .section a:visited,
+    .section a:active, .section a:hover {
+        color: #333;
+    }
+
+    .section a:hover {
+        background-color: #c7d1d6;
+    }
+
+.section header, .section footer, .section hgroup,
+.section nav, .section section {
+    display: block;
+}
+
+.section mark {
+    background-color: #a6dbed;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear-fix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.section h1, .section h2, .section h3,
+.section h4, .section h5, .section h6 {
+    color: #000;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+/*h2 {
+    font-size: 1.75em;
+}*/
+
+.section h2 {
+    font-size: 1.7em;
+}
+
+.section h3 {
+    font-size: 1.2em;
+}
+
+.section h4 {
+    font-size: 1.1em;
+}
+
+.section h5,.section h6 {
+    font-size: 1em;
+}
+
+    h5 a:link, h5 a:visited, h5 a:active {
+        padding: 0;
+        text-decoration: none;
+    }
+    
+/* main layout
+----------------------------------------------------------*/
+.content-wrapper {
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+
+body {
+
+    border-top: solid 10px #000;
+    /*color: #000 !important;*/
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+}
+
+body h2 {
+   /*color: white;*/
+}
+
+#body {
+    background-color: #ffffff;
+    clear: both;
+    padding-bottom: 35px;
+    position:absolute;
+    top:60px;
+    width:100%;
+}
+
+    .main-content {
+        /*background: url("../Images/accent.png") no-repeat;*/
+        padding-left: 10px;
+        padding-top: 30px;
+    }
+
+    .featured + .main-content {
+        background: url("../Images/heroAccent.png") no-repeat;
+    }
+
+header .content-wrapper {
+    padding-top: 20px; 
+}
+
+footer {
+    clear: both;
+    background-color: #e2e2e2;
+    font-size: .8em;
+    height: 100px;
+}
+
+
+/* site title
+----------------------------------------------------------*/
+.site-title {
+    color: #c8c8c8;
+    font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
+    font-size: 2.3em;
+    margin: 0;
+}
+
+.site-title a, .site-title a:hover, .site-title a:active {
+    background: none;
+    color: #c8c8c8;
+    outline: none;
+    text-decoration: none;
+}
+
+
+/************************************************** FORM CSS  *******************************************************/
+
+div.section {
+ color: #000 !important;
+ padding: 0.45rem 0 0.45rem 0;
+}
+
+/*div.section div,div.select-wrapper div {
+    padding: 0.45rem 0 0.45rem 0;
+}*/
+
+div.section label,div.select-wrapper label {
+    padding: 0.90rem 0 0 0;
+}
+
+
+.form-control {
+    font-size: .875rem;
+}
+
+label {
+    display: block;
+    font-size: .8125rem;
+}
+
+.section input[type="text"], .section input[type="password"], .section select, .currency-box, .select-wrapper, .btn, .form-control {
+    height: 2.25rem;
+}
+
+.section input[type="text"],.section input[type="password"], .section textarea, .select-wrapper, .form-control, select {
+    -moz-border-radius: .125rem;
+    -ms-border-radius: .125rem;
+    -o-border-radius: .125rem;
+    -webkit-border-radius: .125rem;
+    background: #ffffff;
+    border: 1px solid #000;
+    border-radius: .125rem;
+    color: #000;
+    font-size: .8125rem;
+}
+
+    .section input[type="text"].invalid, .section input[type="password"].invalid, textarea.invalid, .form-control.invalid, .select-wrapper.invalid {
+        background-color: transparent;
+        border-color: red;
+    }
+
+    .section input[type="text"].disabled, input[type="password"].disabled, textarea.disabled, .form-control.disabled, .select-wrapper.disabled, select:disabled {
+        background-color: 0;
+        border-color: $(InputBorderDisabled);
+        color: $(TextDisabled);
+    }
+
+.section input[type="text"],.section input[type="password"],.section select, textarea, .form-control {
+    padding-left: .375rem;
+    padding-right: .375rem;
+}
+
+    .section input[type="text"]:focus,.section input[type="password"]:focus, select:focus, .currency-box:focus, textarea:focus, .form-control:focus {
+        -ms-box-shadow: 0 0 4px #1F7CD8; 
+        -webkit-box-shadow: 0 0 4px #1F7CD8; 
+        box-shadow: 0 0 4px #1F7CD8; 
+        outline: 0;
+    }
+
+.select-wrapper {
+    /*background: #000 url('../Images/$(SortIcon).png') no-repeat;*/
+    background-position: right .1875rem top 50%;
+    border: 1px solid #000;
+    display: inline-block;
+    min-width: 3.25rem;
+}
+
+    .select-wrapper select {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background: white;
+        border: 0;
+        height: 2.125rem;
+       min-width: 225px;
+        padding-right: .75rem;
+    }
+
+        .select-wrapper select::-ms-expand {
+            display: none !important;
+        }
+
+    .form-control, .currency-box, .select-wrapper[data-width="normal"] {
+        max-width: 15rem;
+    }
+
+        .form-control[data-width="small"], .currency-box[data-width="small"], .select-wrapper[data-width="small"] {
+            max-width: 6.25rem;
+        }
+
+        .form-control[data-width="stretch"], .currency-box[data-width="stretch"], .select-wrapper[data-width="stretch"] {
+            width: 100%;
+        }
+
+    .select-wrapper.input-group-addon {
+        padding: 0;
+    }
+
+.box .btn {
+  color:#000000;
+}
+.btn {
+    -moz-border-radius: .125rem;
+    -webkit-border-radius: .125rem;
+    background: transparent;
+   border: 1px solid #1F7CD8;
+    border-radius: .125rem;
+     background-color:  #1F7CD8;
+    font-size: .875rem;
+    min-width: 5rem;
+    padding: .5rem 1.25rem;
+    text-transform: uppercase;
+  
+}
+
+    .btn.btn-secondary {
+        border-color: $(Secondary);
+        color: $(Secondary);
+    }
+
+    .btn.btn-success {
+        border-color: $(Success);
+        color: $(Success);
+    }
+
+    .btn.btn-warning {
+        border-color: $(Warning);
+        color: $(Warning);
+    }
+
+    .btn.btn-danger {
+        border-color: $(Danger);
+        color: $(Danger);
+    }
+
+    .btn:hover {
+       background: transparent; 
+    }
+
+    .btn.btn-secondary:hover {
+        background: $(Secondary);
+    }
+
+    .btn.btn-success:hover {
+        background: $(Success);
+    }
+
+    .btn.btn-warning:hover {
+        background: $(Warning);
+    }
+
+    .btn.btn-danger:hover {
+        background: $(Danger);
+    }
+
+    .btn.disabled,
+    .btn.disabled:hover {
+        opacity: 1;
+        border-color: $(TextDisabled);
+        color: $(TextDisabled);
+        background: 0;
+    }
+
+.input-group-addon {
+    -moz-border-radius: .125rem;
+    -ms-border-radius: .125rem;
+    -webkit-border-radius: .125rem;
+    border-radius: .125rem;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi) {
+    .select-wrapper {
+        /*background-image: url(../Images/$(SortIcon)@2x.png);*/
+        background-size: .4375rem .625rem;
+    }
+}
+
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}

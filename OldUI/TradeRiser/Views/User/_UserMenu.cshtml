@@ -1,0 +1,11 @@
+﻿@using TradeRiser.Core
+@using TradeRiser.UI
+<ul>
+    <li>@Html.ActionLink(@TradeRiserUIResource.Account_Title, "account", "user", new { area = "cpf" }, new { @class = this.Model == "account" ? "selected" : string.Empty })</li>
+    <li>@Html.ActionLink(@TradeRiserUIResource.Password_Title, "password", "user", new { area = "cpf" }, new { @class = this.Model == "password" ? "selected" : string.Empty })</li>
+    @*<li>@Html.ActionLink(@TradeRiserUIResource.Preferences_Title, "preferences", "user", new { area = "cpf" }, new { @class = this.Model == "preferences" ? "selected" : string.Empty })</li>*@
+    <li>@Html.ActionLink(@TradeRiserUIResource.Alerting_Title, "alerting", "user", new { area = "cpf" }, new { @class = this.Model == "alerting" ? "selected" : string.Empty })</li>
+    <li>@Html.ActionLink(@TradeRiserUIResource.UserPreferences_Title, "userpreferences", "user", new { area = "cpf" }, new { @class = this.Model == "userpreferences" ? "selected" : string.Empty })</li> 
+    @*<li>@Html.ActionLink(@TradeRiserUIResource.UserPreferences_ThemeOptionsTitle, "themeoptions", "user", new { area = "cpf" }, new { @class = this.Model == "themeoptions" ? "selected" : string.Empty })</li>*@ 
+</ul>
+
