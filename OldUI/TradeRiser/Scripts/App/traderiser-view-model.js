@@ -219,6 +219,24 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         });
 
+        $("#menu-bar-sign-out2").off("click").on("click", function()
+        {
+            var success = function (result) {
+                if (result.success) {
+                    // $cardElement.html(result.data.html);
+                    //logoff
+                   }
+                return false;
+            };
+
+            var fail = function (data) {
+               // corejs.alert("RESOURCE{{corejsmvc.js}:{BusinessCardFailed}:{Failed to get business card HTML.}}", "e");
+                return false;
+            };
+
+            //corejs.ajax({ url: '', success: success, errorCallback: fail, data: { 'data': JSON.stringify(dataObj) } });
+
+        })
 
 
         //function SelectHighlighter(highlightersLength) {

@@ -128,23 +128,28 @@
   </div>*@
 
         <div class="user">
+           @* <div class="logged-out-user-section">
+                            @{ <text> @User.Identity.Name!</text>}
+                            <a class="sign-up" id="menu-bar-sign-out" href="@string.Format("{0}core/logoff", this.Director.ApplicationPath)">Log off</a>
+                        </div>*@
+
             @if (Request.IsAuthenticated)
             {
+                 <a class="sign-up" id="menu-bar-sign-out" href="@string.Format("{0}core/logoff", this.Director.ApplicationPath)">Log off</a>
+
                 <a href="#" class="btn-user transition">
 
                     @User.Identity.Name
                     <i class="icn icn-carret"></i>
                 </a>
+                 
                 <ul class="drop">
 
                     <li class="logoutItem">
 
                         <div id="autoSuggest"><span style="text-align: center">
                             <input type="checkbox" id="autoSuggestTicker">&nbsp Auto Suggest</span></div>
-                        <div class="logged-out-user-section">
-                            @{ <text> @User.Identity.Name!</text>}
-                            <a class="sign-up" id="menu-bar-sign-out" href="@string.Format("{0}core/logoff", this.Director.ApplicationPath)">Log off</a>
-                        </div>
+                            
                         @*  @using (Html.BeginForm("LogOut", "AppInfo", FormMethod.Post, new { id = "logoutForm" }))
                          {
                            <input type="hidden" value=@Model.Username id='u_n' class='h_v' name="hiddens">
@@ -155,7 +160,12 @@
                          }*@
 
                     </li>
+                    <li>
+                     <a class="sign-up" id="menu-bar-sign-out2" href="@string.Format("{0}core/logoff", this.Director.ApplicationPath)">Log off</a>
+
+                    </li>
                 </ul>
+                   
             }
             else
             {

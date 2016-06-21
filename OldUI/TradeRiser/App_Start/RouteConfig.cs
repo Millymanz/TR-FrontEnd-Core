@@ -61,7 +61,7 @@ namespace TradeRiser
             routes.MapRoute(
                name: "Default-2",
                url: "{controller}/{action}/{id}",
-               defaults: new { controller = "Membership", action = "Index", id = UrlParameter.Optional }
+               defaults: new { controller = "Main", action = "Index", id = UrlParameter.Optional }
            );
             routes.MapRoute(
              name: "Default-1",
