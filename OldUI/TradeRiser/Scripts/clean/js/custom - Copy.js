@@ -103,12 +103,12 @@
 	var delay = 200;
 	// run the currently selected effect
 	function runEffect() {
-		$("#queryDropDown").css("display", "block");
+		$(".queryDropDown").css("display", "block");
 
 /*		$("#expand").attr('src', "/Images/collapse.png"); */
 	};
 	function runEffectHide() {
-		$("#queryDropDown").css("display", "none");
+		$(".queryDropDown").css("display", "none");
 
 /*		 $("#expand").attr('src', "/Images/collapse_arrow.png"); */
 	};

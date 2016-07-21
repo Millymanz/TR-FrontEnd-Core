@@ -307,6 +307,8 @@
     <Content Include="Images\loading1.gif" />
     <Content Include="Images\pause.png" />
     <Content Include="Images\play.png" />
+    <Content Include="Images\TradeRiser_Web.png" />
+    <Content Include="Images\TradeRiser_Web1.png" />
     <Content Include="Scripts\App\traderiser-proxy.js" />
     <Content Include="Scripts\App\traderiser-view-model.js" />
     <Content Include="Scripts\clean\js\adapters\mootools-adapter.js" />
@@ -752,7 +754,6 @@
     <Content Include="Views\AppInfo\Index.cshtml" />
     <Content Include="Views\AppInfo\Manage.cshtml" />
     <Content Include="Views\AppInfo\Register.cshtml" />
-    <Content Include="Views\App\IndexOld.cshtml" />
     <Content Include="Views\AppInfo\Feedback.cshtml" />
     <Content Include="Views\Tester\Index.cshtml" />
     <Content Include="Views\App\Index.cshtml" />

@@ -79,6 +79,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
     this.symbolQuery = ko.observable();
     this.timeFrameQuery = ko.observable();
     this.chartPadDataIntraday;
+    this.bShowQuery = 0;
+    this.bShowSearchQuery = 0;
+    this.currentSearchPage = 0;
+    this.reportMode = 0;
+
 
     this.chartLookUp = {};
 
@@ -89,7 +94,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         self.paneFixWidth = $(".pane").width();
 
-        self.tokenChecker();
+        //disable no longer required
+        //self.tokenChecker();
     };
 
 
@@ -184,8 +190,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
     };
 
+
+    
+
     this.initialiseUI = function () {
-        $("#testIndex").keypress(function (event) {
+        $(".testIndex").keypress(function (event) {
             var keycode = (event.keyCode ? event.keyCode : event.which);
             if (keycode == '13') {
 
@@ -193,8 +202,53 @@ function TradeRiserViewModel(tradeRiserProxy) {
                 event.preventDefault();
                 return false;
             }
+
+            var cs = $(this).val().length;
+            if (cs >= 76 && self.bShowQuery == 0) {
+                $(".btn-drop").click();
+            }
         });
 
+        //$("#firstSearchIndex").keypress(function (event) {
+        //    var keycode = (event.keyCode ? event.keyCode : event.which);
+        //    if (keycode == '13') {
+        //        self.getAnswer();
+        //        event.preventDefault();
+        //        return false;
+        //    }
+
+        //    var cs = $(this).val().length;
+        //    if (cs >= 76 && self.bShowQuery == 0) {
+        //        $(".btn-drop").click();
+        //    }
+        //});
+
+        // set effect from select menu value
+        $(".btn-drop").click(function () {
+
+            $(this).toggleClass('open');
+
+            if (self.bShowQuery == 1 && self.currentSearchPage == 0) {
+                self.runEffectHide();
+                self.bShowQuery = 0;
+            }
+            else if (self.bShowQuery == 0 && self.currentSearchPage == 0)
+            {
+                self.runEffect();
+                self.bShowQuery = 1;
+            }
+            else if (self.bShowSearchQuery == 1 && self.currentSearchPage == 1) {
+                self.runEffectHide();
+                self.bShowSearchQuery = 0;
+            }
+            else if (self.bShowSearchQuery == 0 && self.currentSearchPage == 1) {
+                self.runEffect();
+                self.bShowSearchQuery = 1;
+            }
+        });
+
+
+      
         // $('#highlighted').prop('checked',true);
         $("#highlighted").on("change", function (evt) {
             Highcharts.charts[0].highlighted = $('#highlighted').prop('checked');
@@ -218,53 +272,15 @@ function TradeRiserViewModel(tradeRiserProxy) {
             }
 
         });
-
-        $("#menu-bar-sign-out2").off("click").on("click", function()
-        {
-            var success = function (result) {
-                if (result.success) {
-                    // $cardElement.html(result.data.html);
-                    //logoff
-                   }
-                return false;
-            };
-
-            var fail = function (data) {
-               // corejs.alert("RESOURCE{{corejsmvc.js}:{BusinessCardFailed}:{Failed to get business card HTML.}}", "e");
-                return false;
-            };
-
-            //corejs.ajax({ url: '', success: success, errorCallback: fail, data: { 'data': JSON.stringify(dataObj) } });
-
-        })
-
-
-        //function SelectHighlighter(highlightersLength) {
-        //    var val = highlightersLength;
-        //    var chart = Highcharts.charts[0];
-
-        //    var xtrem = chart.xAxis[0].getExtremes();
-        //    var diff = xtrem.userMax - xtrem.userMin;
-        //    chart.xAxis[0].setExtremes(
-        //      higlighters[val].StartDateTime - diff / 2,
-        //      higlighters[val].StartDateTime + diff / 2
-        //    );
-        //    // var region = chart.highlightedRegions[val].element;
-        //    // var pinLeft = ($(region).attr("x") + ($(region).attr("w") / 2) - (chart.pinsConf.width / 2));
-        //    // var pinTop = ($(region).attr("y") - chart.pinsConf.height);
-
-        //    for (var i = 0; i < chart.pins.length; i++) {
-        //        if (higlighters[val].Comment == chart.pins[i].attr('data-comment')) {
-        //            // if (chart.pins[i].attr("left") == pinLeft && chart.pins[i].attr("top") == pinTop)
-        //            chart.pins[i].click();
-        //        }
-        //    }
-        //};
-
-
-
-
     };
+
+    this.runEffect = function () {
+        $(".queryDropDown").css("display", "block");
+    }
+
+    this.runEffectHide = function () {
+        $(".queryDropDown").css("display", "none");
+    }
 
     this.initializeAllContinousResultsCards = function (returnedData) {
 
@@ -579,6 +595,16 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
     }
 
+    this.getUnitType = function (unit) {
+        var unitType = '';
+        switch (unit) {
+            case 'k': { unitType = 'Thousand'; } break;
+            case '%': { unitType = 'Percent'; } break;
+            case 'm': { unitType = 'Million'; } break;
+        }
+        return unitType;
+    };
+
     this.logOff = function () {
         tradeRiserProxy.logOff();
     };
@@ -610,12 +636,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
                         }
 
                     });
-
-
-
                 }
             });
-
         }, 60000); //120000 every 2mins
     };
 
@@ -665,7 +687,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         //alert(self.mainQuery());
 
-        //$("#testIndex").css("color", "green");
+        //$(".testIndex").css("color", "green");
         //$(".graphicalQueryInput").empty();
         //$("#contenthandle").before('<a href="#" class="btn-chart"><div class="graphicalQueryInput"> Pattern Criteria - ' + graphicalQuery + '</div></a>');
 
@@ -778,10 +800,86 @@ function TradeRiserViewModel(tradeRiserProxy) {
         self.getAnswer();
     }
 
+    this.getAnswerManual = function (query) {
+
+        self.mainQuery(query);
+
+        if (self.mainQuery() != "") {
+            if (self.mainQuery() !== null && self.mainQuery() !== 'undefined') {              
+
+                var loadchart = document.getElementById("loadchartDia");
+                if (loadchart !== null || loadchart !== 'defined') {
+                    loadchart.style.display = 'block';
+                }
+
+                //clear url variable if it has unrequired url parameters
+                //window.location.href = window.location.href.split('?')[0];
+                var arraySplit = window.location.href.split('?');
+                if (arraySplit.length > 1) {
+                    window.history.pushState("ClearingUrl", "ClearingUrl", window.location.href.split('?')[0]);
+                }
+
+                //this is redundant QueryID is never required by the ui
+                var r = (12 + Math.random() * 16) % 16 | 0;
+
+                var queryCard = {
+                    QueryID: 'tempId-' + r.toString(),
+                    Query: self.mainQuery()
+                }
+
+
+                self.historicQueries.unshift(queryCard);
+
+                $("#resultCanvas").empty();
+                $("#summaryResults").empty();
+
+                for (var g = 0; g < Highcharts.charts.length; g++) {
+                    if (Highcharts.charts[g] != null && Highcharts.charts[g] !== undefined) {
+                        Highcharts.charts[g].destroy();
+                    }
+                }
+
+                self.onDemandResults([]);
+
+                var displayError = document.getElementById("noresults");
+                displayError.style.display = 'none';
+
+
+                tradeRiserProxy.getAnswer(self.mainQuery(), self.renderQueryResults, self.errorResponse);
+            }
+        }
+    };
+
+
     this.getAnswer = function () {
 
         if (self.mainQuery() != "") {
             if (self.mainQuery() !== null && self.mainQuery() !== 'undefined') {
+
+                if (self.reportMode === 0) {
+                    self.reportMode = 1;
+
+                    var searchBarMode = document.getElementById("searchBarMode");
+                    searchBarMode.style.display = 'none';
+
+
+                    var reportMode = document.getElementById("reportMode");
+                    reportMode.style.display = 'block';
+                    /*reportMode.style.position = 'absolute';
+                    reportMode.style.left = '10px'
+                    reportMode.style.bottom = '0px';*/
+
+
+
+                    var pane = document.getElementById("reportMode");
+                    pane.style.display = 'block';
+                    var topLogo = document.getElementById("topLogo");
+                    topLogo.style.display = 'block';
+                    var searchBox = document.getElementById("topSearchBar");
+                    searchBox.style.display = 'block';
+
+
+                }
 
                 var loadchart = document.getElementById("loadchartDia");
                 if (loadchart !== null || loadchart !== 'defined') {
@@ -1692,7 +1790,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                         },
                                         tooltip: {
                                             pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
-                                            valueDecimals: 2
+                                            valueDecimals: 4
                                         },
                                         series: lineSeriesOptions
                                     });
@@ -1883,14 +1981,44 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                         } break;
 
-                    case 'MultipleAxisChart':
+                    case 'MultipleAxisChartEconomicOnly':
                         {
                             //loop for every event
 
+                           // var markup = "<div class='widgetTitle'>Economic Indicators</div><br/>";
+                           // markup += "<table class='simpleEconomicTable' style='width:100%'><thead><tr><th></th>"
+                           //+ "<th>Actual</th>"
+                           //+ "<th>Release Date</thh>"
+                           //+ "<th>Previous</th>"
+                           //+ "<th>Unit</th>";
+                           // markup += "</tr></thead>";
+
+
+
+                           // //for table display only
+                           // for (var bb = 1; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+                           //     markup += "<tr>";
+                           //     markup += "<td>" + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Title + "</td>";
+
+                           //     var lastIndex = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0].length - 1;
+                           //     markup += "<td>" + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][lastIndex] + "</td>";
+                           //     markup += "<td>" + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0][lastIndex] + "</td>";
+                           //     markup += "<td>" + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][lastIndex] + "</td>" //use Value[1]
+                           //     markup += "<td>" + self.getUnitType(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].NumericType) + "</td>" //use Value[2] //Unit
+                           //     markup += "</tr>";
+                           // }
+
+                           // markup += "</table>";
+                           // markup += "<br/></div>";
+
+
+                           // $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' valign='top'>" + markup + "</td></tr>"));
+
+                            //============================================================================//
 
                             var chartData = [];
                             var classname = 'columnChart' + pp;
-                            self.widgetPlacerT(pp, presentationTypeCount, 'Statistical Analysis', '400px', classname, iter);
+                            self.widgetPlacerT(pp, presentationTypeCount, 'Comparison Analysis', '400px', classname, iter);
 
 
                             var firstplotTitle = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0].Title;
@@ -1898,12 +2026,242 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             var eventTypeTitle = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0].Yaxis;
 
                             var xAxisContent = [];
-                            for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+
+                            for (var bb = 0; bb < 1; bb++) {
 
                                 var lengthCount = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length;
 
-                                //title = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Title;
+                                var lineSeriesData = [];
+                                var lineSeriesDataRaw = [];
+                                for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0].length; ss++) {
 
+                                    if (bb == 0) {
+                                        xAxisContent.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0][ss]);
+                                    }
+
+                                    var value = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][ss];
+                                    var rawValue = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[1][ss];
+
+                                    if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Key != 'RAW') {
+                                        lineSeriesData.push([xAxisContent[ss], value]);
+                                        lineSeriesDataRaw.push([xAxisContent[ss], rawValue]);
+                                    }
+                                }
+
+                                if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Key != 'RAW') {
+                                    chartData.push({
+                                        name: priceActionTitle,
+                                        type: 'spline',
+                                        yAxis: bb,
+                                        data: lineSeriesData
+                                    });
+
+                                    firstLabel = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[1].NumericType;
+                                    secondLabel = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[2].NumericType;
+
+                                    chartData.push({
+                                        name: eventTypeTitle,
+                                        type: 'spline',
+                                        yAxis: chartData.length,
+                                        data: lineSeriesDataRaw
+                                    });
+                                }
+                            }
+
+
+                            //var masterxAxisContent = [];
+                            //for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[1].GenericStr[0].length; ss++) {
+                            //    masterxAxisContent.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[1].GenericStr[0][ss]);
+                            //}
+
+                            var plotOptionsTemp = {
+                                spline: {
+                                    lineWidth: 2,
+                                    states: {
+                                        hover: {
+                                            lineWidth: 2
+                                        }
+                                    },
+                                    marker: {
+                                        enabled: false
+                                    }
+                                }
+                            }
+
+
+                            $('.' + classname).highcharts({
+                                credits: {
+                                    enabled: false
+                                },
+                                chart: {
+                                    zoomType: 'xy'
+                                },
+                                title: {
+                                    text: firstplotTitle
+                                },
+                                subtitle: {
+                                    text: 'Correlation Check'
+                                },
+                                xAxis: [{
+                                    categories: xAxisContent,   //xAxisContent
+                                    crosshair: true
+                                }],
+                                yAxis: [{ // Primary yAxis
+
+                                    gridLineWidth: 2,
+                                    title: {
+                                        text: priceActionTitle,
+                                        style: {
+                                            color: Highcharts.getOptions().colors[0]
+                                        }
+                                    },
+                                    labels: {
+                                        format: '{value}' + firstLabel,
+                                        style: {
+                                            color: Highcharts.getOptions().colors[0]
+                                        }
+                                    },
+                                    opposite: true
+                                }
+
+
+                                 , { // Tertiary yAxis
+                                     gridLineWidth: 2,
+                                     title: {
+                                         text: eventTypeTitle,
+                                         style: {
+                                             color: Highcharts.getOptions().colors[1]
+                                         }
+                                     },
+                                     labels: {
+                                         //format: '{value} mb',
+                                         format: '{value}' + secondLabel,
+                                         style: {
+                                             color: Highcharts.getOptions().colors[1]
+                                         }
+                                     }
+                                 }],
+                                tooltip: {
+                                    shared: true
+                                },
+                                legend: {
+                                    layout: 'vertical',
+                                    align: 'left',
+                                    x: 80,
+                                    verticalAlign: 'top',
+                                    y: 55,
+                                    floating: true,
+                                    backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+                                },
+                                plotOptions: plotOptionsTemp,
+                                series: chartData
+                            });
+
+                            //self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
+
+
+
+
+                            /****************************************************************/
+
+
+                            for (var bb = 1; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+                                var classname = 'columnChart' + bb;
+
+                                var lengthCount = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length;
+
+                                //self.widgetPlacerTSideBySide(bb, 1, '', '300px', classname, iter);
+                                self.widgetPlacerT(bb, 2, '', '300px', classname, iter);
+
+
+                                var lineSeriesOptions = [],
+                                    symbolNames = [],
+                                    chartData = [];
+
+                                var xAxis = "";
+                                var yAxis = "";
+                                var title = "";
+
+
+                                for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0].length; ss++) {
+                                    symbolNames.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0][ss]);
+
+                                    xAxis = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Xaxis;
+                                    yAxis = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Yaxis;
+                                    title = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Title;
+                                }
+
+                                for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0].length; ss++) {
+                                    chartData.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][ss]);
+                                }
+                                var colorNameSet = 'red';
+
+                                switch (bb) {
+                                    case 0: { colorNameSet = '#7cb5ec'; } break;
+                                    case 1: { colorNameSet = '#ffbf00'; } break;
+                                    case 2: { colorNameSet = '#e50000'; } break;
+                                    case 3: { colorNameSet = 'black'; } break;
+                                    case 4: { colorNameSet = '#DB843D'; } break;
+                                    case 5: { colorNameSet = '#006600'; } break;
+                                }
+
+                                $('.' + classname).highcharts({
+                                    chart: {
+                                        type: 'column'
+                                    },
+                                    title: {
+                                        text: title
+                                    },
+                                    yAxis: {
+                                        title: {
+                                            text: yAxis
+                                        }
+
+                                    },
+                                    xAxis: {
+                                        categories: symbolNames
+                                    },
+                                    credits: {
+                                        enabled: false
+                                    },
+                                    colors: [colorNameSet],
+                                    series: [{
+                                        colorByPoint: false,
+                                        data: chartData,
+                                        name: title
+                                    }]
+                                });
+                            }
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
+
+                         
+
+
+                            /****************************************************************/
+
+
+                        } break;
+
+                    case 'MultipleAxisChart':
+                        {
+                            //loop for every event
+
+                            var chartData = [];
+                            var classname = 'columnChart' + pp;
+                            self.widgetPlacerT(pp, presentationTypeCount, 'Comparison Analysis', '400px', classname, iter);
+
+
+                            var firstplotTitle = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0].Title;
+                            var priceActionTitle = "Price";
+                            var eventTypeTitle = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0].Xaxis;
+
+                            var firstLabel = "";
+                            var secondLabel = "";
+
+                            var xAxisContent = [];
+                            for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+
+                                var lengthCount = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length;
 
                                 var lineSeriesData = [];
                                 var lineSeriesDataRaw = [];
@@ -1916,26 +2274,22 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                     var value = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[1][ss];
                                     var rawValue = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[2][ss];
 
-                                    //var datetimes = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][ss];
-                                    //var datetimes = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0][ss];
-
                                     if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Key != 'RAW') {
                                         lineSeriesData.push([xAxisContent[ss], value]);
                                         lineSeriesDataRaw.push([xAxisContent[ss], rawValue]);
-
-                                        //datetimes = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][ss];
-                                        //value = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[1][ss];
                                     }
-
                                 }
 
                                 if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Key != 'RAW') {
                                     chartData.push({
-                                        name: bb + "df",
+                                        name: eventTypeTitle,
                                         type: 'spline',
                                         yAxis: bb,
                                         data: lineSeriesData
                                     });
+                                    if (bb == 0) firstLabel = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].NumericType;
+                                    if (bb == 1) secondLabel = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].NumericType;
+
 
                                     chartData.push({
                                         name: obj.CurrentResult.ResultSymbols[pp][bb],
@@ -1966,29 +2320,15 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 title: {
                                     text: firstplotTitle
                                 },
-                                subtitle: {
-                                    text: 'Correlation Check'
-                                },
+                                //subtitle: {
+                                //    text: 'Correlation Check'
+                                //},
                                 xAxis: [{
                                     categories: xAxisContent,   //xAxisContent
                                     crosshair: true
                                 }],
                                 yAxis: [{ // Primary yAxis
-                                //    labels: {
-                                //        format: '{value} price',
-                                //        style: {
-                                //            color: 'black'
-                                //        }
-                                //    },
-                                //    title: {
-                                //        text: 'Temperature',
-                                //        style: {
-                                //            color: 'black'
-                                //        }
-                                //    },
-                                //    opposite: true
-
-                                //}, { // Secondary yAxis
+                                
                                     gridLineWidth: 2,
                                     title: {
                                         text: eventTypeTitle,
@@ -1997,14 +2337,12 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                         }
                                     },
                                     labels: {
-                                        format: '{value}',
+                                        format: '{value}' + firstLabel,
                                         style: {
                                             color: Highcharts.getOptions().colors[0]
                                         }
                                     },
-
                                     opposite: true
-
                                 }
 
 
@@ -2017,35 +2355,13 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                         }
                                     },
                                     labels: {
-                                        format: '{value} mb',
+                                        //format: '{value} mb',
+                                        format: '{value}' + secondLabel,
                                         style: {
                                             color: Highcharts.getOptions().colors[1]
                                         }
                                     }
-                                     //,
-                                   // opposite: true
-                                }
-
-
-
-                                //, { // Tertiary yAxis
-                                //    gridLineWidth: 0,
-                                //    title: {
-                                //        text: 'Sea-Level Pressure',
-                                //        style: {
-                                //            color: Highcharts.getOptions().colors[1]
-                                //        }
-                                //    },
-                                //    labels: {
-                                //        format: '{value} mb',
-                                //        style: {
-                                //            color: Highcharts.getOptions().colors[1]
-                                //        }
-                                //    },
-                                //    opposite: true
-                                //}
-
-                                ],
+                                }],
                                 tooltip: {
                                     shared: true
                                 },
@@ -2214,7 +2530,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 presentationTypeIndex = pp;
                                 // var highId = Highcharts.charts[Highcharts.charts.length - 1].container.id;
 
-                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
+                                //self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
 
                                 SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray, trendsOverlayArray);
                                 self.initialiseDynaTable(highlighterArray);
@@ -2278,112 +2594,271 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                         } break;
 
+                    case 'RawEconomicForecastComparison':
+                        {
+                            //loop for every event
+
+                            var chartData = [];
+                            var classname = 'columnChart' + pp;
+                            self.widgetPlacerT(pp, presentationTypeCount, 'Economic', '400px', classname, iter);
+
+
+                            var firstplotTitle = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0].Title;
+                            var priceActionTitle = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0].Xaxis;
+                            var eventTypeTitle = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0].Yaxis;
+
+                            var xAxisContent = [];
+                            for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+
+                                var lengthCount = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length;
+
+
+                                var lineSeriesData = [];
+                                var lineSeriesDataRaw = [];
+                                for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0].length; ss++) {
+
+                                    if (bb == 0) {
+                                        xAxisContent.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0][ss]);
+                                    }
+
+                                    var value = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][ss];
+                                    var rawValue = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[1][ss];
+
+                                    if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Key != 'RAW') {
+                                        var lastLimit = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0].length - 1;
+
+                                        var forecastLast = {
+                                            y: rawValue,
+                                            marker: {
+                                                symbol: 'url(https://www.highcharts.com/samples/graphics/sun.png)'
+                                            }
+                                        }
+                                        if (ss == lastLimit) {
+                                            lineSeriesData.push(forecastLast);
+                                        }
+                                        else {
+                                            lineSeriesData.push(rawValue);
+                                        }
+                                    }
+                                }
+
+                                if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Key != 'RAW') {
+                                    chartData.push({
+                                        name: bb + "df",
+                                        data: lineSeriesData
+                                    });
+                                }
+                            }
+
+
+                            var masterxAxisContent = [];
+                            for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[1].GenericStr[0].length; ss++) {
+                                masterxAxisContent.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[1].GenericStr[0][ss]);
+                            }
+
+
+                            $('.' + classname).highcharts({
+                                credits: {
+                                    enabled: false
+                                },
+                                chart: {
+                                    zoomType: 'xy'
+                                },
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: firstplotTitle
+                                },
+                                //subtitle: {
+                                //    text: 'Source: WorldClimate.com'
+                                //},
+                                xAxis: {
+                                    categories: xAxisContent  //xAxisContent
+
+                                },
+                                yAxis: {
+                                    gridLineWidth: 2,
+                                    title: {
+                                        text: eventTypeTitle,
+                                        style: {
+                                            color: Highcharts.getOptions().colors[0]
+                                        }
+                                    },
+                                    labels: {
+                                        format: '{value}',
+                                        style: {
+                                            color: Highcharts.getOptions().colors[0]
+                                        }
+                                    },
+
+                                    opposite: false
+
+                                },
+                                tooltip: {
+                                    crosshairs: true,
+                                    shared: true
+                                },
+                                plotOptions: {
+                                    spline: {
+                                        lineWidth: 2,
+                                        states: {
+                                            hover: {
+                                                lineWidth: 2
+                                            }
+                                        },
+                                        marker: {
+                                            enabled: true
+                                        }
+                                    }
+                                },
+                                series: chartData
+                            });
+
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
+
+                        } break;
+
 
                     case 'RawEconomic':
                         {                           
-                            //loop for every event
-
-
-                            var markup = "<div class='widgettitle'>" + obj.currentresult.resultsymbols[pp] + " - economic indicators</div><br/>";
-                            markup += "<table class='simpleeconomictable' style='width:100%'><thead><tr><th>" + obj.currentresult.resultsymbols[pp] + "</th>"
-                           + "<th>actual</th>"
-                           + "<th>release date</thh>"
-                           + "<th>previous</th>"
-                           + "<th>unit</th>";
+                            var markup = "<div class='widgetTitle'>" + obj.CurrentResult.ResultSymbols[pp] + " - Economic Indicators</div><br/>";
+                            markup += "<table class='simpleEconomicTable' style='width:100%'><thead><tr><th>" + obj.CurrentResult.ResultSymbols[pp] + "</th>"
+                           + "<th>Actual</th>"
+                           + "<th>Release Date</thh>"
+                           + "<th>Previous</th>"
+                           + "<th>Unit</th>";
                             markup += "</tr></thead>";
 
-                            
+
 
                             //for table display only
-                            for (var bb = 0; bb < obj.currentresult.rawdataresults[pp].chartreadydataresults.length; bb++) {
+                            for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
                                 markup += "<tr>";
-                                markup += "<td>" + obj.currentresult.rawdataresults[pp].chartreadydataresults[bb].title + "</td>";
-                                    
-                               var lastindex = obj.currentresult.rawdataresults[pp].chartreadydataresults[bb].value[0].length - 1;
-                               markup += "<td>" + obj.currentresult.rawdataresults[pp].chartreadydataresults[bb].value[0][lastindex] + "</td>";
-                               markup += "<td>" + obj.currentresult.rawdataresults[pp].chartreadydataresults[bb].genericstr[0][lastindex] + "</td>";
-                               markup += "<td>" + obj.currentresult.rawdataresults[pp].chartreadydataresults[bb].value[0][lastindex] + "</td>" //use value[1]
-                               markup += "<td>usd billion</td>" //use value[2] //unit
-                               markup += "</tr>";
+                                markup += "<td>" + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Title + "</td>";
+
+                                var lastIndex = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0].length - 1;
+                                markup += "<td>" + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][lastIndex] + "</td>";
+                                markup += "<td>" + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0][lastIndex] + "</td>";
+                                markup += "<td>" + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][lastIndex] + "</td>" //use Value[1]
+                                markup += "<td>" + self.getUnitType(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].NumericType) + "</td>" //use Value[2] //Unit
+                                markup += "</tr>";
                             }
-                            
+
                             markup += "</table>";
-                            markup += "<br/></div>";                          
+                            markup += "<br/></div>";
+
+                            //markup += "<tr><td>GDP Growth</td><td>-0.3</td><td>March 29/5/2016</td><td>0.8</td><td>USD Billion</td></tr>";
+                            //markup += "<tr><td>GDP Growth</td><td>-0.3</td><td>March 29/5/2016</td><td>0.8</td><td>USD Billion</td></tr>";
+                            //markup += "<tr><td>GDP Growth</td><td>-0.3</td><td>March 29/5/2016</td><td>0.8</td><td>USD Billion</td></tr>";
+                            //markup += "<tr><td>GDP Growth</td><td>-0.3</td><td>March 29/5/2016</td><td>0.8</td><td>USD Billion</td></tr>";
+                            //markup += "</table>";
+                            //markup += "<br/></div>";
+
+                            $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' valign='top'>" + markup + "</td></tr>"));
 
 
-                            $("#tablecanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' valign='top'>" + markup + "</td></tr>"));
 
 
+                            for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {
+                                var classname = 'columnChart' + bb;
+
+                                var lengthCount = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length;
+
+                                //self.widgetPlacerSimple(pp, presentationTypeCount, 'Statistical Analysis', '300px', classname, iter);
+                                self.widgetPlacerTSideBySide(bb, lengthCount, '', '320px', classname, iter);
 
 
-                            for (var bb = 0; bb < obj.currentresult.rawdataresults[pp].chartreadydataresults.length; bb++) {
-                                var classname = 'columnchart' + bb;
+                                var lineSeriesOptions = [],
+                                    symbolNames = [],
+                                    chartData = [];
 
-                                var lengthcount = obj.currentresult.rawdataresults[pp].chartreadydataresults.length;
-
-                                self.widgetplacertsidebyside(bb, lengthcount, '', '300px', classname, iter);
-
-
-                                var lineseriesoptions = [],
-                                    symbolnames = [],
-                                    chartdata = [];
-
-                                var xaxis = "";
-                                var yaxis = "";
+                                var xAxis = "";
+                                var yAxis = "";
                                 var title = "";
 
 
-                                for (var ss = 0; ss < obj.currentresult.rawdataresults[pp].chartreadydataresults[bb].genericstr[0].length; ss++) {
-                                    symbolnames.push(obj.currentresult.rawdataresults[pp].chartreadydataresults[bb].genericstr[0][ss]);
+                                for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0].length; ss++) {
+                                    symbolNames.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0][ss]);
 
-                                    xaxis = obj.currentresult.rawdataresults[pp].chartreadydataresults[bb].xaxis;
-                                    yaxis = obj.currentresult.rawdataresults[pp].chartreadydataresults[bb].yaxis;
-                                    title = obj.currentresult.rawdataresults[pp].chartreadydataresults[bb].title;
+                                    xAxis = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Xaxis;
+                                    yAxis = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Yaxis;
+                                    title = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Title;
                                 }
 
-                                for (var ss = 0; ss < obj.currentresult.rawdataresults[pp].chartreadydataresults[bb].value[0].length; ss++) {
-                                    chartdata.push(obj.currentresult.rawdataresults[pp].chartreadydataresults[bb].value[0][ss]);
+                                for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0].length; ss++) {
+                                    chartData.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][ss]);
                                 }
-                                var colornameset = 'red';
-                                
-                                switch (bb)
-                                {
-                                    case 0: { colornameset = '#7cb5ec'; } break;
-                                    case 1: { colornameset = '#ffbf00'; } break;
-                                    case 2: { colornameset = '#e50000'; } break;
-                                    case 3: { colornameset = 'black'; } break;
-                                    case 4: { colornameset = '#db843d'; } break;
-                                    case 5: { colornameset = '#006600'; } break;
+                                var colorNameSet = 'red';
+
+                                switch (bb) {
+                                    case 0: { colorNameSet = '#7cb5ec'; } break;
+                                    case 1: { colorNameSet = '#ffbf00'; } break;
+                                    case 2: { colorNameSet = '#e50000'; } break;
+                                    case 3: { colorNameSet = 'black'; } break;
+                                    case 4: { colorNameSet = '#DB843D'; } break;
+                                    case 5: { colorNameSet = '#006600'; } break;
                                 }
+
+                                var basicChartType = 'column';
+                                var plotOptionsTemp = {};
+
+                                var tooltipTemp = { valueSuffix: obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].NumericType };
+
+                                if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Sources.length > 0) {
+                                    $('.' + classname + 'source').html('Source : ' + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Sources[0]);
+                                }
+
+
+                                if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].NumericType == '%') {
+
+                                    basicChartType = 'spline';
+
+                                    plotOptionsTemp = {
+                                            spline: {
+                                                lineWidth: 2,
+                                                states: {
+                                                    hover: {
+                                                     lineWidth: 2
+                                                    }
+                                                },
+                                                marker: {
+                                                        enabled: false
+                                                }
+                                            }
+                                    }
+                                }
+
 
                                 $('.' + classname).highcharts({
                                     chart: {
-                                        type: 'column'
+                                        type: basicChartType
                                     },
                                     title: {
                                         text: title
                                     },
-                                    yaxis: {
+                                    yAxis: {
                                         title: {
-                                            text: yaxis
+                                            text: yAxis
                                         }
-
                                     },
-                                    xaxis: {
-                                        categories: symbolnames
+                                    xAxis: {
+                                        categories: symbolNames
                                     },
+                                    tooltip: tooltipTemp,
                                     credits: {
                                         enabled: false
                                     },
-                                    colors: [colornameset],
+                                    plotOptions: plotOptionsTemp,
+                                    colors: [colorNameSet],
                                     series: [{
-                                        colorbypoint: false,
-                                        data: chartdata,
+                                        colorByPoint: false,
+                                        data: chartData,
                                         name: title
                                     }]
                                 });
                             }
-                            self.initalizesubwidgets(obj.currentresult.presentationtypes[pp], pp, obj, datalookup, arrayseries, overlayarray, groupingunits, yaxisarray, iter, extindicatorlookup, mulitiplewidgetlookup, trendsoverlayarray, uniquelookupcount, extindicatorlookupnamesonly);
+                            self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
 
 
                         } break;
@@ -2496,105 +2971,146 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                     case 'IndicatorComparison':
                         {
-                            //loop for every event
-                                                    
                             var chartData = [];
                             var classname = 'columnChart' + pp;
-                            self.widgetPlacerT(pp, presentationTypeCount, 'Statistical Analysis', '400px', classname, iter);
+                            self.widgetPlacerT(pp, presentationTypeCount, 'Comparison Analysis', '400px', classname, iter);
+
+
+                            var firstplotTitle = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0].Title;
+                            var priceActionTitle = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0].Xaxis;
+                            var eventTypeTitle = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0].Yaxis;
 
                             var xAxisContent = [];
-                            for (var bb = 0; bb < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length; bb++) {                               
+
+                            for (var bb = 0; bb < 1; bb++) {
 
                                 var lengthCount = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults.length;
 
-                                title = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Title;
-
-
                                 var lineSeriesData = [];
-                                    for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0].length; ss++) {
+                                var lineSeriesDataRaw = [];
+                                for (var ss = 0; ss < obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0].length; ss++) {
 
-                                        if (bb == 0) {
-                                            xAxisContent.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][ss]);
-                                        }
-
-                                        var value = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[1][ss];
-
-                                        if (bb == 1) {
-                                            value = value + 15;
-                                        }
-
-                                        lineSeriesData.push([obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][ss],
-                                            value]);
+                                    if (bb == 0) {
+                                        xAxisContent.push(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0][ss]);
                                     }
 
+                                    var value = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][ss];
+                                    var rawValue = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[1][ss];
+
+                                    if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Key != 'RAW') {
+                                        lineSeriesData.push([xAxisContent[ss], value]);
+                                        lineSeriesDataRaw.push([xAxisContent[ss], rawValue]);
+                                    }
+                                }
+
+                                if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Key != 'RAW') {
                                     chartData.push({
-                                        name: bb + "df",
+                                        name: priceActionTitle,
+                                        type: 'spline',
+                                        yAxis: bb,
                                         data: lineSeriesData
                                     });
 
+                                    firstLabel = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[0].NumericType;
+                                    //secondLabel = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[2].NumericType;
 
+                                    chartData.push({
+                                        name: eventTypeTitle,
+                                        type: 'spline',
+                                        yAxis: chartData.length,
+                                        data: lineSeriesDataRaw
+                                    });
+                                }
+
+                                if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Sources.length > 0) {
+                                    $('.' + classname + 'source').html('Source : ' + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Sources[0]);
+                                }
 
                             }
 
-                            var colorNameSet = '#ffbf00';
-
-                                switch (bb) {
-                                    case 0: { colorNameSet = '#7cb5ec'; } break;
-                                    case 1: { colorNameSet = '#ffbf00'; } break;
-                                    case 2: { colorNameSet = '#e50000'; } break;
-                                    case 3: { colorNameSet = 'black'; } break;
-                                    case 4: { colorNameSet = '#DB843D'; } break;
-                                    case 5: { colorNameSet = '#006600'; } break;
-                                }
-                                var buttonSetup = { selected: 4 };
-
-                                $('.' + classname).highcharts('StockChart', {
-                                    chart: {
-                                    },
-                                    credits: {
-                                        enabled: false
-                                    },
-                                    rangeSelector: buttonSetup,
-                                    xAxis: {
-                                        type: 'datetime'
-                                    },
-                                    yAxis: {
-                                    },
-                                    legend: {
-                                        enabled: false
-                                    },
-                                    plotOptions: {
-                                        area: {
-                                            fillColor: {
-                                                linearGradient: {
-                                                    x1: 0,
-                                                    y1: 0,
-                                                    x2: 0,
-                                                    y2: 1
-                                                },
-                                                stops: [
-                                                    [0, Highcharts.getOptions().colors[0]],
-                                                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                                                ]
-                                            },
-                                            marker: {
-                                                radius: 2
-                                            },
-                                            lineWidth: 1,
-                                            states: {
-                                                hover: {
-                                                    lineWidth: 1
-                                                }
-                                            },
-                                            threshold: null
+                            var plotOptionsTemp = {
+                                spline: {
+                                    lineWidth: 2,
+                                    states: {
+                                        hover: {
+                                            lineWidth: 2
                                         }
                                     },
-                                    tooltip: {
-                                        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
-                                        valueDecimals: 2
+                                    marker: {
+                                        enabled: false
+                                    }
+                                }
+                            }
+
+
+                            $('.' + classname).highcharts({
+                                credits: {
+                                    enabled: false
+                                },
+                                chart: {
+                                    zoomType: 'xy'
+                                },
+                                title: {
+                                    text: firstplotTitle
+                                },
+                                subtitle: {
+                                    text: 'Predictability Check'
+                                },
+                                xAxis: [{
+                                    categories: xAxisContent,   //xAxisContent
+                                    crosshair: true
+                                }],
+                                yAxis: [{ // Primary yAxis
+
+                                    gridLineWidth: 2,
+                                    title: {
+                                        text: priceActionTitle,
+                                        style: {
+                                            color: Highcharts.getOptions().colors[0]
+                                        }
                                     },
-                                    series: chartData
-                                });
+                                    labels: {
+                                        format: '{value}' + firstLabel,
+                                        style: {
+                                            color: Highcharts.getOptions().colors[0]
+                                        }
+                                    },
+                                    opposite: true
+                                }
+
+
+                                 , { // Tertiary yAxis
+                                     gridLineWidth: 2,
+                                     title: {
+                                         text: eventTypeTitle,
+                                         style: {
+                                             color: Highcharts.getOptions().colors[1]
+                                         }
+                                     },
+                                     labels: {
+                                         //format: '{value} mb',
+                                         format: '{value}' + firstLabel,
+                                         style: {
+                                             color: Highcharts.getOptions().colors[1]
+                                         }
+                                     }
+                                 }],
+                                tooltip: {
+                                    shared: true
+                                },
+                                legend: {
+                                    layout: 'vertical',
+                                    align: 'left',
+                                    x: 80,
+                                    verticalAlign: 'top',
+                                    y: 55,
+                                    floating: true,
+                                    backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+                                },
+                                plotOptions: plotOptionsTemp,
+                                series: chartData
+                            });
+
 
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
 
@@ -3140,29 +3656,14 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var nthPos = 0;
 
         var width = '100%';
-        //if (remainder == 0 && remaining > 1) {
-        //    //width = '50%';
-        //    width = '700px';
-        //}
-
         var preferredWidth = $('#pane').width() * 0.90;
         width = preferredWidth + 'px';
 
-      
-
         var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
-
-
-        //var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/> <div id='highlightControl" + index + "'></div><div id='container' style='height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto'></div>";
+        markup += "<br/><div style='font-size:14px' class='" + chartClassName + "source'></div>"
 
 
         $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
-
-
-
-
-
-
 
     };
 
@@ -3179,6 +3680,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
         var markupFinal = "<div class='widgetTitle'>" + title + "</div><br/><br/> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'>"+ markup +"</div>";
+        markup += "<br/><div style='font-size:14px' class='" + chartClassName + "source'></div>"
 
 
         $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markupFinal + "</td></tr>"));
@@ -3191,27 +3693,15 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var remaining = total - index;
         var remainder = index % 2;
 
-        // var nthPos = index;
-        //var nthPos = iter;
-
-        var nthPos = 0;
-
-        //var width = '50%';
-        //if (remaining == 1) {
-        //    width = '100%';
-        //}
+         var nthPos = 0;
 
         var width = '100%';
         if (remainder == 0 && remaining > 1) {
-            //width = '50%';
             width = '700px';
         }
 
-        //var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "'></div>";
-
-        var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>"; //*
-        // var markup = "<div class='widgetTitle'>" + title + "</div><br/><div class='" + chartClassName + "' style='height: " + height + "; width= 50% '></div>";
-
+        var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
+        markup += "<br/><div style='font-size:14px' class='" + chartClassName + "source'></div>"
 
 
         if (remainder == 0) {
@@ -3372,6 +3862,29 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         if (typeof counterFlag !== 'undefined') {
             switch (currentElement) {
+                case 'OutFastKData':
+                    {
+                        if (counterFlag.firstRepeatflag == false) {
+                            counterFlag.firstRepeatflag = true;
+                            counterFlag.currentCount = 1;
+                        }
+                        else {
+                            counterFlag.currentCount = counterFlag.currentCount + 2;
+                        }
+                    } break;
+
+                case 'OutFastDData':
+                    {
+                        if (counterFlag.firstRepeatflag == false) {
+                            counterFlag.firstRepeatflag = true;
+                            counterFlag.currentCount = 0;
+                        }
+                        else {
+                            counterFlag.currentCount = counterFlag.currentCount + 2;
+                        }
+                    }
+                    break;
+
                 case 'OutSlowKData':
                     {
                         if (counterFlag.firstRepeatflag == false) {

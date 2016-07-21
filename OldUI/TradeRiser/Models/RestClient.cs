@@ -226,10 +226,12 @@ namespace TradeRiser.Models
         public string GetAnswer(string searchQuery, string username, string accessToken)
         {
             var apiUrl = ConfigurationManager.AppSettings["REST_URL"] + "api/Query/GetAnswer";
+            var apikeyInsert = System.Configuration.ConfigurationManager.AppSettings["TradeRiserAPI_Key"].ToString();
 
             var search = new SearchQuery();
             search.Query = searchQuery;
             search.Username = username;
+            search.APIKEY = apikeyInsert;
 
             var serialized = Newtonsoft.Json.JsonConvert.SerializeObject(search);
 
@@ -784,6 +786,7 @@ namespace TradeRiser.Models
     {
         public string Username { get; set; }
         public string Query { get; set; }
+        public string APIKEY { get; set; }
     }
 
     public class SymbolData

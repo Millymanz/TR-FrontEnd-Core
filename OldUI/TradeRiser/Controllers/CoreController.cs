@@ -213,7 +213,7 @@ namespace TradeRiser.UI.Controllers
         /// <returns>View result.</returns>
         public ActionResult Index()
         {
-            return this.RedirectToAction("Index", "Main");
+            return this.RedirectToAction("Index", "App");
         }
 
         /// <summary>
@@ -393,7 +393,7 @@ namespace TradeRiser.UI.Controllers
         {
             string redirectUrl = string.Empty;
             string actionName = this.Director.Configuration.GetConfigItem("TR.Core.LogonDefaultActionName", "Index");
-            string controllerName = this.Director.Configuration.GetConfigItem("TR.Core.LogonDefaultControllerName", "Main");
+            string controllerName = this.Director.Configuration.GetConfigItem("TR.Core.LogonDefaultControllerName", "App");
   
             // check for a return url
             string returnUrl = this.Director.Request.Form.Get<string>("url");

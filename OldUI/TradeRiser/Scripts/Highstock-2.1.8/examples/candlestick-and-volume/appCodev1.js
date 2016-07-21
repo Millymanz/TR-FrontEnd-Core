@@ -348,6 +348,12 @@ $(function() {
       offset: 0,
       lineWidth: 2
     }],
+	customLines: [{
+            name: "Axis Line",
+            startDate: 1430755200000.0,
+            color: 'red',
+            value: 133
+        }],
     overlay: overlayArrayTest,
     series: [{
       type: 'candlestick',

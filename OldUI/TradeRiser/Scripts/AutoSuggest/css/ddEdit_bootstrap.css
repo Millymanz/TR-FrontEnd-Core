@@ -905,7 +905,7 @@ th {
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }*/
-#searchForm #testIndex,  #searchForm #textArea {
+.searchForm .testIndex,  .searchForm .textArea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
  
   /*line-height: 1.42857143;*/
@@ -924,20 +924,20 @@ textarea {
 }*/
 
 
-#searchForm a {
+.searchForm a {
   /*color: #428bca;*/
   
    font-size:15px;
   text-decoration: none;
 }
-#searchForm  a:hover,
-#searchForm  a:focus {
+.searchForm  a:hover,
+.searchForm  a:focus {
   color: #2a6496;
   /*text-decoration: underline;*/
    text-decoration: none;
 
 }
-#searchForm a:focus {
+.searchForm a:focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;

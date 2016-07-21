@@ -516,7 +516,7 @@ namespace TradeRiser.UI.Controllers
 
                     resultBag = new ResultBag(alert, true, string.Empty)
                     {
-                        RedirectUrl = "main"
+                        RedirectUrl = "app"
                     };
                     return new JsonActionResult(resultBag);
                 }

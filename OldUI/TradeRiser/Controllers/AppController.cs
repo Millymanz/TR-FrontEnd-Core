@@ -10,41 +10,43 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Runtime.Serialization;
 
-namespace TradeRiser.Controllers
+namespace TradeRiser.UI.Controllers
 {
-    [Authorize]
-    public class AppController : Controller
+    public class AppController : CpfController
     {
-        //[HttpGet]
-        //public ActionResult Index()
-        //{
-        //    var username = HttpContext.User.Identity.Name;
-
-        //    CustomToken customToken = new CustomToken();
-        //    customToken.Binarycrypt = username;
-
-        //    return View(customToken);
-        //}
-
-        [HttpGet]
         [OutputCache(NoStore = true, Duration = 0)]
         public ActionResult Index()
         {
-            //var customTokenItem = Session["accesstoken"];
+            var ct = new CustomToken();
+            ct.Username = User.Identity.Name;
+            ct.Password = "rrgrgrgfefe";
+            ct.AccessToken = "rfroihgorgorjgorngrg$";
 
-            //if (customTokenItem != null)
-            //{
-            //    var customToken = (CustomToken)customTokenItem;
-
-            //    if (customToken != null)
-            //    {
-            //        return View(customToken);
-            //    }
-            //}
-            //return RedirectToAction("Index", "AppInfo");
-            return this.View();
-
+            return View();
         }
+
+        [OutputCache(NoStore = true, Duration = 0)]
+        public ActionResult LogOff()
+        {
+            return View();
+        }
+
+        //[OutputCache(NoStore = true, Duration = 0)]
+        //public ActionResult Index(CustomToken model)
+        //{
+        //    var customTokenItem = Session["accesstoken"];
+
+        //    if (customTokenItem != null)
+        //    {
+        //        var customToken = (CustomToken)customTokenItem;
+
+        //        if (customToken != null)
+        //        {
+        //            return View(customToken);
+        //        }
+        //    }
+        //    return RedirectToAction("Index", "AppInfo");
+        //}
 
         [HttpPost]
         public string GetAllCompletedPatternDefaults()
@@ -68,7 +70,7 @@ namespace TradeRiser.Controllers
             String username = HttpContext.User.Identity.Name;
 
             var restClient = new RestClient();
-            return restClient.GetUserProfile(username, accessToken);   
+            return restClient.GetUserProfile(username, accessToken);
         }
 
         [HttpPost]
@@ -76,7 +78,7 @@ namespace TradeRiser.Controllers
         {
             String username = HttpContext.User.Identity.Name;
             var restClient = new RestClient();
-            restClient.UnfollowQuery(username, query, accessToken);            
+            restClient.UnfollowQuery(username, query, accessToken);
         }
 
         [HttpPost]
@@ -85,10 +87,10 @@ namespace TradeRiser.Controllers
             String username = HttpContext.User.Identity.Name;
 
             var restClient = new RestClient();
-            restClient.FollowQuery(username, query, accessToken);            
+            restClient.FollowQuery(username, query, accessToken);
         }
 
-       
+
         [HttpPost]
         public string GetAnswer(String searchQuery, string accessToken)
         {
@@ -98,7 +100,7 @@ namespace TradeRiser.Controllers
             var response = restClient.GetAnswer(searchQuery, username, accessToken);
             return response;
         }
-        
+
         [HttpPost]
         public void UnsaveQuery(String query, string accessToken)
         {
@@ -136,8 +138,8 @@ namespace TradeRiser.Controllers
             var restClient = new RestClient();
             String username = HttpContext.User.Identity.Name;
 
-            var response = restClient.GetDataResult(queryId, selectingSymbol, accessToken); 
-            return response;        
+            var response = restClient.GetDataResult(queryId, selectingSymbol, accessToken);
+            return response;
         }
 
         [HttpPost]
@@ -145,7 +147,7 @@ namespace TradeRiser.Controllers
         {
             //QueryHandler queryHandler = new QueryHandler();
             //var data = queryHandler.GetChartData(symbolID);
-            
+
             return null;
 
             //return Json(data);            

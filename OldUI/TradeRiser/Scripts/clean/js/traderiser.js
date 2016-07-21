@@ -25,7 +25,7 @@
         $('#emergingResults').height(preferredHeight);
         $('#queryResults').height(preferredHeight);
 
-        var outerHeight = $('#testIndex').outerHeight();
+        var outerHeight = $('.testIndex').outerHeight();
         $('#compute').height(outerHeight);
 
         //All of this should be in the view model
@@ -200,30 +200,30 @@
 	// Search dropdown control 
 	var delay = 200;
 	// run the currently selected effect
-	function runEffect() {
-		$("#queryDropDown").css("display", "block");
-	};
-	function runEffectHide() {
-		$("#queryDropDown").css("display", "none");
-	};
+	//function runEffect() {
+	//	$(".queryDropDown").css("display", "block");
+	//};
+	//function runEffectHide() {
+	//	$(".queryDropDown").css("display", "none");
+	//};
 
 	
-	var bShowQuery = 0;
-	// set effect from select menu value
-	$(".btn-drop").click(function () {
+	//var bShowQuery = 0;
+	//// set effect from select menu value
+	//$(".btn-drop").click(function () {
 		
-	$(this).toggleClass('open');
+	//$(this).toggleClass('open');
 
-		if (bShowQuery == 1) {
-			runEffectHide();
-			bShowQuery = 0;
-		}
-		else {
-			runEffect();
-			bShowQuery = 1;
-		}
-		return false;
-	});
+	//	if (bShowQuery == 1) {
+	//		runEffectHide();
+	//		bShowQuery = 0;
+	//	}
+	//	else {
+	//		runEffect();
+	//		bShowQuery = 1;
+	//	}
+	//	return false;
+	//});
 
 
 	//-----------------------------//

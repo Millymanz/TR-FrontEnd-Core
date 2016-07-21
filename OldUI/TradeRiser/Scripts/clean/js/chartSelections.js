@@ -171,12 +171,6 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
 
                     customSlopeLines: trendsOverlayArray,
 
-                    /*customLines: [{
-                        name: "Axis Line 2",
-                        startDate: 1430673300000,
-                        value: 1.13
-                    }],*/
-
                     overlay: overlayArray
 
                 });

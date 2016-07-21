@@ -21,6 +21,18 @@
 	z-index: 40;
 	background-color: #E0E0E0;
 }
+
+#firstSearchBoxArea {
+	height: 65px;
+	left: 405px;
+	padding-right: 78px;
+	position: absolute;
+	right: 0;
+	top: 25%;
+	z-index: 40;
+	background-color: #E0E0E0;
+}
+
 #Secondheader {
 	background-color: #E0E0E0;
 	color: #FFFFFF;
