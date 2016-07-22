@@ -272,6 +272,40 @@ function TradeRiserViewModel(tradeRiserProxy) {
             }
 
         });
+
+
+
+
+        //info
+        //-- Opening dialog box
+        $('#generalInfo').click(function () {
+            $("#generalInfoDialog").dialog("open");
+
+        });
+
+        $("#generalInfoDialog").dialog({
+            height: 700,
+            width: 920,
+            resizable: false,
+            show: "clip",
+            hide: "clip",
+            autoOpen: false,
+            modal: false
+        });
+
+        //-- Constraining windows to parent pane
+        //$('#generalInfo').parent().draggable({
+        //    containment: '.content-inner'
+        //})
+
+
+
+
+
+
+
+
+
     };
 
     this.runEffect = function () {

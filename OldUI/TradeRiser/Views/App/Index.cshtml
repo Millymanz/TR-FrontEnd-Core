@@ -88,7 +88,7 @@
                 <div class="queryDropDown">
                     <div class="form-group">
                         <br /><br />
-                    <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" id="textArea"></textarea>
+                    <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" class="textArea"></textarea>
                         </div>
                     </div>
                    </form>
@@ -190,7 +190,7 @@
                 <div class="queryDropDown">
                     <div class="form-group">
                         <br /><br />
-                    <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" id="textArea"></textarea>
+                    <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" class="textArea"></textarea>
                         </div>
                     </div>
                    </form>
@@ -393,7 +393,7 @@
 
 
 <!-- bottom Sidebar -->
-<div class="bottomSidebar closed">
+<div class="bottomSidebar closed" style="display:none">
 
         <div>
             <a href="#" id="bottombtn-splitter" data-bind="click: toolBottomBar, text: toolBottomBarMessage"></a>
@@ -419,9 +419,19 @@
 </div>
 
 <div id="loadchartDia" style="display: none; z-index: 50000; color:black;
-margin: 150px auto; left:0; right:0; width: 70px; height: 70px; position: absolute;"></div>
+margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: absolute;"></div>
 <!-- End Main Content -->
 </div>
+
+
+
+    <!-- Dialog box class="inputbox transition input-search"-->
+    <div id="generalInfoDialog" >
+       <p>Content area</p>
+     
+    </div>
+    <!-- End Dialog box -->
+
 
 
 <!-- Template Collection -->
@@ -674,7 +684,10 @@ margin: 150px auto; left:0; right:0; width: 70px; height: 70px; position: absolu
 
 <!--bootstrap suggest-->
 @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>*@
+
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 <script src="../../Scripts/AutoSuggest/js/marked.min.js"></script>
 <script src="../../Scripts/AutoSuggest/js/highlight.pack.js"></script>
 <script src="../../Scripts/AutoSuggest/js/bootstrap-suggest.js"></script>
