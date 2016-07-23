@@ -51,7 +51,7 @@
 <script src="../../Scripts/AutoSuggest/js/ie10-viewport-bug-workaround.js"></script>
 
 
-     
+    
 
 </head>
 <body style="background-color:white">
@@ -88,7 +88,7 @@
                 <div class="queryDropDown">
                     <div class="form-group">
                         <br /><br />
-                    <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" id="textArea"></textarea>
+                    <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" class="textArea"></textarea>
                         </div>
                     </div>
                    </form>
@@ -118,8 +118,9 @@
  @if (Request.IsAuthenticated)
  {
                 <a href="#" class="btn-user transition">
-                    
+                    &nbsp &nbsp &nbsp &nbsp
                     @User.Identity.Name
+                    &nbsp &nbsp &nbsp &nbsp
                     <i class="icn icn-carret"></i>
                 </a>
                 <ul class="drop">
@@ -128,6 +129,7 @@
                         
 @*                        <div id="autoSuggest"><span style="text-align: center"><input type="checkbox"  id="autoSuggestTicker">&nbsp Auto Suggest</span></div>*@
                         <div id="generalInfo"><span style="text-align: center">&nbsp General Info</span></div>
+                        <div id="instrumentCoverage"><span style="text-align: center">&nbsp Instrument Coverage</span></div>
 
                          @using (Html.BeginForm("Logoff", "Core", FormMethod.Post, new { id = "logoutForm" }))
                          {
@@ -190,7 +192,7 @@
                 <div class="queryDropDown">
                     <div class="form-group">
                         <br /><br />
-                    <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" id="textArea"></textarea>
+                    <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" class="textArea"></textarea>
                         </div>
                     </div>
                    </form>
@@ -393,7 +395,7 @@
 
 
 <!-- bottom Sidebar -->
-<div class="bottomSidebar closed">
+<div class="bottomSidebar closed" style="display:none">
 
         <div>
             <a href="#" id="bottombtn-splitter" data-bind="click: toolBottomBar, text: toolBottomBarMessage"></a>
@@ -419,9 +421,43 @@
 </div>
 
 <div id="loadchartDia" style="display: none; z-index: 50000; color:black;
-margin: 150px auto; left:0; right:0; width: 70px; height: 70px; position: absolute;"></div>
+margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: absolute;"></div>
 <!-- End Main Content -->
 </div>
+
+
+
+    <!-- Dialog box class="inputbox transition input-search"-->
+    <div id="generalInfoDialog" >
+       <p>Content area</p>
+
+    <div id="tabsInfo">  
+      <div id="tabsInfo-1">
+        <p>TradeRiser's market data is displayed in New York, Eastern Standard Time (EST).</p>
+        <p>The platform currently handles specifc date queries, in the English Great Britain Format dd/mm/yyyy</p>
+      </div>   
+   </div>
+
+
+
+
+
+
+</div>
+     <!-- End Dialog box -->
+
+
+    <!-- Dialog box class="inputbox transition input-search"-->
+    <div id="instrumentCoverageDialog" >
+       <p>Content area</p>
+
+        FOREX, Commodities, Indices
+
+    </div>
+     <!-- End Dialog box -->
+
+
+
 
 
 <!-- Template Collection -->
@@ -674,7 +710,10 @@ margin: 150px auto; left:0; right:0; width: 70px; height: 70px; position: absolu
 
 <!--bootstrap suggest-->
 @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>*@
+
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 <script src="../../Scripts/AutoSuggest/js/marked.min.js"></script>
 <script src="../../Scripts/AutoSuggest/js/highlight.pack.js"></script>
 <script src="../../Scripts/AutoSuggest/js/bootstrap-suggest.js"></script>

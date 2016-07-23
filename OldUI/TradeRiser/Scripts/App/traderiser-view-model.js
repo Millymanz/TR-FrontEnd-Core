@@ -261,17 +261,58 @@ function TradeRiserViewModel(tradeRiserProxy) {
             alert('1225654');
         });
 
-        $("#autoSuggest").click(function () {
+        //on hold
+        //$("#autoSuggest").click(function () {
+        //    //the on and off feature has been hacked
+        //    if (document.getElementById('autoSuggestTicker').checked) {
+        //        $("#autoSuggestTicker").prop('checked', false);
+        //    }
+        //    else {
+        //        $("#autoSuggestTicker").prop('checked', true);
+        //    }
+        //});
 
-            //the on and off feature has been hacked
-            if (document.getElementById('autoSuggestTicker').checked) {
-                $("#autoSuggestTicker").prop('checked', false);
-            }
-            else {
-                $("#autoSuggestTicker").prop('checked', true);
-            }
+
+
+
+        //info
+        //-- Opening dialog box
+        $('#generalInfo').click(function () {
+            $("#generalInfoDialog").dialog("open");
 
         });
+
+        $("#generalInfoDialog").dialog({
+            height: 400,
+            width: 920,
+            resizable: false,
+            show: "clip",
+            hide: "clip",
+            autoOpen: false,
+            modal: false
+        });
+
+        $('#instrumentCoverage').click(function () {
+            $("#instrumentCoverageDialog").dialog("open");
+
+        });
+
+        $("#instrumentCoverageDialog").dialog({
+            height: 700,
+            width: 920,
+            resizable: false,
+            show: "clip",
+            hide: "clip",
+            autoOpen: false,
+            modal: false
+        });
+
+        //-- Constraining windows to parent pane
+        //$('#generalInfo').parent().draggable({
+        //    containment: '.content-inner'
+        //})
+
+
     };
 
     this.runEffect = function () {
