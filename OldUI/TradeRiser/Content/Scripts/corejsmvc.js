@@ -2425,3 +2425,11 @@ $('a[href=#]').on('click', function (e) {
 
 
 
+
+//TODO PA
+//$(document).ready(function () {
+//    $('[data-toggle="tooltip"').tooltip();
+//});
+
+
+

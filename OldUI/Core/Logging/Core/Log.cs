@@ -1,6 +1,4 @@
-﻿using TradeRiser.Core.Membership;
-
-namespace TradeRiser.Core.Logging
+﻿namespace TradeRiser.Core.Logging
 {
     using System;
     using System.Data;
@@ -121,12 +119,6 @@ namespace TradeRiser.Core.Logging
             string userName = null;
             string displayName = null;
             Guid userId = Guid.Empty;
-
-            if (director == null)
-            {
-                director = new Director();
-                director.User = new SystemUser();
-            }
 
             if (director.User != null)
             {
