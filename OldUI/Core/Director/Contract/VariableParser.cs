@@ -337,8 +337,7 @@
                     string defaultValue = varRegexMatch.Groups[3].Value.Trim();
 
                     string configValue = this.director.Configuration.GetConfigItem<string>(name, defaultValue);
-
-                    // [JB] Look to see if NULL has been expressed.
+                   
                     if (configValue == "NULL")
                     {
                         configValue = string.Empty;

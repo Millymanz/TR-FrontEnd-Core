@@ -241,7 +241,6 @@ members.edit = {
             return false;
         });
 
-        //[PA 2012-12-27] #3207
         //username validation
         $("#username").on("change keyup", function () {
             var val = $(this).val();
