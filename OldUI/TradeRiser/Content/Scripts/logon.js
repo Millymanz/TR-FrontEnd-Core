@@ -18,7 +18,7 @@
         } catch (e) {
             tz = "";
         }
-
+        
         if (tz === "") {
             tz = jstz().timezone_name;
         }
@@ -52,7 +52,6 @@
         });
         
         $("#logon").off('click').on('click', function () {
-
             $("#logon-form").validate({
                 success: function () {
                     corejs.store.purge();

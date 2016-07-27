@@ -281,6 +281,7 @@
     <Content Include="Content\Scripts\corejsmvc.js" />
     <Content Include="Content\Scripts\jquery.js" />
     <Content Include="Content\Scripts\jstorage.js" />
+    <Content Include="Content\Scripts\jstz.js" />
     <Content Include="Content\Scripts\logon.js" />
     <Content Include="Content\Scripts\members.js" />
     <Content Include="Content\Scripts\settings.js" />
@@ -358,6 +359,8 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <Content Include="Content\Styles\form.less" />
+    <Content Include="dev Web.config" />
+    <Content Include="live Web.config" />
     <None Include="Properties\PublishProfiles\TradeRiser_Publish.pubxml" />
     <Content Include="Scripts\dynatable\jquery-1.7.2.min.js" />
     <Content Include="Scripts\dynatable\jquery.dynatable.js" />

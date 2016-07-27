@@ -40,6 +40,7 @@ namespace TradeRiser
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/Styles/bootstrap.css", "~/Content/Styles/form.css", "~/Content/Styles/shared.css"));
             bundles.Add(new ScriptBundle("~/bundles/cpf").Include(
                                   "~/Content/Scripts/corejsmvc.js",
+                                  "~/Content/Scripts/jstz.js",
                                   "~/Content/Scripts/validation.js",
                                     "~/Content/Scripts/members.js",
                                      "~/Content/Scripts/settings.js",
