@@ -1441,6 +1441,31 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var iterRow = 0;
         var iter = 0;
 
+        //Turn into method
+        var useSideBySide = false;
+        var countCandleTypes = 0;
+        var countTypesNone = 0;
+
+        var displayDetailedFactsOnce = false;
+
+        for (var pp = 0; pp < presentationTypeCount; pp++) {
+            if (obj.CurrentResult.PresentationTypes[pp].MainWidget == 'CandleStickChart') {
+                countCandleTypes++;
+            }
+
+            for (var ss = 0; ss < obj.CurrentResult.PresentationTypes[pp].SubWidgets.length; ss++) {
+                if (obj.CurrentResult.PresentationTypes[pp].SubWidgets == 'None') {
+                    countTypesNone++;
+                }
+            }
+        }
+
+        if (countTypesNone > 1) {
+            displayDetailedFactsOnce = true;
+        }
+
+        if (countCandleTypes > 3) useSideBySide = true;
+        //--------------------//
        
         //Main widget
         try {
@@ -3301,7 +3326,13 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 case 4: { candlestickHeight = '1040px' } break;
                             }
 
-                            self.widgetPlacerT(pp, presentationTypeCount, 'Technical Analysis', candlestickHeight, chartClassName, iter);
+                            if (useSideBySide) {
+                                self.widgetPlacerTSideBySide(pp, countCandleTypes, 'Technical Analysis', '600px', chartClassName, iter);
+                            }
+                            else {
+                                self.widgetPlacerT(pp, presentationTypeCount, 'Technical Analysis', candlestickHeight, chartClassName, iter);
+                            }
+
 
                             var dataResultsT = dataLookUp["RAW"];
                             if (dataResultsT != null || dataResultsT !== undefined) {
@@ -3395,9 +3426,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 yAxisArray.push(chartItemDef);
 
                                 presentationTypeIndex = pp;
-                                // var highId = Highcharts.charts[Highcharts.charts.length - 1].container.id;
 
-                                self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
+                                if (displayDetailedFactsOnce == false || displayDetailedFactsOnce && pp == 0)
+                                {
+                                    self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
+                                }   
 
                                 SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray, trendsOverlayArray);
                                 self.initialiseDynaTable(highlighterArray);
