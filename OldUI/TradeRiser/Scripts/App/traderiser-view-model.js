@@ -279,9 +279,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         //-- Opening dialog box
         $('#generalInfo').click(function () {
             $("#generalInfoDialog").dialog("open");
-
         });
-
         $("#generalInfoDialog").dialog({
             height: 400,
             width: 920,
@@ -292,11 +290,10 @@ function TradeRiserViewModel(tradeRiserProxy) {
             modal: false
         });
 
+
         $('#instrumentCoverage').click(function () {
             $("#instrumentCoverageDialog").dialog("open");
-
         });
-
         $("#instrumentCoverageDialog").dialog({
             height: 700,
             width: 920,
@@ -305,6 +302,17 @@ function TradeRiserViewModel(tradeRiserProxy) {
             hide: "clip",
             autoOpen: false,
             modal: false
+        });
+
+        $('#viewType').click(function () {
+            if (self.reportMode === 0) {
+                self.changeViewToReportView();
+                $('#viewTypeText').text("Search View");
+            }
+            else {
+                self.changeViewToSearchView();
+                $('#viewTypeText').text("Report View");
+            }
         });
 
         //-- Constraining windows to parent pane
@@ -891,36 +899,75 @@ function TradeRiserViewModel(tradeRiserProxy) {
         }
     };
 
+    this.changeViewToReportView = function () {
+        if (self.reportMode === 0) {
+            self.reportMode = 1;
+
+            var searchBarMode = document.getElementById("searchBarMode");
+            searchBarMode.style.display = 'none';
+
+            var reportMode = document.getElementById("reportMode");
+            reportMode.style.display = 'block';
+
+            var pane = document.getElementById("reportMode");
+            pane.style.display = 'block';
+            var topLogo = document.getElementById("topLogo");
+            topLogo.style.display = 'block';
+            var searchBox = document.getElementById("topSearchBar");
+            searchBox.style.display = 'block';
+        }
+    }
+
+    this.changeViewToSearchView = function () {
+        if (self.reportMode === 1) {
+            self.reportMode = 0;
+
+            var searchBarMode = document.getElementById("searchBarMode");
+            searchBarMode.style.display = 'block';
+
+            var reportMode = document.getElementById("reportMode");
+            reportMode.style.display = 'none';
+
+            var pane = document.getElementById("reportMode");
+            pane.style.display = 'none';
+            var topLogo = document.getElementById("topLogo");
+            topLogo.style.display = 'none';
+            var searchBox = document.getElementById("topSearchBar");
+            searchBox.style.display = 'none';
+        }
+    }
 
     this.getAnswer = function () {
 
         if (self.mainQuery() != "") {
             if (self.mainQuery() !== null && self.mainQuery() !== 'undefined') {
 
-                if (self.reportMode === 0) {
-                    self.reportMode = 1;
+                self.changeViewToReportView();
 
-                    var searchBarMode = document.getElementById("searchBarMode");
-                    searchBarMode.style.display = 'none';
+                //if (self.reportMode === 0) {
+                //    self.reportMode = 1;
 
-
-                    var reportMode = document.getElementById("reportMode");
-                    reportMode.style.display = 'block';
-                    /*reportMode.style.position = 'absolute';
-                    reportMode.style.left = '10px'
-                    reportMode.style.bottom = '0px';*/
+                //    var searchBarMode = document.getElementById("searchBarMode");
+                //    searchBarMode.style.display = 'none';
 
 
-
-                    var pane = document.getElementById("reportMode");
-                    pane.style.display = 'block';
-                    var topLogo = document.getElementById("topLogo");
-                    topLogo.style.display = 'block';
-                    var searchBox = document.getElementById("topSearchBar");
-                    searchBox.style.display = 'block';
+                //    var reportMode = document.getElementById("reportMode");
+                //    reportMode.style.display = 'block';
+                //    /*reportMode.style.position = 'absolute';
+                //    reportMode.style.left = '10px'
+                //    reportMode.style.bottom = '0px';*/
 
 
-                }
+
+                //    var pane = document.getElementById("reportMode");
+                //    pane.style.display = 'block';
+                //    var topLogo = document.getElementById("topLogo");
+                //    topLogo.style.display = 'block';
+                //    var searchBox = document.getElementById("topSearchBar");
+                //    searchBox.style.display = 'block';
+
+
+                //}
 
                 var loadchart = document.getElementById("loadchartDia");
                 if (loadchart !== null || loadchart !== 'defined') {
@@ -1057,23 +1104,26 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             extraFieldsArray.push(extraFields);
                         }
 
-                        var resultItem = {
-                            SymbolID: obj.ResultSummaries[i].SymbolID,
-                            StartDateTime: obj.ResultSummaries[i].StartDateTime,
-                            EndDateTime: obj.ResultSummaries[i].EndDateTime,
-                            Source: obj.ResultSummaries[i].Source,
-                            TimeFrame: obj.ResultSummaries[i].TimeFrame,
-                            MoreStandardData: obj.ResultSummaries[i].MoreStandardData,
-                            MoreKeyFields: obj.ResultSummaries[i].MoreKeyFields,
-                            QueryID: obj.ResultSummaries[i].QueryID,
-                            SymbolImages: obj.ResultSummaries[i].ImageCollection,
-                            ExtraFields: extraFieldsArray
-                        };
+                        if (obj.ResultSummaries[i].SymbolID !== null && obj.ResultSummaries[i].SymbolID !== "") {
 
-                        self.onDemandResults.push(resultItem);
+                            var resultItem = {
+                                SymbolID: obj.ResultSummaries[i].SymbolID,
+                                StartDateTime: obj.ResultSummaries[i].StartDateTime,
+                                EndDateTime: obj.ResultSummaries[i].EndDateTime,
+                                Source: obj.ResultSummaries[i].Source,
+                                TimeFrame: obj.ResultSummaries[i].TimeFrame,
+                                MoreStandardData: obj.ResultSummaries[i].MoreStandardData,
+                                MoreKeyFields: obj.ResultSummaries[i].MoreKeyFields,
+                                QueryID: obj.ResultSummaries[i].QueryID,
+                                SymbolImages: obj.ResultSummaries[i].ImageCollection,
+                                ExtraFields: extraFieldsArray
+                            };
 
-                        if (i == 0) {
-                            self.selectHighlightItem(resultItem.QueryID);
+                            self.onDemandResults.push(resultItem);
+
+                            if (i == 0) {
+                                self.selectHighlightItem(resultItem.QueryID);
+                            }
                         }
                     }
                     self.displayResult(obj);
