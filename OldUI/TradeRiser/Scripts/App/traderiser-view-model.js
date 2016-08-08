@@ -92,12 +92,32 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         tradeRiserProxy.getUserProfile(self.initializeUserProfileConfigCards);
 
+        tradeRiserProxy.getInstrumentCoverage(self.displayInstrumentCoverage);
+        tradeRiserProxy.getInfo(self.displayInfo);
+        tradeRiserProxy.getLegalInfo(self.displayLegalInfo);
+        
+
         self.paneFixWidth = $(".pane").width();
 
         //disable no longer required
         //self.tokenChecker();
     };
+    
+    this.displayInstrumentCoverage = function (returnedData) {
+        $("#icdtable").append(returnedData);
 
+        //self.initaliseDyntableNoHighlightsPara('genericResultsTable');
+
+        self.initaliseDyntableNoHighlights();
+    };
+
+    this.displayInfo = function (returnedData) {
+        $("#gid").append(returnedData);
+
+    };
+
+    this.displayLegalInfo = function (returnedData) {
+    };
 
     this.fireNotification = function () {
 
@@ -899,9 +919,66 @@ function TradeRiserViewModel(tradeRiserProxy) {
         }
     };
 
+    this.initaliseDyntableNoHighlightsPara = function (id) {
+        var allElements = $('#' + id);
+
+        for (var j = 0; j < allElements.length; j++) {
+            var idSelect = allElements[j].id;
+
+            $('#' + idSelect).dynatable({
+                table: {
+                    defaultColumnIdStyle: 'trimDash'
+                },
+                features: {
+                    paginate: true,
+                    search: false,
+                    recordCount: true,
+                    perPageSelect: false
+                },
+                writers: {
+                    _rowWriter: myRowWriter
+                }
+            }).bind('dynatable:afterProcess', noEventItem);
+
+
+            function noEventItem() {
+            };
+        }
+    }
+
+
+
+    this.initaliseDyntableNoHighlights = function () {
+        var allElements = $('.genericResultsTable');
+
+        for (var j = 0; j < allElements.length; j++) {
+            var idSelect = allElements[j].id;
+
+            $('#' + idSelect).dynatable({
+                table: {
+                    defaultColumnIdStyle: 'trimDash'
+                },
+                features: {
+                    paginate: true,
+                    search: false,
+                    recordCount: true,
+                    perPageSelect: false
+                },
+                writers: {
+                    _rowWriter: myRowWriter
+                }
+            }).bind('dynatable:afterProcess', noEventItem);
+
+
+            function noEventItem() {
+            };
+        }
+    }
+
     this.changeViewToReportView = function () {
         if (self.reportMode === 0) {
             self.reportMode = 1;
+            $('#viewTypeText').text("Search View");
 
             var searchBarMode = document.getElementById("searchBarMode");
             searchBarMode.style.display = 'none';
@@ -1631,8 +1708,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
-
-
+                            self.initaliseDyntableNoHighlights();
 
                         } break;
 
@@ -1913,6 +1989,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                         
                             }
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
+                            self.initaliseDyntableNoHighlights();
 
                         } break;
 
@@ -2023,6 +2100,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             });
 
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
+                            self.initaliseDyntableNoHighlights();
 
                         } break;
 
@@ -2090,10 +2168,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 series: [{
                                     colorByPoint: true,
                                     data: chartData,
-                                    name: 'Currency'
+                                    name: 'Instrument'
                                 }]
                             });
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
+                            self.initaliseDyntableNoHighlights();
 
                         } break;
 
@@ -2349,6 +2428,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 });
                             }
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
+                            self.initaliseDyntableNoHighlights();
 
                          
 
@@ -2832,6 +2912,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             });
 
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
+                            self.initaliseDyntableNoHighlights();
 
                         } break;
 
@@ -2856,7 +2937,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 var lastIndex = obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0].length - 1;
                                 markup += "<td>" + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][lastIndex] + "</td>";
                                 markup += "<td>" + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].GenericStr[0][lastIndex] + "</td>";
-                                markup += "<td>" + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][lastIndex] + "</td>" //use Value[1]
+                                markup += "<td>" + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].Value[0][lastIndex - 1] + "</td>" //use Value[1]
                                 markup += "<td>" + self.getUnitType(obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[bb].NumericType) + "</td>" //use Value[2] //Unit
                                 markup += "</tr>";
                             }
@@ -2975,8 +3056,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 });
                             }
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
-
-
+                            self.initaliseDyntableNoHighlights();
                         } break;
 
                     case 'GeneralLinesChart':
@@ -3082,7 +3162,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             });
 
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
-
+                            self.initaliseDyntableNoHighlights();
                         } break;
 
                     case 'IndicatorComparison':
@@ -3229,7 +3309,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
-
+                            self.initaliseDyntableNoHighlights();
                         } break;
 
                     case 'LineSeriesChart':
@@ -3353,6 +3433,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 });
                             }
                             self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly);
+                            self.initaliseDyntableNoHighlights();
 
                         } break;
 

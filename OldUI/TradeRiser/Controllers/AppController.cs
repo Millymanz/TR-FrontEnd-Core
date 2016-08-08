@@ -49,6 +49,24 @@ namespace TradeRiser.UI.Controllers
         //}
 
         [HttpPost]
+        public string GetInfo()
+        {
+            return TradeUtility.GetInfo();
+        }
+
+        [HttpPost]
+        public string GetInstrumentCoverage()
+        {
+            return TradeUtility.GetInstrumentCoverage();
+        }
+
+        [HttpPost]
+        public string GetLegalInfo()
+        {
+            return TradeUtility.GetLegalInfo();
+        }
+
+        [HttpPost]
         public string GetAllCompletedPatternDefaults()
         {
             var restClient = new RestClient();

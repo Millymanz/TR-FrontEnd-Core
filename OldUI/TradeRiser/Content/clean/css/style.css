@@ -2103,7 +2103,12 @@ img.full-width{
 	width:100% !important;
 }
 
-.ui-dialog-titlebar-close {
+
+/*.ui-dialog-titlebar-close {
+  visibility: hidden;
+}*/
+
+.content .ui-dialog-titlebar-close {
   visibility: hidden;
 }
 

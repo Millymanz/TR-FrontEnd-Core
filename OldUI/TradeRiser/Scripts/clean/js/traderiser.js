@@ -283,6 +283,8 @@ var dwidth = 900;
 
 var dheight = $('.pane').height();
 
+
+
 //-- Initializing four windows
 var dialog1 = $('.dialog1').dialog({
     autoOpen: true,
@@ -294,7 +296,7 @@ var dialog1 = $('.dialog1').dialog({
     dialogClass: 'd1'
 });
 
-
+$(".dialog .ui-dialog-titlebar-close").hide();
 
 //-- Adding Maximize/Restore buttons to dialog boxes
 //$('.d1, .d2, .d3, .d4').children('.ui-dialog-titlebar').append('<button class="btn-expand"></button>');

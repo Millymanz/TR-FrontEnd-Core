@@ -167,7 +167,42 @@ function TradeRiserProxy() {
                 callback();
             }
         });
+    };
 
+    this.getInstrumentCoverage = function (callback) {
+
+        $.ajax({
+            url: "/App/GetInstrumentCoverage",
+            type: "POST",
+            dataType: "text",
+            success: function (returnData) {
+                callback(returnData);
+            }
+        });
+    };
+
+    this.getInfo = function (callback) {
+
+        $.ajax({
+            url: "/App/GetInfo",
+            type: "POST",
+            dataType: "text",
+            success: function (returnData) {
+                callback(returnData);
+            }
+        });
+    };
+
+    this.getLegalInfo = function (callback) {
+
+        $.ajax({
+            url: "/App/GetLegalInfo",
+            type: "POST",
+            dataType: "text",
+            success: function (returnData) {
+                callback(returnData);
+            }
+        });
     };
 
     this.getAnswer = function (query, callback, callbackError) {
