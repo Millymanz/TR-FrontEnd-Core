@@ -670,6 +670,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
             case 'k': { unitType = 'Thousand'; } break;
             case '%': { unitType = 'Percent'; } break;
             case 'm': { unitType = 'Million'; } break;
+            case 'b': { unitType = 'Billion'; } break;
         }
         return unitType;
     };
