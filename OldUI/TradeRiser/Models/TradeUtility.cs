@@ -10,6 +10,13 @@ using System.Xml;
 
 namespace TradeRiser.Models
 {
+
+    public class General
+    {
+        public string fullname { get; set; }
+    }
+
+
     public static class TradeUtility
     {
         private static Dictionary<String, String> _ForexSymbolLookUp = new Dictionary<String, String>();

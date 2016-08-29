@@ -161,6 +161,44 @@ namespace TradeRiser.UI.Controllers
         }
 
         [HttpPost]
+        public string GetQuestions(string userTxt)
+        {
+          //  string data = "[ { fullname: 'foo' },{ fullname: 'bar' },"
+          //+"{ fullname: 'twbs' },"
+          //+"{ fullname: 'eurusd' },"
+          //+"{ fullname: 'eursek' },"
+          //+"{ fullname: 'eurjpy' },"
+          //+"{ fullname: 'eurnok' },"
+          //+"{ fullname: 'eurnzd' },"
+          //+"{ fullname: 'eurpln' },"
+          //+"{ fullname: 'eurpln bullish price changes' },"
+          //+"{ fullname: 'correlation' },"
+          //+"{ fullname: 'audcad' },"
+          //+"{ fullname: 'daily' }]";
+
+
+            General gen = new General();
+            gen.fullname = "foo";
+
+
+           // string data = "[ { fullname: 'foo' },{ fullname: 'bar' }]";
+            string data = "[[fullname: 'foo'],[fullname: 'bar']]";
+
+
+            return data;
+
+            //var arrayIDs = selectionID.Split('*');
+            //String queryId = arrayIDs.LastOrDefault();
+            //String selectingSymbol = arrayIDs.FirstOrDefault();
+
+            //var restClient = new RestClient();
+            //String username = HttpContext.User.Identity.Name;
+
+            //var response = restClient.GetDataResult(queryId, selectingSymbol, accessToken);
+            //return response;
+        }
+
+        [HttpPost]
         public JsonResult GetChartData(string symbolID)
         {
             //QueryHandler queryHandler = new QueryHandler();

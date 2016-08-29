@@ -29,17 +29,14 @@
         $('#compute').height(outerHeight);
 
         //All of this should be in the view model
-        //$("#autoSuggest").click(function () {
-
-        //    if (document.getElementById('autoSuggestTicker').checked) {
-        //        $("#autoSuggestTicker").prop('checked', false);
-        //    }
-        //    else {
-        //        $("#autoSuggestTicker").prop('checked', true);
-        //    }
-
-	        
-        //});
+        $("#autoSuggest").click(function () {
+            if (document.getElementById('autoSuggestTicker').checked) {
+                $("#autoSuggestTicker").prop('checked', false);
+            }
+            else {
+                $("#autoSuggestTicker").prop('checked', true);
+            }	        
+        });
 
         $("#logOffAction").click(function () {
 	        document.getElementById('logoutForm').submit();
@@ -90,56 +87,56 @@
 					]];
 
 
-					$('#highStockCustom').chartRegionSelector('StockChart', {
+					//$('#highStockCustom').chartRegionSelector('StockChart', {
 
-					    rangeSelector: {
-					        selected: 1
-					    },
+					//    rangeSelector: {
+					//        selected: 1
+					//    },
 
-					    title: {
-					        text: 'GBP/USD',                           
-					    },
+					//    title: {
+					//        text: 'GBP/USD',                           
+					//    },
 
-					    yAxis: [{
-					        title: {
-					            text: 'OHLC'
-					        },
-					        // top: 200,
-                           // left : 3,
-					        height: 300,
-					        lineWidth: 2
-					    },
+					//    yAxis: [{
+					//        title: {
+					//            text: 'OHLC'
+					//        },
+					//        // top: 200,
+                    //       // left : 3,
+					//        height: 300,
+					//        lineWidth: 2
+					//    },
 
 
-                        {
+                    //    {
 					       
 
-					        title: {
-					            text: 'Volume'
-					        },
-					        top: 380,
-					        height: 50,
-					        offset: 0,
-					        lineWidth: 2
-					    }],
+					//        title: {
+					//            text: 'Volume'
+					//        },
+					//        top: 380,
+					//        height: 50,
+					//        offset: 0,
+					//        lineWidth: 2
+					//    }],
 
-					    series: [{
-					        type: 'candlestick',
-					        name: 'AAPL',
-					        data: ohlc,
-					        dataGrouping: {
-					            units: groupingUnits
-					        }
-					    }, {
-					        type: 'column',
-					        name: 'Volume',
-					        data: volume,
-					        yAxis: 1,
-					        dataGrouping: {
-					            units: groupingUnits
-					        }
-					    }]
-					});
+					//    series: [{
+					//        type: 'candlestick',
+					//        name: 'AAPL',
+					//        data: ohlc,
+					//        dataGrouping: {
+					//            units: groupingUnits
+					//        }
+					//    }, {
+					//        type: 'column',
+					//        name: 'Volume',
+					//        data: volume,
+					//        yAxis: 1,
+					//        dataGrouping: {
+					//            units: groupingUnits
+					//        }
+					//    }]
+					//});
 
 
                      

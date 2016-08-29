@@ -1,5 +1,4 @@
-﻿@*model TradeRiser.Models.CustomToken*@
-@{
+﻿@{
     Layout = null;
 }
 
@@ -18,7 +17,6 @@
 
 <link rel="stylesheet" href="../../Content/clean/css/style.css">
 
-@*<link rel="stylesheet" href="../../NewFrontEnd/css/style.css">*@
 
 <link rel="shortcut icon" href="../../Images/traderiser.ico"/>
 <link rel="stylesheet" href="../../Content/jquery.dynatable.css">
@@ -51,10 +49,12 @@
 <script src="../../Scripts/AutoSuggest/js/ie10-viewport-bug-workaround.js"></script>
 
 
+
+
     
 
 </head>
-<body style="background-color:white">
+<body id="bn" style="background-color:white">
 
 
 
@@ -78,7 +78,7 @@
        <div id="contenthandle">
             <form class="searchForm" method="post">
                 <input data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="72"
-                            placeholder="Enter what you would like query or know about the Financial Markets?" class="testIndex inputbox transition input-search" autocomplete="off" />
+                            placeholder="Enter what you would like query or know about the Financial Markets?" id="searchDriverMode" class="testIndex inputbox transition input-search" autocomplete="off" />
                 <div>
                     <div data-bind="click: getAnswer" value="SEARCH" class="compute btnSearcher btn-search transition" style="cursor: pointer;">
                         <i class="fa fa-search" style="font-size:23px; position:absolute; top:20px; right:110px; color:white"></i></div>
@@ -127,20 +127,15 @@
  
                     <li class="logoutItem">
                         
-@*                        <div id="autoSuggest"><span style="text-align: center"><input type="checkbox"  id="autoSuggestTicker">&nbsp Auto Suggest</span></div>*@
+                        <div id="autoSuggest"><span style="text-align: center"><input checked type="checkbox"  id="autoSuggestTicker">&nbsp Auto Suggest</span></div>
                         <div id="viewType"><span id="viewTypeText" style="text-align: center">&nbsp Report View</span></div>
+                        <div id="examples"><span id="examplesText" style="text-align: center">&nbsp Examples</span></div>
                         <div id="generalInfo"><span style="text-align: center">&nbsp General Info</span></div>
                         <div id="instrumentCoverage"><span style="text-align: center">&nbsp Instrument Coverage</span></div>
 
                          @using (Html.BeginForm("Logoff", "Core", FormMethod.Post, new { id = "logoutForm" }))
-                         {
-
-                          
+                         {                          
                            <input type="hidden" value= @User.Identity.Name id='u_n' class='h_v' name="hiddens">
-                           @* <input type="hidden" value=@Model.AccessToken id='a_t' class='h_v' name="hiddens">
-                           <input type="hidden" value=@Model.Password id='p_d' class='h_v' name="hiddens">
-                           <input type="hidden" value=""@Model.Query id='firstquery' class='h_v' name="hiddens">*@
-
                            <a href="#" id="logOffAction" style="text-align: center">Log off</a>
                          }
 
@@ -179,11 +174,19 @@
       <a href="#" class="btn-act btn-drop transition">Drop</a>
     </div>
 
+    <div class="instrumentCoverageIcon">
+     <i class="fa fa-arrows" aria-hidden="true"></i>&nbsp Instruments
+    </div>
+
+    <div class="examplesIcon">
+     <i class="fa fa-bars" aria-hidden="true"></i>&nbsp Examples
+    </div>
+
  <div id="firstSearchBoxArea">      
 
                  <form class="searchForm" method="post">
                 <input data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="72"
-                            placeholder="Enter what you would like query or know about the Financial Markets?" class="testIndex inputbox transition input-search" autocomplete="off" />
+                            placeholder="Enter what you would like query or know about the Financial Markets?" id="searchDriver" class="testIndex inputbox transition input-search" autocomplete="off" />
                 <div>
                     <div data-bind="click: getAnswer" value="SEARCH" id="searchModeButton" class="compute btnSearcher btn-search transition" style="cursor: pointer;">
                         <i class="fa fa-search" style="font-size:23px; position:absolute; top:20px; right:110px; color:white"></i></div>
@@ -426,14 +429,363 @@ margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: a
 <!-- End Main Content -->
 </div>
 
+    
+    
+  
+<div id="examplesMode">
+
+<div class="content">
+ <div id="examplesGrid" >
+   
+     <table>
+         <tr>             
+             <td>
+
+                 <table>
+                     <tr>             
+                         <td><h3>Compare</h3></td>
+                      </tr>
+                     <tr>             
+                         <td>
+                            <form class="searchForm" method="post">
+                        <table class="searchbarlisting">
+                             <tr>             
+                                 <td>
+                                    <div class="caption">compare two instruments:</div>
+                                       <input title="EURUSD vs EURCAD" data-bind="value: queryA, valueUpdate: ['afterkeydown', 'input']"  name="searchQuery" size="50"
+                             class="inputBoxExamples" autocomplete="off" value="" />
+                                   
+                                        <div id="queryA" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                            </div>
+                                   
+
+                                     <br/> <br/>                                 
+                                 </td>
+                              </tr>
+                             <tr>             
+                                   <td><div class="caption">compare countries on specific economic areas:</div>
+                                       <input title="United Kingdom Unemployment Rate vs United States Unemployment Rate" data-bind="value: queryB, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="50"
+                            class="inputBoxExamples" autocomplete="off" value="" />
+                                         <div id="queryB" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                            </div>
+
+
+                                 
+                                 </td>
+                              </tr>
+                         </table>
+
+                            </form>
+                        </td>
+
+                      </tr>
+                 </table>
+
+
+             </td>
+
+
+             <td>
+             
+                    <table>
+                     <tr>             
+                         <td><h3>Basics</h3></td>
+                      </tr>
+                     <tr>             
+                         <td>
+                       <form class="searchForm" method="post">
+
+                        <table class="searchbarlisting">
+                             <tr>             
+                                 <td>
+                                     <div class="caption">get the price of a instrument:</div>
+                                       <input title="EURUSD" data-bind="value: queryC, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="50"
+                             class="inputBoxExamples" autocomplete="off" value="EURUSD" />
+                                           <div id="queryC" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                            </div>
+                                     <br/> <br/>                                 
+                                 </td>
+                              </tr>
+                             <tr>             
+                                   <td><div class="caption">find out what happened to pound currencies during brexit :</div>
+                                       <input title="Brexit" data-bind="value: queryD, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="50"
+                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                           <div id="queryD" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                            </div>
+                                 
+                                 </td>
+                              </tr>
+                         </table>
+</form>
+
+                        </td>
+
+                      </tr>
+                 </table>
+
+             </td>
+
+
+
+         </tr>
+          <tr>
+             <td colspan=2>
+
+
+                    <table>
+                     <tr>             
+                         <td><h3>Questions</h3></td>
+                      </tr>
+                     <tr>             
+                         <td>
+
+                       <form class="searchForm" method="post">
+
+                        <table class="searchbarlisting">
+                             <tr>             
+                                   <td><div class="caption">find out what happens when certain technical analysis criterias are met :</div>
+                                       
+                                     <input title="During 2011, what happened to the eurusd exhausted its selling pressure on the stochastic?" data-bind="value: queryE, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                            class="inputBoxExamples" autocomplete="off" value="" />
+                                           <div id="queryE" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                            </div>
+                                 
+                                 </td>
+                              </tr>
+                         </table>
+                            </form>
+
+                        </td>
+
+                      </tr>
+                 
+                     <tr>             
+                         <td>
+                             <br/>
+                        <form class="searchForm" method="post">
+                        <table class="searchbarlisting">
+                             <tr>             
+                                   <td><div class="caption">combine technical analysis with fundamental analysis :</div>
+                                       
+                                     <input title="How many times did the usdcad touch the sma when the nonfarm payroll was more than 40000?" data-bind="value: queryF, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                            class="inputBoxExamples" autocomplete="off" value="" />
+                                  <div id="queryF" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                            </div>
+                                 
+                                 </td>
+                              </tr>
+                         </table>
+                            </form>
+
+                        </td>
+
+                      </tr>
+
+                      <tr>             
+                         <td>
+                             <br/>
+                    <form class="searchForm" method="post">
+                        <table class="searchbarlisting">
+                             <tr>             
+                                   <td><div class="caption">identify technical patterns following another set of patterns :</div>
+                                       
+                                     <input title="Identify bearish price action signals for EUR/JPY on Daily chart from 2015 after 2 consecutive positive candles" data-bind="value: queryG, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                 <div id="queryG" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                   </div>
+                                 
+                                 </td>
+                              </tr>
+                         </table>
+                        </form>
+                        </td>
+                      </tr>
+
+                       <tr>             
+                         <td>
+                             <br/>
+                                <form class="searchForm" method="post">
+
+                        <table class="searchbarlisting">
+                             <tr>             
+                                   <td><div class="caption">country specific fundamental question :</div>
+                                       
+                                     <input title="Is the usa adp national employment report a good predictor of the nonfarm payrolls?" data-bind="value: queryH, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                   <div id="queryH" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                            </div>
+
+                                 
+                                 </td>
+                              </tr>
+                         </table>
+                                                     </form>
+                        </td>
+                      </tr>
+
+                      <tr>             
+                         <td>
+                             <br/>
+
+                          <form class="searchForm" method="post">
+                        <table class="searchbarlisting">
+                             <tr>             
+                                   <td><div class="caption">long  technical analysis question highlighting areas of interest :</div>                                       
+                                     <input title="In the daily chart, highlight instances between 15/08/2014 to 15/06/2015 when the usdcad gave a bullish rejection signal with its Bollinger Bands while its average true range was neither more than 0.0400 nor less than 0.0140" data-bind="value: queryI, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                   <div id="queryI" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                    </div>
+
+                                 
+                                 </td>
+                              </tr>
+                         </table>
+                        </form>
+                        </td>
+                      </tr>
+
+
+                      <tr>             
+                         <td>
+                             <br/>
+
+                          <form class="searchForm" method="post">
+                        <table class="searchbarlisting">
+                             <tr>             
+                                   <td><div class="caption">screen asset classes based on technical analysis criteria :</div>
+                                       
+                                     <input title="Identify pairs that are trading above 20 simple moving average on 1H timeframe for the first time between 1/2/2015 to 20/05/2015" data-bind="value: queryJ, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                    <div id="queryJ" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                    </div>
+                                 
+                                 </td>
+                              </tr>
+                         </table>
+                              </form>
+                        </td>
+                      </tr>
+  
+
+                      <tr>             
+                         <td>
+                             <br/>
+                    <form class="searchForm" method="post">
+                        <table class="searchbarlisting">
+                             <tr>             
+                                   <td><div class="caption">check asset classes for performance during certain periods :</div>
+                                       
+                                     <input title="Which exotic currency pairs have the best performance on Tuesdays, since 2012?" data-bind="value: queryK, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                <div id="queryK" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                </div>
+                                 
+                                 </td>
+                              </tr>
+                         </table>
+                        </form>
+                        </td>
+                      </tr>
+
+
+                      <tr>             
+                         <td>
+                             <br/>
+
+                    <form class="searchForm" method="post">
+                        <table class="searchbarlisting">
+                             <tr>             
+                                   <td><div class="caption">find chart patterns within the price action data :</div>
+                                       
+                                     <input title="Identify the head and shoulders chfjpy on the 1hour between 16/07/2014 to 24/08/2014 and inverse head and shoulders for the chfjpy on the 1hour between 16/07/2014 to 24/08/2014" data-bind="value: queryL, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+
+                                 <div id="queryL" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                </div>
+                                 
+                                 </td>
+                              </tr>
+                         </table>
+                        </form>
+                        </td>
+                      </tr>
+
+                    
+                                          <tr>             
+                         <td>
+                             <br/>
+
+                    <form class="searchForm" method="post">
+
+                        <table class="searchbarlisting">
+                             <tr>             
+                                   <td><div class="caption">find out what happens to certain instruments when reports are released or events take place :</div>
+                                       
+                                     <input title="What happens to the USDCAD after unemployment rate in the US beats  the consensus figure?" data-bind="value: queryM, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                                               <div id="queryM" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                </div>   
+                                 </td>
+                              </tr>
+                         </table>
+                        </form>
+                        </td>
+                      </tr>
+
+
+                                              <tr>             
+                         <td>
+                             <br/>
+
+                    <form class="searchForm" method="post">
+                        <table class="searchbarlisting">
+                             <tr>             
+                                   <td><div class="caption">find out which has the most volatile :</div>
+                                       
+                                     <input title="Which currency pairs have been the most volatile since 2016?" data-bind="value: queryN, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                <div id="queryN" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                </div>   
+      
+                                 </td>
+                              </tr>
+                         </table>
+                         </form>
+                         </td>
+                      </tr>
+                    
+                    </table>
+                    
+
+
+
+             
+             </td>
+         </tr>
+     </table>
+
+
+
+
+
+
+
+   
+ </div>
+</div>
+
+
+</div>
+
+    
+    
+    
     <!-- Dialog box class="inputbox transition input-search"-->
     <div id="generalInfoDialog" style="display:none">
        <p>Content area</p>
 
     <div id="tabsInfo">  
       <div id="tabsInfo-1">
-@*        <p>TradeRiser's market data is displayed in New York, Eastern Standard Time (EST).</p>
-        <p>The platform currently handles specifc date queries, in the English Great Britain Format dd/mm/yyyy</p>*@
          <div id="gid"></div>
       </div>   
    </div>
@@ -646,10 +998,10 @@ margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: a
 
     <!-- Template End --->
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+@*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="../../Scripts/AutoSuggest/js/marked.min.js"></script>
 <script src="../../Scripts/AutoSuggest/js/highlight.pack.js"></script>
-<script src="../../Scripts/AutoSuggest/js/bootstrap-suggest.js"></script>
+<script src="../../Scripts/AutoSuggest/js/bootstrap-suggest.js"></script>*@
 
 
 
@@ -661,7 +1013,7 @@ margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: a
 
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script src="../../NewFrontEnd/js/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="../../NewFrontEnd/js/jquery.dialogextend.min.js"></script>
+@*<script src="../../NewFrontEnd/js/jquery.dialogextend.min.js"></script>*@
 <script src="../../NewFrontEnd/js/jquery.easytabs.min.js"></script>
 <script src="../../NewFrontEnd/js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
 
@@ -699,6 +1051,7 @@ margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: a
 <script src="../../Scripts/clean/js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
 <script src="../../scripts/dynatable/jquery.dynatable.js"></script>
 <script src="../../Scripts/clean/js/traderiser.js"></script>
+<script src="../../Scripts/clean/js/questionLookups.js"></script>
 <script src="../../Scripts/clean/js/testRun.js"></script>
 <script src="../../Scripts/clean/js/dataPrep.js"></script>
 <script src="../../Scripts/clean/js/chartSelections.js"></script>
@@ -714,10 +1067,10 @@ margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: a
 
 
 
-@*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="../../Scripts/AutoSuggest/js/marked.min.js"></script>
 <script src="../../Scripts/AutoSuggest/js/highlight.pack.js"></script>
-<script src="../../Scripts/AutoSuggest/js/bootstrap-suggest.js"></script>*@
+<script src="../../Scripts/AutoSuggest/js/bootstrap-suggest.js"></script>
     
 
 @*<script src="../../NewFrontEnd/js/jquery.caretposition.js"></script>
@@ -787,9 +1140,6 @@ margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: a
         var mouseOverColor = '#33A1DE';
         var bgOverColor = '#FFFFFF';
         $('#first').after('<div class="blob transition"><div class="blobhead"><p class="date">15.03.2014 - 15.05.2014</p><div class="blobuser"><span class="imgbox"><img src="pix/user-avatar.png" width="35" height="35" alt="John Doe"></span><p>Count ' + positionCount + '</p></div></div><div class="blobcontent"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, urna a elementum gravida, lorem quam vestibulum purus, eu fermentum erat risus egestas mauris.</p></div></div>');
-
-
-        //$('#resultsTable tr:first').before('<tr onMouseUp="javascipt:resultItemClicked()" bgcolor=' + bgOverColor + ' onMouseOver=this.bgColor="' + mouseOverColor + '" onMouseOut=this.bgColor="' + bgOverColor + '"><td>eBay Inc (EBAY) - Nasdaq  - ' + positionCount + '<br /> <div style="font-size:smaller">51.65   |   0.57 (1.12%)</div></td></tr>');
     }
 
 
@@ -882,40 +1232,8 @@ margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: a
         var reportMode = document.getElementById("reportMode");
         reportMode.style.display = 'none';
 
-        // data
-        var users = [
-          { fullname: 'foo' },
-          { fullname: 'bar' },
-          { fullname: 'twbs' },
-          { fullname: 'eurusd' },
-          { fullname: 'eursek' },
-          { fullname: 'eurjpy' },
-          { fullname: 'eurnok' },
-          { fullname: 'eurnzd' },
-          { fullname: 'eurpln' },
-          { fullname: 'eurpln bullish price changes' },
-          { fullname: 'correlation' },
-          { fullname: 'audcad' },
-          { fullname: 'daily' },
-          { fullname: 'the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
-          { fullname: 'did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
-          { fullname: 'times did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
-          { fullname: 'many times did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
-          { fullname: 'How many times did the chfjpy touch the upper Bollinger band in the 1hour timeframe and the last time that the RSI, in the daily timeframe was overbought' },
-          { fullname: 'to exhaust or continue in the same direction for a similar movement after gaining/losing 52 pips in a day, between 01/02/2015 to 20/9/2015' },
-          { fullname: 'more likely to exhaust or continue in the same direction for a similar movement after gaining/losing 52 pips in a day, between 01/02/2015 to 20/9/2015' },
-          { fullname: 'Is EUR/CAD more likely to exhaust or continue in the same direction for a similar movement after gaining/losing 52 pips in a day, between 01/02/2015 to 20/9/2015' },
-          { fullname: 'the USD/CAD on the 1h timeframe for the between 21/5/2015 to 10/08/2015' },
-          { fullname: 'for the USD/CAD on the 1h timeframe for the between 21/5/2015 to 10/08/2015' },
-          { fullname: 'trends for the USD/CAD on the 1h timeframe for the between 21/5/2015 to 10/08/2015' },
-          { fullname: 'show trends for the GBP/CAD on the 1h timeframe for the between 21/5/2015 to 10/08/2015' },
-          { fullname: 'show trends on the eurjpy on 1H timeframe for the between 1/5/2015 to 20/08/2015' },
-          { fullname: 'identify bullish price action signals above 20 pips on the eurjpy daily timeframe' },
-          { fullname: 'identify bearish price action signals below 20 pips on the eurpln daily timeframe' },
-          { fullname: 'usdjpy' }
-        ];
-
-        $('.testIndex').suggest("-", {
+       
+        $('#searchDriver').suggest("-", {
             position: 'caret',
             data: users,
             map: function (user) {
@@ -925,6 +1243,20 @@ margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: a
                 }
             }
         })
+
+       $('#searchDriverMode').suggest("-", {
+            position: 'caret',
+            data: users,
+            map: function (user) {
+                return {
+                    value: user.fullname,
+                    text: '<small>' + user.fullname + '</small>'
+                }
+            }
+        })
+
+        
+
 
         $('.textArea').suggest("-", {
             position: 'caret',

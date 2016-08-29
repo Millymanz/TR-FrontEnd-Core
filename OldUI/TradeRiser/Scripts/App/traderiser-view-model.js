@@ -85,6 +85,23 @@ function TradeRiserViewModel(tradeRiserProxy) {
     this.reportMode = 0;
 
 
+    this.queryA = ko.observable();
+    this.queryB = ko.observable();
+    this.queryC = ko.observable();
+    this.queryD = ko.observable();
+    this.queryE = ko.observable();
+    this.queryF = ko.observable();
+    this.queryG = ko.observable();
+    this.queryH = ko.observable();
+    this.queryI = ko.observable();
+    this.queryJ = ko.observable();
+    this.queryK = ko.observable();
+    this.queryL = ko.observable();
+    this.queryM = ko.observable();
+    this.queryN = ko.observable();
+
+
+
     this.chartLookUp = {};
 
     this.init = function () {
@@ -229,6 +246,22 @@ function TradeRiserViewModel(tradeRiserProxy) {
             }
         });
 
+        self.queryA("EURUSD vs EURCAD");
+        self.queryB("United Kingdom Unemployment Rate vs United States Unemployment Rate");
+        self.queryC("EURUSD");
+        self.queryD("Brexit");
+        self.queryE("During 2011, what happened to the eurusd exhausted its selling pressure on the stochastic?");
+        self.queryF("How many times did the usdcad touch the sma when the nonfarm payroll was more than 40000?");
+        self.queryG("Identify bearish price action signals for EUR/JPY on Daily chart from 2015 after 2 consecutive positive candles");
+        self.queryH("Is the usa adp national employment report a good predictor of the nonfarm payrolls?");
+        self.queryI("In the daily chart, highlight instances between 15/08/2014 to 15/06/2015 when the usdcad gave a bullish rejection signal with its Bollinger Bands while its average true range was neither more than 0.0400 nor less than 0.0140");
+        self.queryJ("Identify pairs that are trading above 20 simple moving average on 1H timeframe for the first time between 1/2/2015 to 20/05/2015");
+        self.queryK("Which exotic currency pairs have the best performance on Tuesdays, since 2012?");
+        self.queryL("Identify the head and shoulders chfjpy on the 1hour between 16/07/2014 to 24/08/2014 and inverse head and shoulders for the chfjpy on the 1hour between 16/07/2014 to 24/08/2014");
+        self.queryM("What happens to the USDCAD after unemployment rate in the US beats  the consensus figure?");
+        self.queryN("Which currency pairs have been the most volatile since 2016?");
+
+
         //$("#firstSearchIndex").keypress(function (event) {
         //    var keycode = (event.keyCode ? event.keyCode : event.which);
         //    if (keycode == '13') {
@@ -282,15 +315,18 @@ function TradeRiserViewModel(tradeRiserProxy) {
         });
 
         //on hold
-        //$("#autoSuggest").click(function () {
-        //    //the on and off feature has been hacked
-        //    if (document.getElementById('autoSuggestTicker').checked) {
-        //        $("#autoSuggestTicker").prop('checked', false);
-        //    }
-        //    else {
-        //        $("#autoSuggestTicker").prop('checked', true);
-        //    }
-        //});
+        $("#autoSuggest").click(function () {
+            //the on and off feature has been hacked
+            if (document.getElementById('autoSuggestTicker').checked) {
+                $("#autoSuggestTicker").prop('checked', false);
+            }
+            else {
+                $("#autoSuggestTicker").prop('checked', true);
+            }
+        });
+
+
+        $(document).tooltip();
 
 
 
@@ -301,6 +337,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
             $("#generalInfoDialog").dialog("open");
         });
         $("#generalInfoDialog").dialog({
+            //height: 400,
+            //width: 920,
             height: 400,
             width: 920,
             resizable: false,
@@ -311,11 +349,13 @@ function TradeRiserViewModel(tradeRiserProxy) {
         });
 
 
-        $('#instrumentCoverage').click(function () {
+        $('#instrumentCoverage, .instrumentCoverageIcon').click(function () {
             $("#instrumentCoverageDialog").dialog("open");
         });
         $("#instrumentCoverageDialog").dialog({
-            height: 700,
+            //height: 700,
+            //width: 920,
+            height: 450,
             width: 920,
             resizable: false,
             show: "clip",
@@ -334,6 +374,23 @@ function TradeRiserViewModel(tradeRiserProxy) {
                 $('#viewTypeText').text("Report View");
             }
         });
+
+        $('#examples, .examplesIcon').click(function () {
+            self.changeViewToExamples();
+        });
+
+        $(".examplesIcon").hover(function () {
+            $(this).css("color", "black");
+        }, function () {
+            $(this).css("color", "#83A4A5");
+        });
+
+        $(".instrumentCoverageIcon").hover(function () {
+            $(this).css("color", "black");
+        }, function () {
+            $(this).css("color", "#83A4A5");
+        });
+
 
         //-- Constraining windows to parent pane
         //$('#generalInfo').parent().draggable({
@@ -976,13 +1033,46 @@ function TradeRiserViewModel(tradeRiserProxy) {
         }
     }
 
+    this.changeViewToExamples = function () {
+        //if (self.reportMode === 0) {
+
+            var bodyTemp = document.getElementById("bn");
+            bodyTemp.style.overflow = 'visible';
+        
+            //Set all to no view
+            self.reportMode = 1;
+            $('#viewTypeText').text("Search View");
+            var searchBarMode = document.getElementById("searchBarMode");
+            searchBarMode.style.display = 'none';
+            var reportMode = document.getElementById("reportMode");
+            reportMode.style.display = 'none';
+            var pane = document.getElementById("reportMode");
+            pane.style.display = 'none';
+            var topLogo = document.getElementById("topLogo");
+            topLogo.style.display = 'block';
+            var searchBox = document.getElementById("topSearchBar");
+            searchBox.style.display = 'none';
+
+
+            //display
+            var examplesMode = document.getElementById("examplesMode");
+            examplesMode.style.display = 'block';
+        //}
+    }
+
     this.changeViewToReportView = function () {
         if (self.reportMode === 0) {
             self.reportMode = 1;
             $('#viewTypeText').text("Search View");
 
+            var bodyTemp = document.getElementById("bn");
+            bodyTemp.style.overflow = 'hidden';
+
             var searchBarMode = document.getElementById("searchBarMode");
             searchBarMode.style.display = 'none';
+
+            var examplesMode = document.getElementById("examplesMode");
+            examplesMode.style.display = 'none';
 
             var reportMode = document.getElementById("reportMode");
             reportMode.style.display = 'block';
@@ -1000,6 +1090,9 @@ function TradeRiserViewModel(tradeRiserProxy) {
         if (self.reportMode === 1) {
             self.reportMode = 0;
 
+            var bodyTemp = document.getElementById("bn");
+            bodyTemp.style.overflow = 'hidden';
+
             var searchBarMode = document.getElementById("searchBarMode");
             searchBarMode.style.display = 'block';
 
@@ -1012,8 +1105,80 @@ function TradeRiserViewModel(tradeRiserProxy) {
             topLogo.style.display = 'none';
             var searchBox = document.getElementById("topSearchBar");
             searchBox.style.display = 'none';
+
+            //switch of examples
+            var exampleMode = document.getElementById("examplesMode");
+            exampleMode.style.display = 'none';
+
+
         }
     }
+
+    this.getAnswerExamples = function (data, event) {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+
+        switch (event.target.id) {
+            case "queryA":
+                {
+                    self.mainQuery(self.queryA());
+            } break;
+            case "queryB":
+                {
+                    self.mainQuery(self.queryB());
+                } break;
+
+            case "queryC":
+                {
+                    self.mainQuery(self.queryC());
+                } break;
+            case "queryD":
+                {
+                    self.mainQuery(self.queryD());
+                } break;
+            case "queryE":
+                {
+                    self.mainQuery(self.queryE());
+                } break;
+            case "queryF":
+                {
+                    self.mainQuery(self.queryF());
+                } break;
+            case "queryG":
+                {
+                    self.mainQuery(self.queryG());
+                } break;
+            case "queryH":
+                {
+                    self.mainQuery(self.queryH());
+                } break;
+            case "queryI":
+                {
+                    self.mainQuery(self.queryI());
+                } break;
+            case "queryJ":
+                {
+                    self.mainQuery(self.queryJ());
+                } break;
+            case "queryK":
+                {
+                    self.mainQuery(self.queryK());
+                } break;
+            case "queryL":
+                {
+                    self.mainQuery(self.queryL());
+                } break;
+            case "queryM":
+                {
+                    self.mainQuery(self.queryM());
+                } break;
+            case "queryN":
+                {
+                    self.mainQuery(self.queryN());
+                } break;
+        }
+        self.reportMode = 0;
+        self.getAnswer();
+    };
 
     this.getAnswer = function () {
 
@@ -1021,31 +1186,6 @@ function TradeRiserViewModel(tradeRiserProxy) {
             if (self.mainQuery() !== null && self.mainQuery() !== 'undefined') {
 
                 self.changeViewToReportView();
-
-                //if (self.reportMode === 0) {
-                //    self.reportMode = 1;
-
-                //    var searchBarMode = document.getElementById("searchBarMode");
-                //    searchBarMode.style.display = 'none';
-
-
-                //    var reportMode = document.getElementById("reportMode");
-                //    reportMode.style.display = 'block';
-                //    /*reportMode.style.position = 'absolute';
-                //    reportMode.style.left = '10px'
-                //    reportMode.style.bottom = '0px';*/
-
-
-
-                //    var pane = document.getElementById("reportMode");
-                //    pane.style.display = 'block';
-                //    var topLogo = document.getElementById("topLogo");
-                //    topLogo.style.display = 'block';
-                //    var searchBox = document.getElementById("topSearchBar");
-                //    searchBox.style.display = 'block';
-
-
-                //}
 
                 var loadchart = document.getElementById("loadchartDia");
                 if (loadchart !== null || loadchart !== 'defined') {

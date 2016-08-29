@@ -406,6 +406,46 @@ box-shadow:1px 1px 2px rgba(0,0,0,0.07) ,inset 1px 1px 0px rgba(255,255,255,0.25
 
 /***auto suggest end**/
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
 
 
 
@@ -425,6 +465,30 @@ box-shadow:1px 1px 2px rgba(0,0,0,0.07) ,inset 1px 1px 0px rgba(255,255,255,0.25
     padding-bottom: 12px;
 
     height:43px;
+}
+
+@-moz-document url-prefix() {
+       .btn-search-examples {
+        display: block;
+        width: 30px;
+        height:31px;
+        float: right;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        padding-top: 12px;
+        padding-bottom: 12px;    
+    }
+}
+
+.btn-search-examples {
+    display: block;
+    width: 30px;
+    height:31px;
+    float: right;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    padding-top: 12px;
+    padding-bottom: 12px;    
 }
 
 /*#compute {
@@ -802,7 +866,7 @@ box-shadow:1px 1px 2px rgba(0,0,0,0.07) ,inset 1px 1px 0px rgba(255,255,255,0.25
 	border-right:none;
 	padding-left: 15px;
 	/*padding-right: 80px;*/
-    padding-right: 80px;
+    padding-right: 45px;
 	padding-top: 12px;
 	padding-bottom: 12px;
 	border-radius: 4px;
@@ -814,14 +878,43 @@ box-shadow:1px 1px 2px rgba(0,0,0,0.07) ,inset 1px 1px 0px rgba(255,255,255,0.25
 	width: 79%;
 	float: left;
 }
+
+#searchDriverMode {
+    padding-right: 80px;
+}
+
+#searchDriver {
+    padding-right: 45px;
+}
+
 .inputbox:focus {
 	outline:none;
 	background-color:#FFF;
 }
+
+.examplesIcon {
+	position: absolute;
+	right: 22%;
+	top: 65px;
+    color:#83A4A5;
+    font-size:16px;
+    cursor: pointer;
+}
+
+.instrumentCoverageIcon {
+	position: absolute;
+	right: 37%;
+	top: 65px;
+    color:#83A4A5;
+    font-size:16px;
+    cursor: pointer;
+}
+
+
 .searchact {
 	position: absolute;
 	right: 22%;
-	top: 12px;
+	top: 12px; 
 }
 
 .searchactFront {
@@ -1376,11 +1469,80 @@ background-position:0px 0px;
     bottom:8000px;
     display:none;
     background-color:white;*/
-} 
+}
+
+#examplesGrid {
+    margin:20px auto; 
+    width:1000px;
+    border:0px solid black;
+}
+
+#examplesMode {
+    z-index:12;
+    display:none;
+}
+
+.examplesPod {
+    width: 225px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid #d0d0d0;
+}
+
 
 #searchBarMode {
     z-index:10000;
     background-color:white;
+}
+
+
+
+.inputBoxExamples {
+    border: 1px solid #91ADAE;
+  	border-right:none;
+
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    border-radius: 4px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+    float: left;
+}
+
+
+
+@-moz-document url-prefix() {
+.inputBoxExamples {
+    border: 1px solid #91ADAE;
+  	border-right:none;
+
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 5px;
+    padding-bottom: 3px;
+
+    border-radius: 4px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+    float: left;
+}
+}
+
+
+.caption {
+    font-size:small;
+    color:#888;
 }
 
 .content-inner {
