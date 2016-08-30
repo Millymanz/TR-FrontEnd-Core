@@ -249,7 +249,7 @@ var users = [
 { fullname: 'unemployment rate' },
 { fullname: 'unit labor costs qoq' },
 { fullname: 'visitor arrivals mom' },
-{ fullname: 'vote on interest rate' },
+{ fullname: 'interest rates' },
 { fullname: 'wage price index qoq' },
 { fullname: 'wage price index yoy' },
 { fullname: 'wholesale price index mom' },

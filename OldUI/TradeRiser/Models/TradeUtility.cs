@@ -81,7 +81,9 @@ namespace TradeRiser.Models
         {
             string tableId = "idd" + DateTime.Now.Millisecond + DateTime.Now.Second;
             
-            string summaryt = "<br/>";
+            //string summaryt = "<br/>";
+            string summaryt = "";
+            summaryt += "<h3><u>Instrument Coverage</u></h3>";
             summaryt += "<p>This screen shows the instrument covered by TradeRiser. Select Next or Previous to toggle through the available symbol list, along with the intervals on which this instrument is monitored.</p>";
             summaryt += "<p>Forex Data:</p>";
             summaryt += "<p><table class='genericResultsTable' id='" + tableId + "'><thead><tr>";
@@ -211,7 +213,36 @@ namespace TradeRiser.Models
 
         public static string GetInfo()
         {
-            string info = "The platform currently handles specifc date queries, in the English Great Britain Format dd/mm/yyyy";
+            string info = "<ol>";
+            info += "<li>";
+            info += "The platform currently handles specifc date queries, in the English Great Britain Format dd/mm/yyyy. <br/><br/>";
+            info += "</li>";
+
+            info += "<li>";
+            info += "The desired date periods can be expressed in the following Formats and more 'over the last 6 months', 'since 2012', 'from 2016', 'last week', 'today', 'yesterday', 'between 23/08/2015 to 24/06/2016'<br/><br/>";
+            info += "</li>";
+
+            info += "<li>";
+            info += "TradeRiser currently features the following asset classes Forex, Commodities and Indicies. We are working to introduce Stocks.<br/><br/>";
+            info += "</li>";
+
+            info += "<li>";
+            info += "The 'AutoSuggest' feature is an assisting tool which can help you when expressing a question or query. It includes examples and popular questions, it also has economic calendar events/data keywords.<br/><br/>";
+            info += "</li>";
+
+            info += "<li>";
+            info += "The economic calendar events/data keywords should always been expressed with a country, for example 'UK interest rates'. The country or region is expressed with the event or fundamental data. <br/><br/>";
+            info += "</li>";
+
+            info += "<li>";
+            info += "Data featured in the TradeRiser platform is acquired dynamically from various sources across the web and more. <br/><br/>";
+            info += "</li>";
+
+            info += "<li>";
+            info += "Queries featuring large data sets or going back a long time will often take longer to be answered due to the number of data points being used as part of the calculation. <br/><br/>";
+            info += "</li>";
+
+            info += "</ol>";
             return info;
         }
     }

@@ -325,10 +325,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
             }
         });
 
-
         $(document).tooltip();
-
-
+        $(document).prop('title', 'TradeRiser - Beta');
 
 
         //info
@@ -392,6 +390,14 @@ function TradeRiserViewModel(tradeRiserProxy) {
         });
 
 
+        $(".inputBoxExamples").hover(function () {
+
+            $(this).css("border-color", "black");
+
+        }, function () {
+
+            $(this).css("border-color", "#91ADAE");
+        });
         //-- Constraining windows to parent pane
         //$('#generalInfo').parent().draggable({
         //    containment: '.content-inner'
