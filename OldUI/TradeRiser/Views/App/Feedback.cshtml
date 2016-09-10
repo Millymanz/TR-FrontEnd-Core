@@ -1,0 +1,35 @@
+﻿@using TradeRiser.UI
+@section jQueryLoad
+{
+feedback.load();
+}
+@section ribbon
+{
+
+}
+<div class="settings-content page-content">
+    <div class="section">
+        <div class="section-title">
+            <div class="title-wrapper">
+                <h1>Send us feedback</h1>
+            </div>
+            <div style="padding-top: 5px;">
+                <p><br/>Please fill out the form below and we will get back to you as soon as possible.
+                </p>
+            </div>
+        </div>
+        <div class="section-content" id="feedback-section">
+            @*<p>Are you satisfied with your experience?</p>*@
+            <label>Name:</label>
+            <input type="text" id="name" maxlength="255" placeholder="Name" class="cpftxt form-control"/>
+            <label>Email:</label>
+            <input type="text" id="email" maxlength="255" placeholder="Email" class="cpftxt form-control"/>
+            <label>Message:</label>
+            <textarea id="message" rows="10" cols="100" placeholder="Tell us about your experience?"></textarea>
+        </div>
+    </div>
+    <div>
+        <input type="button" id="cancel" class="btn" value="@Html.Raw(TradeRiserUIResource.Ribbon_Membership_Cancel)"/><span class="fa fa-fw fa-cancel"></span>
+        <input type="button" id="save" class="btn" value="Submit"/><span class="fa fa-fw fa-save"></span>
+    </div>
+</div>
