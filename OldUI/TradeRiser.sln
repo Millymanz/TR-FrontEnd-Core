@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{EA
 		Database,Tables and Stored Procedures.sql = Database,Tables and Stored Procedures.sql
 		Database.sql = Database.sql
 		Table Inserts.sql = Table Inserts.sql
+		Upgrade Scripts.sql = Upgrade Scripts.sql
 	EndProjectSection
 EndProject
 Global

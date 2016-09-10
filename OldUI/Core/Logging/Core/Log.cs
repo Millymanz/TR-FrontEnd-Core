@@ -120,11 +120,14 @@
             string displayName = null;
             Guid userId = Guid.Empty;
 
-            if (director.User != null)
+            if (director != null)
             {
-                userName = director.User.UserName;
-                displayName = director.User.UserDisplayName;
-                userId = director.User.UserID;
+                if (director.User != null)
+                {
+                    userName = director.User.UserName;
+                    displayName = director.User.UserDisplayName;
+                    userId = director.User.UserID;
+                }
             }
 
             LogMessage logMessage = Log.Create(component, sender, Log.ExceptionToString(exception), userName, displayName, userId);

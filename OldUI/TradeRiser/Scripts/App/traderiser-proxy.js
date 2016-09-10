@@ -39,6 +39,9 @@ function TradeRiserProxy() {
                 dataType: "text",
                 data: { accessToken: $('#a_t').val() },
                 success: function (returnedData) {
+                    if (returnedData.length === 0) {
+                        return false;
+                    }
                     callback(returnedData);
                 }
             });
@@ -169,17 +172,29 @@ function TradeRiserProxy() {
         });
     };
 
-    this.getInstrumentCoverage = function (callback) {
+    this.getInstrumentCoverage = function(callback) {
 
         $.ajax({
             url: "/App/GetInstrumentCoverage",
             type: "POST",
             dataType: "text",
-            success: function (returnData) {
+            success: function(returnData) {
                 callback(returnData);
             }
         });
     };
+
+    this.getFeedback = function (callback) {
+            alert(0);
+            //$.ajax({
+            //    url: "/App/feedback",
+            //    type: "POST",
+            //    dataType: "text",
+            //    success: function (returnData) {
+            //        callback(returnData);
+            //    }
+            //});
+        };
 
     this.getInfo = function (callback) {
 
@@ -213,6 +228,7 @@ function TradeRiserProxy() {
             dataType: "text",
             data: { searchQuery: query, accessToken: $('#a_t').val() },
             success: function (returnedData) {
+               
                 callback(returnedData);
             },
             error: function (data) {

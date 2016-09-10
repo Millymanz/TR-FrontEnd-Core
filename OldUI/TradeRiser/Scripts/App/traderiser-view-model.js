@@ -377,6 +377,10 @@ function TradeRiserViewModel(tradeRiserProxy) {
             self.changeViewToExamples();
         });
 
+        $('#feedBack').click(function () {
+            location.href = "/app/feedback";
+        });
+
         $(".examplesIcon").hover(function () {
             $(this).css("color", "black");
         }, function () {

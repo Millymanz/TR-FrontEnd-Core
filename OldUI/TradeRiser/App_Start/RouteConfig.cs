@@ -61,12 +61,20 @@ namespace TradeRiser
             routes.MapRoute(
                name: "Default-2",
                url: "{controller}/{action}/{id}",
-               defaults: new { controller = "App", action = "Index", id = UrlParameter.Optional }
+               defaults: new { controller = "App", action = "Index", id = UrlParameter.Optional}
+                 //constraints: new { action = "Index|Help|Feedback" } 
            );
+          //  routes.MapRoute(
+          //    name: "Default-A2",
+          //    url: "{controller}/{action}/{id}",
+          //    defaults: new { controller = "App", action = "Feedback", id = UrlParameter.Optional }
+          //      //constraints: new { action = "Index|Help|Feedback" } 
+          //);
             routes.MapRoute(
              name: "Default-1",
              url: "{controller}/{action}/{id}",
              defaults: new { controller = "Core", action = "Logon", id = UrlParameter.Optional }
+           
          );
 
           routes.MapRoute(
