@@ -1,6 +1,10 @@
 ﻿USE [TRUserManagement]
 GO
+/******  INSERTS */
+INSERT INTO [traderiser].[ConfigurationItem] ([Name],[DataType],[Value],[IsVisible])
+  VALUES ('Core.EmailInfoAddress','Text','info@mydomain.com','1') 
 
+GO
 CREATE TABLE [traderiser].[Feedback](
 	[ID] [bigint] IDENTITY(1,1) NOT NULL,
 	[Name] [nvarchar](256) NOT NULL,

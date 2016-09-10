@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using TradeRiser.Models;
 using TradeRiser.Core.Data;
+using TradeRiser.Core.Mail;
 
 namespace TradeRiser.UI.Controllers
 {
@@ -217,7 +218,28 @@ namespace TradeRiser.UI.Controllers
             {
                 if (dbAccess.SubmitFeedback(model))
                 {
-                    resultBag = new ResultBag(true, new {message = "Feedback submitted."});
+                    Email email = new Email
+                    {
+                        From = model.Email,
+                        FromDisplayName = model.Name,
+                        To = this.Director.Configuration.GetConfigItem<string>("Core.EmailInfoAddress", "info@traderiser.com"),
+                        Subject = "Feedback",
+                        Message = model.Message,
+                        // ReplyTo = config.EmailReplyToAddress,
+                        // ReplyToDisplayName = config.EmailReplyToDisplayName
+                    };
+
+                    EmailSender sender = new EmailSender();
+                    sender.Send(email);
+                     Alert alert = new Alert("Thank you for taking the time to give us feedback about the TradeRiser.", AlertType.Success, false)
+                        {
+                            Delayed = true
+                        };
+
+                     resultBag = new ResultBag(alert, true, string.Empty) { RedirectUrl = "App/Index" };
+                       
+
+                    //resultBag = new ResultBag(true, new { message = "Thank you for taking the time to give us feedback about the TradeRiser." }) { RedirectUrl = "App/Index" };
                 }
                 else
                 {

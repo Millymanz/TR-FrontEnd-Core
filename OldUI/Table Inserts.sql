@@ -242,5 +242,6 @@ INSERT INTO [traderiser].[ConfigurationItem] ([Name],[DataType],[Value],[IsVisib
   VALUES ('ZugoSearch.ResultSubstringLength','Int','50','1') 
 INSERT INTO [traderiser].[ConfigurationItem] ([Name],[DataType],[Value],[IsVisible])
   VALUES ('ZugoSearch.SearchRefreshTimeDisplayInMinutes','Int','5','1') 
-
+INSERT INTO [traderiser].[ConfigurationItem] ([Name],[DataType],[Value],[IsVisible])
+  VALUES ('Core.EmailInfoAddress','Text','info@mydomain.com','1') 
 
