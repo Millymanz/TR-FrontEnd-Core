@@ -219,6 +219,7 @@
     <Compile Include="Contract\ErrorType.cs" />
     <Compile Include="Contract\HttpBrowserExtensions.cs" />
     <Compile Include="Contract\JsonActionResult.cs" />
+    <Compile Include="Contract\AppDataAccess.cs" />
     <Compile Include="Contract\ResultBag.cs" />
     <Compile Include="Contract\Security\AreaPermission.cs" />
     <Compile Include="Contract\Security\Authenticator.cs" />
@@ -278,6 +279,7 @@
     <Content Include="Content\Images\TradeRiser_Web.png" />
     <Content Include="Content\jquery.dynatable.css" />
     <Content Include="Content\Scripts\changepassword.js" />
+    <Content Include="Content\Scripts\feedback.js" />
     <Content Include="Content\Scripts\corejsmvc.js" />
     <Content Include="Content\Scripts\jquery.js" />
     <Content Include="Content\Scripts\jstorage.js" />
@@ -934,6 +936,7 @@
     <Content Include="Views\User\ThemeOptions.cshtml" />
     <Content Include="Views\User\UserPreferences.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\App\Feedback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

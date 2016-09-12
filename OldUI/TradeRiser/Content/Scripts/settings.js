@@ -83,6 +83,10 @@ settings.password = {
             settings.password.save($(this));
             return false;
         });
+        $("#cancel").click(function () {
+            location.href = APPLICATIONPATH + "core/logoff";
+            return false;
+        });
 
         var $oldPassword = $("#old-password");
         var $newPassword = $("#new-password");
@@ -165,19 +169,24 @@ settings.password = {
 
                 if (result.success) {
                     var path = corejs.querystring.get("i");
-                    if (path) {
+                    if (path.length !== 0) {
                         corejs.wait();
                         location.href = decodeURIComponent(path);
+                    } else {
+                        corejs.wait();
+                        location.href = APPLICATIONPATH + "App/Index";
                     }
                 }
             }
 
             var fail = function (data, textStatus, jqXHR) {
                 $button.removeClass("disabled");
-                //var msg = "RESOURCE{{settings.js}:{SettingsSaveFailed}:{Failed to save: {0}}}";
-                //corejs.alert(msg.replace("{0}", textStatus), "e");
+               
                 if (data["unhandled"]) {
                     corejs.alert("RESOURCE{{settings.js}:{SettingsSaveFailed}:{Failed to save the password settings.}}", "e");
+                } else {
+                    var msg = "RESOURCE{{settings.js}:{SettingsSaveFailed}:{Failed to save: {0}}}";
+                    corejs.alert(msg.replace("{0}", data.message), "e");
                 }
             }
 

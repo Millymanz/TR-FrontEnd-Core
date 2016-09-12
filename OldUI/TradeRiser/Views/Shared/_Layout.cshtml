@@ -30,18 +30,25 @@
             <a class="sign-up" id="menu-bar-sign-out" href="@string.Format("{0}core/logoff", this.Director.ApplicationPath)">Log off</a>
         </div>
     </div>
-    <div id="body">
-        <div class="collapse navbar-toggleable-xs" id="main-toolbar">
-            <ul class="ribbon nav navbar-nav">
-                @RenderSection("ribbon", false)
-            </ul>
-        </div>
-        @RenderSection("subnav", false)
-        @RenderSection("featured", required: false)
-        <section class="content-wrapper main-content clear-fix">
-            @RenderBody()
-        </section>
+<div id="body">
+    <div class="collapse navbar-toggleable-xs" id="main-toolbar">
+        <ul class="ribbon nav navbar-nav">
+            @RenderSection("ribbon", false)
+        </ul>
     </div>
+    @RenderSection("subnav", false)
+    @RenderSection("featured", required: false)
+    <section class="content-wrapper main-content clear-fix">
+        @RenderBody()
+    </section>
+</div>
+     <div id="alert" class="alert">
+                    <div class="alert-body">
+                        <span class="message">@if (this.ViewBag.LogonMessage != null)
+                                              {<text>@this.ViewBag.LogonMessage</text>}</span>
+                        <div class="closebutton-wrapper" style="display:inline-block"><span class="fa fa-fw fa-remove">[x]</span></div>
+                    </div>
+                </div>
     <footer>
         <div class="content-wrapper">
             <div class="float-left">

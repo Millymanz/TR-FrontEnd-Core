@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-
 using TradeRiser.Models;
-
-using System.Data.SqlClient;
-using System.Data;
-using System.Runtime.Serialization;
+using TradeRiser.Core.Data;
+using TradeRiser.Core.Mail;
 
 namespace TradeRiser.UI.Controllers
 {
@@ -207,6 +202,56 @@ namespace TradeRiser.UI.Controllers
             return null;
 
             //return Json(data);            
+        }
+
+        public ActionResult Feedback(Feedback feedback)
+        {         
+            return this.View();
+        }
+
+        public ActionResult SubmitFeedback(Feedback model)
+        {
+            ResultBag resultBag;
+            AppDataAccess dbAccess = new AppDataAccess();
+
+            try
+            {
+                if (dbAccess.SubmitFeedback(model))
+                {
+                    Email email = new Email
+                    {
+                        From = model.Email,
+                        FromDisplayName = model.Name,
+                        To = this.Director.Configuration.GetConfigItem<string>("Core.EmailInfoAddress", "info@traderiser.com"),
+                        Subject = "Feedback",
+                        Message = model.Message,
+                        // ReplyTo = config.EmailReplyToAddress,
+                        // ReplyToDisplayName = config.EmailReplyToDisplayName
+                    };
+
+                    EmailSender sender = new EmailSender();
+                    sender.Send(email);
+                     Alert alert = new Alert("Thank you for taking the time to give us feedback about the TradeRiser.", AlertType.Success, false)
+                        {
+                            Delayed = true
+                        };
+
+                     resultBag = new ResultBag(alert, true, string.Empty) { RedirectUrl = "App/Index" };
+                       
+
+                    //resultBag = new ResultBag(true, new { message = "Thank you for taking the time to give us feedback about the TradeRiser." }) { RedirectUrl = "App/Index" };
+                }
+                else
+                {
+                    resultBag = new ResultBag(false, new {message = "Failed to submit feedback"});
+                }
+            }
+            catch(Exception ex)
+            {
+                resultBag = new ResultBag(false, new { message = ex.Message });
+            }
+
+            return new JsonActionResult(resultBag);
         }
     }
 }
