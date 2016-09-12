@@ -411,4 +411,6 @@ var users = [
 { fullname: 'How did the us markets perform last month?' },
 { fullname: 'Which pound crosses are the most bullish on the daily timeframe between 04/04/2015 to 25/04/2015 and was trading above its above 20 simple moving average on daily timeframe for the first time year to date' },
 { fullname: 'Identify when the eurusd has a stochastic below 82 between 01/01/2015 to 30/12/2015' },
+{ fullname: 'How has the us gdp qoq been over the last 12 months?' },
+{ fullname: 'What is the uk gdp yoy growth?' },
 ];

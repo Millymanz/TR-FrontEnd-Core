@@ -754,6 +754,18 @@ box-shadow:1px 1px 2px rgba(0,0,0,0.07) ,inset 1px 1px 0px rgba(255,255,255,0.25
 	padding:2px 2px 2px 2px;
 }
 
+.startGuide{
+	position: absolute;
+	top: 20px;
+    right: 120px;
+	/*right: 180px;*/
+	width:150px;
+	color:white;
+	/*padding:2px 2px 2px 2px;*/
+    font-family: "PT Sans", Arial, Helvetica, sans-serif;
+    cursor:pointer;
+}
+
 .btn-user {
 	display: block;
 	height: 60px;

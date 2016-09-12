@@ -128,7 +128,7 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
             }
 
 
-            try{
+            try {
 
 
                 // create the chart

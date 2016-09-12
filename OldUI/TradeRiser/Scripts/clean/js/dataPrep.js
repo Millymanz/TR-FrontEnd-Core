@@ -39,7 +39,7 @@ function GenerateRandomColour() {
     return textArray[randomNumber];
 }
 
-function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly) {
+function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly, plotLinesArray) {
     
     try
     {
@@ -120,8 +120,217 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         //$("#tableCanvas  > tbody > tr > td").eq(pp).after("<td style='top:0px' id=celln" + pp + " width='100%' valign='top'>" + final + "</td>");
 
                         bSubWidgetSet = true;
-
                         allCountIter++;
+
+                        if (summariesSet === false) {
+                            GenerateSummary(obj, presentationTypeIndex);
+                            summariesSet = true;
+                        }
+                    }
+                    break;
+
+                case 'PIVOTPOINTS':
+                    {
+                        var dataResults = {};
+                        var widgetName = presentationTypes.SubWidgets[ss];
+
+                        var currentCount = mulitipleWidgetLookUp[widgetName];
+                        var startIndex = uniqueLookUpCount[widgetName];
+                        var lineIndx = startIndex;
+
+                        dataResults = dataLookUp[widgetName + lineIndx];
+
+                        if (typeof currentCount !== 'undefined') {
+                            uniqueLookUpCount[widgetName] = lineIndx + 1;
+                        }
+                        else {
+                            dataResults = dataLookUp[widgetName];
+                        }
+
+                        if (dataResults != null || dataResults !== undefined) {
+                            var dataLength = dataResults.length;
+                            var smaData = [];
+
+                            for (var ri = 0; ri < dataLength; ri++) {
+                                smaData.push([
+                                    dataResults[ri][0], // the date
+                                    dataResults[ri][1] // the close
+                                ])
+                            }
+
+                            //For handling multilple widgets of the same
+                            //kind, this diversifies color
+                            var selectedColor = "red";
+                            if (WidgetAlreadyUsed('PIVOTPOINTS', widgetUsedList)) {
+                                selectedColor = GenerateRandomColour();
+                            }
+
+
+                            var lineChartItem = {
+                                value: dataResults[0][1],
+                                color: 'green',
+                                 dashStyle: 'none',
+                                width: 2,
+                                label: {
+                                    text: 'Resistance Level 1'
+                                }                                
+                            }
+                            plotLinesArray.push(lineChartItem);
+
+                            var lineChartItemFirst = {
+                                value: dataResults[1][1],
+                                color: 'red',
+                                 dashStyle: 'none',
+                                width: 2,
+                                label: {
+                                    text: 'Resistance Level 2'
+                                }
+                            }
+                            plotLinesArray.push(lineChartItemFirst);
+
+                            var lineChartItemSecond = {
+                                value: dataResults[2][1],
+                                color: 'orange',
+                                 dashStyle: 'none',
+                                width: 2,
+                                label: {
+                                    text: 'Resistance Level 3'
+                                }
+                            }
+                            plotLinesArray.push(lineChartItemSecond);
+
+                            var lineChartItemThree = {
+                                value: dataResults[3][1],
+                                color: 'green',
+                                 dashStyle: 'none',
+                                width: 2,
+                                label: {
+                                    text: 'Support Level 1'
+                                }
+                            }
+                            plotLinesArray.push(lineChartItemThree);
+
+                            var lineChartItemFour = {
+                                value: dataResults[4][1],
+                                color: 'red',
+                                 dashStyle: 'none',
+                                width: 2,
+                                label: {
+                                    text: 'Support Level 2'
+                                }
+                            }
+                            plotLinesArray.push(lineChartItemFour);
+
+                            var lineChartItemFive = {
+                                value: dataResults[5][1],
+                                color: 'orange',
+                                 dashStyle: 'none',
+                                width: 2,
+                                label: {
+                                    text: 'Support Level 3'
+                                }
+                            }
+                            plotLinesArray.push(lineChartItemFive);
+
+
+
+
+
+
+
+
+
+
+
+
+                            //var lineChartItem = {
+                            //    value: 1.51812,
+                            //    color: 'blue',
+                            //    dashStyle: 'shortdash',
+                            //    width: 2,
+                            //    label: {
+                            //        text: 'Last quarter minimum'
+                            //    }
+                            //}
+                            //plotLinesArray.push(lineChartItem);
+
+
+                            //var lineChartItemFirst = {
+                            //    value: 1.57772,
+                            //    color: 'green',
+                            //    dashStyle: 'shortdash',
+                            //    width: 2,
+                            //    label: {
+                            //        text: 'Last quarter minimum'
+                            //    }
+                            //}
+                            //plotLinesArray.push(lineChartItemFirst);
+
+
+
+                            //var lineChartItemSecond = {
+                            //    value: 1.511,
+                            //    color: 'yellow',
+                            //    dashStyle: 'shortdash',
+                            //    width: 2,
+                            //    label: {
+                            //        text: 'Last quarter minimum'
+                            //    }
+                            //}
+                            //plotLinesArray.push(lineChartItemSecond);
+
+
+
+                            //var lineChartItemThree = {
+                            //    value: 1.37,
+                            //    color: 'green',
+                            //    dashStyle: 'shortdash',
+                            //    width: 2,
+                            //    label: {
+                            //        text: 'Last quarter minimum'
+                            //    }
+                            //}
+                            //plotLinesArray.push(lineChartItemThree);
+
+
+
+                            //var lineChartItemFour = {
+                            //    value: 1.6,
+                            //    color: 'green',
+                            //    dashStyle: 'shortdash',
+                            //    width: 2,
+                            //    label: {
+                            //        text: 'Last quarter minimum'
+                            //    }
+                            //}
+                            //plotLinesArray.push(lineChartItemFour);
+
+
+
+                            //var lineChartItemFive = {
+                            //    value: 1.45,
+                            //    color: 'black',
+                            //    dashStyle: 'shortdash',
+                            //    width: 2,
+                            //    label: {
+                            //        text: 'Last quarter minimum'
+                            //    }
+                            //}
+                            //plotLinesArray.push(lineChartItemFive);
+
+
+
+
+
+
+
+                            allCountIter++;
+
+                            if (summariesSet === false) {
+                                GenerateSummary(obj, presentationTypeIndex);
+                                summariesSet = true;
+                            }
+                        }
                     }
                     break;
 
@@ -329,6 +538,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         }
                     }
                     break;
+
                 case 'BollingerBands':
                     {
                         //var widgetName = "";
