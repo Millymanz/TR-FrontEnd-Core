@@ -250,7 +250,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         self.queryB("United Kingdom Unemployment Rate vs United States Unemployment Rate");
         self.queryC("EURUSD");
         self.queryD("Brexit");
-        self.queryE("During 2011, what happened to the eurusd exhausted its selling pressure on the stochastic?");
+        self.queryE("During 2011, what happened to the eurusd when it exhausted its selling pressure on the stochastic?");
         self.queryF("How many times did the usdcad touch the sma when the nonfarm payroll was more than 40000?");
         self.queryG("Identify bearish price action signals for EUR/JPY on Daily chart from 2015 after 2 consecutive positive candles");
         self.queryH("Is the usa adp national employment report a good predictor of the nonfarm payrolls?");
@@ -346,8 +346,12 @@ function TradeRiserViewModel(tradeRiserProxy) {
             modal: false
         });
 
+        $('.logoRefresher').click(function () {
+            location.reload();
+        });
 
-        $('.startGuide').click(function () {
+
+        $('.startGuide, .startGuideGroup').click(function () {
             $("#startGuideDialog").dialog("open");
         });
         $("#startGuideDialog").dialog({
@@ -387,7 +391,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
             }
         });
 
-        $('#examples, .examplesIcon').click(function () {
+        $('#examples, .examplesIcon, .examplesGroup').click(function () {
             self.changeViewToExamples();
         });
 
@@ -1759,6 +1763,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         if (countCandleTypes > 3) useSideBySide = true;
         //--------------------//
+
+        var errorSkip = 0;
        
         //Main widget
         try {
@@ -3197,6 +3203,14 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                     case 'RawEconomic':
                         {
+                            if (obj.CurrentResult.RawDataResults[0].ChartReadyDataResults.length === 0) {
+                                var displayError = document.getElementById("noresults");
+                                displayError.style.display = 'block';
+                                errorSkip = 1;
+                                break;
+                            }
+
+
                             var markup = "<div class='widgetTitle'>" + obj.CurrentResult.ResultSymbols[pp] + " - Economic Indicators</div><br/>";
                             markup += "<table class='simpleEconomicTable' style='width:100%'><thead><tr><th>" + obj.CurrentResult.ResultSymbols[pp] + "</th>"
                            + "<th>Actual</th>"
@@ -3204,7 +3218,6 @@ function TradeRiserViewModel(tradeRiserProxy) {
                            + "<th>Previous</th>"
                            + "<th>Unit</th>";
                             markup += "</tr></thead>";
-
 
 
                             //for table display only
@@ -3904,21 +3917,23 @@ function TradeRiserViewModel(tradeRiserProxy) {
             self.LoadPerformanceStatistics(obj);
 
 
-            //disclaimer
-            $("#resultCanvas").append($('<br/><br/><div id="riskDisclaimer"><h2>Risk Disclaimer</h2><p>Please acknowledge the following: <br/>The Charts are provided'
-              + '" as is", without warranty or guarantee of any kind, including but not limited to the warranties of merchantability and fitness for a particular purpose.'
-              + 'In no event shall TradeRiser Limited and its affiliates or any third party contributor be liable for any claim, damages or other liability, whether in an '
-              + 'action of contract, tort or otherwise, arising from, out of or in connection with the use of or other dealings in the Charts. The Charts run on pricing '
-              + 'data provided by us to a third party charting administrator. You accept that the price data displayed in the Charts may be delayed and that we do not '
-              + 'guarantee the accuracy or completeness of the data and that we do not guarantee that the service will be uninterrupted.</p><p>'
-              + '<h4>Disclaimer</h4>The TradeRiser service includes analysis '
-              + 'of financial instruments. There are potential risks relating to investing and trading. You must be aware of such risks and familiarize yourself in regard '
-              + 'to such risks and to seek independent advice relating thereto. You should not trade with money that you cannot afford to lose. The TradeRiser service and'
-              + 'its content should not be construed as a solicitation to invest and/or trade. You should seek independent advice in this regard. Past performance is not'
-              + 'indicative of future performance. No representation is being made that any results discussed within the service and its related media content will be achieved.'
-              + 'TradeRiser, TradeRiser Limited, their members, shareholders, employees, agents, representatives and resellers do not warrant the completeness, accuracy or timeliness'
-              + 'of the information supplied, and they shall not be liable for any loss or damages, consequential or otherwise, which may arise from the use or reliance of the'
-              + 'TradeRiser service and its content.</p></div>'));
+            if (errorSkip === 0) {
+                //disclaimer
+                $("#resultCanvas").append($('<br/><br/><div id="riskDisclaimer"><h2>Risk Disclaimer</h2><p>Please acknowledge the following: <br/>The Charts are provided'
+                  + '" as is", without warranty or guarantee of any kind, including but not limited to the warranties of merchantability and fitness for a particular purpose.'
+                  + 'In no event shall TradeRiser Limited and its affiliates or any third party contributor be liable for any claim, damages or other liability, whether in an '
+                  + 'action of contract, tort or otherwise, arising from, out of or in connection with the use of or other dealings in the Charts. The Charts run on pricing '
+                  + 'data provided by us to a third party charting administrator. You accept that the price data displayed in the Charts may be delayed and that we do not '
+                  + 'guarantee the accuracy or completeness of the data and that we do not guarantee that the service will be uninterrupted.</p><p>'
+                  + '<h4>Disclaimer</h4>The TradeRiser service includes analysis '
+                  + 'of financial instruments. There are potential risks relating to investing and trading. You must be aware of such risks and familiarize yourself in regard '
+                  + 'to such risks and to seek independent advice relating thereto. You should not trade with money that you cannot afford to lose. The TradeRiser service and'
+                  + 'its content should not be construed as a solicitation to invest and/or trade. You should seek independent advice in this regard. Past performance is not'
+                  + 'indicative of future performance. No representation is being made that any results discussed within the service and its related media content will be achieved.'
+                  + 'TradeRiser, TradeRiser Limited, their members, shareholders, employees, agents, representatives and resellers do not warrant the completeness, accuracy or timeliness'
+                  + 'of the information supplied, and they shall not be liable for any loss or damages, consequential or otherwise, which may arise from the use or reliance of the'
+                  + 'TradeRiser service and its content.</p></div>'));
+            }
 
 
 

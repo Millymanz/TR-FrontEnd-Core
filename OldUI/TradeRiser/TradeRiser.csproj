@@ -275,12 +275,15 @@
     <Content Include="Content\clean\css\pin.png" />
     <Content Include="Content\clean\css\style - Copy.css" />
     <Content Include="Content\clean\css\style.css" />
+    <Content Include="Content\help.css" />
     <Content Include="Content\Images\TradeRiser.png" />
     <Content Include="Content\Images\TradeRiser_Web.png" />
     <Content Include="Content\jquery.dynatable.css" />
     <Content Include="Content\Scripts\changepassword.js" />
     <Content Include="Content\Scripts\feedback.js" />
     <Content Include="Content\Scripts\corejsmvc.js" />
+    <Content Include="Content\Scripts\help.js" />
+    <Content Include="Content\Scripts\helpalt.js" />
     <Content Include="Content\Scripts\jquery.js" />
     <Content Include="Content\Scripts\jstorage.js" />
     <Content Include="Content\Scripts\jstz.js" />
@@ -362,7 +365,9 @@
     <Content Include="Content\toastr.less" />
     <Content Include="Content\Styles\form.less" />
     <Content Include="dev Web.config" />
-    <Content Include="live Web.config" />
+    <Content Include="live Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\TradeRiser_Publish.pubxml" />
     <Content Include="Scripts\clean\js\questionLookups.js" />
     <Content Include="Scripts\dynatable\jquery-1.7.2.min.js" />
@@ -937,6 +942,7 @@
     <Content Include="Views\User\UserPreferences.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\App\Feedback.cshtml" />
+    <Content Include="Views\Help\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

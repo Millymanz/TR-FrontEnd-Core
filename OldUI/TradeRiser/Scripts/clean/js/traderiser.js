@@ -877,6 +877,63 @@ function (e) {
 
 
 
+$('#btnLeftNew').on('click',
+function (e) {
+    if (!$('.sidebar').hasClass('closed')) {
+        $('.sidebar')
+        .addClass('closed')
+        .animate({ 'left': -340 });
+
+        $('.bottomSidebar')
+        .addClass('closed')
+        .animate({ 'left': 0 });
+
+        $('#summaryResults').animate({ left: 0 });
+        $('#summaryResults').width('96%');
+    }
+    else {
+        $('.sidebar')
+        .removeClass('closed')
+        .animate({ 'left': 0 });
+
+        $('.bottomSidebar')
+        .addClass('closed')
+        .animate({ 'left': 340 });
+
+        $('#summaryResults').animate({ left: 340 });
+        $('#summaryResults').width('70%');
+    }
+});
+
+    
+
+$('#btnRightNew').on('click',
+function (e) {
+    if (!$('.rightSidebar').hasClass('closed')) {
+        $('.rightSidebar')
+        .addClass('closed')
+        .animate({ 'right': -340 });
+    }
+    else {
+        $('.rightSidebar')
+        .removeClass('closed')
+        .animate({ 'right': 0 });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //-- Right Splitter control
 $('.btnRight-splitter').on('click',
 function (e) {

@@ -80,7 +80,7 @@
                 <input data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="72"
                             placeholder="Enter what you would like query or know about the Financial Markets?" id="searchDriverMode" class="testIndex inputbox transition input-search" autocomplete="off" />
                 <div>
-                    <div data-bind="click: getAnswer" value="SEARCH" class="compute btnSearcher btn-search transition" style="cursor: pointer;">
+                    <div data-bind="click: getAnswer" value="SEARCH" title="Statistical Querying/Technical Analysis Querying/Fundamental Data Querying" class="compute btnSearcher btn-search transition" style="cursor: pointer;">
                         <i class="fa fa-search" style="font-size:23px; position:absolute; top:20px; right:110px; color:white"></i></div>
 
                 </div>
@@ -105,7 +105,7 @@
     <div id="tip" style='width:20px; height:5px; background-color:red; display:none; position:absolute;background-color:red;font-size:0;'></div>
   </div>
 
-    <div id="topLogo" style="top:7px; left:5px; position:absolute; display:none">
+    <div id="topLogo" class="logoRefresher" style="top:7px; left:5px; position:absolute; display:none">
     <img alt="TradeRiser" src="../../../Images/TradeRiser_Web1.png" border="0" height="50" width="235">
     </div>
 
@@ -192,7 +192,8 @@
                 <input data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="72"
                             placeholder="Enter what you would like query or know about the Financial Markets?" id="searchDriver" class="testIndex inputbox transition input-search" autocomplete="off" />
                 <div>
-                    <div data-bind="click: getAnswer" value="SEARCH" id="searchModeButton" class="compute btnSearcher btn-search transition" style="cursor: pointer;">
+                    <div data-bind="click: getAnswer" value="SEARCH" title="Statistical Querying/Technical Analysis Querying/Fundamental Data Querying"
+" id="searchModeButton" class="compute btnSearcher btn-search transition" style="cursor: pointer;">
                         <i class="fa fa-search" style="font-size:23px; position:absolute; top:20px; right:110px; color:white"></i></div>
 
                 </div>
@@ -243,8 +244,20 @@
 <!-- Sidebar -->
 <div class="sidebar closed">
 
-  <a href="#" class="btn-splitter"></a>
-  <div class="sidebar-inner"> 
+ <a href="#" class="btn-splitter"></a>
+
+
+
+@*<div id="btnLeftNew">
+        <div class="fby-screen">
+            <div class="fby-tabB fby-tab-r">
+                <a href="" style="background-color:#83A4A5!important" aria-label="Feedback"></a></div>
+            <div class="fby-mask"></div>
+        </div>
+    </div>*@
+  
+    
+    <div class="sidebar-inner"> 
     
     <!-- Tabs -->
     <div id="tab-container" class="side-tabs">
@@ -328,7 +341,16 @@
 <!-- Right Sidebar -->
 <div class="rightSidebar closed">
  
-  <a href="#" class="btnRight-splitter"></a>
+<a href="#" class="btnRight-splitter"></a>
+
+
+@*<div id="btnRightNew">
+        <div class="fby-screen">
+            <div class="fby-tabA fby-tab-r">
+                <a href="" style="background-color:#83A4A5!important" aria-label="Feedback"></a></div>
+            <div class="fby-mask"></div>
+        </div>
+    </div>*@
 
         <div class="topRight">
 
@@ -430,6 +452,19 @@
 
 <div id="loadchartDia" style="display: none; z-index: 50000; color:black;
 margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: absolute;"></div>
+
+
+<div id="noresults">
+    <b>TradeRiser does not understand your input. 
+      <br />
+            Please ensure your query is either a <b>Statistical</b>, <b>Technical Analysis</b> or <b>Fundamental Data</b> query.</b>
+      <br /> <br />
+        <div class="examplesGroup"><b>See Examples</b></div><br />
+        <div class="startGuideGroup"><b>See Start Guide</b></div>
+    </div>
+   
+
+
 <!-- End Main Content -->
 </div>
 
@@ -440,7 +475,6 @@ margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: a
 
 <div class="content">
  <div id="examplesGrid" >
-   
      <table>
          <tr>             
              <td>
@@ -776,6 +810,8 @@ margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: a
 
    
  </div>
+
+<div class="footer-bottom"><br> </div>
 </div>
 
 
@@ -807,7 +843,6 @@ margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: a
     <!-- Dialog box class="inputbox transition input-search"-->
     <div id="startGuideDialog" style="display:none">
        <div id="stGuide">
-           <!--<iframe width="890" height="400" src="https://www.youtube.com/embed/PXNsikqmQpk" frameborder="0" allowfullscreen></iframe>-->
            <iframe width="890" height="400" src="https://www.youtube.com/embed/zbbM4gCUWCg" frameborder="0" allowfullscreen></iframe>
        </div>
    </div>
@@ -1272,11 +1307,6 @@ margin: 150px auto; left:-210px; right:0; width: 70px; height: 70px; position: a
 <!-- Dialog1 -->
 <div class="dia dialog1">
 	        <div class="content-inner">
-
-                <div id="noresults" style="z-index: 50000; display:none; font-size: medium; font-family:'PT Sans', Arial, Helvetica, sans-serif;
-                margin: 200px auto; color:#686665; left:0; right:0; width: 600px; position: absolute; padding:5px 5px 5px 5px; border-radius: 5px; 
-                box-shadow: 0 0 7px 1px #BFCFD0;"><b>TradeRiser does not understand your input. 
-                    <br />Please check the spelling and ensure your query is related to trading.</b></div>
 
             <div class="pane" id="resultCanvas">
                 <!-- Space for app content -->
