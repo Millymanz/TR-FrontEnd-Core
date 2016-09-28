@@ -178,13 +178,26 @@
 
 			var $el = this.$element,
 				val = $el.val(),
-				currentPos = this.__getSelection($el.get(0)).start;
+				/*currentPos = this.__getSelection($el.get(0)).start;*/
+    			currentPos = this.__getSelection($el.get(0)).start - 1;
+
+			if (currentPos < 0) {
+			    this.hide();
+			}
+
 			for (var i = currentPos; i >= 0; i--) {
-				var subChar = $.trim(val.substring(i-1, i));
-				if (!subChar) {
-					this.hide();
-					break;
-				}
+				//var subChar = $.trim(val.substring(i-1, i));
+				//if (!subChar) {
+				//	this.hide();
+				//	break;
+			    //}
+
+			    var subChar = val;
+			    if (!subChar) {
+			    	this.hide();
+			    	break;
+			    }
+
 				/*if (subChar === this.key && $.trim(val.substring(i-2, i-1)) == '') {
 					this.query = val.substring(i, currentPos);
 					this._queryPos = [i, currentPos];
@@ -199,7 +212,8 @@
 				/*if (subChar === this.key && $.trim(val.substring(i-2, i-1)) == '') {*/
 				
 				if ($.trim(val.substring(i-2, i-1)) == ''){
-					this.query = val.substring(i, currentPos);
+				    //this.query = val.substring(i, currentPos);
+				    this.query = val;
 					this._queryPos = [i, currentPos];
 					this._keyPos = i;
 					$resultItems = this.lookup(this.query);
@@ -216,7 +230,12 @@
 		},
 
 		__getVisibleItems: function() {
-			return this.$items.not('.hidden');
+		    //return this.$items.not('.hidden');
+
+		    var hiddenRes = this.$dropdown.find('li:has(a)');
+		    return hiddenRes.not('.hidden');
+
+
 		},
 
 		__build: function() {
@@ -252,6 +271,7 @@
 					that.$element.on('blur', blur);
 				});
 
+
 			this.$element.before($dropdown)
 				.on('blur', blur)
 				.on('keydown', function(e) {
@@ -267,6 +287,20 @@
 
 								return false;
 								break;
+
+						    case 32: // space key
+                                {
+                                    //this.$dropdown.removeClass('open');
+                                    //this.isShown = false;
+                                    //this.$items.removeClass('active');
+                                    //this._keyPos = -1;
+
+
+                                    that.hide();
+
+
+                                } break;
+
 							case 40: // arrow down
 								$visibleItems = that.__getVisibleItems();
 								if ($visibleItems.last().is('.active')) return false;
@@ -335,11 +369,20 @@
 			}));
 		},
 
-		__select: function(index) {
+		__select: function (index) {
+
+		    if (index == 0) {
+		        this.hide();
+		        return;
+		    }
+
 			var $el = this.$element,
 				el = $el.get(0),
 				val = $el.val(),
-				item = this.get(index),
+
+				//item = this.get(index),
+				item = this.get(index - 1),
+
 				setCaretPos = this._keyPos + item.value.length + 1;
 
 			//$el.val(val.slice(0, this._keyPos) + item.value + ' ' + val.slice(this.__getSelection(el).start));
@@ -484,7 +527,35 @@
 
                 //Hack Dennis
 			    if (document.getElementById('autoSuggestTicker').checked) {
+
+			        var $visibleItems = this.__getVisibleItems();
+			        if ($visibleItems.length == 1) {
+			            this.hide();                        
+			            return;
+			        }
+
 			        this.$dropdown.addClass('open');
+                    
+			         $visibleItems.each(function(index) {
+			             var $this = $(this);
+			                 $this.removeClass('active');	         
+			         })
+
+			        var novalue = document.getElementById('blankselect');
+			        if (novalue === null) {
+			            $('.dropdown-menu').prepend('<li id="blankselect" data-value="" class="active"><a href="#"></a></li>');
+			        }
+			        else {
+
+			             $visibleItems.each(function (index) {
+			                 var $this = $(this);
+			                 if ($this.context.id == "blankselect") {
+			                     $this.addClass('active');
+			                 }
+			             })
+			        }
+
+			        $visibleItems = this.__getVisibleItems();
 
 			        if (options.position !== false) {
 

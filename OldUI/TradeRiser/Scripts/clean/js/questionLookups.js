@@ -33,6 +33,7 @@
 
 
 var users = [
+{ fullname: '' },
 { fullname: 'adp national employment report' },
 { fullname: 'aig construction index' },
 { fullname: 'aig manufacturing index' },

@@ -55,7 +55,7 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
     
         var indicatorPos = 0;
         if (yAxisArray != null && typeof yAxisArray != 'undefined') {
-            if (yAxisArray.length > 0) {
+            if (yAxisArray.length > 0 || presentationTypes.MainWidget == 'CandleStickChart') {
                 indicatorPos = yAxisArray[0].height;
             }
         }
