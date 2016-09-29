@@ -538,21 +538,20 @@
 
 			if (!this.isShown) {
 
-                //Hack Dennis
+			    //Hack Dennis
 			    if (document.getElementById('autoSuggestTicker').checked) {
-
 			        var $visibleItems = this.__getVisibleItems();
 			        if ($visibleItems.length == 1) {
-			            this.hide();                        
+			            this.hide();
 			            return;
 			        }
 
 			        this.$dropdown.addClass('open');
-                    
-			         $visibleItems.each(function(index) {
-			             var $this = $(this);
-			                 $this.removeClass('active');	         
-			         })
+
+			        $visibleItems.each(function (index) {
+			            var $this = $(this);
+			            $this.removeClass('active');
+			        })
 
 			        var novalue = document.getElementById('blankselect');
 			        if (novalue === null) {
@@ -560,12 +559,12 @@
 			        }
 			        else {
 
-			             $visibleItems.each(function (index) {
-			                 var $this = $(this);
-			                 if ($this.context.id == "blankselect") {
-			                     $this.addClass('active');
-			                 }
-			             })
+			            $visibleItems.each(function (index) {
+			                var $this = $(this);
+			                if ($this.context.id == "blankselect") {
+			                    $this.addClass('active');
+			                }
+			            })
 			        }
 
 			        $visibleItems = this.__getVisibleItems();
@@ -598,9 +597,15 @@
 
 			            $dropdownMenu.css(position);
 			        }
-
 			        this.isShown = true;
 			        $el.trigger($.extend({ type: 'suggest.show' }, this));
+			    }
+			}
+			else {
+                //if only one then it represents the blank selection
+			    var $visibleItems = this.__getVisibleItems();
+			    if ($visibleItems.length == 1) {
+			        this.hide();
 			    }
 			}
 		}
