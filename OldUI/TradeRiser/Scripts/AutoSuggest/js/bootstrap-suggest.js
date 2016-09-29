@@ -211,21 +211,34 @@
 				
 				/*if (subChar === this.key && $.trim(val.substring(i-2, i-1)) == '') {*/
 				
-				if ($.trim(val.substring(i-2, i-1)) == ''){
-				    //this.query = val.substring(i, currentPos);
-				    this.query = val;
-					this._queryPos = [i, currentPos];
-					this._keyPos = i;
-					$resultItems = this.lookup(this.query);
 
-					if ($resultItems.length) this.show();
-					else this.hide();
-					break;
-				}
-				
-				
-				
-				
+			    if ($.trim(val.substring(i - 2, i - 1)) == '') {
+			        this.query = val.substring(i - 1, currentPos + 1);
+			        this._queryPos = [i, currentPos];
+			        this._keyPos = i;
+			        $resultItems = this.lookup(this.query);
+
+			        if ($resultItems.length) this.show();
+			        else this.hide();
+			        break;
+			    }
+
+
+
+			    //Old 
+			    //if ($.trim(val.substring(i - 2, i - 1)) == '') {
+				//    var querytest = val.substring(i, currentPos);
+				//    this.query = val;
+				//	this._queryPos = [i, currentPos];
+				//	this._keyPos = i;
+				//	$resultItems = this.lookup(this.query);
+				//	if ($resultItems.length) this.show();
+				//	else this.hide();
+				//	break;
+			    //}
+
+
+
 			}
 		},
 
