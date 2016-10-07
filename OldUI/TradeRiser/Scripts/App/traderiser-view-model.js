@@ -3931,13 +3931,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 //    lineWidth: 2
                                 //};
 
-
-
                                 presentationTypeIndex = pp;
-
-                                if (displayDetailedFactsOnce == false || displayDetailedFactsOnce && pp == 0) {
-                                    self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly, plotLinesArray);
-                                }
 
                                 var chartItemDef = {
                                     title: {
@@ -3949,6 +3943,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 };
                                 yAxisArray.push(chartItemDef);
 
+                                if (displayDetailedFactsOnce == false || displayDetailedFactsOnce && pp == 0) {
+                                    self.initalizeSubWidgets(obj.CurrentResult.PresentationTypes[pp], pp, obj, dataLookUp, arraySeries, overlayArray, groupingUnits, yAxisArray, iter, extIndicatorLookUp, mulitipleWidgetLookUp, trendsOverlayArray, uniqueLookUpCount, extIndicatorLookUpNamesOnly, plotLinesArray);
+                                }
+                                //reassign plot lines after population
+                                yAxisArray[yAxisArray.length - 1].plotLines = plotLinesArray;
 
                                 SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookUp, arraySeries, overlayArray, yAxisArray, trendsOverlayArray);
                                 self.initialiseDynaTable(highlighterArray);
