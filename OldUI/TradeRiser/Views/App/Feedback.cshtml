@@ -1,4 +1,12 @@
 ﻿@using TradeRiser.UI
+@{
+   Layout = null;
+}
+
+<head>
+     <title>Feedback</title>
+     <link href="~/Content/Styles/shared.css" rel="stylesheet" />
+</head>
 @section jQueryLoad
 {
 feedback.load();
@@ -7,7 +15,7 @@ feedback.load();
 {
 
 }
-<div class="settings-content page-content">
+@*<div class="settings-content page-content">*@
     <div class="section">
         <div class="section-title">
             <div class="title-wrapper">
@@ -25,11 +33,11 @@ feedback.load();
             <label>Email:</label>
             <input type="text" id="email" maxlength="255" placeholder="Email" class="cpftxt form-control"/>
             <label>Message:</label>
-            <textarea id="message" rows="10" cols="100" placeholder="Tell us about your experience?"></textarea>
+            <textarea id="message" rows="10" cols="66" placeholder="Tell us about your experience?"></textarea>
         </div>
     </div>
     <div>
         <input type="button" id="cancel" class="btn" value="@Html.Raw(TradeRiserUIResource.Ribbon_Membership_Cancel)"/><span class="fa fa-fw fa-cancel"></span>
         <input type="button" id="save" class="btn" value="Submit"/><span class="fa fa-fw fa-save"></span>
     </div>
-</div>
+@*</div>*@

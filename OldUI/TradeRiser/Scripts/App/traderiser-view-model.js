@@ -395,8 +395,94 @@ function TradeRiserViewModel(tradeRiserProxy) {
             self.changeViewToExamples();
         });
 
+        //$('#feedBack').click(function () {
+        //    location.href = "/app/feedback";
+        //});
+        this.closebox = function () {
+            $('.backdrop, .box').animate({ 'opacity': '0' }, 300, 'linear', function () {
+                $('.backdrop, .box').css('display', 'none');
+            });
+        }
+
+
         $('#feedBack').click(function () {
-            location.href = "/app/feedback";
+            var success = function (result, textStatus, jqXHR) {
+                // add the forgot password html to the page.
+                $(".box .content").html("");
+                //$(".box .content").append(result);
+                $(".box .content").html(result);
+                //$(".box").html(result);
+
+
+                $('.backdrop, .box').animate({ 'opacity': '.50' }, 300, 'linear');
+                $('.box').animate({ 'opacity': '1.00' }, 300, 'linear');
+                $('.backdrop, .box').css('display', 'block');
+
+
+                $('.close').off("click").on("click", function () {
+                    self.closebox();
+                });
+
+                $("#cancel").off("click").on("click", function () {
+                    self.closebox();
+                });
+
+                $("#save").off("click").on("click", function () {
+
+                    var name = $("#name").val();
+                    var email = $("#email").val();
+                    var message = $("#message").val();
+
+                    var feedModel = {};
+                    feedModel.name = name;
+                    feedModel.email = email;
+                    feedModel.message = message;
+
+                    var success = function (result) {
+                        // $button.removeClass("disabled");
+
+                        if (result.success) {
+                            corejs.alert(result.message, "s", true);
+                        } else {
+                            corejs.alert(result.message, "e", true);
+                        }
+                    }
+
+                    var fail = function (data) {
+                        //   $button.removeClass("disabled");
+
+                        if (data["unhandled"]) {
+                            corejs.alert("Failed to save the password settings.", "e");
+                        } else {
+                            var msg = "Failed to save: {0}";
+                            corejs.alert(msg.replace("{0}", data.data.message), "e");
+                        }
+                    }
+
+                    //  corejs.ajax({ url: APPLICATIONPATH + "app/submitfeedback", success: success, errorCallback: fail, data: { model: feedModel } });
+                    corejs.ajax({ url: "app/submitfeedback", success: success, errorCallback: fail, data: { model: feedModel } });
+
+                    //feedback.save();
+                    //  alert("hello");
+                    //$("#member-details").validate({
+                    //    success: function () {
+                    //        members.edit.registersave();
+                    //    },
+                    //    onInvalid: function () {
+                    //        corejs.alert("The 'User Details' section has some errors, please correct these before saving.", "e");
+                    //    }
+                    //});
+
+                    return false;
+                });
+            }
+
+            var fail = function (data) {
+                $("#signin-section #alert").show().text("There was an error sumitting requests. Please contact support for further help.");
+            }
+
+            corejs.ajax({ url: "/app/feedback", dataType: "Html", success: success, errorCallback: fail, type: "GET" });
+
         });
 
         $(".examplesIcon").hover(function () {
