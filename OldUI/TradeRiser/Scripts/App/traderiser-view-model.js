@@ -395,6 +395,11 @@ function TradeRiserViewModel(tradeRiserProxy) {
             self.changeViewToExamples();
         });
 
+        // cpf alert
+        $("#alert .closebutton-wrapper").click(function () {
+            corejs.closealert();
+        });
+
         //$('#feedBack').click(function () {
         //    location.href = "/app/feedback";
         //});
@@ -402,24 +407,24 @@ function TradeRiserViewModel(tradeRiserProxy) {
             $('.backdrop, .box').animate({ 'opacity': '0' }, 300, 'linear', function () {
                 $('.backdrop, .box').css('display', 'none');
             });
+
+            $(".lightbox-container").css('display', 'none');
         }
 
 
         $('#feedBack').click(function () {
             var success = function (result, textStatus, jqXHR) {
                 // add the forgot password html to the page.
-                $(".box .content").html("");
-                //$(".box .content").append(result);
-                $(".box .content").html(result);
-                //$(".box").html(result);
 
+                $(".lightbox-content").html("");
+                $(".lightbox-content").html(result);
+                $(".lightbox").css('top', '15%');
+                $(".lightbox").css('height', '660px');
 
-                $('.backdrop, .box').animate({ 'opacity': '.50' }, 300, 'linear');
-                $('.box').animate({ 'opacity': '1.00' }, 300, 'linear');
-                $('.backdrop, .box').css('display', 'block');
+                $(".lightbox-container").show();
+                $(".lightbox-overlay").show();
 
-
-                $('.close').off("click").on("click", function () {
+                $('.lightbox-close').off("click").on("click", function () {
                     self.closebox();
                 });
 
@@ -428,6 +433,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
                 });
 
                 $("#save").off("click").on("click", function () {
+
+                    $("#save").addClass("disabled");
 
                     var name = $("#name").val();
                     var email = $("#email").val();
@@ -439,40 +446,26 @@ function TradeRiserViewModel(tradeRiserProxy) {
                     feedModel.message = message;
 
                     var success = function (result) {
-                        // $button.removeClass("disabled");
-
+                        $("#save").removeClass("disabled");
                         if (result.success) {
                             corejs.alert(result.message, "s", true);
+                            self.closebox();
                         } else {
                             corejs.alert(result.message, "e", true);
                         }
                     }
 
                     var fail = function (data) {
-                        //   $button.removeClass("disabled");
+                        $("#save").removeClass("disabled");
 
                         if (data["unhandled"]) {
-                            corejs.alert("Failed to save the password settings.", "e");
+                            corejs.alert("Failed to submit feedback.", "e");
                         } else {
-                            var msg = "Failed to save: {0}";
-                            corejs.alert(msg.replace("{0}", data.data.message), "e");
+                            corejs.alert("Failed to submit feedback," + data.data.message + ".", "e");
                         }
                     }
 
-                    //  corejs.ajax({ url: APPLICATIONPATH + "app/submitfeedback", success: success, errorCallback: fail, data: { model: feedModel } });
-                    corejs.ajax({ url: "app/submitfeedback", success: success, errorCallback: fail, data: { model: feedModel } });
-
-                    //feedback.save();
-                    //  alert("hello");
-                    //$("#member-details").validate({
-                    //    success: function () {
-                    //        members.edit.registersave();
-                    //    },
-                    //    onInvalid: function () {
-                    //        corejs.alert("The 'User Details' section has some errors, please correct these before saving.", "e");
-                    //    }
-                    //});
-
+                      corejs.ajax({ url: APPLICATIONPATH + "app/submitfeedback", success: success, errorCallback: fail, data: { model: feedModel } });
                     return false;
                 });
             }

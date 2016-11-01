@@ -255,6 +255,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\clean\css\form.css" />
     <Content Include="Content\clean\css\images\animated-overlay.gif" />
     <Content Include="Content\clean\css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\clean\css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -273,6 +274,7 @@
     <Content Include="Content\clean\css\jquery-ui-1.10.3.custom.min.css" />
     <Content Include="Content\clean\css\old.css" />
     <Content Include="Content\clean\css\pin.png" />
+    <Content Include="Content\clean\css\shared.css" />
     <Content Include="Content\clean\css\style - Copy.css" />
     <Content Include="Content\clean\css\style.css" />
     <Content Include="Content\help.css" />
@@ -337,6 +339,7 @@
     <Content Include="Scripts\clean\js\jquery.easytabs.min.js" />
     <Content Include="Scripts\clean\js\jquery.js" />
     <Content Include="Scripts\clean\js\jquery.qtip.js" />
+    <Content Include="Scripts\clean\js\jstorage.js" />
     <Content Include="Scripts\clean\js\modules\annotations.js" />
     <Content Include="Scripts\clean\js\modules\annotations.src.js" />
     <Content Include="Scripts\clean\js\modules\canvas-tools.js" />

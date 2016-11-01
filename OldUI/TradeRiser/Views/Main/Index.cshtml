@@ -129,14 +129,14 @@
   </div>*@
 
         <div class="user">
-           @* <div class="logged-out-user-section">
+            @* <div class="logged-out-user-section">
                             @{ <text> @User.Identity.Name!</text>}
                             <a class="sign-up" id="menu-bar-sign-out" href="@string.Format("{0}core/logoff", this.Director.ApplicationPath)">Log off</a>
                         </div>*@
 
             @if (Request.IsAuthenticated)
             {
-                 <a class="sign-up" id="menu-bar-sign-out" href="@string.Format("{0}core/logoff", this.Director.ApplicationPath)">Log off</a>
+                <a class="sign-up" id="menu-bar-sign-out" href="@string.Format("{0}core/logoff", this.Director.ApplicationPath)">Log off</a>
 
                 <a href="#" class="btn-user transition">
 
@@ -148,9 +148,11 @@
 
                     <li class="logoutItem">
 
-                        <div id="autoSuggest"><span style="text-align: center">
-                            <input type="checkbox" id="autoSuggestTicker">&nbsp Auto Suggest</span></div>
-                            
+                        <div id="autoSuggest">
+                            <span style="text-align: center">
+                                <input type="checkbox" id="autoSuggestTicker">&nbsp Auto Suggest</span>
+                        </div>
+
                         @*  @using (Html.BeginForm("LogOut", "AppInfo", FormMethod.Post, new { id = "logoutForm" }))
                          {
                            <input type="hidden" value=@Model.Username id='u_n' class='h_v' name="hiddens">
@@ -162,7 +164,7 @@
 
                     </li>
                     <li>
-                     <a class="sign-up" id="menu-bar-sign-out2" href="@string.Format("{0}core/logoff", this.Director.ApplicationPath)">Log off</a>
+                        <a class="sign-up" id="menu-bar-sign-out2" href="@string.Format("{0}core/logoff", this.Director.ApplicationPath)">Log off</a>
 
                     </li>
                 </ul>
@@ -603,6 +605,49 @@
         </div>
     </script>
 
+
+    @*    PAREMOVE*@
+    <div id="alert" class="alert">
+        <div class="alert-body">
+            <span class="message">@if (this.ViewBag.LogonMessage != null)
+                                  {<text>@this.ViewBag.LogonMessage</text>}</span>
+            <div class="closebutton-wrapper" style="display: inline-block"><span class="fa fa-fw fa-remove"></span></div>
+        </div>
+    </div>
+    @*   PAREMOVE from Layout page*@
+    <script type="text/javascript">
+        var COREROOT = "@Url.Action("", "", new { area = "" })";
+        var APPLICATIONPATH = COREROOT.replace(/\/core/gi, "");
+        var APPLICATIONPATH = COREROOT.replace(/\/core/gi, "");
+        if (APPLICATIONPATH == "") {
+            APPLICATIONPATH = "/";
+        }
+        else if (APPLICATIONPATH[APPLICATIONPATH.length - 1] != "/") {
+            APPLICATIONPATH += "/";
+        }
+
+        var FULLAPPLICATIONPATH = location.href.substring(0, location.href.indexOf(APPLICATIONPATH)) + APPLICATIONPATH;
+        if (location.href.indexOf("http://localhost:") === 0) {
+            // for debug
+            FULLAPPLICATIONPATH = location.href.substring(0, location.href.indexOf("/", 7)) + APPLICATIONPATH;
+        }
+        $.url = function (action) {
+            return "@Url.Action("")/" + action;
+        };
+
+        var USERID = "CF551E72-EAD3-4E14-9CDA-4DE33C2D0EFA";
+        var PAGENAME = "page test";
+        var APPLICATIONNAME = "TradeRiser";
+        @* var ISANON = @this.ViewBag.Director.IsAnonymousUser.ToString().ToLower();
+        var USERID = "@userID";
+        var USERNAME = "@userName";
+        var USERDISPLAYNAME = "@userDisplayName";
+        var CULTURE = "@currentCulture";
+        var PAGENAME = "@this.ViewBag.PageName.ToString()";
+        var APPLICATIONNAME = "@this.ViewBag.ApplicationName";*@
+    </script>
+
+
     <!-- Template End --->
 
 
@@ -961,8 +1006,8 @@
     </script>
 
 
-     @Scripts.Render("~/bundles/cpf")
-   
+    @Scripts.Render("~/bundles/cpf")
+
 
     <!-- Dialog1 -->
     <div class="dia dialog1">

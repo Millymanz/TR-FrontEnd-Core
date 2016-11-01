@@ -26,17 +26,6 @@
 
         var parentIsTable = false;
 
-        if (USEDYNOFORM) {
-
-            if ($element.hasClass("dyno-control") && $element.attr("data-parent-type") == "Table") {
-                controlName = $element.closest("td").attr("data-id");
-                parentIsTable = true;
-            } else if ($element.closest(".dyno-control").attr("data-parent-type") == "Table") {
-                controlName = $element.closest("td").attr("data-id");
-                parentIsTable = true;
-            }
-        }
-
         // return how many times element is inserted in validation array as invalid
         var invalidElementLength = 0;
 
@@ -65,14 +54,6 @@
         for (var i = 0, vlength = validationTypes.length; i < vlength; i++) {
             var validationAttribute = validationTypes[i].dataattribute;
 
-            if (USEDYNOFORM) {
-                var attributeFound = validation.hasAttribute($control, validationAttribute);
-                // input is specified 
-                if (attributeFound) {
-                    $items.push($control[0]);
-                }
-            }
-            else {
                 var attributeFound = validation.hasAttribute($control, validationAttribute);
                 if (attributeFound) {
                     $items.push($control[0]);
@@ -81,7 +62,7 @@
                     // inputs are in child elements
                     $items = $control.find("input[" + validationAttribute + "],select[" + validationAttribute + "],textarea[" + validationAttribute + "], .panel-validation[" + validationAttribute + "]");
                 }
-            }
+          
 
             for (var j = 0, jj = $items.length; j < jj; j++) {
                 validation.set($($items[j]), true, "", new Array());
@@ -107,32 +88,7 @@
 
     getErrorContainer: function ($element) {
         var controlIdentifier = validation.getControlIdentifier($element);
-        if (USEDYNOFORM) {
-            var $dynoControl = validation.getDynoControl($element);
-            if ($dynoControl.attr("data-parent-type") == "Table") {
-                var $td = $dynoControl.closest("td");
-                var $tr = $td.closest("tr.dyno-table-row");
-                var $table = $tr.closest("table");
-                //var columnIndex = $tr.index($td);
-
-                var columnIndex = $td.index();
-
-                $errorcontainer = $table.find("thead tr th:eq(" + columnIndex + ") span.validation-wrapper span:last");
-            }
-            else if ($dynoControl.attr("data-parent-type") == "autocomplete-grid") {
-
-            }
-            else if ($dynoControl.attr("data-dyno-type") === "datetime") {
-                $errorcontainer = $("#" + $dynoControl.attr("id") + "-field-validation");
-            }
-            else {
-                $errorcontainer = $("#" + validation.getControlIdentifier($element) + "-field-validation");
-            }
-        }
-        else {
-            $errorcontainer = $("#" + validation.getControlIdentifier($element) + "-field-validation");
-        }
-
+        $errorcontainer = $("#" + validation.getControlIdentifier($element) + "-field-validation");
         return $errorcontainer;
     },
 
@@ -339,12 +295,7 @@
     },
 
     setElementStyle: function ($element, isValid) {
-        //if (USEDYNOFORM) {
-        //    validation.setDynoControlStyle($element, isValid);
-        //}
-        //else {
         validation.setDefaultControlStyle($element, isValid);
-        //}
     },
 
     bindValidationToolTip: function ($errorcontainer, $element) {
@@ -430,15 +381,7 @@
                     var $items = [];
 
                     // check if control has attribute using function.
-                    if (USEDYNOFORM) {
-                        var attributeFound = validation.hasAttribute($controlToValidate, validationAttribute);
-                        // input is specified 
-                        if (attributeFound) {
-                            $items.push($controlToValidate[0]);
-                        }
-                    }
-                    else {
-                        var attributeFound = validation.hasAttribute($controlToValidate, validationAttribute);
+                    var attributeFound = validation.hasAttribute($controlToValidate, validationAttribute);
                         if (attributeFound) {
                             $items.push($controlToValidate[0]);
                         }
@@ -446,7 +389,7 @@
                             // inputs are in child elements
                             $items = $controlToValidate.find("input[" + validationAttribute + "],select[" + validationAttribute + "],textarea[" + validationAttribute + "], .panel-validation[" + validationAttribute + "]");
                         }
-                    }
+                   
 
                     var itemlength = $items.length;
                     if (itemlength == 0) {
@@ -479,17 +422,7 @@
                             // this code is here to deal with table rows.
                             // if the first row in a table has invalid values and the second doesnt, this code ensures 
                             // that the validation icon will be shown in the header.
-                            if (!isValid && USEDYNOFORM && parentIsTable) {
-
-                                var headerId = $control.closest("td").attr("data-id");
-
-                                // insert the element id in invalid elements array
-                                invalidElements.push(validation.getControlIdentifier($control));
-
-                                // for now also insert into the validationArray passed in
-                                validationArray.push({ name: controlName, valid: isValid, row: dataRow, headerId: headerId });
-
-                            } else if (!isValid) {
+                            if (!isValid) {
 
                                 // insert the element id in invalid elements array
                                 invalidElements.push(validation.getControlIdentifier($control));

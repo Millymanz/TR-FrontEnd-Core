@@ -1,0 +1,274 @@
+﻿.form-control {
+    font-size: .875rem;
+}
+
+label {
+    display: block;
+    font-size: .8125rem;
+}
+
+input[type="text"], input[type="password"], select, .currency-box, .select-wrapper, .btn, .form-control {
+    height: 2.25rem;
+}
+
+input[type="text"], input[type="password"], textarea, .select-wrapper, .form-control, select {
+    -moz-border-radius: .125rem;
+    -ms-border-radius: .125rem;
+    -o-border-radius: .125rem;
+    -webkit-border-radius: .125rem;
+    background: #303030; /*#000;*/
+    border: 1px solid white;
+    border-radius: .125rem;
+    color: #F4FBBC; /*$(InputText);*/
+    font-size: .8125rem;
+}
+
+    input[type="text"].invalid, input[type="password"].invalid, textarea.invalid, .form-control.invalid, .select-wrapper.invalid {
+        /*background-color: red;*/
+        border-color: red;
+    }
+
+    input[type="text"].disabled, input[type="password"].disabled, textarea.disabled, .form-control.disabled, .select-wrapper.disabled, select:disabled {
+        background-color: 0;
+        border-color: $(InputBorderDisabled);
+        color: $(TextDisabled);
+    }
+
+input[type="text"], input[type="password"], select, textarea, .form-control {
+    padding-left: .375rem;
+    padding-right: .375rem;
+}
+
+    input[type="text"]:focus, input[type="password"]:focus, select:focus, .currency-box:focus, textarea:focus, .form-control:focus {
+        -ms-box-shadow: 0 0 4px #1F7CD8; 
+        -webkit-box-shadow: 0 0 4px #1F7CD8; 
+        box-shadow: 0 0 4px #1F7CD8; 
+        outline: 0;
+    }
+
+.select-wrapper {
+    /*background: #000 url('../Images/$(SortIcon).png') no-repeat;*/
+    background-position: right .1875rem top 50%;
+    border: 1px solid white;
+    display: inline-block;
+    min-width: 3.25rem;
+}
+
+    .select-wrapper select {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background: transparent;
+        border: 0;
+        height: 2.125rem;
+        min-width: 225px;
+        padding-right: .75rem;
+    }
+
+        .select-wrapper select::-ms-expand {
+            display: none !important;
+        }
+
+    .form-control, .currency-box, .select-wrapper[data-width="normal"] {
+        max-width: 15rem;
+    }
+
+        .form-control[data-width="small"], .currency-box[data-width="small"], .select-wrapper[data-width="small"] {
+            max-width: 6.25rem;
+        }
+
+        .form-control[data-width="stretch"], .currency-box[data-width="stretch"], .select-wrapper[data-width="stretch"] {
+            width: 100%;
+        }
+
+    .select-wrapper.input-group-addon {
+        padding: 0;
+    }
+
+.btn {
+    -moz-border-radius: .125rem;
+    -webkit-border-radius: .125rem;
+    background: transparent;
+   border: 1px solid #1F7CD8;
+    border-radius: .125rem;
+    /*color: #1F7CD8;*/
+     background-color:  #1F7CD8;
+    font-size: .875rem;
+    min-width: 5rem;
+    padding: .5rem 1.25rem;
+    text-transform: uppercase;
+}
+
+    .btn.btn-secondary {
+        border-color: $(Secondary);
+        color: $(Secondary);
+    }
+
+    .btn.btn-success {
+        border-color: $(Success);
+        color: $(Success);
+    }
+
+    .btn.btn-warning {
+        border-color: $(Warning);
+        color: $(Warning);
+    }
+
+    .btn.btn-danger {
+        border-color: $(Danger);
+        color: $(Danger);
+    }
+
+    .btn:hover {
+        /*background: $(Colour);*//*#1F7CD8;*/
+       background: transparent;
+       /*  color: $(TextContrast);*/
+    }
+
+    .btn.btn-secondary:hover {
+        background: $(Secondary);
+    }
+
+    .btn.btn-success:hover {
+        background: $(Success);
+    }
+
+    .btn.btn-warning:hover {
+        background: $(Warning);
+    }
+
+    .btn.btn-danger:hover {
+        background: $(Danger);
+    }
+
+    .btn.disabled,
+    .btn.disabled:hover {
+        opacity: 1;
+        border-color: $(TextDisabled);
+        color: $(TextDisabled);
+        background: 0;
+    }
+
+.input-group-addon {
+    -moz-border-radius: .125rem;
+    -ms-border-radius: .125rem;
+    -webkit-border-radius: .125rem;
+    border-radius: .125rem;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi) {
+    .select-wrapper {
+        /*background-image: url(../Images/$(SortIcon)@2x.png);*/
+        background-size: .4375rem .625rem;
+    }
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    visibility: hidden;
+}
+
+.field-validation-error {
+    visibility: visible;
+    background: transparent;
+    border: 0;
+    padding: 0 .25rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+    .field-validation-error:before {
+    content: '*';
+    /*font-family: 'FontAwesome';
+    font-size: .875rem;*/
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}
+
+/************************** Alert **************************/
+
+#alert, 
+#forgot-password-alert,
+#refresh-results-box {
+    position: fixed;
+    bottom: 1.25rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1002;
+    display: none;
+    border: 0;
+    background: transparent;
+}
+
+.alert-body {
+    padding: 1rem;
+    background: red;
+    /*color: red;*/
+    position: relative;
+    display: inline-block;
+    border: 1px solid #ffffff;
+    line-height: 1rem;
+    max-width: 70%;
+}
+
+.alert-body .btn {
+    border-color: $(TextContrast);
+    color: $(TextContrast);
+}
+
+    .alert-body .btn:hover {
+        background: red;
+        color: red;
+    }
+
+.alert-body .message {
+    margin-right: .5rem;
+}
+
+.alert-body.bg-success {
+    background: green;
+}
+
+.alert-body.bg-warning {
+    background: yellow;
+}
+
+.alert-body.bg-danger {
+    background: red;
+}
+
+
+#show-errorlogs-button {
+    display: none;
+}
+
+    #show-errorlogs-button .down {
+        display: none;
+    }
+
+#error-logs-wrapper {
+    position: relative;
+    margin-top: 1rem;
+    padding: 1rem;
+    display: none;
+    z-index: 99;
+}
+
+.closebutton-wrapper {
+    cursor: pointer;
+    float: right;
+    margin-left: .375rem;
+}
