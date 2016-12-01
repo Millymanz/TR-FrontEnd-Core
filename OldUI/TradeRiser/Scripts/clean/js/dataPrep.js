@@ -1531,63 +1531,63 @@ function GenerateSummary(obj, presentationTypeIndex) {
     genTabStr += "<span style='color:#3a89ff;'><strong>Detailed Facts: </strong></span><br/> <br/>"
     genTabStr += "<table cellpadding='8' cellspacing='8' border='1' style='border-color:#E0E0E0;'>";
 
+    if (obj.CurrentResult.ProcessedResults.KeyFieldIndex.length > presentationTypeIndex) {
+        for (var bb = 0; bb < obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex].length; bb++) {
 
-    for (var bb = 0; bb < obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex].length; bb++) {
+            var selectingIndex = obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex][bb];
 
-        var selectingIndex = obj.CurrentResult.ProcessedResults.KeyFieldIndex[presentationTypeIndex][bb];
+            genTabStr += "<tr style='border-color:#E0E0E0;'><td>" + obj.CurrentResult.ProcessedResults.Headers[selectingIndex]
+                + "</td><td>"
+            + obj.CurrentResult.ProcessedResults.ComputedResults[0][selectingIndex] + '</td></tr>';
+        }
+        genTabStr += "</table></td>";
 
-        genTabStr += "<tr style='border-color:#E0E0E0;'><td>" + obj.CurrentResult.ProcessedResults.Headers[selectingIndex]
-            + "</td><td>"
-        + obj.CurrentResult.ProcessedResults.ComputedResults[0][selectingIndex] + '</td></tr>';
+        var textState = "";
+        var firstSummary = obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[0];
+        var summaryMore = obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[1];
+
+        var ignoreMoreSummary = false;
+        var switchTitle = "Tabular Summary";
+
+        if (typeof firstSummary !== 'undefined') {
+            if (!firstSummary) {
+                textState = firstSummary;
+                firstSummary = summaryMore;
+                ignoreMoreSummary = true;
+            }
+
+            if (typeof summaryMore === 'undefined' || textState === "" && ignoreMoreSummary) {
+                switchTitle = "Analysis Summary";
+            }
+
+            if (ignoreMoreSummary === false /*|| textState === "" && ignoreMoreSummary*/) {
+
+                genTabStr += "<td valign='top' style='width:40%; border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;'>";
+                genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>" + switchTitle + ":</strong> </span><br/><br/>";
+                genTabStr += firstSummary;
+                genTabStr += "</div></td>";
+            }
+        }
+
+
+        if (ignoreMoreSummary === false) {
+            if (typeof summaryMore !== 'undefined') {
+
+                genTabStr += "<td valign='top' style='border-left: 0px solid grey; border-right: 0px solid grey; vertical-align: top;>";
+                genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Analysis Summary:</strong> </span><br/><br/>" +
+                    summaryMore + "</td>";
+            }
+        }
+        genTabStr += "</tr></table>";
+
+
+        var final = genTabStr;
+
+        //$('<br/>' + final).appendTo($("#celln" + presentationTypeIndex));
+
+
+        $(final).appendTo($("#summaryResults"));
     }
-    genTabStr += "</table></td>";
-
-    var textState = "";
-    var firstSummary = obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[0];
-    var summaryMore = obj.CurrentResult.RawDataResults[presentationTypeIndex].Summaries[1];
-
-    var ignoreMoreSummary = false;
-    var switchTitle = "Tabular Summary";
-
-    if (typeof firstSummary !== 'undefined') {
-        if (!firstSummary) {
-            textState = firstSummary;
-            firstSummary = summaryMore;
-            ignoreMoreSummary = true;
-        }
-
-        if (typeof summaryMore === 'undefined' || textState === "" && ignoreMoreSummary)
-        {
-            switchTitle = "Analysis Summary";
-        }
-
-        if (ignoreMoreSummary === false /*|| textState === "" && ignoreMoreSummary*/ ) {
-
-            genTabStr += "<td valign='top' style='width:40%; border-left: 1px solid grey; border-right: 1px solid grey; vertical-align: top;'>";
-            genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>" + switchTitle + ":</strong> </span><br/><br/>";
-            genTabStr += firstSummary;
-            genTabStr += "</div></td>";
-        }
-    }
-
-
-    if (ignoreMoreSummary === false) {
-        if (typeof summaryMore !== 'undefined') {
-
-            genTabStr += "<td valign='top' style='border-left: 0px solid grey; border-right: 0px solid grey; vertical-align: top;>";
-            genTabStr += "<div style='margin-left:10px;margin-right:10px;'><span style='color:#3a89ff;'><strong>Analysis Summary:</strong> </span><br/><br/>" +
-                summaryMore + "</td>";
-        }
-    }
-    genTabStr += "</tr></table>";
-  
-
-    var final = genTabStr;
-
-    //$('<br/>' + final).appendTo($("#celln" + presentationTypeIndex));
-
-
-    $(final).appendTo($("#summaryResults"));
 
 
    //var allElements = $('.genericResultsTable');
