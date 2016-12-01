@@ -395,8 +395,87 @@ function TradeRiserViewModel(tradeRiserProxy) {
             self.changeViewToExamples();
         });
 
+        // cpf alert
+        $("#alert .closebutton-wrapper").click(function () {
+            corejs.closealert();
+        });
+
+        //$('#feedBack').click(function () {
+        //    location.href = "/app/feedback";
+        //});
+        this.closebox = function () {
+            $('.backdrop, .box').animate({ 'opacity': '0' }, 300, 'linear', function () {
+                $('.backdrop, .box').css('display', 'none');
+            });
+
+            $(".lightbox-container").css('display', 'none');
+        }
+
+
         $('#feedBack').click(function () {
-            location.href = "/app/feedback";
+            var success = function (result, textStatus, jqXHR) {
+                // add the forgot password html to the page.
+
+                $(".lightbox-content").html("");
+                $(".lightbox-content").html(result);
+                $(".lightbox").css('top', '15%');
+                $(".lightbox").css('height', '660px');
+
+                $(".lightbox-container").show();
+                $(".lightbox-overlay").show();
+
+                $('.lightbox-close').off("click").on("click", function () {
+                    self.closebox();
+                });
+
+                $("#cancel").off("click").on("click", function () {
+                    self.closebox();
+                });
+
+                $("#save").off("click").on("click", function () {
+
+                    $("#save").addClass("disabled");
+
+                    var name = $("#name").val();
+                    var email = $("#email").val();
+                    var message = $("#message").val();
+
+                    var feedModel = {};
+                    feedModel.name = name;
+                    feedModel.email = email;
+                    feedModel.message = message;
+
+                    var success = function (result) {
+                        $("#save").removeClass("disabled");
+                        if (result.success) {
+                            corejs.alert(result.message, "s", true);
+                            self.closebox();
+                        } else {
+                            corejs.alert(result.message, "e", true);
+                        }
+                    }
+
+                    var fail = function (data) {
+                        $("#save").removeClass("disabled");
+
+                        if (data["unhandled"]) {
+                            corejs.alert("Failed to submit feedback.", "e");
+                        } else {
+                            corejs.alert("Failed to submit feedback," + data.data.message + ".", "e");
+                        }
+                    }
+
+                      corejs.ajax({ url: APPLICATIONPATH + "app/submitfeedback", success: success, errorCallback: fail, data: { model: feedModel } });
+                    return false;
+                });
+            }
+
+            var fail = function (data) {
+                $("#signin-section #alert").show().text("There was an error sumitting requests. Please contact support for further help.");
+            }
+
+            corejs.ajax({ url: "/app/feedback", dataType: "Html", success: success, errorCallback: fail, type: "GET" });
+
         });
 
         $(".examplesIcon").hover(function () {

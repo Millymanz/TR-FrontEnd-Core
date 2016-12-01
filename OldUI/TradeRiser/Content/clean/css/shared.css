@@ -92,7 +92,7 @@ a.sign-up {
     padding-bottom: 0;
 }
 
-h1 {
+b h1 {
     font-size: 2em;
 }
 
@@ -455,75 +455,109 @@ input.input-validation-error {
     padding-top: 0;
 }
 
-
-/********** PAREMOVE ********/
-
-.lightbox-sidebar-toggle {
+.black_overlay {
     display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
 }
 
-.ng-lightbox-container,
+.white_content {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    padding: 16px;
+    /*border: 16px solid orange;*/
+    background-color: white;
+    z-index: 1002;
+    overflow: auto;
+}
+
+#lightbox1 {
+    position: fixed; /* keeps the lightbox window in the current viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(overlay.png) repeat;
+    text-align: center;
+}
+
+    #lightbox1 p {
+        text-align: right;
+        color: #fff;
+        margin-right: 20px;
+        font-size: 12px;
+    }
+/********** PAREMOVE ********/
 .lightbox-container {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 1001;
     overflow-y: hidden;
     overflow-x: auto;
     text-align: center;
 }
 
-.lightbox-container {
-    display: none;
-}
-
-.dyno-lightbox.lightbox,
-.lightbox,
-.modal-content {
-    font-size: .8125rem;
-    border-radius: .1875rem;
-    -moz-border-radius: .1875rem;
-    -webkit-border-radius: .1875rem;
-}
-
-.lightbox,
-.modal-content 
-.dyno-lightbox.inline{
-    background: red;
-    border: 1px solid brown;
+.lightbox {
+    height: 70%;
+    top: 25%;
+    width: 50%;
+    left: 25%;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ded9d9;
     display: inline-block;
     text-align: left;
-    position: relative;
+    /*   position: relative;*/
 }
 
-.dyno-lightbox.lightbox {
-    position: fixed;
-    top: 10%;
-    background: red;
+.lightbox-inner {
+    height: 100%;
+}
+
+.lightbox-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(238,236,232,0.85);
+
     display: none;
-    z-index: 100;
-    height: 80%;
-    width: 80%;
-    left: 10%;
-}
-
-.lightbox-responsive {
-    height: 90%;
-    width: 90%;
-    margin: 0 auto;
-    position: fixed;
-    top: 5%;
-    left: 5%;
-}
-
-.ng-lightbox-container .lightbox.lightbox-responsive {
     position: absolute;
+    /*top: 0%;
+    left: 0%;*/
+    width: 100%;
+    height: 100%;
+    /*background-color: black;*/
+    /*z-index: 99;*/
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+}
+
+.lightbox-content {
+    overflow-y: auto;
+    background: #fff;
+    position: relative;
+    min-width: 20rem;
 }
 
 
-.dyno-lightbox-title,
+
 .lightbox-title {
     padding: 1rem;
     border-bottom: 0;
@@ -535,7 +569,6 @@ input.input-validation-error {
     color: yellow;
 }
 
-    .dyno-lightbox-title .icon,
     .lightbox-title .icon {
         float: left;
         display: block;
@@ -545,20 +578,6 @@ input.input-validation-error {
     }
 
 
-.lightbox-nav-tabs {
-    position: absolute;
-    right: 3rem;
-    top: 0;
-    border-bottom: 0;
-}
-
-.lightbox-nav-tabs .nav-item .nav-link {
-    padding: .75rem 1.5rem;
-    height: 3rem;
-    line-height: 1.75rem;
-}
-
-.dyno-lightbox-close,
 .lightbox-close {
     position: absolute;
     top: .875rem;
@@ -573,102 +592,10 @@ input.input-validation-error {
         color: yellow;
     }
 
-.lightbox .toolbar {
-    min-width: initial;
-    padding-left: 0;
-}
 
-.lightbox-section-header {
-    padding: .75rem 1rem;
-    border-bottom: 1px solid orrange;
-    text-transform: uppercase;
-    color: green;
-    clear: both;
-}
-
-.lightbox-section:not(:first-child) .lightbox-section-header,
-.lightbox-section-header:not(:first-child) {
-    border-top: 1px solid yellow;
-}
-
-.dyno-lightbox-content,
-.lightbox-content {
-    min-width: 20rem;
-    overflow-y: auto;
-    position: relative;
-}
-
-    .dyno-lightbox-content .content,
-    .lightbox-content .content {
-        padding: 1rem;
-        min-width: 20rem;
-    }
-
-    .lightbox-content h3 + .content {
-        padding-top: 0;
-    }
-
-    .lightbox-content .content.container-fluid {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-.cpf-message-box .content > span > ul {
-    list-style-type: none;
-} 
-
-.dyno-lightbox-buttons,
-.lightbox-buttons {
-    padding: 1rem;
-    text-align: right;
-    width: 100%;
-    height: 4.5rem;
-}
-
-.dyno-lightbox-buttons {
-    padding: 0;
-}
-
-.lightbox-buttons {
-    border-top: 1px solid yellow;
-}
-
-    .lightbox-buttons:after {
-        display: block;
-        clear: both;
-        content: '';
-    }
-
-    .lightbox-buttons .btn {
-        margin-left: 1rem;
-    }
-
-.lightbox-responsive .lightbox-title,
-.dyno-lightbox-title {
-    height: 3rem;
-}
-
-.lightbox-responsive .lightbox-buttons,
-.dyno-lightbox-buttons {
-    height: 4.5rem;
-}
-
-.dyno-lightbox-buttons .dyno-control {
-    background-color: transparent;
-    border: none;
-    display: inline-block;
-}
-
-.lightbox-responsive .lightbox-content,
-.lightbox-responsive .lightbox-tabs,
-.dyno-lightbox-content {
-    overflow-y: auto;
-    background: orange;
-    position: relative;
-}
 
 /****************** Cpf Lightbox ******************/
-#cpf-lightbox,
+/*#cpf-lightbox,
 .lightbox,
 .lightbox {
     position: fixed;
@@ -791,4 +718,4 @@ input.input-validation-error {
 .lightbox-responsive-toolbar .sub-toolbar {
     position: absolute;
     top: 47px;
-}
+}*/

@@ -233,12 +233,10 @@ namespace TradeRiser.UI.Controllers
                     sender.Send(email);
                      Alert alert = new Alert("Thank you for taking the time to give us feedback about the TradeRiser.", AlertType.Success, false)
                         {
-                            Delayed = true
+                            Delayed = false
                         };
 
-                     resultBag = new ResultBag(alert, true, string.Empty) { RedirectUrl = "App/Index" };
-                       
-
+                     resultBag = new ResultBag(alert, true, string.Empty);
                     //resultBag = new ResultBag(true, new { message = "Thank you for taking the time to give us feedback about the TradeRiser." }) { RedirectUrl = "App/Index" };
                 }
                 else

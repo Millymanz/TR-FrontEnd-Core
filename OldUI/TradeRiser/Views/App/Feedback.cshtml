@@ -1,4 +1,14 @@
 ﻿@using TradeRiser.UI
+@{
+   Layout = null;
+}
+
+@*<head>
+     <title>Feedback</title>
+    <link href="~/Content/Styles/shared.css" rel="stylesheet"/>
+    <link href="~/Content/Styles/form.css" rel="stylesheet" />
+
+</head>*@
 @section jQueryLoad
 {
 feedback.load();
@@ -7,8 +17,8 @@ feedback.load();
 {
 
 }
-<div class="settings-content page-content">
-    <div class="section">
+<div style="margin-left: 10%;">
+    <div class="section" style="height: 520px;">
         <div class="section-title">
             <div class="title-wrapper">
                 <h1>Send us feedback</h1>
@@ -25,7 +35,7 @@ feedback.load();
             <label>Email:</label>
             <input type="text" id="email" maxlength="255" placeholder="Email" class="cpftxt form-control"/>
             <label>Message:</label>
-            <textarea id="message" rows="10" cols="100" placeholder="Tell us about your experience?"></textarea>
+            <textarea  style="display: block" id="message" rows="10" cols="80" placeholder="Tell us about your experience?"></textarea>
         </div>
     </div>
     <div>

@@ -589,7 +589,8 @@ corejs = {
                                 if (!isNullOrEmpty(data["data"])) {
                                     errorData.stackTrace = !isNullOrEmpty(data["data"]["stackTrace"]) ? data["data"]["stackTrace"] : "";
                                 }
-                                corejs.errorLog.add(errorData);
+                                //PAREMOVED
+                                //corejs.errorLog.add(errorData);
 
                                 corejs.showErrorLog = true;
 
@@ -653,8 +654,8 @@ corejs = {
                     errorData.message = message + " " + exception;
                     errorData.stackTrace = "";
                 }
-
-                corejs.errorLog.add(errorData);
+                //PAREMOVED
+                //corejs.errorLog.add(errorData);
                 if (!options.errorCallback) {
                     corejs.alert("RESOURCE{{corejs.ui.js}:{GenericAjaxError}:{There has been an error in an ajax request. Please contact your administrator.}}", "e"); //objResponse.message
                 } else if (options.errorCallback) {
