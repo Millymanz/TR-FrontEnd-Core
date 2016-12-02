@@ -1,7 +1,10 @@
-﻿html {
+﻿
+/*DOA- Present in Style.css - laptop handling*/
+/* html {
     margin: 0;
     padding: 0;
 }
+*/
 
 .header {
     background-color: #000;
@@ -13,6 +16,7 @@
     width: 100%;
 }
 
+ 
 .logged-out-user-section {
     position: absolute;
     right: 0;
@@ -115,7 +119,7 @@ b h1 {
 .section h5, .section h6 {
     font-size: 1em;
 }
-
+ 
 h5 a:link, h5 a:visited, h5 a:active {
     padding: 0;
     text-decoration: none;
@@ -129,9 +133,10 @@ h5 a:link, h5 a:visited, h5 a:active {
 }
 
 
-body {
+
+/*DOA- Present in Style.css - laptop handling*/
+/*body {
     border-top: solid 10px #000;
-    /*color: #000 !important;*/
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
@@ -139,9 +144,10 @@ body {
 }
 
     body h2 {
-        /*color: white;*/
+      
     }
-
+/*DOA- Present in Style.css - laptop handling*/
+/*
 #body {
     background-color: #ffffff;
     clear: both;
@@ -149,7 +155,7 @@ body {
     position: absolute;
     top: 60px;
     width: 100%;
-}
+}*/
 
 .main-content {
     /*background: url("../Images/accent.png") no-repeat;*/
@@ -515,7 +521,8 @@ input.input-validation-error {
 .lightbox {
     height: 70%;
     top: 25%;
-    width: 50%;
+    /*width: 50%;*/
+    width: 730px;
     left: 25%;
     position: absolute;
     background: #fff;
