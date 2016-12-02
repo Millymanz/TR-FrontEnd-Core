@@ -335,80 +335,10 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                     break;
 
                 case 'EMA':
-                case 'TMA':
-                    {
-                        var indicatorName = presentationTypes.SubWidgets[ss];
-                        var yAxisPos = extIndicatorLookUp.indicatorLookUp[indicatorName];
-
-
-                        var dataResults = {};
-                        var widgetName = "";
-                        var currentCount = mulitipleWidgetLookUp[indicatorName];
-                        if (typeof currentCount !== 'undefined') {
-                            dataResults = dataLookUp[indicatorName + ss];
-                            widgetName = obj.CurrentResult.PresentationTypes[0].SubWidgetsAltName[ss];
-                        }
-                        else {
-                            dataResults = dataLookUp[indicatorName];
-                            widgetName = indicatorName;
-                        }
-
-
-                        if (dataResults != null || dataResults !== undefined) {
-                            var dataLength = dataResults.length;
-                            var smaData = [];
-
-                            for (var ri = 0; ri < dataLength; ri++) {
-                                smaData.push([
-                                    dataResults[ri][0], // the date
-                                    dataResults[ri][1] // the close
-                                ])
-                            }
-
-                            //For handling multilple widgets of the same
-                            //kind, this diversifies color
-                            var selectedColor = "purple";
-                            if (WidgetAlreadyUsed(indicatorName, widgetUsedList)) {
-                                selectedColor = GenerateRandomColour();
-                            }
-
-                            var smaChartItem = {
-                                code: indicatorName,
-                                name: widgetName,
-                                color: selectedColor,
-                                data: [smaData]
-                            }
-
-                            overlayArray.push(smaChartItem);
-
-                            allCountIter++;
-
-                            if (summariesSet === false) {
-                                GenerateSummary(obj, presentationTypeIndex);
-                                summariesSet = true;
-                            }
-                        }
-                    }
-                    break;
-
+                case 'TMA':                  
                 case 'SMA':
                 case 'NORMAL':
                     {
-                        //var dataResults = {};
-                        //var widgetName = presentationTypes.SubWidgets[ss];
-                        //var currentCount = mulitipleWidgetLookUp["SMA"];
-
-                        //if (typeof currentCount !== 'undefined') {
-                        //    dataResults = dataLookUp["SMA" + ss];
-                        //    widgetName = obj.CurrentResult.PresentationTypes[0].SubWidgetsAltName[ss];
-                        //}
-                        //else {
-                        //    dataResults = dataLookUp["SMA"];
-                        //    widgetName = "SMA";
-                        //}
-
-                        // dataResults = dataLookUp["SMA" + ss];
-
                         var dataResults = {};
 
                         var widgetName = presentationTypes.SubWidgets[ss];
@@ -427,11 +357,6 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                         }
 
 
-
-
-
-                        
-
                         if (dataResults != null || dataResults !== undefined) {
                             var dataLength = dataResults.length;
                             var smaData = [];
@@ -446,23 +371,15 @@ function PrepareChartData(presentationTypes, presentationTypeIndex, obj, dataLoo
                             //For handling multilple widgets of the same
                             //kind, this diversifies color
                             var selectedColor = "red";
-                            if (WidgetAlreadyUsed('SMA', widgetUsedList)) {
+                            if (WidgetAlreadyUsed(widgetName, widgetUsedList)) {
                                 selectedColor = GenerateRandomColour();
                             }
 
-                            //var smaChartItem = {
-                            //    code: 'sma',
-                            //    name: widgetName,
-                            //    color: selectedColor,
-                            //    data: [smaData],
-                            //    dataGrouping: {
-                            //        units: groupingUnits
-                            //    }
-                            //}
+                            var nameWidget = widgetName + lineIndx;
 
                             var smaChartItem = {
-                                code: 'sma',
-                                name: widgetName,
+                                code: nameWidget,
+                                name: nameWidget,
                                 color: selectedColor,
                                 data: [smaData]
                             }
