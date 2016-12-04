@@ -93,9 +93,22 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
             symbolNames = [];
 
         var volume_CandleStick = [];
-
+        var subTitle = '';
         for (var bb = 0; bb < obj.CurrentResult.ResultSymbols[presentationTypeIndex].length; bb++) {
-            symbolNames.push(obj.CurrentResult.ResultSymbols[presentationTypeIndex][bb] + " " + obj.CurrentResult.RawDataResults[presentationTypeIndex].DataTimeFrame);
+
+            var currentTitle = obj.CurrentResult.RawDataResults[presentationTypeIndex].ChartReadyDataResults[0].Title;
+            if (currentTitle != '') {
+                symbolNames.push(currentTitle);
+            }
+            else {
+                symbolNames.push(obj.CurrentResult.ResultSymbols[presentationTypeIndex][bb] + " "
+                    + obj.CurrentResult.RawDataResults[presentationTypeIndex].DataTimeFrame);
+            }
+
+            var currentSubTitle = obj.CurrentResult.RawDataResults[presentationTypeIndex].ChartReadyDataResults[0].SubTitle;
+            if (currentSubTitle != '') {
+                subTitle = currentSubTitle;
+            }
         }
 
   
@@ -159,7 +172,9 @@ function SelectMiniChart(presentationTypeIndex, obj, highlighterArray, dataLookU
                     title: {
                         text: symbolNames[0]
                     },
-
+                    subtitle: {
+                        text: subTitle
+                    },
                     rangeSelector: buttonSetup,
 
                     yAxis: yAxisArray,
