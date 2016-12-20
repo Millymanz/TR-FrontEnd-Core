@@ -88,15 +88,15 @@ namespace TradeRiser.Models
             summaryt += "<p>Forex Data:</p>";
             summaryt += "<p><table class='genericResultsTable' id='" + tableId + "'><thead><tr>";
             summaryt += "<td class='genericResultsHeaderCells'>Instrument</td>" +
-                        "<td class='genericResultsHeaderCells'>Real Time</td>" +
+                        /*"<td class='genericResultsHeaderCells'>Real Time</td>" +*/
                         "<td class='genericResultsHeaderCells'>5min</td>" +
-                        "<td class='genericResultsHeaderCells'>10min</td>" +
+                       // "<td class='genericResultsHeaderCells'>10min</td>" +
                         "<td class='genericResultsHeaderCells'>15min</td>" +
-                        "<td class='genericResultsHeaderCells'>30min</td>" +
+                       // "<td class='genericResultsHeaderCells'>30min</td>" +
                         "<td class='genericResultsHeaderCells'>1hour</td>" +
-                        "<td class='genericResultsHeaderCells'>2hour</td>" +
-                        "<td class='genericResultsHeaderCells'>3hour</td>" +
-                        "<td class='genericResultsHeaderCells'>4hour</td>" +
+                      //  "<td class='genericResultsHeaderCells'>2hour</td>" +
+                      //  "<td class='genericResultsHeaderCells'>3hour</td>" +
+                     //   "<td class='genericResultsHeaderCells'>4hour</td>" +
                         "<td class='genericResultsHeaderCells'>Daily</td>" +
                         "</tr></thead>";
 
@@ -104,15 +104,15 @@ namespace TradeRiser.Models
             {
                 summaryt += "<tr>";
                 summaryt += "<td class='genericResultsCells'>" + item + "</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+               // summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "</tr>";
             }
@@ -128,14 +128,15 @@ namespace TradeRiser.Models
             summaryt += "<p>Indices Data:</p>";
             summaryt += "<p><table class='genericResultsTable' id='" + tableId + "'><thead><tr>";
             summaryt += "<td class='genericResultsHeaderCells'>Instrument</td>" +
+                /*"<td class='genericResultsHeaderCells'>Real Time</td>" +*/
                         "<td class='genericResultsHeaderCells'>5min</td>" +
-                        "<td class='genericResultsHeaderCells'>10min</td>" +
+                // "<td class='genericResultsHeaderCells'>10min</td>" +
                         "<td class='genericResultsHeaderCells'>15min</td>" +
-                        "<td class='genericResultsHeaderCells'>30min</td>" +
+                // "<td class='genericResultsHeaderCells'>30min</td>" +
                         "<td class='genericResultsHeaderCells'>1hour</td>" +
-                        "<td class='genericResultsHeaderCells'>2hour</td>" +
-                        "<td class='genericResultsHeaderCells'>3hour</td>" +
-                        "<td class='genericResultsHeaderCells'>4hour</td>" +
+                //  "<td class='genericResultsHeaderCells'>2hour</td>" +
+                //  "<td class='genericResultsHeaderCells'>3hour</td>" +
+                //   "<td class='genericResultsHeaderCells'>4hour</td>" +
                         "<td class='genericResultsHeaderCells'>Daily</td>" +
                         "</tr></thead>";
 
@@ -143,14 +144,15 @@ namespace TradeRiser.Models
             {
                 summaryt += "<tr>";
                 summaryt += "<td class='genericResultsCells'>" + item + "</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                // summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "</tr>";
             }
@@ -168,14 +170,15 @@ namespace TradeRiser.Models
             summaryt += "<p>Commodities Data:</p>";
             summaryt += "<p><table class='genericResultsTable' id='" + tableId + "'><thead><tr>";
             summaryt += "<td class='genericResultsHeaderCells'>Instrument</td>" +
+                /*"<td class='genericResultsHeaderCells'>Real Time</td>" +*/
                         "<td class='genericResultsHeaderCells'>5min</td>" +
-                        "<td class='genericResultsHeaderCells'>10min</td>" +
+                // "<td class='genericResultsHeaderCells'>10min</td>" +
                         "<td class='genericResultsHeaderCells'>15min</td>" +
-                        "<td class='genericResultsHeaderCells'>30min</td>" +
+                // "<td class='genericResultsHeaderCells'>30min</td>" +
                         "<td class='genericResultsHeaderCells'>1hour</td>" +
-                        "<td class='genericResultsHeaderCells'>2hour</td>" +
-                        "<td class='genericResultsHeaderCells'>3hour</td>" +
-                        "<td class='genericResultsHeaderCells'>4hour</td>" +
+                //  "<td class='genericResultsHeaderCells'>2hour</td>" +
+                //  "<td class='genericResultsHeaderCells'>3hour</td>" +
+                //   "<td class='genericResultsHeaderCells'>4hour</td>" +
                         "<td class='genericResultsHeaderCells'>Daily</td>" +
                         "</tr></thead>";
 
@@ -183,14 +186,15 @@ namespace TradeRiser.Models
             {
                 summaryt += "<tr>";
                 summaryt += "<td class='genericResultsCells'>" + item + "</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
-                summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                // summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
+                //summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "<td class='genericResultsCells'>&#10004;</td>";
                 summaryt += "</tr>";
             }
