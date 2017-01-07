@@ -19,7 +19,8 @@
     "mimosa": "~2.3.32"
   },
   "devDependencies": {
+    "mimosa-dust": "*",
     "mimosa-sass": "*",
-    "mimosa-dust": "*"
+    "node-sass": "^4.1.1"
   }
 }
