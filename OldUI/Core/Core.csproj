@@ -34,6 +34,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\References\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\References\Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -90,6 +93,7 @@
     <Compile Include="Data\Contract\IDatabaseProvider.cs" />
     <Compile Include="Data\Contract\IVaultDataBound.cs" />
     <Compile Include="Data\Core\AppDataAccess.cs" />
+    <Compile Include="Data\Core\PostgresqlDatabaseProvider.cs" />
     <Compile Include="Data\Core\DataAccess.cs" />
     <Compile Include="Data\Core\Feedback.cs" />
     <Compile Include="Data\Core\IReader.cs" />
