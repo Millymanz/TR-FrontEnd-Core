@@ -6,6 +6,7 @@ using System.Text;
 using TradeRiser.Core.Director;
 using TradeRiser.Core.Logging;
 using Npgsql;
+using TradeRiser.Core.Extensions;
 
 namespace TradeRiser.Core.Data
 {
@@ -170,7 +171,7 @@ namespace TradeRiser.Core.Data
                     // automatically add the return value parameter to each call.
                     NpgsqlParameter returnValue = AddReturnValueParameter(command);
 
-                    SqlServerReader reader = new SqlServerReader(command.ExecuteReader(CommandBehavior.CloseConnection));
+                    PostgresqlReader reader = new PostgresqlReader(command.ExecuteReader(CommandBehavior.CloseConnection));
                    // SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
                     result.Reader = reader;
 
@@ -309,7 +310,7 @@ namespace TradeRiser.Core.Data
 
             if (!addReturnValue) return returnValueParameter;
 
-            returnValueParameter = new SqlParameter { ParameterName = "@returnValue", Value = 1, Direction = ParameterDirection.ReturnValue };
+            returnValueParameter = new NpgsqlParameter { ParameterName = "@returnValue", Value = 1, Direction = ParameterDirection.ReturnValue };
             sqlCommand.Parameters.Add(returnValueParameter);
 
             return returnValueParameter;

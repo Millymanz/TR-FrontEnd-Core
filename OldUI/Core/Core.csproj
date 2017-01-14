@@ -93,6 +93,7 @@
     <Compile Include="Data\Contract\IDatabaseProvider.cs" />
     <Compile Include="Data\Contract\IVaultDataBound.cs" />
     <Compile Include="Data\Core\AppDataAccess.cs" />
+    <Compile Include="Data\Core\PostgresqlReader.cs" />
     <Compile Include="Data\Core\PostgresqlDatabaseProvider.cs" />
     <Compile Include="Data\Core\DataAccess.cs" />
     <Compile Include="Data\Core\Feedback.cs" />

@@ -19,6 +19,11 @@ namespace TradeRiser.UI.Controllers
 
             return View();
         }
+         [HttpPost]
+        public ActionResult NewApp()
+    {
+        return View();    
+    }
 
         [OutputCache(NoStore = true, Duration = 0)]
         public ActionResult LogOff()
