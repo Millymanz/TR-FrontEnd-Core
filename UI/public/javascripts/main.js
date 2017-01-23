@@ -25,7 +25,7 @@ require.config({
 				drawer: 'vendor/bootstrap/drawer',
         'jquery-layout': 'vendor/jquery/jquery.layout-latest',
         highstock: 'vendor/highcharts/js/highstock',
-        toastr: '//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr',
+        toastr: '//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min',
         dynatable: 'vendor/jquery/jquery.dynatable',
         'highstock-ext': 'vendor/highcharts/js/highstock-ext',
         'dust-dom': 'vendor/dust/dust.dom',

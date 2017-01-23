@@ -21,6 +21,7 @@
   "devDependencies": {
     "mimosa-dust": "*",
     "mimosa-sass": "*",
-    "node-sass": "^4.1.1"
+    "node-sass": "^4.1.1",
+    "requirejs": "^2.3.2"
   }
 }
