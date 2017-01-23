@@ -1889,7 +1889,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
         if (presentationTypeCount > 0) {
 
-            $("#resultCanvas").append($('<table id="tableCanvas" width="100%" cellpadding="15" cellspacing="1" border="1" style="border-color:#E0E0E0;"></table>'));
+            $("#resultCanvas").append($('<div id="tableCanvas" class="x_panel" />'));
 
             //$("#resultCanvas").append($('<br/>'
             //                   + '<table id="tableCanvas" width="100%" cellpadding="15" cellspacing="1" border="1" style="border-color:#E0E0E0;"></table>'));
@@ -1949,7 +1949,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
                 switch (obj.CurrentResult.PresentationTypes[pp].MainWidget) {
                     case 'SpecialTable':
                         {
-                            var correlTabStr = '<table width=80% cellpadding="12" cellspacing="12" border="1" style="border-color:#E0E0E0; "><tr style="border-color:#E0E0E0;"><td></td>';
+                            var correlTabStr = '<table class="table"><tr><td></td>';
                             var tempStr = '';
 
                             var lineSeriesOptions = [],
@@ -2036,8 +2036,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
                             var title = 'Correlation Analysis';
                             var chartClassName = "columnChart";
 
-                            var markupFinal = "<div class='widgetTitle'>" + title + "</div><br/><br/>"
-                                + "<table cellpadding='15' cellspacing='15'><tr><td>"
+                            var markupFinal = "<div class='x_title'><h2>" + title + "</h2></div>"
+                                + "<table class='table' cellpadding='15' cellspacing='15'><tr><td>"
                                 + "<div class='"
                                 + chartClassName + "' style='height: " + height + "; width:" + width + "'><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div></div>"
                                 + "</td>"
@@ -4533,7 +4533,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         //markup += "<br/><br/>";
         //markup += "<br/></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
 
-        var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
+        var markup = "<div class='x_title'>" + title + "</div> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
 
         $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
 
@@ -4551,7 +4551,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var preferredWidth = $('#pane').width() * 0.90;
         width = preferredWidth + 'px';
 
-        var markup = "<div class='widgetTitle'>" + title + "</div><br/><br/> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
+        var markup = "<div class='x_title'>" + title + "</div> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
         markup += "<br/><div style='font-size:14px' class='" + chartClassName + "source'></div>"
 
 

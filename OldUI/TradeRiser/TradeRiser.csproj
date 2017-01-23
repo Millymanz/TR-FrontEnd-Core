@@ -306,6 +306,7 @@
     <Content Include="Content\toastr.min.css" />
     <Content Include="Content\v2\build\css\custom.css" />
     <Content Include="Content\v2\build\css\custom.min.css" />
+    <Content Include="Content\v2\build\css\style.css" />
     <Content Include="Content\v2\build\js\custom.js" />
     <Content Include="Content\v2\build\js\custom.min.js" />
     <Content Include="Content\v2\documentation\css\animate.min.css" />
@@ -3757,6 +3758,9 @@
     <Content Include="Images\play.png" />
     <Content Include="Images\TradeRiser_Web.png" />
     <Content Include="Images\TradeRiser_Web1.png" />
+    <Content Include="Scripts\appv2\traderiser-proxy.js" />
+    <Content Include="Scripts\appv2\traderiser-view-model.js" />
+    <Content Include="Scripts\appv2\traderiser.js" />
     <Content Include="Scripts\App\traderiser-proxy.js" />
     <Content Include="Scripts\App\traderiser-view-model.js" />
     <Content Include="Scripts\clean\js\adapters\mootools-adapter.js" />
@@ -5279,12 +5283,12 @@
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\App\Feedback.cshtml" />
     <Content Include="Views\Help\Index.cshtml" />
-    <Content Include="Views\App\NewApp.cshtml" />
     <Content Include="Views\NewApp\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutPageNewTR.cshtml" />
     <Content Include="Views\Shared\newTRPartials\_Header.cshtml" />
     <Content Include="Views\Shared\newTRPartials\_SideNav.cshtml" />
     <Content Include="Views\Shared\newTRPartials\_Content.cshtml" />
+    <Content Include="Views\Shared\newTRPartials\_TopNavigationPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

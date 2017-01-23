@@ -3,4 +3,1141 @@
     Layout = "~/Views/Shared/_LayoutPageNewTR.cshtml";
 }
 
-@Html.Partial("~/Views/Shared/newTRPartials/_Content.cshtml")
+@*Html.Partial("~/Views/Shared/newTRPartials/_Content.cshtml")*@
+
+
+  <input type="hidden" value= @User.Identity.Name id='u_n' class='h_v' name="hiddens">
+    <!-- Header bar -->
+    @*<div class="headerApp">
+
+        @*<div class="searchbox" style="display:none">*@
+        @*<div class="searchbox" id="topSearchBar" style="display: none">
+
+            <!-- <a href="#" class="btnBottom-splitter">Hide Summary Toolbar</a> -->
+
+            <div class="searchact">
+                <a href="#" class="btn-act btn-chart transition">Chart</a>
+                <a href="#" class="btn-act btn-drop transition">Drop</a>
+            </div>
+
+
+            <div id="searchboxArea">
+                <div id="contenthandle">
+                    <form class="searchForm" method="post">
+                        <input data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="72"
+                            placeholder="Enter what you would like query or know about the Financial Markets?" id="searchDriverMode" class="testIndex inputbox transition input-search" autocomplete="off" />
+                        <div>
+                            <div data-bind="click: getAnswer" value="SEARCH" title="Statistical Querying/Technical Analysis Querying/Fundamental Data Querying" class="compute btnSearcher btn-search transition" style="cursor: pointer;">
+                                <i class="fa fa-search" style="font-size: 23px; position: absolute; top: 20px; right: 110px; color: white"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="queryDropDown">
+                            <div class="form-group">
+                                <br />
+                                <br />
+                                <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" class="textArea"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>@*
+
+
+
+
+            <div id="divTextArea" class="dimension"></div>
+            <div id="divLineLenght" class="dimension"></div>
+            <input type="text" id="hidden_typehead" />
+            <input type="text" id="hidden_height_line" />
+            <div id="tip" style='width: 20px; height: 5px; background-color: red; display: none; position: absolute; background-color: red; font-size: 0;'></div>
+        </div>
+
+        <div id="topLogo" class="logoRefresher" style="top: 7px; left: 5px; position: absolute; display: none">
+            <img alt="TradeRiser" src="../../../Images/TradeRiser_Web1.png" border="0" height="50" width="235">
+        </div>
+
+        @*  <div class="brokerLogo">
+    START GUIDE <i class="fa fa-info-circle" aria-hidden="true"></i>
+    </div>*@
+
+
+    @*    <div class="startGuide">
+            START GUIDE <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </div>
+
+        <div class="user">
+            @if (Request.IsAuthenticated)
+            {
+                <a href="#" class="btn-user transition">&nbsp &nbsp &nbsp &nbsp
+                    @User.Identity.Name
+                    &nbsp &nbsp &nbsp &nbsp
+                    <i class="icn icn-carret"></i>
+                </a>
+                <ul class="drop">
+
+                    <li class="logoutItem">
+
+                        <div id="autoSuggest"><span style="text-align: center">
+                            <input checked type="checkbox" id="autoSuggestTicker">&nbsp Auto Suggest</span></div>
+                        <div id="viewType"><span id="viewTypeText" style="text-align: center">&nbsp Report View</span></div>
+                        <div id="examples"><span id="examplesText" style="text-align: center">&nbsp Examples</span></div>
+                        <div id="generalInfo"><span style="text-align: center">&nbsp General Info</span></div>
+                        <div id="instrumentCoverage"><span style="text-align: center">&nbsp Instrument Coverage</span></div>
+                        <div id="feedBack"><span style="text-align: center">&nbsp FeedBack</span></div>
+                        @using (Html.BeginForm("Logoff", "Core", FormMethod.Post, new { id = "logoutForm" }))
+                        {                          
+                            <input type="hidden" value= @User.Identity.Name id='u_n' class='h_v' name="hiddens">
+                            <a href="#" id="logOffAction" style="text-align: center">Log off</a>
+                        }
+
+                    </li>
+                </ul>
+            }
+            else
+            {
+                <ul>
+                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                </ul>
+            }
+        </div>
+
+
+
+
+
+    </div>
+    <!-- End Header bar -->
+
+
+    @*<div id="reportMode" style="display:none">*@
+
+
+    <div id="searchBarMode">
+
+        <div  id="searchBoxLocal">
+            <div class="searchboxLogo">
+                <img alt="TradeRiser" src="../../../Images/searchLogoBeta.png" border="0">
+            </div>
+
+            <div class="searchbox">
+                <div class="searchact">
+                    <a href="#" class="btn-act btn-drop transition">Drop</a>
+                </div>
+
+                <div class="instrumentCoverageIcon">
+                    <i class="fa fa-arrows" aria-hidden="true"></i>&nbsp Instruments
+                </div>
+
+                <div class="examplesIcon">
+                    <i class="fa fa-bars" aria-hidden="true"></i>&nbsp Examples
+                </div>
+
+                <div id="firstSearchBoxArea">
+
+                    <form class="searchForm" method="post">
+                        <input data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="72"
+                            placeholder="Enter what you would like query or know about the Financial Markets?" id="searchDriver" class="testIndex inputbox transition input-search" autocomplete="off" />
+                        <div>
+                            <div data-bind="click: getAnswer" value="SEARCH" title="Statistical Querying/Technical Analysis Querying/Fundamental Data Querying" id="searchModeButton" class="compute btnSearcher btn-search transition" style="cursor: pointer;">
+                                <i class="fa fa-search" style="font-size: 23px; position: absolute; top: 20px; right: 110px; color: white"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="queryDropDown">
+                    <div class="form-group">
+                        <br /><br />
+                    <textarea data-bind="value: mainQuery, valueUpdate: ['afterkeydown', 'input']" rows="7" cols="101" name="textArea" class="textArea"></textarea>
+                        </div>
+                    </div>
+                    </form>
+
+
+                </div>
+
+                <div id="divTextArea" class="dimension"></div>
+                <div id="divLineLenght" class="dimension"></div>
+                <input type="text" id="hidden_typehead" />
+                <input type="text" id="hidden_height_line" />
+                <div id="tip" style='width: 20px; height: 5px; background-color: red; display: none; position: absolute; background-color: red; font-size: 0;'></div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div id="reportMode">
+
+        <!-- Sidebar -->
+        <div class="sidebar closed">
+
+            <a href="#" class="btn-splitter"></a>
+
+
+
+            @*<div id="btnLeftNew">
+        <div class="fby-screen">
+            <div class="fby-tabB fby-tab-r">
+                <a href="" style="background-color:#83A4A5!important" aria-label="Feedback"></a></div>
+            <div class="fby-mask"></div>
+        </div>
+    </div>*@
+
+
+            <div class="sidebar-inner">
+
+                <!-- Tabs -->
+                <div id="tab-container" class="side-tabs">
+                    <ul class='etabs'>
+                        <li class='tab'><a href="#tabs1-tab1" class="first transition"><i class="icn icn-tab1"></i></a></li>
+                        <li class='tab'><a href="#tabs1-tab2" class="transition"><i class="icn icn-tab2"></i></a></li>
+                        <li class='tab'><a href="#tabs1-tab3" class="last transition"><i class="icn icn-tab3"></i></a></li>
+                    </ul>
+
+                    <!-- Tab 1 -->
+                    <div id="tabs1-tab1" class="tabpanel">
+
+                        <div class="titleleftHeader">
+                            <div class="leftSidebarNewTitle">
+                                Query Results
+                            </div>
+                            <div class="subtitleNewHeader">The answers to your query</div>
+
+                            <div class="tab-inner" id="queryResults">
+                                <div data-bind="foreach: onDemandResults">
+                                    <div data-bind="template: { name: 'resultCardTemplate', data: $data }, hoverToggle: 'resultCardHover',
+    click: function (data, event) { $parent.retrieveDataResults(data, event) }">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- End Tab 1 -->
+
+                    <!-- Tab 2 -->
+                    <div id="tabs1-tab2" class="tabpanel">
+                        <div class="titleleftHeader">
+                            <div class="leftSidebarNewTitle">
+                                Notification Results
+                            </div>
+                            <div class="subtitleNewHeader">Continuous query results - Alerts/Notification/Updates</div>
+
+                            <div class="tab-inner" id="emergingResults">
+                                <div data-bind="foreach: continuousResults">
+                                    <div data-bind="template: { name: 'continousResultCardTemplate', data: $data }, hoverToggle: 'resultCardHover'">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End Tab 2 -->
+
+                    <!-- Tab 3 -->
+                    <div id="tabs1-tab3" class="tabpanel">
+                        <div class="titleleftHeader">
+                            <div class="leftSidebarNewTitle">
+                                Saved Queries
+                            </div>
+                            <div class="subtitleNewHeader">Saved query results - User favourite queries</div>
+
+                            <div class="tab-inner" id="savedQueries">
+
+                                <div data-bind="foreach: queriesSaved">
+                                    <div data-bind="template: { name: 'savedQueryTemplate', data: $data } ">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End Tab 3 -->
+
+                </div>
+                <!-- End Tabs -->
+
+            </div>
+        </div>
+        <!-- End Sidebar -->
+
+
+        <!-- Right Sidebar -->
+        <div class="rightSidebar closed">
+
+            <a href="#" class="btnRight-splitter"></a>
+
+
+            @*<div id="btnRightNew">
+        <div class="fby-screen">
+            <div class="fby-tabA fby-tab-r">
+                <a href="" style="background-color:#83A4A5!important" aria-label="Feedback"></a></div>
+            <div class="fby-mask"></div>
+        </div>
+    </div>*@
+
+            <div class="topRight">
+
+
+                <!-- Tabs -->
+                <div id="tab-containerFollow" class="side-tabs">
+                    <ul class='etabs'>
+                        <li class='tab'><a href="#follow-tab1" class="first transition"><i class="icn icn-tab1"></i></a></li>
+                        <li class='tab'><a href="#historic-tab2" class="last transition"><i class="icn icn-tab2"></i></a></li>
+                        <!--<li class='tab'><a href="#tabs1-tab3" class="last transition"><i class="icn icn-tab3"></i></a></li> -->
+                    </ul>
+
+                    <!-- Tab 1 -->
+                    <div id="follow-tab1" class="tabpanel">
+
+                        <div class="titleleftHeader">
+                            <div class="rightSidebarTitle">
+                                Following
+                            </div>
+                            <div class="subtitleHeader">The queries you currently subscribe to</div>
+
+                            <div class="tab-inner" id="followedQueries">
+
+                                <div data-bind="foreach: queriesSubscription">
+                                    <div data-bind="template: { name: 'followingQueryTemplate', data: $data } ">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End Tab 1 -->
+
+
+                    <!-- Tab 2 -->
+                    <div id="historic-tab2" class="tabpanel">
+                        <div class="titleleftHeader">
+                            <div class="rightSidebarTitle">
+                                Historic Queries
+                            </div>
+                            <div class="subtitleHeader">Queries made in the past</div>
+
+                            <div class="tab-inner" id="historicQueries">
+
+                                <div data-bind="foreach: historicQueries">
+                                    <div data-bind="template: { name: 'historicQueryTemplate', data: $data }">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End Tab 2 -->
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <!-- End Sidebar -->
+
+
+
+
+
+
+
+
+        <!-- bottom Sidebar -->
+        <div class="bottomSidebar closed" style="display: none">
+
+            <div>
+                <a href="#" id="bottombtn-splitter" data-bind="click: toolBottomBar, text: toolBottomBarMessage"></a>
+            </div>
+            <div id="summaryResults"></div>
+
+        </div>
+        <!-- End Sidebar -->
+
+
+
+
+
+
+
+        <!-- Main Content -->
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="content-inner">
+                <div class="dashboard_graph"  id="pane">
+                    <!-- Space for app content -->
+                </div>
+            </div>
+        </div>
+
+        <div id="loadchartDia" style="display: none; z-index: 50000; color: black; margin: 150px auto; left: -210px; right: 0; width: 70px; height: 70px; position: absolute;">
+        </div>
+
+
+        <div id="noresults">
+            <b>TradeRiser does not understand your input. 
+      <br />
+                Please ensure your query is either a <b>Statistical</b>, <b>Technical Analysis</b> or <b>Fundamental Data</b> query.</b>
+            <br />
+            <br />
+            <div class="examplesGroup"><b>See Examples</b></div>
+            <br />
+            <div class="startGuideGroup"><b>See Start Guide</b></div>
+        </div>
+
+
+
+        <!-- End Main Content -->
+    </div>
+
+
+
+
+    <div id="examplesMode">
+
+        <div class="container-fluid">
+            <div id="examplesGrid">
+                <table>
+                    <tr>
+                        <td>
+
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h3>Compare</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <form class="searchForm" method="post">
+                                            <table class="searchbarlisting">
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">compare two instruments:</div>
+                                                        <input title="EURUSD vs EURCAD" data-bind="value: queryA, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="50"
+                                                            class="inputBoxExamples" autocomplete="off" value="" />
+
+                                                        <div id="queryA" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+
+
+                                                        <br />
+                                                        <br />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">compare countries on specific economic areas:</div>
+                                                        <input title="United Kingdom Unemployment Rate vs United States Unemployment Rate" data-bind="value: queryB, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="50"
+                                                            class="inputBoxExamples" autocomplete="off" value="" />
+                                                        <div id="queryB" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+
+
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </form>
+                                    </td>
+
+                                </tr>
+                            </table>
+
+
+                        </td>
+
+
+                        <td>
+
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h3>Basics</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <form class="searchForm" method="post">
+
+                                            <table class="searchbarlisting">
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">get the price of a instrument:</div>
+                                                        <input title="EURUSD" data-bind="value: queryC, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="50"
+                                                            class="inputBoxExamples" autocomplete="off" value="EURUSD" />
+                                                        <div id="queryC" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+                                                        <br />
+                                                        <br />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">find out what happened to pound currencies during brexit :</div>
+                                                        <input title="Brexit" data-bind="value: queryD, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="50"
+                                                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                                        <div id="queryD" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+
+                                    </td>
+
+                                </tr>
+                            </table>
+
+                        </td>
+
+
+
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+
+
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h3>Questions</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        <form class="searchForm" method="post">
+
+                                            <table class="searchbarlisting">
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">find out what happens when certain technical analysis criterias are met :</div>
+
+                                                        <input title="During 2011, what happened to the eurusd exhausted its selling pressure on the stochastic?" data-bind="value: queryE, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                                                            class="inputBoxExamples" autocomplete="off" value="" />
+                                                        <div id="queryE" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <br />
+                                        <form class="searchForm" method="post">
+                                            <table class="searchbarlisting">
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">combine technical analysis with fundamental analysis :</div>
+
+                                                        <input title="How many times did the usdcad touch the sma when the nonfarm payroll was more than 40000?" data-bind="value: queryF, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                                                            class="inputBoxExamples" autocomplete="off" value="" />
+                                                        <div id="queryF" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <br />
+                                        <form class="searchForm" method="post">
+                                            <table class="searchbarlisting">
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">identify technical patterns following another set of patterns :</div>
+
+                                                        <input title="Identify bearish price action signals for EUR/JPY on Daily chart from 2015 after 2 consecutive positive candles" data-bind="value: queryG, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                                                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                                        <div id="queryG" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <br />
+                                        <form class="searchForm" method="post">
+
+                                            <table class="searchbarlisting">
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">country specific fundamental question :</div>
+
+                                                        <input title="Is the usa adp national employment report a good predictor of the nonfarm payrolls?" data-bind="value: queryH, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                                                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                                        <div id="queryH" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <br />
+
+                                        <form class="searchForm" method="post">
+                                            <table class="searchbarlisting">
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">long  technical analysis question highlighting areas of interest :</div>
+                                                        <input title="In the daily chart, highlight instances between 15/08/2014 to 15/06/2015 when the usdcad gave a bullish rejection signal with its Bollinger Bands while its average true range was neither more than 0.0400 nor less than 0.0140" data-bind="value: queryI, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                                                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                                        <div id="queryI" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <br />
+
+                                        <form class="searchForm" method="post">
+                                            <table class="searchbarlisting">
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">screen asset classes based on technical analysis criteria :</div>
+
+                                                        <input title="Identify pairs that are trading above 20 simple moving average on 1H timeframe for the first time between 1/2/2015 to 20/05/2015" data-bind="value: queryJ, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                                                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                                        <div id="queryJ" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <br />
+                                        <form class="searchForm" method="post">
+                                            <table class="searchbarlisting">
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">check asset classes for performance during certain periods :</div>
+
+                                                        <input title="Which exotic currency pairs have the best performance on Tuesdays, since 2012?" data-bind="value: queryK, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                                                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                                        <div id="queryK" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <br />
+
+                                        <form class="searchForm" method="post">
+                                            <table class="searchbarlisting">
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">find chart patterns within the price action data :</div>
+
+                                                        <input title="Identify the head and shoulders chfjpy on the 1hour between 16/07/2014 to 24/08/2014 and inverse head and shoulders for the chfjpy on the 1hour between 16/07/2014 to 24/08/2014" data-bind="value: queryL, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                                                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+
+                                                        <div id="queryL" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <br />
+
+                                        <form class="searchForm" method="post">
+
+                                            <table class="searchbarlisting">
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">find out what happens to certain instruments when reports are released or events take place :</div>
+
+                                                        <input title="What happens to the USDCAD after unemployment rate in the US beats  the consensus figure?" data-bind="value: queryM, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                                                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                                        <div id="queryM" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        <br />
+
+                                        <form class="searchForm" method="post">
+                                            <table class="searchbarlisting">
+                                                <tr>
+                                                    <td>
+                                                        <div class="caption">find out which has the most volatile :</div>
+
+                                                        <input title="Which currency pairs have been the most volatile since 2016?" data-bind="value: queryN, valueUpdate: ['afterkeydown', 'input']" name="searchQuery" size="108.7"
+                                                            class="inputBoxExamples" autocomplete="off" value="Brexit" />
+                                                        <div id="queryN" data-bind="click: getAnswerExamples" class="compute btnSearcher btn-search-examples transition" style="cursor: pointer;">
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+
+
+
+
+                        </td>
+                    </tr>
+                </table>
+
+
+
+
+
+
+
+
+            </div>
+
+@*            <div class="footer-bottom">
+                <br>
+            </div>*@
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+    <!-- Dialog box class="inputbox transition input-search"-->
+    <div id="feedbackInfoDialog" style="display: none">
+
+
+                   <div class="lightbox-content">
+                  </div>
+        
+@*        <div class="lightbox-container" style="display:none">
+          <div class="lightbox-overlay"></div>
+              <div class="lightbox">
+                <div class="lightbox-inner">
+                  <div class="lightbox-title">
+                    <div class="lightbox-close fa fa-remove"></div>
+                  </div>
+                  
+                    
+                    <div class="lightbox-content">
+                  </div>
+
+
+                </div>
+              </div>
+           </div>*@
+
+
+
+
+
+    </div>
+    <!-- End Dialog box -->
+
+
+    <!-- Dialog box class="inputbox transition input-search"-->
+    <div id="generalInfoDialog" style="display: none">
+        <h3><u>Platform Information</u></h3>
+
+        <div id="tabsInfo">
+            <div id="tabsInfo-1">
+                <div id="gid"></div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Dialog box -->
+
+
+    <!-- Dialog box class="inputbox transition input-search"-->
+    <div id="instrumentCoverageDialog" style="display: none">
+        <div id="icd">
+            <table id="icdtable"></table>
+        </div>
+    </div>
+    <!-- End Dialog box -->
+
+    <!-- Dialog box class="inputbox transition input-search"-->
+    <div id="startGuideDialog" style="display: none">
+        <div id="stGuide">
+            <iframe width="890" height="400" src="https://www.youtube.com/embed/zbbM4gCUWCg" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <!-- End Dialog box -->
+
+
+
+    <!-- Template Collection -->
+
+    <script type="text/html" id="resultCardTemplate">
+        <div class="leftSideQueryItems" data-bind="attr: { id: QueryID }">
+            <div class="blobhead">
+                <div class="resultHeader">
+                    <table class="resultHeaderTable">
+                        <tr>
+                            <td>
+                                <div class="resultIcon">
+                                    <div data-bind="foreach: SymbolImages">
+                                        <img data-bind="attr: { src: $data }" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: Source">-</div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: SymbolID"></div>
+                            </td>
+                            <td>
+                                <div class="resultStartDateTime" data-bind="text: StartDateTime"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="resultTimeFrame" data-bind="text: TimeFrame"></div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol">
+                                </div>
+                            </td>
+                            <td colspan="4">
+                                <div class="resultEndDateTime" data-bind="text: EndDateTime"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="blobcontent">
+
+                <table class="resultFieldsTable" data-bind="foreach: ExtraFields">
+                    <tbody data-bind="foreach: $data">
+                        <tr>
+                            <td data-bind="text: keyfield">:</td>
+                            <td data-bind="text: keydata"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </script>
+
+
+
+    <script type="text/html" id="continousResultCardTemplate">
+        <div class="leftSideQueryItems" data-bind="attr: { id: QueryID }, click: function (Query) {
+    $root.updateMainQuery(Query);
+}">
+            <div class="blobhead">
+                <div class="resultHeader">
+                    <table class="resultHeaderTable">
+                        <tr>
+                            <td colspan="4">
+                                <strong>
+                                    <div class="resultTimeFrame" data-bind="text: Query"></div>
+                                </strong>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="resultIcon">
+                                    <div data-bind="foreach: SymbolImages">
+                                        <img data-bind="attr: { src: $data }" />
+                                    </div>
+
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: Source">-</div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol" data-bind="text: SymbolID"></div>
+                            </td>
+                            <td>
+                                <div class="resultStartDateTime" data-bind="text: StartDateTime"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="resultTimeFrame" data-bind="text: TimeFrame"></div>
+                            </td>
+                            <td>
+                                <div class="resultSymbol">
+                                </div>
+                            </td>
+                            <td colspan="4">
+                                <div class="resultEndDateTime" data-bind="text: EndDateTime"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="blobcontent">
+
+                <table class="resultFieldsTable" data-bind="foreach: ExtraFields">
+                    <tbody data-bind="foreach: $data">
+                        <tr>
+                            <td data-bind="text: keyfield">:</td>
+                            <td data-bind="text: keydata"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="savedQueryTemplate">
+        <div class="followingQuery" data-bind="attr: { id: QueryID }">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function (Query) {
+    $root.updateMainQuery(Query);
+}">
+                        View
+                    </div>
+
+                    <div class="btnUnfollow" data-bind="click: function (QueryID) {
+    $root.unSaveQuery(QueryID);
+}">
+                        Remove-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow: 1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query"></div>
+            </div>
+        </div>
+    </script>
+
+
+    <script type="text/html" id="followingQueryTemplate">
+        <div class="followingQuery" data-bind="attr: { id: QueryID }">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function (Query) {
+    $root.updateMainQuery(Query);
+}">
+                        View
+                    </div>
+
+                    <div class="btnUnfollow" data-bind="click: function (QueryID) {
+    $root.unFollowQuery(QueryID);
+}">
+                        Unfollow-
+                    </div>
+
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow: 1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query"></div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="historicQueryTemplate">
+        <div class="historicQuery" data-bind="attr: { id: QueryID }">
+            <div class="blobhead">
+                <div class="blobuser">
+                    <div class="sideBarViewQuery" data-bind="click: function (Query) {
+    $root.updateMainQuery(Query);
+}">
+                        View
+                    </div>
+
+                    <div class="btnFollow" data-bind="click: function (QueryID) {
+    $root.saveQuery(QueryID);
+}">
+                        Save
+                    </div>
+
+                    <div class="btnFollow" data-bind="click: function (QueryID) {
+    $root.followQuery(QueryID);
+}">
+                        Follow+ 
+                    </div>
+                </div>
+            </div>
+            <div class="blobcontent">
+                <div style="font-size: 14px; color: #494747; margin: 0px; padding: 0px; text-shadow: 1px 1px 0px rgba(255,255,255,0.55);" data-bind="text: Query"></div>
+            </div>
+        </div>
+    </script>
+
+    <!-- Template End --->
+
+    @*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="../../Scripts/AutoSuggest/js/marked.min.js"></script>
+<script src="../../Scripts/AutoSuggest/js/highlight.pack.js"></script>
+<script src="../../Scripts/AutoSuggest/js/bootstrap-suggest.js"></script>*@
+
+
+    @*    PAREMOVE*@
+    <div id="alert" class="alert">
+        <div class="alert-body">
+            <span class="message">@if (this.ViewBag.LogonMessage != null)
+                                  {<text>@this.ViewBag.LogonMessage</text>}</span>
+            <div class="closebutton-wrapper" style="display: inline-block"><span class="fa fa-fw fa-remove"></span></div>
+        </div>
+    </div>
+    @*   PAREMOVE from Layout page*@
+    <script type="text/javascript">
+        var COREROOT = "@Url.Action("", "", new { area = "" })";
+        var APPLICATIONPATH = COREROOT.replace(/\/core/gi, "");
+        var APPLICATIONPATH = COREROOT.replace(/\/core/gi, "");
+        if (APPLICATIONPATH == "") {
+            APPLICATIONPATH = "/";
+        }
+        else if (APPLICATIONPATH[APPLICATIONPATH.length - 1] != "/") {
+            APPLICATIONPATH += "/";
+        }
+
+        var FULLAPPLICATIONPATH = location.href.substring(0, location.href.indexOf(APPLICATIONPATH)) + APPLICATIONPATH;
+        if (location.href.indexOf("http://localhost:") === 0) {
+            // for debug
+            FULLAPPLICATIONPATH = location.href.substring(0, location.href.indexOf("/", 7)) + APPLICATIONPATH;
+        }
+     @*   $.url = function (action) {
+            return "@Url.Action("")/" + action;
+      };*@
+
+      var USERID = "CF551E72-EAD3-4E14-9CDA-4DE33C2D0EFA";
+      var PAGENAME = "page test";
+      var APPLICATIONNAME = "TradeRiser";
+        @* var ISANON = @this.ViewBag.Director.IsAnonymousUser.ToString().ToLower();
+        var USERID = "@userID";
+        var USERNAME = "@userName";
+        var USERDISPLAYNAME = "@userDisplayName";
+        var CULTURE = "@currentCulture";
+        var PAGENAME = "@this.ViewBag.PageName.ToString()";
+        var APPLICATIONNAME = "@this.ViewBag.ApplicationName";*@
+    </script>
+
+
+
+
+
+    <!-- Dialog1 -->
+    <div class="dia dialog1 hidden">
+        <div class="content-inner">
+
+            <div class="pane" id="resultCanvasDelete">
+                <!-- Space for app content -->
+                <table width="95%" cellspacing="1" border="1" style="border-color: #E0E0E0; margin: 0 auto;">
+                    <tr>
+                        <td>
+
+                            <br />
+                            <div id="reportArea">Example Report</div>
+                            <div id="container" style="height: 610px; width: 100%;"></div>
+
+
+
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+
+
+                <div id="riskDisclaimer">
+                    <h2>Risk Disclaimer</h2>
+
+                    <p>
+                        Please acknowledge the following:
+                        <br />
+                        The Charts are provided 'as is', without warranty or guarantee of any kind, including but not limited to the warranties of merchantability and fitness for a particular purpose. In no event shall TradeRiser Limited and its affiliates or any third party contributor be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the use of or other dealings in the Charts. 
+The Charts run on pricing data provided by us to a third party charting administrator. You accept that the price data displayed in the Charts may be delayed and that we do not guarantee the accuracy or completeness of the data and that we do not guarantee that the service will be uninterrupted.
+                    </p>
+
+
+                    <p>
+                        Disclaimer
+
+The TradeRiser service includes analysis of financial instruments. There are potential risks relating to investing and trading. You must be aware of such risks and familiarize yourself in regard to such risks and to seek independent advice relating thereto. You should not trade with money that you cannot afford to lose. The TradeRiser service and its content should not be construed as a solicitation to invest and/or trade. You should seek independent advice in this regard. Past performance is not indicative of future performance. No representation is being made that any results discussed within the service and its related media content will be achieved. TradeRiser, their members, shareholders, employees, agents, representatives and resellers do not warrant the completeness, accuracy or timeliness of the information supplied, and they shall not be liable for any loss or damages, consequential or otherwise, which may arise from the use or reliance of the TradeRiser service and its content.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Dialog1 -->

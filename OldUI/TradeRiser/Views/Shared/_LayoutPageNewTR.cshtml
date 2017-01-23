@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 
 <html>
+    <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +9,45 @@
  
 <title>@ViewBag.Title</title>
      <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-<!-- Bootstrap core CSS -->
- 
-<link href="~/Content/tr/ui/css/bootstrap.min.css" rel="stylesheet">
- 
-<link href="~/Content/tr/ui/fonts/css/font-awesome.min.css" rel="stylesheet">
-<link href="~/Content/tr/ui/css/animate.min.css" rel="stylesheet">
+    @Styles.Render("~/Content/v2/css")
 
- 
+   
+    <link rel="stylesheet" href="../../NewFrontEnd/css/jquery-ui-1.10.3.custom.min.css">
+            <link rel="stylesheet" href="../../Content/v2/build/css/style.css">
+
+    <link rel="stylesheet" href="../../Content/clean/css/shared.css">
+    <link rel="stylesheet" href="../../Content/clean/css/form.css">
+
+    <link rel="shortcut icon" href="../../Images/traderiser.ico" />
+    <link rel="stylesheet" href="../../Content/jquery.dynatable.css">
+    <link rel="stylesheet" href="../../Scripts/Highstock-2.1.8/css/speech-bubble.css">
+    <link rel="stylesheet" type="text/css" href="../../Scripts/Highstock-2.1.8/css/custom-candlestick.css">
+    <link href="../../Content/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+    <!-- Latest compiled and minified CSS -->
+    @*<link rel="stylesheet" href="../../Scripts/AutoSuggest/css/ddEdit_bootstrap.css">*@
+
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">*@
+    @*<link href="../../Scripts/AutoSuggest/css/sticky-footer-navbar.css" rel="stylesheet">*@
+
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">*@
+
+
+    <link rel="stylesheet" href="../../Scripts/AutoSuggest/css/bootstrap-suggest.css">
+
+
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../Scripts/AutoSuggest/js/ie-emulation-modes-warning.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../Scripts/AutoSuggest/js/ie10-viewport-bug-workaround.js"></script>
+
 <!--[if lt IE 9]>
 <script src="../assets/js/ie8-responsive-file-warning.js"></script>
 <![endif]-->
@@ -25,19 +57,285 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-    @Styles.Render("~/Content/v2")
+          
 
-<body class="nav-md">
+   </head>
+<body id="bn" class="nav-md">
      <div class="container body">
       <div class="main_container">
         @Html.Partial("~/Views/Shared/newTRPartials/_SideNav.cshtml")
-        
-          <div>
+        @Html.Partial("~/Views/Shared/newTRPartials/_TopNavigationPanel.cshtml")
+          <div class="right_col" role="main">
+              <div id="resultCanvas">
+                  
+              </div>
+              <div id="loadchartDia" style="display: none; z-index: 50000; color: black; margin: 150px auto; left: -210px; right: 0; width: 70px; height: 70px; position: absolute;">
+        </div>
+
+
+        <div id="noresults" class="hidden">
+            <b>TradeRiser does not understand your input. 
+      <br />
+                Please ensure your query is either a <b>Statistical</b>, <b>Technical Analysis</b> or <b>Fundamental Data</b> query.</b>
+            <br />
+            <br />
+            <div class="examplesGroup"><b>See Examples</b></div>
+            <br />
+            <div class="startGuideGroup"><b>See Start Guide</b></div>
+        </div>
                @RenderBody()
-          </div>
-       
-          
+
        </div>
     </div>
+    @*Scripts.Render("~/bundles/v2/traderiser")*@
+    @*Scripts.Render("~/bundles/cpf")*@
+    
+    
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+ @*             <script src="~/Content/Scripts/jquery.js"></script>*@
+ @*   <script src="~/Content/Scripts/jstorage.js"></script>*@
+
+<script src="../../NewFrontEnd/js/jquery-ui-1.10.3.custom.min.js"></script>
+
+
+ @*             <script src="~/Content/Scripts/jquery.js"></script>*@
+ @*   <script src="~/Content/Scripts/jstorage.js"></script>*@
+
+    @*<script src="../../NewFrontEnd/js/jquery.dialogextend.min.js"></script>*@
+    <script src="../../NewFrontEnd/js/jquery.easytabs.min.js"></script>
+    <script src="../../NewFrontEnd/js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
+
+
+    <script src="../../Scripts/raphael-min.js"></script>
+
+
+    <script src="../../Scripts/Highstock-2.1.8/js/highstock.src.js"></script>
+    <script src="../../Scripts/Highstock-2.1.8/js/highstock-ext.js"></script>
+
+
+
+
+
+
+    <script src="../../Scripts/clean/js/jquery.easytabs.min.js"></script>
+    <script src="../../Scripts/clean/js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
+<script src="../../scripts/dynatable/jquery.dynatable.js"></script>
+    <script src="../../Scripts/clean/js/jstorage.js"></script>
+    <script src="../../Scripts/appv2/traderiser.js"></script>
+    <script src="../../Scripts/clean/js/questionLookups.js"></script>
+    <script src="../../Scripts/clean/js/testRun.js"></script>
+    <script src="../../Scripts/clean/js/dataPrep.js"></script>
+    <script src="../../Scripts/clean/js/chartSelections.js"></script>
+    <script src="../../Scripts/knockout-3.2.0.js"></script>
+    <script src="../../Scripts/appv2/traderiser-view-model.js"></script>
+    <script src="../../Scripts/appv2/traderiser-proxy.js"></script>
+    <script src="//js.pusher.com/2.2/pusher.min.js"></script>
+
+    <!--bootstrap suggest-->
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>*@
+
+
+
+    <script src="../../Scripts/AutoSuggest/js/marked.min.js"></script>
+    <script src="../../Scripts/AutoSuggest/js/highlight.pack.js"></script>
+    <script src="../../Scripts/AutoSuggest/js/bootstrap-suggest.js"></script>
+
+
+
+
+    <script src="../../Scripts/toastr/toastr.min.js"></script>
+
+
+   
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var tradeRiserViewModel = new TradeRiserViewModel(
+                new TradeRiserProxy());
+
+            tradeRiserViewModel.initialiseUI();
+            tradeRiserViewModel.init();
+
+            //We are not on the search page switch of flag
+            tradeRiserViewModel.currentSearchPage = 0;
+            ko.applyBindings(tradeRiserViewModel);
+        });
+        /*var reportMode = document.getElementById("reportMode");
+        var topLogo = document.getElementById("topLogo");
+        if (reportMode !== null || reportMode !== 'defined' && 
+            reportMode !== null || reportMode !== 'defined') {
+            reportMode.style.display = 'none';            
+        }*/
+
+
+        // Enable pusher logging - don't include this in production
+        Pusher.log = function (message) {
+            if (window.console && window.console.log) {
+                window.console.log(message);
+            }
+        };
+
+        var pusher = new Pusher('0c52bffe086a83952d16');
+
+        var hvnme = $('#u_n').val();
+        var channel = pusher.subscribe(hvnme);
+        /*var pageLoader = document.getElementById("pageLoader");
+        pageLoader.style.display = 'none';
+        */
+
+        channel.bind('my_event', function (data) {
+            //alert(data.message);
+            UpdateContinousQueryResultCard(data);
+
+        });
+
+
+
+        function UpdateContinousQueryResultCard(resultCard) {
+
+            tradeRiserViewModel.upDateContinousQueryResult(resultCard);
+        }
+
+        function updateResultsTable() {
+            var mouseOverColor = '#33A1DE';
+            var bgOverColor = '#FFFFFF';
+            $('#first').after('<div class="blob transition"><div class="blobhead"><p class="date">15.03.2014 - 15.05.2014</p><div class="blobuser"><span class="imgbox"><img src="pix/user-avatar.png" width="35" height="35" alt="John Doe"></span><p>Count ' + positionCount + '</p></div></div><div class="blobcontent"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, urna a elementum gravida, lorem quam vestibulum purus, eu fermentum erat risus egestas mauris.</p></div></div>');
+        }
+
+
+
+        var remove = spinner("loadchartDia", 50, 120, 20, 25, "#696969");
+
+        function spinner(holderid, R1, R2, count, stroke_width, colour) {
+            var sectorsCount = count || 12,
+                color = colour || "#fff",
+                width = stroke_width || 15,
+                r1 = Math.min(R1, R2) || 35,
+                r2 = Math.max(R1, R2) || 60,
+                cx = r2 + width,
+                cy = r2 + width,
+                r = Raphael(holderid, r2 * 2 + width * 2, r2 * 2 + width * 2),
+
+                sectors = [],
+                opacity = [],
+                beta = 2 * Math.PI / sectorsCount,
+
+                pathParams = { stroke: color, "stroke-width": width, "stroke-linecap": "round" };
+            Raphael.getColor.reset();
+            for (var i = 0; i < sectorsCount; i++) {
+                var alpha = beta * i - Math.PI / 2,
+                    cos = Math.cos(alpha),
+                    sin = Math.sin(alpha);
+                opacity[i] = 1 / sectorsCount * i;
+                sectors[i] = r.path([["M", cx + r1 * cos, cy + r1 * sin], ["L", cx + r2 * cos, cy + r2 * sin]]).attr(pathParams);
+                if (color == "rainbow") {
+                    sectors[i].attr("stroke", Raphael.getColor());
+                }
+            }
+            var tick;
+            (function ticker() {
+                opacity.unshift(opacity.pop());
+                for (var i = 0; i < sectorsCount; i++) {
+                    sectors[i].attr("opacity", opacity[i]);
+                }
+                r.safari();
+                tick = setTimeout(ticker, 1000 / sectorsCount);
+            })();
+            return function () {
+                clearTimeout(tick);
+                r.remove();
+            };
+        }
+
+
+        hljs.initHighlightingOnLoad();
+        // configure marked
+        var renderer = new marked.Renderer();
+        renderer.table = function (header, body) {
+            return '\
+  				<table class="table table-bordered table-striped table-hover">\
+  					<thead>\
+  						' + header + '\
+  					</thead>\
+  					<tbody>\
+  						' + body + '\
+  					</tbody>\
+  				</table>';
+        },
+
+        marked.setOptions({
+            sanitize: false,
+            highlight: function (code) {
+                return hljs.highlightAuto(code).value;
+            },
+            renderer: renderer,
+            breaks: true
+        });
+
+        $.fn.extend({
+            marked: function () {
+                this.each(function () {
+                    $this = $(this);
+                    $this.html(marked($this.html()));
+                })
+
+                return this;
+            },
+        });
+
+
+
+        $(function () {
+
+            $('.markdown').marked();
+
+            var reportMode = document.getElementById("reportMode");
+            reportMode.style.display = 'none';
+
+
+            $('#searchDriver').suggest("-", {
+                position: 'caret',
+                data: users,
+                map: function (user) {
+                    return {
+                        value: user.fullname,
+                        text: '<small>' + user.fullname + '</small>'
+                    }
+                }
+            })
+
+            $('#searchDriverMode').suggest("-", {
+                position: 'caret',
+                data: users,
+                map: function (user) {
+                    return {
+                        value: user.fullname,
+                        text: '<small>' + user.fullname + '</small>'
+                    }
+                }
+            })
+
+
+
+
+            $('.textArea').suggest("-", {
+                position: 'caret',
+                data: users,
+                map: function (user) {
+                    return {
+                        value: user.fullname,
+                        text: '<small>' + user.fullname + '</small>'
+                    }
+                }
+            })
+
+
+        })
+    </script>
+    @Scripts.Render("~/bundles/v2/scripts")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

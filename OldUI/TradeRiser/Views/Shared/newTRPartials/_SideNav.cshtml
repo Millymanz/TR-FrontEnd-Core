@@ -2,16 +2,17 @@
     <div class="left_col scroll-view">
  
         <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title">Gentelella Alela!</a>
+            <a href="index.html" class="site_title" title="Traderiser.com">
+                <img alt="TradeRiser" src="../../../Images/TradeRiser_Web1.png" style="border: 0; height: 45px; width: auto" title="Logo" /></a>
         </div>
  
         <div class="profile"><!--img_2 -->
             <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="~/Content/v2/production/images/user.png" class="img-circle profile_img" />
             </div>
             <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>Anthony Mutisya</h2>
+                <h2> @{ <text> @User.Identity.Name!</text>}</h2>
             </div>
         </div>
  
