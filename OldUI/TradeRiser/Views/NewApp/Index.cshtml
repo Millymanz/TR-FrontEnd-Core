@@ -115,7 +115,20 @@
     @*<div id="reportMode" style="display:none">*@
 
 
-    <div id="searchBarMode">
+
+
+        <div id="noresults">
+            <b>TradeRiser does not understand your input. 
+      <br />
+                Please ensure your query is either a <b>Statistical</b>, <b>Technical Analysis</b> or <b>Fundamental Data</b> query.</b>
+            <br />
+            <br />
+            <div class="examplesGroup"><b>See Examples</b></div>
+            <br />
+            <div class="startGuideGroup"><b>See Start Guide</b></div>
+        </div>
+
+    <div id="searchBarMode" class="container">
 
         <div  id="searchBoxLocal">
             <div class="searchboxLogo">
@@ -189,7 +202,7 @@
     </div>*@
 
 
-            <div class="sidebar-inner">
+            <div class="sidebar-inner hidden">
 
                 <!-- Tabs -->
                 <div id="tab-container" class="side-tabs">
@@ -271,7 +284,7 @@
 
 
         <!-- Right Sidebar -->
-        <div class="rightSidebar closed">
+        <div class="rightSidebar closed hidden">
 
             <a href="#" class="btnRight-splitter"></a>
 
@@ -367,44 +380,18 @@
         </div>
         <!-- End Sidebar -->
 
-
-
-
-
-
-
         <!-- Main Content -->
         <div class="col-md-12 col-sm-12 col-xs-12">
+            
+ <div id="resultCanvas"></div>
+              <div id="loadchartDia" style="display:none" class="loader">
+        </div>
             <div class="content-inner">
-                <div class="dashboard_graph"  id="pane">
-                    <!-- Space for app content -->
-                </div>
+                
             </div>
         </div>
-
-        <div id="loadchartDia" style="display: none; z-index: 50000; color: black; margin: 150px auto; left: -210px; right: 0; width: 70px; height: 70px; position: absolute;">
-        </div>
-
-
-        <div id="noresults">
-            <b>TradeRiser does not understand your input. 
-      <br />
-                Please ensure your query is either a <b>Statistical</b>, <b>Technical Analysis</b> or <b>Fundamental Data</b> query.</b>
-            <br />
-            <br />
-            <div class="examplesGroup"><b>See Examples</b></div>
-            <br />
-            <div class="startGuideGroup"><b>See Start Guide</b></div>
-        </div>
-
-
-
         <!-- End Main Content -->
     </div>
-
-
-
-
     <div id="examplesMode">
 
         <div class="container-fluid">
@@ -764,21 +751,8 @@
 
 
             </div>
-
-@*            <div class="footer-bottom">
-                <br>
-            </div>*@
         </div>
-
-
-
-
-
-
-
     </div>
-
-
     <!-- Dialog box class="inputbox transition input-search"-->
     <div id="feedbackInfoDialog" style="display: none">
 

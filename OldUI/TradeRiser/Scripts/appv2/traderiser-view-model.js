@@ -1259,7 +1259,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
             $('#viewTypeText').text("Search View");
 
             var bodyTemp = document.getElementById("bn");
-            bodyTemp.style.overflow = 'hidden';
+           // bodyTemp.style.overflow = 'hidden';
 
             var searchBarMode = document.getElementById("searchBarMode");
             searchBarMode.style.display = 'none';
@@ -1886,10 +1886,15 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
         var presentationTypeCount = obj.CurrentResult.PresentationTypes.length;
+        this.extraClass = 'col-md-12';
+
+        if (presentationTypeCount > 1) {
+            this.extraClass = 'col-md-6 col-sm-6 col-xs-12';
+        }
 
         if (presentationTypeCount > 0) {
 
-            $("#resultCanvas").append($('<div id="tableCanvas" class="x_panel" />'));
+            $("#resultCanvas").append($('<div id="tableCanvas" class="row" />')).after($('<div class="clearfix" />'));
 
             //$("#resultCanvas").append($('<br/>'
             //                   + '<table id="tableCanvas" width="100%" cellpadding="15" cellspacing="1" border="1" style="border-color:#E0E0E0;"></table>'));
@@ -2026,7 +2031,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
 
-                            var final = "<td valign='top'><div> Correlation Matrix <br/><br/>" + correlTabStr + tempStr + "</div></td>";
+                            var final = "<div class='x_panel'><div class='x_title'> Correlation Matrix" + correlTabStr + tempStr + "</div></div>";
                             //var graphCofficent = "<td valign='top'><div> Correlation Matrix <br/><br/>" + correlTabStr + tempStr + "</div></td>";
 
 
@@ -2044,8 +2049,12 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 + final
                                 + "</tr></table>";
 
+                            var $contentFinal = "<div class='" + chartClassName + "' style='height: 100%; width:100%'>"
+                                + "<div>"+final+"</div></div>";
 
-                            $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + pp + " valign='top'>" + markupFinal + "</td></tr>"));
+                            var $title = "<div class='x_title'><h2>" + title + "</h2><div class='clearfix'></div></div>";
+
+                            $("#tableCanvas").append($("<div class='" + this.extraClass + "'><div class='x_panel'>" + $title + "<div class='x_content' id=celln" + pp + " >" + $contentFinal + "</div></div></div>"));
 
                             //if (symbolNames.length == 2) {
 
@@ -2149,12 +2158,14 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                         allowPointSelect: true,
                                         cursor: 'pointer',
                                         dataLabels: {
-                                            enabled: true,
+                                            enabled: false,
                                             format: '<b>{point.name}</b>: {point.percentage:.1f} %',
                                             style: {
                                                 color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                                             }
-                                        }
+                                           
+                                        },
+                                        showInLegend: true
                                     }
                                 },
                                 series: [{
@@ -2181,7 +2192,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                     case 'Basics':
                         {
-                            var correlTabStr = '<table width=80% cellpadding="12" cellspacing="12" border="1" style="border-color:#E0E0E0; "><tr style="border-color:#E0E0E0;"><td></td>';
+                            var correlTabStr = '<table class="table"><tr><td></td>';
                             var tempStr = '';
 
                             var lineSeriesOptions = [],
@@ -2256,7 +2267,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                                         if (bb == 2) {
                                             secondTableHeadings = correlTabStr;
-                                            secondTable = "<br/><table width=80% cellpadding='12' cellspacing='12' border='1' style='border-color:#E0E0E0; '>" + tempStr + "</table>";
+                                            secondTable = "<br/><table class='table'>" + tempStr + "</table>";
                                             tempStr = '';
                                             correlTabStr = '';
                                         }
@@ -2344,7 +2355,7 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
                                         if (bb == 2) {
                                             secondTableHeadings = correlTabStr;
-                                            secondTable = "<br/><table width=80% cellpadding='12' cellspacing='12' border='1' style='border-color:#E0E0E0; '>" + tempStr + "</table>";
+                                            secondTable = "<br/><table class='table '>" + tempStr + "</table>";
                                             tempStr = '';
                                             correlTabStr = '';
                                         }
@@ -2398,25 +2409,33 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 title = symbolNames[0];
 
                                 if (obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[2].GenericStr[0][changeIndex] < 0) {
-                                    var triangle = "<table><tr><td><div style='width: 0;height: 0;"
-                                        + "border-left: 10px solid transparent;border-right: 10px solid transparent; border-top: 20px solid red;'></div></td>";
+                                    var triangle = "<span class='count_top'>" + title + "</span>";
 
-                                    extraTitle += triangle + "<td><div style='color:red'>" +
+                                    extraTitle += triangle + "<div class='count red'><i class='fa fa-sort-desc'></i>" +
                                         obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[2].GenericStr[0][changeIndex] + " "
                                          + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[2].GenericStr[0][percentageChangeIndex] + "%"
-                                        + "</div></td></tr></table>";
+                                        + "</div><span class='count_bottom'>from previous close</span>";
                                 }
                                 else {
-                                    var triangle = "<table><tr><td><div style='width: 0;height: 0;"
-                                        + "border-left: 10px solid transparent;border-right: 10px solid transparent; border-bottom: 20px solid green;'></div></td>";
+                                    var triangle = "<span class='count_top'>" + title + "</span>";
 
-                                    extraTitle += triangle + "<td><div style='color:green'>" +
+                                    extraTitle += triangle + "<div class='count green'><i class='fa fa-sort-asc'></i>" +
                                          obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[2].GenericStr[0][changeIndex] + " "
                                          + obj.CurrentResult.RawDataResults[pp].ChartReadyDataResults[2].GenericStr[0][percentageChangeIndex] + "%"
-                                          + "</div></td></tr></table>";
+                                          + "</div><span class='count_bottom'>from previous close</span>";
                                 }
                             }
                             var chartClassName = "linesChart";
+
+                            var $tileStats = "<div class='row tile_count'><div class='col-md-4 col-sm-6 col-xs-6 tile_stats_count'>" + extraTitle + "</div></div>";
+
+                            var $chart = "<div class='comparisonChart' style='height:100%; width:100%'></div>";
+
+                            var $secondPanel = "<div class='col-md-4 col-sm-4 col-xs-12'><div class='x_panel'>"
+                                                + "<div class='x_title'></div><div class='x_content'>"+final+"</div> </div></div>";
+
+                            var $mainChartPanel = "<div class='col-md-8 col-sm-8 col-xs-12'><div class='x_panel'>"
+                                                + "<div class='x_title'>" + title +"</div><div class='x_content'>" + $chart + "</div> </div></div>";
 
                             var markupFinal = "<div class='widgetTitle'>" + title + extraTitle + "</div><br/><br/>"
                             + "<table cellpadding='15' cellspacing='15'><tr><td valign='top'>"
@@ -2426,8 +2445,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
                                 + "</tr></table>";
 
 
-                            $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + pp
-                                + " valign='top'>" + markupFinal + "</td></tr>"));
+                            $("#tableCanvas").append($("<div class='row' id=celln" + pp
+                                + " >" + $mainChartPanel + $secondPanel +" </div>")).before($tileStats);
 
                             var lengthCount = symbolNames.length;
 
@@ -4539,6 +4558,38 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
     };
 
+    this.createPanelContainer = function (options) {
+        if(!$.isEmptyObject(options) && $.isPlainObject(options)){
+            var chartClassName = options.chartClassName || '';
+            var index = options.index || 0;
+            var title = options.title || '';
+            var total = options.total || 0;
+            var height = options.height || '';
+            var iter = options.iter || 0;
+
+            var markup = "<div class='" + chartClassName + "' style='height: 100%; width:100%'></div>";
+            markup += "<div style='font-size:14px' class='" + chartClassName + "source'></div>";
+
+            var $dropdownControls = '<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>'
+                          + '</li>'
+                          + ' <li class="dropdown">'
+                          + '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>'
+                          + '  <ul class="dropdown-menu" role="menu">'
+                          + '    <li><div id="highlightControl ' + index + '"></div>'
+                          + '    </li>'
+                          + '    <li><a href="#">Settings 2</a>'
+                          + '    </li>'
+                          + '  </ul>'
+                          + '</li>'
+                          + '<li><a class="close-link"><i class="fa fa-close"></i></a>'
+                          + '</li>';
+
+            var $title = "<div class='x_title'><h2>" + title + "</h2>"
+            $title += "<ul class='nav navbar-right panel_toolbox'>" + $dropdownControls + "</ul> <div class='clearfix'></div></div>";
+
+            $("#tableCanvas").append($("<div class='" + this.extraClass + "'><div class='x_panel'>" + $title + " <div class='x_content' id=celln" + index + ">" + markup + "</div></div></div>"));
+        }
+    }
 
     this.widgetPlacerT = function (index, total, title, height, chartClassName, iter) {
 
@@ -4551,11 +4602,27 @@ function TradeRiserViewModel(tradeRiserProxy) {
         var preferredWidth = $('#pane').width() * 0.90;
         width = preferredWidth + 'px';
 
-        var markup = "<div class='x_title'>" + title + "</div> <div id='highlightControl" + index + "'></div><div class='" + chartClassName + "' style='height: " + height + "; width:" + width + "'></div>";
-        markup += "<br/><div style='font-size:14px' class='" + chartClassName + "source'></div>"
+        var markup = "<div class='" + chartClassName + "' style='height: 100%; width:100%'></div>";
+        markup += "<div style='font-size:14px' class='" + chartClassName + "source'></div>";
 
+        var $dropdownControls = '<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>'
+                      + '</li>'
+                      + ' <li class="dropdown">'
+                      + '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>'
+                      + '  <ul class="dropdown-menu" role="menu">'
+                      + '    <li><div id="highlightControl '+ index + '"></div>'
+                      + '    </li>'
+                      + '    <li><a href="#">Settings 2</a>'
+                      + '    </li>'
+                      + '  </ul>'
+                      + '</li>'
+                      + '<li><a class="close-link"><i class="fa fa-close"></i></a>'
+                      + '</li>';
 
-        $("#tableCanvas").append($("<tr><td colspan='2' style='top:0px' width='100%' id=celln" + index + " valign='top'>" + markup + "</td></tr>"));
+        var $title = "<div class='x_title'><h2>" + title + "</h2>"
+        $title += "<ul class='nav navbar-right panel_toolbox'>"+$dropdownControls+"</ul> <div class='clearfix'></div></div>";
+            
+        $("#tableCanvas").append($("<div class='"+this.extraClass+"'><div class='x_panel'>"+$title+" <div class='x_content' id=celln" + index + ">" + markup + "</div></div></div>"));
 
     };
 
@@ -4581,6 +4648,17 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
 
     this.widgetPlacerTSideBySide = function (index, total, title, height, chartClassName, iter) {
+        var options = {
+            title: title,
+            index: index,
+            height: height,
+            chartClassName: chartClassName,
+            iter: iter
+        }
+        return this.createPanelContainer(options);
+    }
+
+    this.widgetPlacerTSideBySideDelete = function (index, total, title, height, chartClassName, iter) {
 
         var remaining = total - index;
         var remainder = index % 2;

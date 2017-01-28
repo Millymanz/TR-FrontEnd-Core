@@ -314,10 +314,8 @@ $('.btn-expand').click(function(e) {
 	
 	var dialog = $(this).parents('.ui-dialog');
 	var dialogbody = dialog.find('.ui-dialog-content');
-
-	var chartspace = dialog.find('#resultCanvas');
-
-	//var chartspace = $('.resultCanvas');
+    var chartspace = dialog.find('#resultCanvas');
+    //var chartspace = $('.resultCanvas');
 
 	//-- If dialog is already maximized, 
 	//-- minimize it

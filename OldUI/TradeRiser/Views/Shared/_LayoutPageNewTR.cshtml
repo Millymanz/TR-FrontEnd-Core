@@ -65,24 +65,8 @@
       <div class="main_container">
         @Html.Partial("~/Views/Shared/newTRPartials/_SideNav.cshtml")
         @Html.Partial("~/Views/Shared/newTRPartials/_TopNavigationPanel.cshtml")
-          <div class="right_col" role="main">
-              <div id="resultCanvas">
-                  
-              </div>
-              <div id="loadchartDia" style="display: none; z-index: 50000; color: black; margin: 150px auto; left: -210px; right: 0; width: 70px; height: 70px; position: absolute;">
-        </div>
-
-
-        <div id="noresults" class="hidden">
-            <b>TradeRiser does not understand your input. 
-      <br />
-                Please ensure your query is either a <b>Statistical</b>, <b>Technical Analysis</b> or <b>Fundamental Data</b> query.</b>
-            <br />
-            <br />
-            <div class="examplesGroup"><b>See Examples</b></div>
-            <br />
-            <div class="startGuideGroup"><b>See Start Guide</b></div>
-        </div>
+          <div class="right_col" role="main" style="min-height:774px">
+             
                @RenderBody()
 
        </div>
@@ -107,21 +91,14 @@
     <script src="../../NewFrontEnd/js/jquery.easytabs.min.js"></script>
     <script src="../../NewFrontEnd/js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
 
-
     <script src="../../Scripts/raphael-min.js"></script>
-
 
     <script src="../../Scripts/Highstock-2.1.8/js/highstock.src.js"></script>
     <script src="../../Scripts/Highstock-2.1.8/js/highstock-ext.js"></script>
 
-
-
-
-
-
     <script src="../../Scripts/clean/js/jquery.easytabs.min.js"></script>
     <script src="../../Scripts/clean/js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
-<script src="../../scripts/dynatable/jquery.dynatable.js"></script>
+    <script src="../../scripts/dynatable/jquery.dynatable.js"></script>
     <script src="../../Scripts/clean/js/jstorage.js"></script>
     <script src="../../Scripts/appv2/traderiser.js"></script>
     <script src="../../Scripts/clean/js/questionLookups.js"></script>
@@ -132,23 +109,14 @@
     <script src="../../Scripts/appv2/traderiser-view-model.js"></script>
     <script src="../../Scripts/appv2/traderiser-proxy.js"></script>
     <script src="//js.pusher.com/2.2/pusher.min.js"></script>
-
-    <!--bootstrap suggest-->
-    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>*@
-
+    <script src="../../Scripts/appv2/pager.min.js"></script>
 
 
     <script src="../../Scripts/AutoSuggest/js/marked.min.js"></script>
     <script src="../../Scripts/AutoSuggest/js/highlight.pack.js"></script>
     <script src="../../Scripts/AutoSuggest/js/bootstrap-suggest.js"></script>
 
-
-
-
     <script src="../../Scripts/toastr/toastr.min.js"></script>
-
-
-   
 
     <script type="text/javascript">
 
@@ -161,7 +129,11 @@
 
             //We are not on the search page switch of flag
             tradeRiserViewModel.currentSearchPage = 0;
+            // use #!/ instead of the default #
+            
+            // apply the view-model using KnockoutJS as normal
             ko.applyBindings(tradeRiserViewModel);
+           
         });
         /*var reportMode = document.getElementById("reportMode");
         var topLogo = document.getElementById("topLogo");
@@ -207,7 +179,7 @@
 
 
 
-        var remove = spinner("loadchartDia", 50, 120, 20, 25, "#696969");
+        //var remove = spinner("loadchartDia", 50, 120, 20, 25, "#696969");
 
         function spinner(holderid, R1, R2, count, stroke_width, colour) {
             var sectorsCount = count || 12,
