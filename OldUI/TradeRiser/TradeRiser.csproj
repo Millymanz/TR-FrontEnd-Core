@@ -290,6 +290,7 @@
     <Content Include="Content\Scripts\jquery.js" />
     <Content Include="Content\Scripts\jstorage.js" />
     <Content Include="Content\Scripts\jstz.js" />
+    <Content Include="Content\Scripts\lightbox.js" />
     <Content Include="Content\Scripts\logon.js" />
     <Content Include="Content\Scripts\members.js" />
     <Content Include="Content\Scripts\settings.js" />

@@ -171,7 +171,7 @@ namespace TradeRiser.Core.SignOn
 
             using (IDataAccess data = this.Database)
             {
-                DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "[membership].[UserSuccessfulLoginUpdate]");
+                DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "membership.UserSuccessfulLoginUpdate");
 
                 settings.Parameters.Add(new DataParameter { ParameterName = "@UserID", Value = userID, DbType = DbType.Guid });
                 settings.Parameters.Add(new DataParameter { ParameterName = "@Timezone", Value = timezone, DbType = DbType.String });
@@ -201,7 +201,7 @@ namespace TradeRiser.Core.SignOn
 
             using (IDataAccess data = this.Database)
             {
-                DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "[membership].[UserInvalidLoginUpdate]");
+                DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "membership.UserInvalidLoginUpdate");
 
                 settings.Parameters.Add(new DataParameter { ParameterName = "@UserID", Value = userID, DbType = DbType.Guid });
 
@@ -229,7 +229,7 @@ namespace TradeRiser.Core.SignOn
 
             using (IDataAccess data = this.Database)
             {
-                DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "[membership].[UserLockAccountUpdate]");
+                DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "membership.UserLockAccountUpdate");
 
                 settings.Parameters.Add(new DataParameter { ParameterName = "@UserID", Value = userID, DbType = DbType.Guid });
 

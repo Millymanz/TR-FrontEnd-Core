@@ -1020,14 +1020,14 @@ SELECT	[Container],
 
 
 GO
-/****** Object:  StoredProcedure [membership].[PolicyUpdate]    Script Date: 15/06/2016 23:05:57 ******/
+/****** Object:  StoredProcedure membership.PolicyUpdate    Script Date: 15/06/2016 23:05:57 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE PROCEDURE [membership].[PolicyUpdate]
+CREATE PROCEDURE membership.PolicyUpdate
     @Container	NVARCHAR(50),
     @Name		NVARCHAR(50),
     @Enabled	BIT,
@@ -1065,7 +1065,7 @@ BEGIN CATCH
     SET @ErrorLine = ISNULL(ERROR_LINE (), -1);
 
      --Create a Log entry for error
-    EXEC [traderiser].[LogExceptionInsert] 'DBServer - Policy', '[membership].PolicyUpdate', 4, @ErrorMessage, '[membership].[PolicyUpdate]', @ErrorLine	
+    EXEC [traderiser].[LogExceptionInsert] 'DBServer - Policy', '[membership].PolicyUpdate', 4, @ErrorMessage, 'membership.PolicyUpdate', @ErrorLine	
 
     RETURN 0
 END CATCH
@@ -1791,7 +1791,7 @@ ELSE BEGIN
 	DECLARE @logMessage			NVARCHAR(MAX), @logInsertDateTime	DATETIME
 	SET @logMessage = 'No user with User ID ' + CAST(@UserID AS VARCHAR(50)) + ' (' + @UserName + ') found. Creating new user'
 	SET @logInsertDateTime = GETUTCDATE()
-	EXEC [traderiser].[LogInsert] @logInsertDateTime, 'DBServer', 'AdminUserMaintenance', '[membership].UsersUpdate', 8, @logMessage, NULL, NULL
+	EXEC traderiser.LogInsert @logInsertDateTime, 'DBServer', 'AdminUserMaintenance', '[membership].UsersUpdate', 8, @logMessage, NULL, NULL
 	------------------------------------------------------------------------------------------------------------------------------------------	
 
 	--Must get the WorkspaceLocation and RepoRootLocation
@@ -2063,14 +2063,14 @@ BEGIN CATCH
 END CATCH
 
 GO
-/****** Object:  StoredProcedure [traderiser].[LogInsert]    Script Date: 15/06/2016 23:05:57 ******/
+/****** Object:  StoredProcedure traderiser.LogInsert    Script Date: 15/06/2016 23:05:57 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE PROCEDURE [traderiser].[LogInsert]
+CREATE PROCEDURE traderiser.LogInsert
     @InsertDateTime DATETIME,
     @MachineName	NVARCHAR(50),
     @Component		NVARCHAR(50),
@@ -2100,7 +2100,7 @@ SET @ErrorMessage = ISNULL(ERROR_MESSAGE(), '-');
     SET @ErrorLine = ISNULL(ERROR_LINE (), -1);
 
      --Create a Log entry for error
-    EXEC [traderiser].[LogExceptionInsert] 'DBServer - Log', 'traderiser.LogInsert', 4, @ErrorMessage, '[traderiser].[LogInsert]', @ErrorLine
+    EXEC [traderiser].[LogExceptionInsert] 'DBServer - Log', 'traderiser.LogInsert', 4, @ErrorMessage, 'traderiser.LogInsert', @ErrorLine
 
     RETURN 0
 

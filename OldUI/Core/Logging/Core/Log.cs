@@ -214,8 +214,8 @@
                 return;
             }
 
-            DataSettings settings = new DataSettings(Log.Config.LogProviderSettings, "[traderiser].[LogInsert]");
-            settings.Parameters.Add("@InsertDateTime", message.InsertDateTime);
+            DataSettings settings = new DataSettings(Log.Config.LogProviderSettings, "traderiser.loginsert");
+            settings.Parameters.Add("@InsertDateTime", message.InsertDateTime, DbType.DateTime);
             settings.Parameters.Add("@MachineName", message.MachineName);
             settings.Parameters.Add("@Component", message.Component);
             settings.Parameters.Add("@Sender", message.Sender);
@@ -226,13 +226,21 @@
             {
                 settings.Parameters.Add("@UserID", message.UserID.Value, DbType.Guid);
             }
+            else
+            {
+                settings.Parameters.Add("@UserID", Guid.Empty, DbType.Guid);
+            }
 
             if (message.DisplayKey.HasValue)
             {
                 settings.Parameters.Add("@DisplayKey", message.DisplayKey.Value, DbType.Guid);
             }
+            else
+            {
+                settings.Parameters.Add("@DisplayKey", Guid.Empty, DbType.Guid);
+            }
 
-            using (IDataAccess data  = new DataAccess())
+            using (IDataAccess data = new DataAccess())
             {
                 DataResult result = data.ExecuteNonQuery(settings);
 

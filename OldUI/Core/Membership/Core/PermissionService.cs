@@ -198,7 +198,7 @@ namespace TradeRiser.Core.Membership
 
             using (this.DataAccess)
             {
-                DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "[membership].[UserPermissionsSelect]", MembershipConstants.AdhocUserPermissionCacheContainer);
+                DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "membership.UserPermissionsSelect", MembershipConstants.AdhocUserPermissionCacheContainer);
                 settings.Parameters.Add(new DataParameter
                 {
                     ParameterName = "@UserID",
@@ -255,7 +255,7 @@ namespace TradeRiser.Core.Membership
 
         ////    using (this.DataAccess)
         ////    {
-        ////        DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "[membership].[UserPermissionsSelect]", MembershipConstants.AdhocUserPermissionCacheContainer);
+        ////        DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "membership.UserPermissionsSelect", MembershipConstants.AdhocUserPermissionCacheContainer);
         ////        settings.Parameters.Add(new DataParameter
         ////        {
         ////            ParameterName = "@UserID",
@@ -326,7 +326,7 @@ namespace TradeRiser.Core.Membership
 
         ////    using (this.DataAccess)
         ////    {
-        ////        DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "[traderiser].[RepoSelectAppsForUser]", MembershipConstants.AdhocUserPermissionCacheContainer);
+        ////        DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "traderiser.RepoSelectAppsForUser", MembershipConstants.AdhocUserPermissionCacheContainer);
         ////        settings.Parameters.Add(new DataParameter
         ////        {
         ////            ParameterName = "@userId",

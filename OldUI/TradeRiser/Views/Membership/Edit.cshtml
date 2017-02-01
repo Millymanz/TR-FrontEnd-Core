@@ -5,6 +5,7 @@
     //this.ViewBag.Title = TradeRiserUIResource.Membership_Title;
     //this.ViewBag.SubNav = SecondaryNavigations.Normal;
     //this.ViewBag.ShowHeader = ShowHeader.Show;
+    string t = string.Empty;
 }
 @model SaveUserModel
 @section head
@@ -179,14 +180,14 @@ else
                 </label>
                  <div class="select-wrapper">
                     <select id="country" name="country" @Html.ValidationAttributes(new ValidationAttributes() { Required = true })>
-                        @foreach (KeyValuePair<string, string> country in @Model.Countries)
+                        @foreach (string country in @Model.Countries)
                         {
                             string key = string.Empty;
                             if (this.Model.Country != null)
                             {
                                 key = this.Model.Country.Trim();
                             }
-                            <option value="@country.Key" label="@country.Value" @(country.Key == key ? "selected='selected'" : string.Empty)>@country.Value</option>
+                            <option value="@country" label="@country" @(country == key ? "selected='selected'" : string.Empty)>@country</option>
                         }
                     </select>
                 </div>

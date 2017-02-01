@@ -11,7 +11,7 @@ namespace TradeRiser.Core.Data
         /// <summary>
         /// The membership direct connection.
         /// </summary>
-        public const string MembershipDirectConnection = "membership-direct";
+        public const string MembershipDirectConnection = "membership-postgres";//"membership-direct";
 
         /// <summary>
         /// The membership service host connection.

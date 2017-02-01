@@ -215,7 +215,7 @@
 
 //        private void PersistMessage(LogMessage message)
 //        {
-//            using (SqlCommand cmd = new SqlCommand("[traderiser].[LogInsert]", this.connection))
+//            using (SqlCommand cmd = new SqlCommand("traderiser.LogInsert", this.connection))
 //            {
 //                if (this.transaction != null)
 //                {

@@ -40,7 +40,7 @@ namespace TradeRiser.Core.Membership
             get
             {
                 return new DataAccess();
-               // return Dependency.Get<IDataAccess>();
+                // return Dependency.Get<IDataAccess>();
             }
         }
 
@@ -60,9 +60,6 @@ namespace TradeRiser.Core.Membership
             using (IDataAccess data = this.Database)
             {
                 DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "membership.UsersUpdate", string.Format("users,{0}", MembershipConstants.AdhocUserAppPermissionCacheContainer));
-                DataParameter userIdParameter = new DataParameter() { ParameterName = "@UserID", Value = user.UserID, DbType = DbType.Guid, Direction = ParameterDirection.InputOutput };
-
-                settings.Parameters.Add(userIdParameter);
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@UserName", Value = user.UserName });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@Email", Value = user.Email });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@FirstName", Value = user.FirstName });
@@ -74,36 +71,31 @@ namespace TradeRiser.Core.Membership
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@Locked", Value = false });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@Disabled", Value = false });
 
-                // TODO : this need to be true, but we have no UI yet
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@ChangePassword", Value = user.ChangePassword });
                 user.CreatedDate = DateTime.UtcNow;
                 user.LastPasswordReset = user.CreatedDate;
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@Password", Value = user.Password });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@LastPasswordReset", Value = user.LastPasswordReset, DbType = DbType.DateTime });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@CreateDate", Value = user.CreatedDate, DbType = DbType.DateTime });
-                settings.Parameters.Add(new DataParameter() { ParameterName = "@LastLoginDate", Value = DBNull.Value });
-                settings.Parameters.Add(new DataParameter() { ParameterName = "@LastLockDate", Value = DBNull.Value });
-                settings.Parameters.Add(new DataParameter() { ParameterName = "@InvalidLogonAttempts", Value = 0 });
-                settings.Parameters.Add(new DataParameter() { ParameterName = "@BrandID", Value = user.BrandID });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@LastLoginDate", DbType = DbType.DateTime, Value = default(DateTime) });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@LastLockDate", DbType = DbType.DateTime, Value = default(DateTime) });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@InvalidLogonAttempts", DbType = DbType.Int32, Value = 0 });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@BrandID", DbType = DbType.Guid, Value = user.BrandID });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@EmployeeID", Value = user.EmployeeID });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@outofofficeflg", Value = user.OutOfOffice });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@delegateuserid", DbType = DbType.Guid, Value = Guid.Empty });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@UserPreferences", Value = user.UserPreferences ?? string.Empty });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@usertype", Value = user.UserType });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@sendalertsasemail", Value = user.SendAlertsAsEmail });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@escalationuserid", DbType = DbType.Guid, Value = Guid.Empty });
 
-                if (!string.IsNullOrEmpty(user.PrimaryLocationID))
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@PrimaryLocationID", Value = user.PrimaryLocationID });
-                }
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@PrimaryLocationID", Value = user.PrimaryLocationID ?? string.Empty });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@Country", Value = user.Country ?? string.Empty });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@Broker", Value = user.Broker ?? string.Empty });
 
-                if (!string.IsNullOrEmpty(user.UserPreferences))
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@UserPreferences", Value = user.UserPreferences });
-                }
-                if (!string.IsNullOrEmpty(user.Country))
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@Country", Value = user.Country });
-                }
-                if (!string.IsNullOrEmpty(user.Broker))
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@Broker", Value = user.Broker });
-                }
+                DataParameter userIdParameter = new DataParameter() { ParameterName = "@UserID", Value = user.UserID, DbType = DbType.Guid, Direction = ParameterDirection.InputOutput };
+
+                settings.Parameters.Add(userIdParameter);
 
                 DataResult result = data.ExecuteNonQuery(settings);
                 if (!result.Success)
@@ -208,9 +200,9 @@ namespace TradeRiser.Core.Membership
             return hasEnabled;
         }
 
-      
 
-       
+
+
 
         /// <summary>
         /// Gets all users.
@@ -227,9 +219,9 @@ namespace TradeRiser.Core.Membership
             return users;
         }
 
-    
 
-    
+
+
 
 
         /// <summary>
@@ -306,10 +298,6 @@ namespace TradeRiser.Core.Membership
             using (IDataAccess data = this.Database)
             {
                 DataSettings settings = new DataSettings(CoreConnections.MembershipDirectConnection, "membership.UsersUpdate", string.Format("users,groups,{0}", MembershipConstants.AdhocUserAppPermissionCacheContainer));
-
-                DataParameter userIdParameter = new DataParameter() { ParameterName = "@UserID", Value = user.UserID, DbType = DbType.Guid, Direction = ParameterDirection.InputOutput };
-
-                settings.Parameters.Add(userIdParameter);
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@UserName", Value = user.UserName });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@Email", Value = user.Email });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@FirstName", Value = user.FirstName });
@@ -320,59 +308,30 @@ namespace TradeRiser.Core.Membership
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@TimeZone", Value = user.TimeZone });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@Locked", Value = user.Locked });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@Disabled", Value = user.Disabled });
+
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@ChangePassword", Value = user.ChangePassword });
+                user.CreatedDate = DateTime.UtcNow;
+                user.LastPasswordReset = user.CreatedDate;
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@Password", Value = user.Password });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@LastPasswordReset", Value = user.LastPasswordReset, DbType = DbType.DateTime });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@CreateDate", Value = user.CreatedDate, DbType = DbType.DateTime });
-
-                if (user.LastLogOnDate > DateTime.MinValue)
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@LastLoginDate", Value = user.LastLogOnDate, DbType = DbType.DateTime });
-                }
-                else
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@LastLoginDate", Value = DBNull.Value, DbType = DbType.DateTime });
-                }
-
-                if (user.LastLockDate > DateTime.MinValue)
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@LastLockDate", Value = user.LastLockDate, DbType = DbType.DateTime });
-                }
-
-                settings.Parameters.Add(new DataParameter() { ParameterName = "@InvalidLogonAttempts", Value = user.InvalidLogOnAttempts });
-                settings.Parameters.Add(new DataParameter() { ParameterName = "@BrandID", Value = user.BrandID });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@LastLoginDate", DbType = DbType.DateTime, Value = default(DateTime) });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@LastLockDate", DbType = DbType.DateTime, Value = default(DateTime) });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@InvalidLogonAttempts", DbType = DbType.Int32, Value = 0 });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@BrandID", DbType = DbType.Guid, Value = user.BrandID });
                 settings.Parameters.Add(new DataParameter() { ParameterName = "@EmployeeID", Value = user.EmployeeID });
-                settings.Parameters.Add(new DataParameter() { ParameterName = "@OutOfOfficeFlg", Value = user.OutOfOffice });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@outofofficeflg", Value = user.OutOfOffice });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@delegateuserid", DbType = DbType.Guid, Value = Guid.Empty });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@UserPreferences", Value = user.UserPreferences ?? string.Empty });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@usertype", Value = user.UserType });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@sendalertsasemail", Value = user.SendAlertsAsEmail });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@escalationuserid ", DbType = DbType.Guid, Value = Guid.Empty });
 
-                if (user.DelegateUserID != Guid.Empty)
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@DelegateUserID", Value = user.DelegateUserID });
-                }
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@PrimaryLocationID", Value = user.PrimaryLocationID ?? string.Empty });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@Country", Value = user.Country ?? string.Empty });
+                settings.Parameters.Add(new DataParameter() { ParameterName = "@Broker", Value = user.Broker ?? string.Empty });
 
-                if (!string.IsNullOrEmpty(user.UserPreferences))
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@UserPreferences", Value = user.UserPreferences });
-                }
-
-                settings.Parameters.Add(new DataParameter() { ParameterName = "@SendAlertsAsEmail", Value = user.SendAlertsAsEmail });
-
-                if (user.EscalationUserID != Guid.Empty)
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@EscalationUserID", Value = user.EscalationUserID });
-                }
-
-                if (!string.IsNullOrEmpty(user.PrimaryLocationID))
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@PrimaryLocationID", Value = user.PrimaryLocationID });
-                }
-                if (!string.IsNullOrEmpty(user.Country))
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@Country", Value = user.Country });
-                }
-                if (!string.IsNullOrEmpty(user.Broker))
-                {
-                    settings.Parameters.Add(new DataParameter() { ParameterName = "@Broker", Value = user.Broker });
-                }
+                DataParameter userIdParameter = new DataParameter() { ParameterName = "@UserID", Value = user.UserID, DbType = DbType.Guid, Direction = ParameterDirection.InputOutput };
 
                 DataResult result = data.ExecuteNonQuery(settings);
                 if (!result.Success)
@@ -387,7 +346,7 @@ namespace TradeRiser.Core.Membership
             return userId != Guid.Empty;
         }
 
-  
+
         /// <summary>
         /// Updates the user's last login details.
         /// </summary>
@@ -434,13 +393,13 @@ namespace TradeRiser.Core.Membership
             }
         }
 
-    
+
 
         #endregion public methods
 
         #region private methods
 
-     
+
         #endregion private methods
     }
 }

@@ -52,7 +52,8 @@ namespace TradeRiser
                                     "~/Content/Scripts/members.js",
                                      "~/Content/Scripts/settings.js",
                                      "~/Content/Scripts/changepassword.js",
-                                     "~/Content/Scripts/feedback.js"
+                                     "~/Content/Scripts/feedback.js",
+                                     "~/Content/Scripts/lightbox.js"
                                   ));
             /* bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/main.css"));
              bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/ormalize.min.css"));

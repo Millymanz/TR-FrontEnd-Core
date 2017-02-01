@@ -6,6 +6,7 @@ using System.Text;
 using TradeRiser.Core.Director;
 using TradeRiser.Core.Logging;
 using Npgsql;
+using NpgsqlTypes;
 using TradeRiser.Core.Extensions;
 
 namespace TradeRiser.Core.Data
@@ -109,25 +110,26 @@ namespace TradeRiser.Core.Data
                     }
 
                     // automatically add the return value parameter to each call.
-                    NpgsqlParameter returnValue = AddReturnValueParameter(command);
+                 // POLY FIX  
+                  //  NpgsqlParameter returnValue = AddReturnValueParameter(command);
 
                     result.AffectedRows = command.ExecuteNonQuery();
 
-                    if (returnValue != null && returnValue.Value(1) == 0)
-                    {
-                        result.Success = false;
+                    //if (returnValue != null && returnValue.Value(1) == 0)
+                    //{
+                    //    result.Success = false;
 
-                        Exception ex = new Exception(string.Format("The task: {0} did not execute successfully. Task ID: {1} Please check the Logs for more information", settings.Task, settings.Id));
-                        Log.Exception(Component, Sender, ex, this.Director);
+                    //    Exception ex = new Exception(string.Format("The task: {0} did not execute successfully. Task ID: {1} Please check the Logs for more information", settings.Task, settings.Id));
+                    //    Log.Exception(Component, Sender, ex, this.Director);
 
-                        result.Exception = ex;
-                        result.Message = returnValue.Value(1).ToString();
-                    }
-                    else
-                    {
+                    //    result.Exception = ex;
+                    //    result.Message = returnValue.Value(1).ToString();
+                    //}
+                    //else
+                    //{
                         result.Success = true;
                         result.Message = "1";
-                    }
+                    //}
 
                     // check for return and output parameters
                     this.UpdateParameters(settings.Parameters, command.Parameters);
@@ -301,7 +303,7 @@ namespace TradeRiser.Core.Data
 
             for (int i = 0; i < sqlCommand.Parameters.Count; i++)
             {
-                if (sqlCommand.Parameters[i].ParameterName != "@returnValue") continue;
+                if (sqlCommand.Parameters[i].ParameterName != "p_returnValue") continue;
 
                 addReturnValue = false;
                 returnValueParameter = sqlCommand.Parameters[i];
@@ -310,7 +312,7 @@ namespace TradeRiser.Core.Data
 
             if (!addReturnValue) return returnValueParameter;
 
-            returnValueParameter = new NpgsqlParameter { ParameterName = "@returnValue", Value = 1, Direction = ParameterDirection.ReturnValue };
+            returnValueParameter = new NpgsqlParameter { ParameterName = "p_returnValue", Value = 1, Direction = ParameterDirection.ReturnValue };
             sqlCommand.Parameters.Add(returnValueParameter);
 
             return returnValueParameter;
@@ -329,20 +331,52 @@ namespace TradeRiser.Core.Data
             {
                 NpgsqlParameter sqlParm = new NpgsqlParameter();
 
-                if (parm.HasDbType)
-                {
-                    sqlParm.DbType = parm.DbType;
-                }
+              
+                   
+                    //if (parm.DbType != DbType.DateTime)
+                    //{
+                    //    sqlParm.DbType = parm.DbType;
+                    //}
+                    //else
+                    //{
+                    //    sqlParm.NpgsqlDbType = NpgsqlDbType.Timestamp;
+                    //}
+                //}
 
-                sqlParm.Direction = parm.Direction;
+                sqlParm.Direction = parm.Direction != 0 ? parm.Direction : ParameterDirection.Input;
                 sqlParm.IsNullable = parm.IsNullable;
-                sqlParm.ParameterName = parm.ParameterName;
+                sqlParm.ParameterName = parm.ParameterName.Replace("@","p_").ToLower();
                 sqlParm.Value = parm.Value;
                 sqlParm.Scale = parm.Scale;
                 sqlParm.Size = parm.Size;
                 sqlParm.Precision = parm.Precision;
+           
+                if (parm.HasDbType)
+            {
+                switch (parm.DbType)
+                {
+                    case DbType.DateTime:
+                        sqlParm.NpgsqlDbType = NpgsqlDbType.Timestamp;
+                        break;
 
-                sqlParms.Add(sqlParm);
+                    case DbType.Int16:
+                        sqlParm.NpgsqlDbType = NpgsqlDbType.Smallint;
+                        break;
+                    case DbType.Int32:
+                        sqlParm.NpgsqlDbType = NpgsqlDbType.Integer;
+                        break;
+                    case DbType.Int64:
+                        sqlParm.NpgsqlDbType = NpgsqlDbType.Bigint;
+                        break;
+                    case DbType.String:
+                        sqlParm.NpgsqlDbType = NpgsqlDbType.Varchar;;
+                        break;
+                    default:
+                        sqlParm.DbType = parm.DbType;
+                        break;
+                }
+            }
+            sqlParms.Add(sqlParm);
             }
 
             return sqlParms.ToArray();
@@ -431,7 +465,7 @@ namespace TradeRiser.Core.Data
             IEnumerable<DataParameter> returnParams = dataParameters.Values.Where(n => n.Direction == ParameterDirection.Output || n.Direction == ParameterDirection.InputOutput || n.Direction == ParameterDirection.ReturnValue);
             foreach (DataParameter param in returnParams)
             {
-                param.Value = sqlParameterCollection[param.ParameterName].Value;
+                param.Value = sqlParameterCollection[param.ParameterName.Replace("@","p_").ToLower()].Value;
             }
         }
 

@@ -1,7 +1,7 @@
 ﻿USE [TRUserManagement]
 GO
 /******  INSERTS */
-INSERT INTO [traderiser].[ConfigurationItem] ([Name],[DataType],[Value],[IsVisible])
+INSERT INTO traderiser.ConfigurationItem (Name,DataType,Value,IsVisible)
   VALUES ('Core.EmailInfoAddress','Text','info@mydomain.com','1') 
 
 GO
@@ -111,7 +111,7 @@ END
 
 GO
 
-ALTER PROCEDURE [traderiser].[LogInsert]
+ALTER PROCEDURE traderiser.LogInsert
     @InsertDateTime DATETIME,
     @MachineName	NVARCHAR(50),
     @Component		NVARCHAR(50),
@@ -141,7 +141,7 @@ SET @ErrorMessage = ISNULL(ERROR_MESSAGE(), '-');
     SET @ErrorLine = ISNULL(ERROR_LINE (), -1);
 
      --Create a Log entry for error
-    EXEC [traderiser].[LogExceptionInsert] 'DBServer - Log', 'traderiser.LogInsert', 4, @ErrorMessage, '[traderiser].[LogInsert]', @ErrorLine
+    EXEC [traderiser].[LogExceptionInsert] 'DBServer - Log', 'traderiser.LogInsert', 4, @ErrorMessage, 'traderiser.LogInsert', @ErrorLine
 
     RETURN 0
 
