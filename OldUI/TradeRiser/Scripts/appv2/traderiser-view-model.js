@@ -4,15 +4,6 @@
         $(element).children(":first").hover(
             function () {
 
-                //if (globalSelectedItem != this.id) {
-                //    $(this).css("background-color", "#32a4b8");
-                //    $(this).css("color", "white");
-                //}
-                //else {
-                //    $(this).css("background-color", "#32a4b8");
-                //    $(this).css("color", "white");
-                //}
-
                 $(this).css("background-color", "#32a4b8");
                 $(this).css("color", "white");
 
@@ -26,14 +17,6 @@
                     $(this).css("background-color", "#BFCFD0");
                     $(this).css("color", "black");
                 }
-
-
-
-                //$(this).css("background-color", "white");
-                //$(this).css("color", "black");
-
-
-
             }
         );
     }

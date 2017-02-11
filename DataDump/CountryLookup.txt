@@ -1,0 +1,19 @@
+united kingdom/gbp
+switzerland/chf
+canada/cad
+united states/usd
+europe/eur
+australia/aud
+sweden/sek
+czech republic/czk
+denmark/dkk
+japan/jpy
+norway/nok
+turkey/try
+south africa/zar
+mexico/mxn
+hungry/huf
+singapore/sgd
+new zealand/nzd
+poland/pln
+russia/rub
