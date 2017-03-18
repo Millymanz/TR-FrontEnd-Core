@@ -13,13 +13,13 @@ namespace TradeRiser.Core.Configuration
     /// The settings for a policy.
     /// </summary>
     [Serializable]
-    public class ConfigPolicySetting : PolicySetting<int>, IVaultDataBound
+    public class ConfigPolicySetting : PolicySetting<int>, IDataBound
     {
         #region  Properties and Indexers
 
         #endregion
 
-        #region IVaultDataBound Members
+        #region IDataBound Members
 
         /// <summary>
         /// Hydrate this type from the given IReader.

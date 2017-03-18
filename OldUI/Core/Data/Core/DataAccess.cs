@@ -158,7 +158,7 @@ namespace TradeRiser.Core.Data
         /// <typeparam name="T"></typeparam>
         /// <param name="settings">The settings.</param>
         /// <returns></returns>
-        public List<T> Get<T>(DataSettings settings) where T : IVaultDataBound, new()
+        public List<T> Get<T>(DataSettings settings) where T : IDataBound, new()
         {
             IList<T> items = new List<T>();
 

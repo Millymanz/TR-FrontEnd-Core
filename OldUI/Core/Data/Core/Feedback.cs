@@ -1,10 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
-using TradeRiser.Core.Data;
 
 namespace TradeRiser.Core.Data
 {
-    public class Feedback : IVaultDataBound
+    public class Feedback : IDataBound
     {
         [JsonProperty("id")]
         public Int64 ID { get; set; }

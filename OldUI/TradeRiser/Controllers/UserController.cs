@@ -361,8 +361,7 @@ namespace TradeRiser.UI.Controllers
                 {
                     throw new Exception(string.Format("The user with ID: '{0}' cannot be found.", this.Director.User.UserID));
                 }
-
-                this.UpdateTheme(brandHexColour, theme, chrome);
+                
                 this.Director.Membership.UpdateUser(user);
 
                 resultBag = new ResultBag(null, true);
@@ -414,53 +413,7 @@ namespace TradeRiser.UI.Controllers
 
         #region private methods
 
-        /// <summary>
-        /// Updates the theme.
-        /// </summary>
-        /// <param name="brandHexColour">The brand hexadecimal colour.</param>
-        /// <param name="theme">The theme.</param>
-        /// <param name="chrome">The chrome.</param>
-        private void UpdateTheme(string brandHexColour, string theme, string chrome)
-        {
-            if (brandHexColour != string.Empty)
-            {
-                this.Director.Configuration.SaveConfigItem(
-                    new ConfigurationItem
-                    {
-                        Name = "Core.Branding.Accent",
-                        DataType = "Text",
-                        Value = brandHexColour,
-                        IsVisble = true
-                    });
-            }
-
-            if (theme != string.Empty)
-            {
-                this.Director.Configuration.SaveConfigItem(
-                    new ConfigurationItem
-                    {
-                        Name = "Core.Branding.Theme",
-                        DataType = "Text",
-                        Value = theme,
-                        IsVisble = true
-                    });
-            }
-
-            if (chrome != string.Empty)
-            {
-                this.Director.Configuration.SaveConfigItem(
-                    new ConfigurationItem
-                    {
-                        Name = "Core.Branding.Chrome",
-                        DataType = "Text",
-                        Value = chrome,
-                        IsVisble = true
-                    });
-            }
-
-          //  this.Director.Configuration.Blanka.Purge("ConfigurationItem");
-        }
-
+      
         /// <summary>
         /// Gets the assigned user by name.
         /// </summary>

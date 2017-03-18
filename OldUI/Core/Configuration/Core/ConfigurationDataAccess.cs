@@ -79,7 +79,7 @@ namespace TradeRiser.Core.Configuration
             {
                 if (this.database == null)
                 {
-                   // this.database = Dependency.Get<IDataAccess>();
+                    // this.database = Dependency.Get<IDataAccess>();
                     this.database = new DataAccess();
                 }
                 return this.database;
@@ -109,26 +109,26 @@ namespace TradeRiser.Core.Configuration
             return items;
         }
 
-        ///// <summary>
-        ///// Gets all connection strings.
-        ///// </summary>
-        //public Dictionary<string, ConnectionInfo> GetAllConnectionStrings()
-        //{
-        //    Dictionary<string, ConnectionInfo> connections = new Dictionary<string, ConnectionInfo>();
+        /// <summary>
+        /// Gets all connection strings.
+        /// </summary>
+        public Dictionary<string, ConnectionInfo> GetAllConnectionStrings()
+        {
+            Dictionary<string, ConnectionInfo> connections = new Dictionary<string, ConnectionInfo>();
 
-        //    DataSettings settings = new DataSettings(ConnectionName, "traderiser.ConnectionStringSelect");
+            DataSettings settings = new DataSettings(ConnectionName, "traderiser.ConnectionStringSelect");
 
-        //    using (IDataAccess data = this.Database)
-        //    {
-        //        IList<ConnectionInfo> connectionsList = data.Get<ConnectionInfo>(settings);
-        //        foreach (ConnectionInfo connectionInfo in connectionsList)
-        //        {
-        //            connections.Add(connectionInfo.Name, connectionInfo);
-        //        }
-        //    }
+            using (IDataAccess data = this.Database)
+            {
+                IList<ConnectionInfo> connectionsList = data.Get<ConnectionInfo>(settings);
+                foreach (ConnectionInfo connectionInfo in connectionsList)
+                {
+                    connections.Add(connectionInfo.Name, connectionInfo);
+                }
+            }
 
-        //    return connections;
-        //}
+            return connections;
+        }
 
         /////// <summary>
         /////// Gets all resources.

@@ -7,9 +7,9 @@ using TradeRiser.Core.Data;
 
 namespace TradeRiser.Core.Configuration
 {
-  
+
     [Serializable]
-    public class ConfigurationItem : IEquatable<ConfigurationItem>,IVaultDataBound
+    public class ConfigurationItem : IEquatable<ConfigurationItem>, IDataBound
     {
         #region  Properties and Indexers
 
@@ -17,35 +17,35 @@ namespace TradeRiser.Core.Configuration
         /// Gets or sets the name of the culture.
         /// </summary>
         /// <value>The name of the culture.</value>
-       
+
         public string CultureName { get; set; }
 
         /// <summary>
         /// Gets or sets the datatype of the configuration item.
         /// </summary>
         /// <value>The datatype of the configuration item.</value>
-       
+
         public string DataType { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the configuration item.
         /// </summary>
         /// <value>The name of the configuration item.</value>
-       
+
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the value of the configuration item.
         /// </summary>
         /// <value>The value of the configuration item.</value>
-       
+
         public string Value { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is visble.
         /// </summary>
         /// <value><c>true</c> if this instance is visble; otherwise, <c>false</c>.</value>
-       
+
         public bool IsVisble { get; set; }
 
         #endregion

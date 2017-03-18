@@ -298,7 +298,7 @@
     <Content Include="Content\Styles\bootstrap.css" />
     <Content Include="Content\Styles\custom.css" />
     <Content Include="Content\Styles\font-awesome.min.css" />
-    <Content Include="Content\Styles\form.css" />
+    <Content Include="Content\Styles\formV2.css" />
     <Content Include="Content\Styles\logon.css" />
     <Content Include="Content\Styles\shared.css" />
     <Content Include="Content\Styles\site.css" />
@@ -5292,6 +5292,7 @@
     <Content Include="Views\Shared\newTRPartials\_SideNav.cshtml" />
     <Content Include="Views\Shared\newTRPartials\_Content.cshtml" />
     <Content Include="Views\Shared\newTRPartials\_TopNavigationPanel.cshtml" />
+    <Content Include="Views\Shared\TR Master _Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

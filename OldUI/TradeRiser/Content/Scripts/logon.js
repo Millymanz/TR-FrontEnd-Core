@@ -1,16 +1,6 @@
 ﻿var logon = {
     load: function () {
 
-        //if ('serviceWorker' in navigator) {
-        //    navigator.serviceWorker.register('/TradeRiser/serviceworker1.js').then(function (registration) {
-        //        // Registration was successful
-        //        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        //    }).catch(function (err) {
-        //        // registration failed :(
-        //        console.log('ServiceWorker registration failed: ', err);
-        //    });
-        //}
-
         // get iana timezone
         var tz = "";
         try {
@@ -45,7 +35,7 @@
                     location.reload();
                 },
                 errorCallback: function (a, b, c) {
-                    corejs.alert("RESOURCE{{corejs.ui.js}:{FailedToChangeCultureCode}:{Failed to change language.}}", "e", true);
+                    corejs.alert("Failed to change language.", "e", true);
                     corejs.wait(false);
                 }
             });
@@ -58,25 +48,23 @@
                     $("#logon-form").submit();
                 },
                 onInvalid: function () {
-                    $('[data-toggle="tooltip"]').tooltip();
+                    $('[data-toggle="tooltip"]').tooltip({
+                        container: 'body'
+                    });
                 }
             });
-
-        
-
-            
 
             return false;
         });
 
         $("#username").keyup(function (event) {
-            if (event.which == 13) {
+            if (event.which === 13) {
                 $("#password").focus();
             }
         });
 
         $("#password").keyup(function (event) {
-            if (event.which == 13) {
+            if (event.which === 13) {
                 corejs.store.purge();
                 $("#logon-form").submit();
             }
@@ -88,9 +76,21 @@
             $("#username").focus().select();
         }
 
+        $("#log-in").on("click", function () {
+            corejs.wait(true);
+            corejs.hash("v", "logon");
+            return false;
+        });
+
         $("#forgot-password").on("click", function () {
             corejs.wait(true);
             corejs.hash("v", "forgotpassword");
+            return false;
+        });
+
+        $("#create-account").on("click", function () {
+            corejs.wait(true);
+            corejs.hash("v", "createaccount");
             return false;
         });
 
@@ -103,54 +103,23 @@
             });
         }
 
-
-
         $(window).off('hashchange').on('hashchange', function () {
             logon.setView();
         });
 
-        $("#sign-up").off('click').on('click', function () {
-             var success = function (result, textStatus, jqXHR) {
-                // add the forgot password html to the page.
-                 $(".box .content").html("");
-                 $(".box .content").append(result);
 
-                 $('.backdrop, .box').animate({ 'opacity': '.50' }, 300, 'linear');
-                 $('.box').animate({ 'opacity': '1.00' }, 300, 'linear');
-                 $('.backdrop, .box').css('display', 'block');
+        $("#register").off("click").on("click", function () {
+            $("#member-details").validate({
+                success: function () {
+                    members.edit.registersave();
+                },
+                onInvalid: function () {
+                    corejs.alert("The 'User Details' section has some errors, please correct these before saving.", "e");
+                }
+            });
 
-
-                 $('.close').off("click").on("click", function () {
-                     close_box();
-                 });
-
-                 $("#register").off("click").on("click", function () {
-                         $("#member-details").validate({
-                             success: function () {
-                                 members.edit.registersave();                               
-                             },
-                             onInvalid: function () {
-                                 corejs.alert("The 'User Details' section has some errors, please correct these before saving.", "e");
-                             }
-                         });
-
-                         return false;
-                 });
-
-                 //$('.backdrop').click(function () {
-                 //    close_box();
-                 //});
-
-            }
-
-            var fail = function (data, textStatus, jqXHR) {
-                $("#signin-section #alert").show().text("RESOURCE{{logon.js}:{FailedForgotPassword}:{There was an error whilst resetting your password. Please contact support for further help.}}");
-            }
-
-            corejs.ajax({ url: APPLICATIONPATH + "membership/signup", dataType: "Html", success: success, errorCallback: fail, type: "GET" });
-
+            return false;
         });
-
     },
 
     $newsBarSpinner: 0,
@@ -165,12 +134,12 @@
         var view = corejs.hash("v");
 
         if (view == null) {
-            view == "logon";
+            view = "logon";
         }
 
-        if (view == "forgotpassword") {
+        if (view === "forgotpassword") {
             $("#logon-form").hide();
-            if ($("#forgot-password-section").length == 0) {
+            if ($("#forgot-password-section").length === 0) {
                 logon.getForgotPasswordSection(function () {
                     logon.switchViews("forgotpassword");
                 });
@@ -178,25 +147,45 @@
                 logon.switchViews("forgotpassword");
             }
         }
+        else if (view === "createaccount") {
+            $("#logon-form").hide();
+            logon.switchViews("createaccount");
+            //if ($("#member-section").length === 0) {
+            //    logon.getForgotPasswordSection(function () {
+            //        logon.switchViews("createaccount");
+            //    });
+            //} else {
+            //    logon.switchViews("createaccount");
+            //}
+        }
         else {
             logon.switchViews("logon");
         }
     },
 
     switchViews: function (view) {
-        if (view == "forgotpassword") {
+        if (view === "forgotpassword") {
 
             $("#logon-form").fadeOut("fast", function () {
                 validation.reset($("#forgot-password-section"));
-                $("#forgot-password-alert .alert-body").hide();
                 $("#username-or-email").val("");
                 $("#forgot-password-section").fadeIn("fast");
                 $("#back-password").hide();
                 $("#submit-forgot-password").show();
                 $("#cancel-password").show();
             });
+        } else if (view === "createaccount") {
+            $("#logon-form").fadeOut("fast", function () {
+                validation.reset($("#member-section"));
+                //$("#username-or-email").val("");
+                $("#member-section").fadeIn("fast");               
+            });
         }
         else {
+            $("#member-section").fadeOut("fast", function () {
+                validation.reset($("#logon-form"));
+                $("#logon-form").fadeIn("fast");
+            });
             $("#forgot-password-section").fadeOut("fast", function () {
                 validation.reset($("#logon-form"));
                 $("#logon-form").fadeIn("fast");
@@ -205,8 +194,6 @@
 
         corejs.wait(false);
     },
-
-       
 
     getForgotPasswordSection: function (callback) {
 
@@ -223,7 +210,7 @@
         }
 
         var fail = function (data, textStatus, jqXHR) {
-            $("#signin-section #alert").show().text("RESOURCE{{logon.js}:{FailedForgotPassword}:{There was an error whilst resetting your password. Please contact support for further help.}}");
+            corejs.alert("There was an error whilst resetting your password. Please contact support for further help.", "e", true);
         }
 
         corejs.ajax({ url: APPLICATIONPATH + "core/ForgotPassword", dataType: "Html", success: success, errorCallback: fail, type: "GET" });
@@ -241,9 +228,9 @@
             var cancelButton = $("#cancel-password");
 
             if (cancelButton.attr('disabled')) {
-                return false;
             }
             corejs.hash("v", "logon");
+            return false;
         });
 
         $("#back-password").on("click", function () {
@@ -277,19 +264,18 @@
             submitButton.hide();
             cancelButton.hide();
             $("#back-password").show();
-            $("#forgot-password-alert .alert-body").show().text(result.data.message);
+            corejs.alert(result.data.message,"s");
         }
 
-        var fail = function (data, textStatus, jqXHR) {
+        var fail = function (result, textStatus, jqXHR) {
             corejs.wait(false);
             submitButton.removeAttr('disabled');
             submitButton.removeClass('disabled');
             cancelButton.removeAttr('disabled');
             cancelButton.removeClass('disabled');
-            $("#forgot-password-alert .alert-body").show().text("RESOURCE{{logon.js}:{FailedForgotPassword}:{There was an error whilst resetting your password. Please contact support for further help.}}");
+            corejs.alert(result.data.message, "e");
         }
 
-        // validate that the username is not empty.
         if (!$("#username-or-email").validate()) {
             submitButton.removeAttr('disabled');
             submitButton.removeClass('disabled');
@@ -306,28 +292,4 @@
 
         return true;
     }
-
-
 };
-$(document).ready(function () {
-
-    //$('.lightbox').click(function () {
-    //    $('.backdrop, .box').animate({ 'opacity': '.50' }, 300, 'linear');
-    //    $('.box').animate({ 'opacity': '1.00' }, 300, 'linear');
-    //    $('.backdrop, .box').css('display', 'block');
-    //});
-
-    //$('.close').click(function () {
-    //    close_box();
-    //});
-
-    //$('.backdrop').click(function () {
-    //    close_box();
-    //});
-
-});
-function close_box() {
-    $('.backdrop, .box').animate({ 'opacity': '0' }, 300, 'linear', function () {
-        $('.backdrop, .box').css('display', 'none');
-    });
-}

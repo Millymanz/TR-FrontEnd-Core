@@ -4,33 +4,22 @@
     using System.Collections.Generic;
     using System.Linq;
     using Configuration;
-    using Data;
     using Logging;
     using Membership;
     using TradeRiser.Core.Common;
     using TradeRiser.Core.Mail;
+    using TradeRiser.Core.Configuration.Core;
 
     /// <summary>
     /// User sign on service.
     /// </summary>
     public class UserSignOnService : IUserSignOnService
     {
+        private readonly MemoryManager cacheStore;
         private readonly UserSignOnDataAccess dataAccess;
-
-        /// <summary>
-        /// A password generator.
-        /// </summary>
         private PasswordGenerator passwordGenerator;
-
-        /// <summary>
-        /// The current membership policy.
-        /// </summary>
         private MembershipPolicy membershipPolicy;
 
-        /// <summary>
-        /// Gets the membership policy.
-        /// </summary>
-        /// <value>The membership policy.</value>
         public MembershipPolicy MembershipPolicy
         {
             get
@@ -44,40 +33,22 @@
             }
         }
 
-        /// <summary>
-        /// The adhock user cache container key.
-        /// </summary>
         private const string AdhocUserCacheContainer = "AdhocUserCache";
 
-        /// <summary>
-        /// The configuration
-        /// </summary>
         private readonly ConfigurationService config;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UserSignOnService" /> class.
-        /// </summary>
-        /// <param name="config">The config.</param>
         public UserSignOnService(ConfigurationService config)
         {
-       //     this.blanka = new MemoryVaultManager();
+            this.cacheStore = new MemoryManager();
             this.config = config;
             this.dataAccess = new UserSignOnDataAccess();
         }
 
-        /// <summary>
-        /// Purges the cache.
-        /// </summary>
-        /// <param name="userId"></param>
         public void PurgeCache(Guid userId)
         {
             string cacheKey = GetCacheKey(userId);
         }
 
-        /// <summary>
-        /// Purges the cache.
-        /// </summary>
-        /// <param name="userIds"></param>
         public void PurgeCache(Guid[] userIds)
         {
             for (int i = 0, ii = userIds.Length; i < ii; i++)
@@ -86,35 +57,17 @@
             }
         }
 
-        /// <summary>
-        /// Adds the cache.
-        /// </summary>
-        /// <param name="userId">The user id.</param>
-        /// <param name="user">The user.</param>
         private void AddCache(Guid userId, User user)
         {
-            
-            //TODO:PA
-            ////int expiry = this.config.GetConfigItem("Cache.AdhocUserCacheExpiryInMinutes", 30);
+            int expiry = this.config.GetConfigItem("Cache.AdhocUserCacheExpiryInMinutes", 30);
+            this.cacheStore.Add(UserSignOnService.GetCacheKey(userId), user, TimeSpan.FromMinutes(expiry));
         }
 
-    
-        /// <summary>
-        /// Gets the user by identifier.
-        /// </summary>
-        /// <param name="userId">The user identifier.</param>
-        /// <returns></returns>
         public User GetUserById(Guid userId)
         {
             return this.GetUserById(userId, false);
         }
 
-        /// <summary>
-        /// Gets the user by identifier.
-        /// </summary>
-        /// <param name="userId">The user identifier.</param>
-        /// <param name="ignoreCache">if set to <c>true</c> [ignore cache].</param>
-        /// <returns></returns>
         public User GetUserById(Guid userId, bool ignoreCache)
         {
             if (userId == Guid.Empty)
@@ -122,7 +75,6 @@
                 return null;
             }
 
-            // [JRB] Ensure that the id supplied is not SystemUser.
             if (userId.ToString().Equals(SystemUser.Id)) return new SystemUser();
 
             User user = null;
@@ -144,38 +96,12 @@
 
             return user;
         }
-        /// <summary>
-        /// Gets the user form cache.
-        /// </summary>
-        /// <param name="userId">The user identifier.</param>
+
         private User GetCache(Guid userId)
         {
-           // User user = this.blanka.Get(UserSignOnService.GetCacheKey(userId)) as User;
-
-            User user = null;// new User();
-            if (userId != Guid.Empty)
-            {
-                user =  this.dataAccess.GetUserByID(userId);
-               // user = this.GetUserById(userId);
-            }
-            //else
-            //{
-            //     user = this.GetUserById(userId);
-            //}
-
-            //user = this.GetUserById(userId);
-            if (user != null)
-            {
-                user.ChangePassword = false;
-            }
-
-            return user;
+            return this.cacheStore.Get(UserSignOnService.GetCacheKey(userId)) as User;
         }
 
-        /// <summary>
-        /// Gets the user by username.
-        /// </summary>
-        /// <param name="userName"></param>
         public User GetUserByUserName(string userName)
         {
             User user = this.dataAccess.GetUserByUserName(userName);
@@ -188,11 +114,6 @@
             return user;
         }
 
-        /// <summary>
-        /// Gets the user by email.
-        /// </summary>
-        /// <param name="email">The email.</param>
-        /// <returns></returns>
         public User GetUserByEmail(string email)
         {
             User user = this.dataAccess.GetUserByEmail(email);
@@ -205,11 +126,6 @@
             return user;
         }
 
-        /// <summary>
-        /// Users the must change password.
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="changePassword">if set to <c>true</c> [change password].</param>
         public void UserMustChangePassword(Guid userId, bool changePassword)
         {
             bool updated = this.dataAccess.UserMustChangePassword(userId, changePassword);
@@ -222,14 +138,6 @@
             this.PurgeCache(userId);
         }
 
-        /// <summary>
-        /// Updates the user's last login details.
-        /// </summary>
-        /// <param name="userID">The user ID.</param>
-        /// <param name="locked">If set to <c>true</c>, the user is locked.</param>
-        /// <param name="lastLogin">The last login date time.</param>
-        /// <param name="lastLocked">The last locked date time.</param>
-        /// <param name="invalidLoginAttempts">The invalid login attempts.</param>
         public void UpdateUserLastLogin(Guid userID, bool locked, DateTime? lastLogin, DateTime? lastLocked, int invalidLoginAttempts)
         {
             bool updated = this.dataAccess.UpdateUserLastLogin(userID, locked, lastLogin, lastLocked, invalidLoginAttempts);
@@ -242,12 +150,6 @@
             this.PurgeCache(userID);
         }
 
-        /// <summary>
-        /// Updates the user in case his attempt was succesful.
-        /// </summary>
-        /// <param name="userID">The user ID.</param>
-        /// <param name="timezone">The timezone of the user.</param>
-        /// <exception cref="System.ArgumentException"></exception>
         public void UpdateUserSuccessfulLogin(Guid userID, string timezone)
         {
             if (userID == Guid.Empty)
@@ -348,12 +250,12 @@
             PasswordActionResult validationResult = this.ValidatePassword(userId, newPassword, out passwordHash);
 
             bool updated = false;
-           
+
 
             if (validationResult == PasswordActionResult.Ok)
             {
                 string newPasswordHash = CpfHash.ComputeHash(newPassword);
-                updated = this.UpdatePassword(userId,userName, newPasswordHash, passwordHash);
+                updated = this.UpdatePassword(userId, userName, newPasswordHash, passwordHash);
             }
 
             if (updated)
@@ -361,7 +263,7 @@
                 User user = this.GetUserByUserName(userName);
                 Log.Audit("UserSignOnService", "ResetPassword", string.Format("Password was reset for user: {0}", userName));
                 this.SendPasswordResetConfirmationEmail(user);
-                
+
             }
 
             return validationResult;
@@ -497,11 +399,6 @@
             return result;
         }
 
-        /// <summary>
-        /// Gets the password reset request.
-        /// </summary>
-        /// <param name="resetToken">The reset token.</param>
-        /// <returns></returns>
         public PasswordResetRequest GetPasswordResetRequest(Guid resetToken)
         {
             PasswordResetRequest request = this.dataAccess.GetPasswordResetRequest(resetToken);
@@ -514,21 +411,12 @@
             return request;
         }
 
-        /// <summary>
-        /// Deletes the password reset request.
-        /// </summary>
-        /// <param name="userID">The user identifier.</param>
-        /// <param name="userName"></param>
         public void DeletePasswordResetRequest(Guid userID, string userName)
         {
             this.dataAccess.DeletePasswordResetRequest(userID);
             Log.Audit("UserSignOnService", "DeletePasswordResetRequest", string.Format("All password reset requests for user: '{0}' have been deleted.", userName));
         }
 
-        /// <summary>
-        /// Generates a random password for the user.
-        /// </summary>
-        /// <returns>The generated password.</returns>
         public string GeneratePassword()
         {
             if (this.passwordGenerator == null)
@@ -539,20 +427,12 @@
             return this.passwordGenerator.GeneratePassword();
         }
 
-        /// <summary>
-        /// Gets the password history.
-        /// </summary>
-        /// <param name="userID">The user ID.</param>
         public List<PasswordHistory> GetPasswordHistory(Guid userID)
         {
             List<PasswordHistory> historyList = this.dataAccess.GetPasswordHistory(userID);
             return historyList;
         }
 
-        /// <summary>
-        /// Passwords the policy.
-        /// </summary>
-        /// <param name="container">The container.</param>
         public List<PolicySetting<int>> GetPasswordPolicy(string container)
         {
             List<PolicySetting<int>> policy = this.dataAccess.GetPasswordPolicy(container);
@@ -560,11 +440,6 @@
             return policy;
         }
 
-        /// <summary>
-        /// Sends the password email.
-        /// </summary>
-        /// <param name="user">The user.</param>
-        /// <param name="resetToken"></param>
         private void SendResetPasswordEmail(User user, Guid resetToken)
         {
             MembershipConfiguration membershipConfig = new MembershipConfiguration(this.config);
@@ -587,10 +462,6 @@
             UserSignOnService.SendEmail(membershipConfig, membershipConfig.EmailResetPasswordSubject, message, user.Email);
         }
 
-        /// <summary>
-        /// Sends the password reset confirmation email.
-        /// </summary>
-        /// <param name="user">The user.</param>
         private void SendPasswordResetConfirmationEmail(User user)
         {
             MembershipConfiguration membershipConfig = new MembershipConfiguration(this.config);
@@ -605,14 +476,6 @@
             UserSignOnService.SendEmail(membershipConfig, membershipConfig.EmailPasswordResetConfirmationSubject, message, user.Email);
         }
 
-        /// <summary>
-        /// Builds the email from tokens.
-        /// </summary>
-        /// <param name="config">The config.</param>
-        /// <param name="messageTemplate">The message template.</param>
-        /// <param name="tokenGroup">The token group.</param>
-        /// <param name="tokens"></param>
-        /// <returns>Mail content.</returns>
         private static string BuildEmail(MembershipConfiguration config, string messageTemplate, string tokenGroup, Dictionary<string, string> tokens)
         {
             Dictionary<string, string> existingTokens = config.GetEmailTokens(tokenGroup);
@@ -641,19 +504,18 @@
 
             return messageTemplate;
         }
-        
-        /// <summary>
-        /// Sends the email.
-        /// </summary>
-        /// <param name="config">The config.</param>
-        /// <param name="subject">The subject.</param>
-        /// <param name="message">The message.</param>
-        /// <param name="emailAddress">The email address.</param>
+
         private static void SendEmail(MembershipConfiguration config, string subject, string message, string emailAddress)
         {
             Email email = new Email
             {
-                From = config.EmailFromAddress, FromDisplayName = config.EmailFromDisplayName, To = emailAddress, Subject = subject, Message = message, ReplyTo = config.EmailReplyToAddress, ReplyToDisplayName = config.EmailReplyToDisplayName
+                From = config.EmailFromAddress,
+                FromDisplayName = config.EmailFromDisplayName,
+                To = emailAddress,
+                Subject = subject,
+                Message = message,
+                ReplyTo = config.EmailReplyToAddress,
+                ReplyToDisplayName = config.EmailReplyToDisplayName
             };
 
             EmailSender sender = new EmailSender();

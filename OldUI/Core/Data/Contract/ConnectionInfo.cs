@@ -11,7 +11,7 @@ namespace TradeRiser.Core.Data
     /// Single connection information.
     /// </summary>
     [Serializable]
-    public class ConnectionInfo :  IEquatable<ConnectionInfo>//, IVaultDataBound
+    public class ConnectionInfo : IEquatable<ConnectionInfo>, IDataBound
     {
         #region  Properties and Indexers
 
@@ -62,7 +62,7 @@ namespace TradeRiser.Core.Data
 
         #endregion
 
-        #region IVaultDataBound Members
+        #region IDataBound Members
 
         /// <summary>
         /// Loads the specified reader.

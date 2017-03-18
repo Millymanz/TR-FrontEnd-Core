@@ -62,7 +62,7 @@ corejs = {
                     location.reload();
                 },
                 errorCallback: function (a, b, c) {
-                    corejs.alert("RESOURCE{{corejs.ui.js}:{FailedToChangeCultureCode}:{Failed to change language.}}", "e", true);
+                    corejs.alert("Failed to change language.", "e", true);
                     corejs.wait(false);
                 }
             });
@@ -74,14 +74,6 @@ corejs = {
         });
 
         corejs.processDelayedAlert();
-
-        //TODO:PA
-        ////// exports
-        ////exporter.load();
-
-        var existingBreadcrumbs = corejs.store.get("breadcrumbs", null) || [];
-        this.addPageToBreadcrumbs(existingBreadcrumbs);
-        this.showBreadCrumbs(existingBreadcrumbs);
 
         // logo spinner on click then return true
         $("#top-logo").click(function (e) {
@@ -211,27 +203,7 @@ corejs = {
         corejs.navigation.load($('#navigation-menu'));
     },
 
-    addPageToBreadcrumbs: function (existingBreadcrumbs) {
-        if (PAGENAME != undefined) { //PAGENAME is declared in _CpfLayout.cshtml
-            var newBreadcrumb = [PAGENAME, '<li class="navigation-item"><a href="' + window.location.href + '">' + PAGENAME + '</a></li>'];
-
-            if (existingBreadcrumbs.length) {
-                var pages = this.currentPages(existingBreadcrumbs);
-                var positionInArray = $.inArray(PAGENAME, pages);
-
-                if (positionInArray !== -1) {
-                    while (existingBreadcrumbs.length > positionInArray) {
-                        existingBreadcrumbs.pop();
-                    }
-                }
-            }
-
-            existingBreadcrumbs.push(newBreadcrumb);
-            corejs.store.set("breadcrumbs", existingBreadcrumbs);
-        }
-    },
-
-    appsTray: {
+     appsTray: {
         initalise: function () {
 
             //corejs.button.click($("#button-apps"));
@@ -700,7 +672,7 @@ corejs = {
     // handles session timeouts of async json requests
     ajaxLoginHandler: function (xmlhttp, message, exception) {
         try {
-            if (xmlhttp.getResponseHeader("login") == "1") {
+            if (xmlhttp.getResponseHeader("login") === "1") {
                 location.href = APPLICATIONPATH + "core/Logon?i=" + xmlhttp.getResponseHeader("logini") + "&url=" + location.href;
                 return false;
             }
@@ -735,17 +707,14 @@ corejs = {
     alert: function (message, messageType, blink) {
 
         var $alert = $("#alert");
-        var $alertBody = $(".alert-body");
         var alertTimeoutDuration = 20000;
-        var showLogs = false;
 
-        $alertBody.removeClass("bg-warning bg-success bg-danger");
+        $alert.removeClass("alert-warning alert-success alert-danger");
         if (messageType) {
             switch (messageType.toLowerCase()) {
                 case "error":
                 case "e":
-                    $alertBody.addClass("bg-danger");
-                    showLogs = true;
+                    $alert.addClass("alert-danger");               
                     break;
                 case "notify":
                 case "n":
@@ -753,94 +722,30 @@ corejs = {
                     break;
                 case "success":
                 case "s":
-                    $alertBody.addClass("bg-success");
+                    $alert.addClass("alert-success");
                     alertTimeoutDuration = 5000;
                     break;
                 case "warning":
                 case "w":
-                    $alertBody.addClass("bg-warning");
+                    $alert.addClass("alert-warning");
                     break;
                 case "information":
                 case "info":
                 case "i":
+                    $alert.css("background-color","#ece4e4");
                 default:
                     break;
             }
         }
 
-
-        if (corejs.showErrorLog) {
-            var $errorWrapper = $("#error-logs-wrapper");
-            if (showLogs && $errorWrapper.length == 1) {
-                var $errorWrapper = $("#error-logs-wrapper");
-                var errorLogs = corejs.errorLog.get();
-
-                var $errorLogDownButton = $("#show-errorlogs-button span.down");
-                var $errorLogUpButton = $("#show-errorlogs-button span.up");
-
-                if (errorLogs.length > 0) {
-                    $alert.addClass('has-more');
-                    $("#show-errorlogs-button").css('display', 'inline-block');
-                    $errorLogUpButton.show();
-                    $errorLogDownButton.hide();
-                    $("#error-logs-wrapper").hide();
-                    var $errorLogs = [];
-                    for (var i = errorLogs.length - 1; i >= 0; i--) {
-                        $errorLogs.push("<div class='error-log' logindex='" + i + "'>" + errorLogs[i]["message"] + "</div>");
-                    }
-
-                    $errorWrapper.html($errorLogs.join(""));
-
-
-                    $errorLogDownButton.off("click").on("click", function () {
-
-                        $errorLogDownButton.hide();
-                        $errorLogUpButton.show();
-                        $errorWrapper.hide();
-
-                        return false;
-                    });
-
-
-                    $errorLogUpButton.off("click").on("click", function () {
-
-                        $errorLogDownButton.show();
-                        $errorLogUpButton.hide();
-                        $errorWrapper.show();
-
-                        return false;
-                    });
-
-
-                    $("#error-logs-wrapper").find(".error-log").off("click").on("click", function () {
-                        var errorIndex = $(this).attr("logindex");
-                        var errorLogs = corejs.errorLog.get();
-                        if (errorLogs.length > 0 && errorIndex > -1) {
-                            var $errorBox = $("#cpf-error-wrapper");
-                            $errorBox.find(".title-text").html(errorLogs[errorIndex]["message"]);
-                            $errorBox.find(".content span").html(errorLogs[errorIndex]["stackTrace"]);
-                            ConfirmationBox.Show($("#cpf-error-wrapper"));
-                        }
-
-                        return false;
-                    });
-                }
-            } else {
-                $errorWrapper.hide();
-            }
-        } else {
-            $("#show-errorlogs-button").hide();
-            $("#error-logs-wrapper").hide();
-        }
-
-        $message = $alert.find(".message");
+        var $message = $alert.find(".message");
         message = message.replace("'", "\'");
 
         $message.text(message);
 
         clearTimeout(corejs.cpfAlertTimeout);
         $alert.show();
-
+        $alert.removeClass("hidden");
 
         $alert.fadeIn("fast");
 

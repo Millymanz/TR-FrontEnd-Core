@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\CertificateHelper.cs" />
     <Compile Include="Common\DateDifferencePolicy.cs" />
     <Compile Include="Common\Exceptions\PermissionException.cs" />
     <Compile Include="Common\Hash.cs" />
@@ -58,17 +57,14 @@
     <Compile Include="Common\IPolicyLoader.cs" />
     <Compile Include="Common\LimitPolicyBase.cs" />
     <Compile Include="Common\LowercaseCharactersPolicy.cs" />
-    <Compile Include="Common\MD5CryptHelper.cs" />
     <Compile Include="Common\MinimumDigitsPolicy.cs" />
     <Compile Include="Common\MinimumLengthPolicy.cs" />
     <Compile Include="Common\PolicyBase.cs" />
     <Compile Include="Common\PolicyLoaderBase.cs" />
     <Compile Include="Common\PolicySet.cs" />
     <Compile Include="Common\PolicySetting.cs" />
-    <Compile Include="Common\RegexLibrary.cs" />
     <Compile Include="Common\Resx.cs" />
     <Compile Include="Common\RSAEncryptor.cs" />
-    <Compile Include="Common\SymmetricEncryptor.cs" />
     <Compile Include="Common\TypeConverter.cs" />
     <Compile Include="Common\UppercaseCharactersPolicy.cs" />
     <Compile Include="Common\Validate.cs" />
@@ -81,7 +77,9 @@
     <Compile Include="Configuration\Contract\ConfigurationItem.cs" />
     <Compile Include="Configuration\Core\ConfigurationDataAccess.cs" />
     <Compile Include="Configuration\Core\ConfigurationService.cs" />
-    <Compile Include="Configuration\Core\IVaultSpinUp.cs" />
+    <Compile Include="Configuration\Core\MemoryItem.cs" />
+    <Compile Include="Configuration\Core\MemoryManager.cs" />
+    <Compile Include="Configuration\Core\MemoryStore.cs" />
     <Compile Include="Data\Contract\ConnectionConfigurationSection.cs" />
     <Compile Include="Data\Contract\ConnectionInfo.cs" />
     <Compile Include="Data\Contract\CoreConnections.cs" />
@@ -92,7 +90,6 @@
     <Compile Include="Data\Contract\IDataAccess.cs" />
     <Compile Include="Data\Contract\DataParameter.cs" />
     <Compile Include="Data\Contract\IDatabaseProvider.cs" />
-    <Compile Include="Data\Contract\IVaultDataBound.cs" />
     <Compile Include="Data\Core\AppDataAccess.cs" />
     <Compile Include="Data\Core\PostgresqlReader.cs" />
     <Compile Include="Data\Core\PostgresqlDatabaseProvider.cs" />
@@ -134,6 +131,7 @@
     <Compile Include="Logging\Core\SqlLogProvider.cs" />
     <Compile Include="Membership\Contract\CreateUserResult.cs" />
     <Compile Include="Membership\Contract\IAuthenticator.cs" />
+    <Compile Include="Membership\Contract\IDataBound.cs" />
     <Compile Include="Membership\Contract\IMembershipService.cs" />
     <Compile Include="Membership\Contract\LoginPageInfoCode.cs" />
     <Compile Include="Membership\Contract\LogOnResult.cs" />

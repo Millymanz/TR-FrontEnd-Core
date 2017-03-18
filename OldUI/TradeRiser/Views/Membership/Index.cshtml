@@ -2,9 +2,10 @@
 @using TradeRiser.UI
 @model TradeRiser.UI.Models.UserModel
 @{
+    //Layout = "~/Views/Shared/_LayoutPageNewTR.cshtml";
     //this.ViewBag.Title = TradeRiserUIResource.Account_Title;
     //TradeRiser.UI.TradeRiserUIResource
-    var tex = string.Empty;
+    int row = 0;                                 
 }
 @section jQueryLoad
 {
@@ -42,16 +43,101 @@
     @section subnav
 {
         @*@{this.Html.RenderPartial("_UserMenu", "account");}*@
-    }
-    @*3196 CFP Header updates added settings-contents class -style="margin-top: 20px;*@
-<div class="settings-content page-content">
+}
+
+  <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Users <small></small>
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Settings 1</a>
+                            </li>
+                            <li><a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x_content">
+
+           @*     <p>Add class <code>bulk_action</code> to table for bulk actions options on row select
+                </p>*@
+
+                <div class="table-responsive">
+                    <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                        <tr class="headings">
+                            <th>
+                                <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" id="check-all" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </div>
+                            </th>
+                            <th class="column-title">UserName </th>
+                            <th class="column-title">First Name </th>
+                            <th class="column-title">Last Name </th>
+                            <th class="column-title">Email </th>
+                            <th class="column-title">Last LogOn Date </th>
+                            <th class="column-title">Locked </th>
+                            <th class="column-title no-link last"><span class="nobr">Disabled</span>
+                            </th>
+                             <th class="column-title"> </th>
+                           @* <th class="bulk-actions" colspan="7">
+                                <a class="antoo" style="color: #fff; font-weight: 500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                            </th>*@                      
+                        </tr>
+                        </thead>
+
+                        <tbody>                                              
+                              @foreach (User user in this.Model.Users)
+                              {
+                                  row++;
+                                  string rowClass;
+
+                                    if (row % 2 == 0)
+                                    {
+                                        rowClass = "even";
+                                    }
+                                    else
+                                    {
+                                        rowClass = "odd";
+                                    }  
+                            <tr class="@rowClass pointer">
+                                <td class="a-center ">
+                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" name="table_records" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                    </div>
+                                </td>
+                            <td class=" ">@user.UserName</td>
+                            <td class=" ">@user.FirstName</td>
+                            <td class=" ">@user.LastName</td>
+                            <td class=" ">@user.Email</td>
+                            <td class=" ">@user.LastLogOnDate</td>
+                            <td class=" ">@user.Locked</td>
+                            <td class=" ">@user.Disabled</td>
+                            <td class=" "><a href="~/membership/edit/@user.UserName">Edit</a></td>
+                            </tr>
+                        }                       
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+@*<div class="settings-content page-content">
     <div class="section">
         <div class="section-title">
             <div class="title-wrapper">
-                @* @TradeRiserUIResource.PersonalInformation_SectionHeading*@
             </div>
         </div>
-        @*<div class="section-title-empty" ></div>*@
+    
         <div class="section-content" id="security-settings">
             <table>
                 <thead>
@@ -86,4 +172,4 @@
             </table>
         </div>
     </div>
-</div>
+</div>*@

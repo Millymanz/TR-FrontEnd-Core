@@ -12,7 +12,7 @@ namespace TradeRiser.Core.Data
         /// Gets a List of T using the DataSettings.
         /// </summary>
         /// <param name="settings">The data settings.</param>
-        List<T> Get<T>(DataSettings settings) where T : IVaultDataBound, new();
+        List<T> Get<T>(DataSettings settings) where T : IDataBound, new();
 
         /// <summary>
         /// Executes the Task in the provided DataSettings.

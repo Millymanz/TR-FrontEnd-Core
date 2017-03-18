@@ -287,12 +287,21 @@ namespace TradeRiser.UI.Controllers
             this.ViewBag.Title = this.Director.Configuration.GetConfigItem<string>("Core.LogonPageTitle");
             this.ViewBag.LegalLink = this.Director.Configuration.GetConfigItem("Core.LegalHyperlinkUrl", "http://www.traderiser.com");
             this.ViewBag.PrivacyLink = this.Director.Configuration.GetConfigItem("Core.PrivacyHyperlinkUrl", "http://www.traderiser.com");
-
-         
-
+            this.ViewBag.Version = this.Director.Configuration.GetConfigItem("Core.ApplicationVersion", "1.0.0.0");
+            
             this.Response.Headers.Add("login", "1");
-            // return this.View("~/core/views/core/logon.cshtml");
-            return this.View("~/views/core/logon.cshtml");
+
+            SaveUserModel model = new SaveUserModel(null, null)
+            {
+                IsNewUser = true
+            };
+            this.ViewBag.Languages = new Dictionary<string, string> { { "en-GB", "en-GB" }, { "en-US", "en-US" } };
+
+            // default to the same as the current user
+            model.TimeZone = this.Director.User != null ? this.Director.User.TimeZone : "en-GB";
+            model.LanguageCode = this.Director.Configuration.GetConfigItem("Core.DefaultLanguage", "en-GB");
+
+            return this.View("~/views/core/logon.cshtml",model);
         }
 
         /// <summary>
@@ -382,7 +391,18 @@ namespace TradeRiser.UI.Controllers
             this.ViewBag.LogonNewsVisible = logonNewsVisible;
 
             this.Response.Headers.Add("login", "1");
-            return this.View("~/views/core/logon.cshtml");
+
+            SaveUserModel model = new SaveUserModel(null, null)
+            {
+                IsNewUser = true
+            };
+            this.ViewBag.Languages = new Dictionary<string, string> { { "en-GB", "en-GB" }, { "en-US", "en-US" } };
+
+            // default to the same as the current user
+            model.TimeZone = this.Director.User != null ? this.Director.User.TimeZone : "en-GB";
+            model.LanguageCode = this.Director.Configuration.GetConfigItem("Core.DefaultLanguage", "en-GB");
+
+            return this.View("~/views/core/logon.cshtml", model);
         }
 
         /// <summary>
@@ -439,7 +459,7 @@ namespace TradeRiser.UI.Controllers
                 service.RequestPasswordReset(user);
             }
 
-            string resetMessage = string.Empty;
+            string resetMessage;
             bool success = false;
 
             if (user == null)
@@ -585,34 +605,6 @@ namespace TradeRiser.UI.Controllers
             return this.PartialView("~/views/Shared/_AppsRibbon.cshtml");
         }
 
-        /////// <summary>
-        /////// Gets the logon news section.
-        /////// </summary>
-        /////// <returns>View result.</returns>
-        ////[Unprotected]
-        ////public ContentResult LogonNews()
-        ////{
-        ////    ContentResult result = new ContentResult();
-
-        ////    try
-        ////    {
-        ////        result.Content = this.Director.VariableParser.Parse(this.LogonNewsItem.Data);
-        ////    }
-        ////    catch (Exception ex)
-        ////    {
-        ////        result.Content = string.Empty;
-        ////        ex.Data.Add("Message", "Data to construct the logon news is not correct");
-        ////        Log.Exception("Foundation.Cpf.Ui", "CoreController.LogonNews", ex);
-        ////    }
-
-        ////    return result;
-        ////}
-
-        /////// <summary>
-        /////// Messages the specified message.
-        /////// </summary>
-        /////// <param name="message">The message.</param>
-        /////// <returns>Message view.</returns>
         ////[Unprotected]
         ////public ActionResult Message(Message message)
         ////{

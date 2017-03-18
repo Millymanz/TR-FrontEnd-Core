@@ -4,7 +4,6 @@
 @using TradeRiser.Core.Director
 @{
     string logoSrc = this.Director.Configuration.GetConfigItem<string>("Core.Branding.Logo-Light");
-    string hiddenClass = string.IsNullOrWhiteSpace(this.ViewBag.LogonMessage) ? "hidden" : string.Empty;
 }
 
 <!DOCTYPE html>
@@ -14,16 +13,13 @@
     <title>TradeRiser - Beta</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-   @* @Styles.Render("~/Content/css")*@
-    @Styles.Render("~/Content/v2/css")
+    @Styles.Render("~/Content/css")
     <script src="~/Content/Scripts/jquery.js"></script>
     <script src="~/Content/Scripts/jstorage.js"></script>
 
     @RenderSection("head", false)
 </head>
-<body id="bn" class="nav-md">
-     
-      
+<body>
 
     <div class="header">
         <div style="top: 7px; left: 5px; position: absolute">
@@ -34,7 +30,7 @@
             <a class="sign-up" id="menu-bar-sign-out" href="@string.Format("{0}core/logoff", this.Director.ApplicationPath)">Log off</a>
         </div>
     </div>
-<div id="body" class="container body">
+<div id="body">
     <div class="collapse navbar-toggleable-xs" id="main-toolbar">
         <ul class="ribbon nav navbar-nav">
             @RenderSection("ribbon", false)
@@ -42,31 +38,11 @@
     </div>
     @RenderSection("subnav", false)
     @RenderSection("featured", required: false)
-
     <section class="content-wrapper main-content clear-fix">
-        <div class="right_col" role="main" style="min-height: 3749px;">
-            <div>
-                <div class="page-title">
-              <div class="title_left">
-                <h3>Form Elements</h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-                @RenderBody()
-            </div></div>
+        @RenderBody()
     </section>
 </div>
-     @*<div id="alert" class="alert">
+     <div id="alert" class="alert">
                     <div class="alert-body">
                         <span class="message">@if (this.ViewBag.LogonMessage != null)
                                               {<text>@this.ViewBag.LogonMessage</text>}</span>
@@ -79,25 +55,9 @@
                 <p>&copy; @DateTime.Now.Year - TradeRiser</p>
             </div>
         </div>
-    </footer>*@
+    </footer>
 
-    <div class="navbar navbar-fixed-bottom">
-            <div id="alert" class="alert alert-danger alert-dismissible fade in @hiddenClass" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true" class="closebutton-wrapper fa fa-fw fa-remove"></span>
-                </button>
-                <div class="alert-body">
-                    <span class="message">@if (this.ViewBag.LogonMessage != null)
-                                          {<text>@this.ViewBag.LogonMessage</text>}</span>
-                </div>
-            </div>
-        </div>
-        <div id="sign-in-footer-links" style="position: fixed;height: 4rem;bottom: 0;right: 0;padding: 0.5rem 1rem;line-height: 3rem;color: #8ea2bb;">
-                &copy; <a href="http://www.traderiser.com" title="traderiser.com" target="_blank">TradeRiser</a>
-                |<span>@this.ViewBag.Version</span>|
-                <a href="@this.ViewBag.LegalLink" target="_blank">@TradeRiserUIResource.Logon_Legal</a>|
-            <a href="@this.ViewBag.PrivacyLink" target="_blank">@TradeRiserUIResource.Logon_Privacy</a>
-        </div>
+
     <script type="text/javascript">
         var COREROOT = "@Url.Action("", "", new { area = "" })";
         var APPLICATIONPATH = COREROOT.replace(/\/core/gi, "");

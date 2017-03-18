@@ -42,6 +42,7 @@ namespace TradeRiser
                 "~/Content/v2/vendors/nprogress/nprogress.css",
                 "~/Content/v2/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css",
                 "~/Content/v2/vendors/bootstrap-daterangepicker/daterangepicker.css",
+                 "~/Content/v2/vendors/animate.css/animate.min.css",
                 "~/Content/v2/build/css/custom.min.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/v2/scripts").Include(

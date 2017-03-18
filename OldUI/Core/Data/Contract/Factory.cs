@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TradeRiser.Core.Configuration.Core;
 using TradeRiser.Core.Director;
 
 namespace TradeRiser.Core.Data
@@ -12,6 +13,19 @@ namespace TradeRiser.Core.Data
     /// </summary>
     public static class Factory
     {
+        private static readonly object ProvidersMutex = new object();
+
+        /// <summary>
+        /// The key used for the configuration items.
+        /// </summary>
+        public const string ConfigurationItems = "ConfigurationItems";
+
+        /// <summary>
+        /// The key used for the connection strings.
+        /// </summary>
+        public const string ConnectionStrings = "ConnectionStrings";
+
+
         /// <summary>
         /// Gets the configuration settings.
         /// </summary>
@@ -57,7 +71,7 @@ namespace TradeRiser.Core.Data
         /// </summary>
         private static readonly Dictionary<string, ConnectionInfo> Providers = new Dictionary<string, ConnectionInfo>(StringComparer.CurrentCultureIgnoreCase);
 
-      
+
         #endregion private fields
 
         #region public static methods
@@ -105,7 +119,7 @@ namespace TradeRiser.Core.Data
             ////};
 
             // we need the sync provider so we know what to do when the messages comes off the bus at the other end
-           // syncDatabaseProvider = serviceBusProvider;
+            // syncDatabaseProvider = serviceBusProvider;
             syncDatabaseProvider.Director = director;
 
             return syncDatabaseProvider;
@@ -168,17 +182,15 @@ namespace TradeRiser.Core.Data
         /// <param name="providers">The providers collection.</param>
         public static void LoadProviders(IDatabaseProvider provider, Dictionary<string, ConnectionInfo> providers)
         {
-            //throw new NotImplementedException();
-            //MemoryVaultManager blanka = new MemoryVaultManager();
+            MemoryManager memory = new MemoryManager();
             // check if the connection information is in the cache already.
-           // List<ConnectionInfo> connectionInfo = blanka.Get(ConfigurationCacheConstants.ConnectionStrings) as List<ConnectionInfo>;
-            List<ConnectionInfo> connectionInfo = null;// new List<ConnectionInfo>();
+            List<ConnectionInfo> connectionInfo = memory.Get(Factory.ConnectionStrings) as List<ConnectionInfo>;
 
             if (connectionInfo == null)
             {
 
-                //lock (DataLoad.ProvidersMutex)
-                //{
+                lock (Factory.ProvidersMutex)
+                {
                     DataSettings settings = new DataSettings("configuration", "traderiser.ConnectionStringSelect");
 
                     try
@@ -196,7 +208,7 @@ namespace TradeRiser.Core.Data
                                     connectionInfo.Add(connection);
                                 }
 
-                               // blanka.Add(ConfigurationCacheConstants.ConnectionStrings, connectionInfo, settings.TimeToLive);
+                                memory.Add(Factory.ConnectionStrings, connectionInfo, settings.TimeToLive);
                             }
                             else
                             {
@@ -212,7 +224,7 @@ namespace TradeRiser.Core.Data
                         throw new Exception("Error spinning up Data Load.", ex);
                     }
                 }
-            //}
+            }
 
             foreach (ConnectionInfo connection in connectionInfo.Where(connection => !providers.ContainsKey(connection.Name)))
             {

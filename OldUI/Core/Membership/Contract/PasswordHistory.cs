@@ -12,7 +12,7 @@ namespace TradeRiser.Core.Membership
     /// Password History item.
     /// </summary>
     [Serializable]
-    public class PasswordHistory : IVaultDataBound
+    public class PasswordHistory : IDataBound
     {
         #region  Properties and Indexers
 
@@ -30,7 +30,7 @@ namespace TradeRiser.Core.Membership
 
         #endregion
 
-        #region IVaultDataBound Members
+        #region IDataBound Members
 
         /// <summary>
         /// Hydrate this type from the given IReader.

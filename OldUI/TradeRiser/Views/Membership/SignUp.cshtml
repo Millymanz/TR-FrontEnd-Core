@@ -1,21 +1,21 @@
-﻿ @using TradeRiser.UI
+﻿@using TradeRiser.UI
 @using TradeRiser.UI.Controls
 @using TradeRiser.UI.Models
 @{
-   Layout = null;
+    Layout = null;
     //this.ViewBag.Title = TradeRiserUIResource.Membership_Title;
     //this.ViewBag.SubNav = SecondaryNavigations.Normal;
     //this.ViewBag.ShowHeader = ShowHeader.Show;
 }
 
 <head>
-     <title>SignUp</title>
-   @* <meta charset="utf-8" />
+    <title>SignUp</title>
+    @* <meta charset="utf-8" />
    
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />*@
 
-     <link href="~/Content/Styles/shared.css" rel="stylesheet" />
+    <link href="~/Content/Styles/shared.css" rel="stylesheet" />
 </head>
 @model SaveUserModel
 @section head
@@ -35,7 +35,7 @@
 }
 @section jQueryLoad
 {
-    members.edit.load();
+members.edit.load();
 }
 @section scripts
 {
@@ -50,50 +50,50 @@
         <li class="nav-item"><a id="membership-button-save" href="#" class="nav-link"><span class="fa fa-fw fa-save"></span>@Html.Raw(TradeRiserUIResource.Ribbon_Membership_Save)</a></li>
     }
 }
-    <div class="membership-content">
-        <div class="section" id="member-section">
-            <div style="text-align: center;" class="section-title">
-               @* <div style="font-size: 22px;" class="title-wrapper">*@
-                   <h2>Sign Up</h2>
-                @*</div>*@
-            </div>
-            <div id="member-details" class="section-content">
-                <label for="first-name">@TradeRiserUIResource.Membership_FirstName @Html.ValidationControl("first-name", true)</label>
-                <input type="text" placeholder="First Name*" id="first-name" name="first-name" maxlength="255" class="form-control cpftxt" value="@Model.FirstName" @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />
- @*       <input type="text" id="first-name" name="first-name" maxlength="255" class="form-control cpftxt" value="@Model.FirstName" @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />*@
-                <label for="last-name">@TradeRiserUIResource.Membership_LastName @Html.ValidationControl("last-name", true)</label>
-                <input type="text" placeholder="Last Name*" id="last-name" name="last-name" maxlength="255" class="form-control cpftxt" value="@Model.LastName" @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />
-           
-                    <label for="username">@TradeRiserUIResource.Membership_UserName @Html.ValidationControl("username", true)</label>
-                    <input type="text" placeholder="User Name*"  id="username" name="username" maxlength="255" class="form-control cpftxt"
-                           @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />
-                <label for="email">@TradeRiserUIResource.Membership_Email @Html.ValidationControl("email", true)</label>
-                <input type="text" placeholder="Email*"  id="email" name="email" maxlength="255" class="form-control cpftxt" value="@Model.Email" @Html.ValidationAttributes(new ValidationAttributes() { Required = true, Email = true }) />
-                
-           
-                   <label for="country">Country</label>
-                 <div class="select-wrapper">
-                    <select id="country" name="country" @Html.ValidationAttributes(new ValidationAttributes() { Required = true })>
-                        @foreach (string country in @Model.Countries)
-                        {
-                            string key = string.Empty;
-                            if (this.Model.Country != null)
-                            {
-                                key = this.Model.Country.Trim();
-                            }
-                            <option value="@country" label="@country" @(country == key ? "selected='selected'" : string.Empty)>@country</option>
-                        }
-                    </select>
-                </div>
-                       <label for="broker-id">
-                    Broker
-                </label>
-                <input placeholder="Broker" id="broker-id" name="broker-id" type="text" class="cpftxt form-control" value="@Model.Broker" @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />
-
-   </div>
+<div class="membership-content">
+    <div class="section" id="member-section">
+        <div style="text-align: center;" class="section-title">
+            @* <div style="font-size: 22px;" class="title-wrapper">*@
+            <h2>Sign Up</h2>
+            @*</div>*@
         </div>
-          <div style="text-align:center; margin-top:10px;">
-                    <input name="register" id="register" type="button" value="Register" class="btn" />
-                </div>
-      
+        <div id="member-details" class="section-content">
+            <label for="first-name">@TradeRiserUIResource.Membership_FirstName @Html.ValidationControl("first-name", true)</label>
+            <input type="text" placeholder="First Name*" id="first-name" name="first-name" maxlength="255" class="form-control cpftxt" value="@Model.FirstName" @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />
+            @*       <input type="text" id="first-name" name="first-name" maxlength="255" class="form-control cpftxt" value="@Model.FirstName" @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />*@
+            <label for="last-name">@TradeRiserUIResource.Membership_LastName @Html.ValidationControl("last-name", true)</label>
+            <input type="text" placeholder="Last Name*" id="last-name" name="last-name" maxlength="255" class="form-control cpftxt" value="@Model.LastName" @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />
+
+            <label for="username">@TradeRiserUIResource.Membership_UserName @Html.ValidationControl("username", true)</label>
+            <input type="text" placeholder="User Name*"  id="username" name="username" maxlength="255" class="form-control cpftxt"
+                           @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />
+            <label for="email">@TradeRiserUIResource.Membership_Email @Html.ValidationControl("email", true)</label>
+            <input type="text" placeholder="Email*"  id="email" name="email" maxlength="255" class="form-control cpftxt" value="@Model.Email" @Html.ValidationAttributes(new ValidationAttributes() { Required = true, Email = true }) />
+
+
+            <label for="country">Country</label>
+            <div class="select-wrapper">
+                <select id="country" name="country" @Html.ValidationAttributes(new ValidationAttributes() { Required = true })>
+                    @foreach (string country in @Model.Countries)
+                    {
+                        string key = string.Empty;
+                        if (this.Model.Country != null)
+                        {
+                            key = this.Model.Country.Trim();
+                        }
+                        <option value="@country" label="@country" @(country == key ? "selected='selected'" : string.Empty)>@country</option>
+                        }
+                </select>
+            </div>
+            <label for="broker-id">
+                Broker
+            </label>
+            <input placeholder="Broker" id="broker-id" name="broker-id" type="text" class="cpftxt form-control" value="@Model.Broker" @Html.ValidationAttributes(new ValidationAttributes() { Required = true }) />
+
+        </div>
     </div>
+    <div style="text-align: center; margin-top: 10px;">
+        <input name="register" id="register" type="button" value="Register" class="btn" />
+    </div>
+
+</div>

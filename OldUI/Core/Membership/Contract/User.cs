@@ -8,7 +8,7 @@ using TradeRiser.Core.Data;
 namespace TradeRiser.Core.Membership
 {
     [Serializable]
-    public class User : IEquatable<User>, IVaultDataBound
+    public class User : IEquatable<User>, IDataBound
     {
         #region  Properties and Indexers
 
@@ -164,10 +164,10 @@ namespace TradeRiser.Core.Membership
         /// <value>The primary contact number.</value>
         public string Phone1 { get; set; }
 
-    
+
         public string Country { get; set; }
 
-        
+
         public string Broker { get; set; }
         /// <summary>
         /// Gets or sets the second contact number.
@@ -268,7 +268,7 @@ namespace TradeRiser.Core.Membership
         public bool Deleted { get; set; }
 
         #endregion
-        
+
         #region  Constructors
 
         /// <summary>
@@ -284,7 +284,7 @@ namespace TradeRiser.Core.Membership
             this.LastUpdated = DateTime.MinValue;
             this.PrimaryLocationID = null;
             this.MaximumWorkspaceStorage = -1; // Default to Configuration Item based value.
-           
+
         }
 
         #endregion
@@ -314,7 +314,7 @@ namespace TradeRiser.Core.Membership
                     this.LastName == other.LastName &&
                     this.Phone1 == other.Phone1 &&
                     this.Phone2 == other.Phone2 &&
-                    this.HasPhoto == other.HasPhoto &&                  
+                    this.HasPhoto == other.HasPhoto &&
                     this.LanguageCode == other.LanguageCode &&
                     this.Locked == other.Locked &&
                     this.Disabled == other.Disabled &&
@@ -335,7 +335,7 @@ namespace TradeRiser.Core.Membership
 
         #endregion
 
-        #region IVaultDataBound Members
+        #region IDataBound Members
 
         /// <summary>
         /// Hydrate this type from the given IReader.
@@ -375,7 +375,7 @@ namespace TradeRiser.Core.Membership
             this.PrimaryLocationID = reader.Get<string>("PrimaryLocationID", null);
             this.Country = reader.Get<string>("Country", null);
             this.Broker = reader.Get<string>("Broker", null);
-    }
+        }
 
         /// <summary>
         /// Gets the vault data key - used by theVault to load the class
@@ -421,14 +421,6 @@ namespace TradeRiser.Core.Membership
             return base.GetHashCode();
         }
 
-        ///// <summary>
-        ///// Determines whether this instance is a valid user object.
-        ///// </summary>
-        ///// <returns><c>True</c> if this instance is valid; otherwise, <c>false</c>.</returns>
-        //public bool IsValid()
-        //{
-        //    return Foundation.Common.Validation.Validator.IsValid(this) && Validate.IsValidSpecificCulture(this.LanguageCode);
-        //}
 
         #endregion
     }

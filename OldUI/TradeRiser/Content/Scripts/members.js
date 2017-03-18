@@ -211,7 +211,7 @@ members.list = {
 };
 
 members.edit = {
-    load: function () {
+    load: function () {       
 
         $("#back-button").on("click", function () {
             members.redirect(APPLICATIONPATH + "membership", true);
@@ -417,12 +417,14 @@ members.edit = {
     },
     registerSuccess: function (result, textStatus, jqXHR) {
         //function close_box() {
-        $('.backdrop, .box').animate({ 'opacity': '0' }, 300, 'linear', function () {
-            $('.backdrop, .box').css('display', 'none');
-        });
+        return false;
+        //$('.backdrop, .box').animate({ 'opacity': '0' }, 300, 'linear', function () {
+        //    $('.backdrop, .box').css('display', 'none');
+        //});
     },
 
     registerFailed: function (data, message, exception) {
+       // alert("exception fix membership/registersave");
         return false;
     },
 

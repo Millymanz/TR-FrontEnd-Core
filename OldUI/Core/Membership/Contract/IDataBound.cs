@@ -9,7 +9,7 @@ namespace TradeRiser.Core.Data
     /// <summary>
     /// Interface used for loading collections of common classes into the Vault
     /// </summary>
-    public interface IVaultDataBound
+    public interface IDataBound
     {
         #region  Public Methods
 

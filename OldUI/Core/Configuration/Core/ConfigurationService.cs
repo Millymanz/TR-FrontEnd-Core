@@ -6,12 +6,23 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TradeRiser.Core.Configuration.Core;
 using TradeRiser.Core.Data;
 using TradeRiser.Core.Extensions;
 namespace TradeRiser.Core.Configuration
 {
     public class ConfigurationService //: IVaultSpinUp //: IConfigurationService, IVaultSpinUp
     {
+        /// <summary>
+        /// The key used for the configuration items.
+        /// </summary>
+        public const string ConfigurationItems = "ConfigurationItems";
+
+        /// <summary>
+        /// The key used for the connection strings.
+        /// </summary>
+        public const string ConnectionStrings = "ConnectionStrings";
+
         #region  Fields
 
         /// <summary>
@@ -21,7 +32,20 @@ namespace TradeRiser.Core.Configuration
 
         #endregion
 
-        
+
+        public MemoryManager Memory
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Clears the cache.
+        /// </summary>
+        public void ClearCache()
+        {
+            this.Memory.PurgeTheVault();
+        }
 
         #region constructors
 
@@ -30,6 +54,7 @@ namespace TradeRiser.Core.Configuration
         /// </summary>
         public ConfigurationService()
         {
+            this.Memory = new MemoryManager();
             this.data = new ConfigurationDataAccess("configuration");
         }
 
@@ -44,25 +69,17 @@ namespace TradeRiser.Core.Configuration
         /// </summary>
         public Dictionary<string, ConfigurationItem> GetAllConfigItems()
         {
-            Dictionary<string, ConfigurationItem> config = null;//; new Dictionary<string, ConfigurationItem>();
+            Dictionary<string, ConfigurationItem> config = this.Memory.Get(ConfigurationService.ConfigurationItems) as Dictionary<string, ConfigurationItem>;
             if (config == null)
             {
                 config = this.data.GetAllConfigItems();
+                this.Memory.Add(ConfigurationService.ConfigurationItems, config);
             }
 
             return config;
-            ////TODO:PA
-            ////Dictionary<string, ConfigurationItem> config = this.Blanka.Get(ConfigurationCacheConstants.ConfigurationItems) as Dictionary<string, ConfigurationItem>;
-            ////if (config == null)
-            ////{
-            ////    config = this.data.GetAllConfigItems();
-            ////    this.Blanka.Add(ConfigurationCacheConstants.ConfigurationItems, config);
-            ////}
-
-            ////return config;
         }
 
-     
+
         /// <summary>
         /// Gets the config item.
         /// </summary>
@@ -142,17 +159,16 @@ namespace TradeRiser.Core.Configuration
         /// </summary>
         public Dictionary<string, ConnectionInfo> GetAllConnectionStrings()
         {
-            throw new NotImplementedException();
-            //////Dictionary<string, ConnectionInfo> connections = this.Blanka.Get(ConfigurationCacheConstants.ConnectionStrings) as Dictionary<string, ConnectionInfo>;
-            ////Dictionary<string, ConnectionInfo> connections = null;// this.Blanka.Get(ConfigurationCacheConstants.ConnectionStrings) as Dictionary<string, ConnectionInfo>;
-            ////if (connections == null)
-            ////{
-            ////    connections = this.data.GetAllConnectionStrings();
-            ////   // this.Blanka.Add(ConfigurationCacheConstants.ConnectionStrings, connections);
-            ////}
+            Dictionary<string, ConnectionInfo> connections = this.Memory.Get(ConfigurationService.ConnectionStrings) as Dictionary<string, ConnectionInfo>;
+            if (connections == null)
+            {
+                connections = this.data.GetAllConnectionStrings();
+                this.Memory.Add(ConfigurationService.ConnectionStrings, connections);
+            }
 
-            ////return connections;
+            return connections;
         }
+
 
         /// <summary>
         /// Saves the config item.
@@ -183,7 +199,7 @@ namespace TradeRiser.Core.Configuration
         {
             // use the membership connection string to force the app to load all connections
             this.GetConnectionString("membership-direct");
-         
+
             // load all config items
             this.GetAllConfigItems();
         }

@@ -370,7 +370,7 @@ namespace TradeRiser.UI.Controllers
 
                             //if (usergroupHasUpdated)
                             //{
-                            //    this.Director.Blanka.PurgeByCategory(new List<string> { PermissionManager.UserPermissionsCategory });
+                            //    this.Director.Memory.PurgeByCategory(new List<string> { PermissionManager.UserPermissionsCategory });
 
                             //    Log.Audit(CoreConstants.LogComponent, MembershipController.SENDER, string.Format("The user {0} with username {1} was added to user groups {2}.", user.UserDisplayName, user.UserName, groupNames), this.Director.User.UserName, this.Director.User.UserDisplayName, this.Director.User.UserID);
                             //}
@@ -468,7 +468,7 @@ namespace TradeRiser.UI.Controllers
 
                             //if (usergroupHasUpdated)
                             //{
-                            //    this.Director.Blanka.PurgeByCategory(new List<string> { PermissionManager.UserPermissionsCategory });
+                            //    this.Director.Memory.PurgeByCategory(new List<string> { PermissionManager.UserPermissionsCategory });
 
                             //    Log.Audit(CoreConstants.LogComponent, MembershipController.SENDER, string.Format("The user {0} with username {1} was added to user groups {2}.", user.UserDisplayName, user.UserName, groupNames), this.Director.User.UserName, this.Director.User.UserDisplayName, this.Director.User.UserID);
                             //}
