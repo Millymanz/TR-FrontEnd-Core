@@ -1241,10 +1241,10 @@ function TradeRiserViewModel(tradeRiserProxy) {
             reportMode.style.display = 'none';
             var pane = document.getElementById("reportMode");
             pane.style.display = 'none';
-            var topLogo = document.getElementById("topLogo");
+            /*var topLogo = document.getElementById("topLogo");
             topLogo.style.display = 'block';
             var searchBox = document.getElementById("topSearchBar");
-            searchBox.style.display = 'none';
+            searchBox.style.display = 'none';*/
 
 
             //display
@@ -1272,8 +1272,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
             var pane = document.getElementById("reportMode");
             pane.style.display = 'block';
-            var topLogo = document.getElementById("topLogo");
-            topLogo.style.display = 'block';
+            /*var topLogo = document.getElementById("topLogo");
+            topLogo.style.display = 'block';*/
             var searchBox = document.getElementById("topSearchBar");
             searchBox.style.display = 'block';
         }
@@ -1294,8 +1294,8 @@ function TradeRiserViewModel(tradeRiserProxy) {
 
             var pane = document.getElementById("reportMode");
             pane.style.display = 'none';
-            var topLogo = document.getElementById("topLogo");
-            topLogo.style.display = 'none';
+            /*var topLogo = document.getElementById("topLogo");
+            topLogo.style.display = 'none';*/
             var searchBox = document.getElementById("topSearchBar");
             searchBox.style.display = 'none';
 
