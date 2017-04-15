@@ -109,7 +109,7 @@
 
 
         $("#register").off("click").on("click", function () {
-            $("#member-details").validate({
+            $("#member-details").validate( {
                 success: function () {
                     members.edit.registersave();
                 },

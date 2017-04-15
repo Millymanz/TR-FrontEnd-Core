@@ -1,4 +1,4 @@
-﻿.form-control {
+﻿/*.form-control {
     font-size: .875rem;
 }
 
@@ -16,19 +16,18 @@ input[type="text"], input[type="password"], textarea, .select-wrapper, .form-con
     -ms-border-radius: .125rem;
     -o-border-radius: .125rem;
     -webkit-border-radius: .125rem;
-    background: #303030; /*#000;*/
+    background: #303030; 
     border: 1px solid white;
     border-radius: .125rem;
-    color: #F4FBBC; /*$(InputText);*/
+    color: #F4FBBC; 
     font-size: .8125rem;
-}
+}*/
 
     input[type="text"].invalid, input[type="password"].invalid, textarea.invalid, .form-control.invalid, .select-wrapper.invalid {
-        /*background-color: red;*/
         border-color: red;
     }
 
-    input[type="text"].disabled, input[type="password"].disabled, textarea.disabled, .form-control.disabled, .select-wrapper.disabled, select:disabled {
+    /*input[type="text"].disabled, input[type="password"].disabled, textarea.disabled, .form-control.disabled, .select-wrapper.disabled, select:disabled {
         background-color: 0;
         border-color: $(InputBorderDisabled);
         color: $(TextDisabled);
@@ -44,10 +43,9 @@ input[type="text"], input[type="password"], select, textarea, .form-control {
         -webkit-box-shadow: 0 0 4px #1F7CD8; 
         box-shadow: 0 0 4px #1F7CD8; 
         outline: 0;
-    }
+    }*/
 
-.select-wrapper {
-    /*background: #000 url('../Images/$(SortIcon).png') no-repeat;*/
+/*.select-wrapper {
     background-position: right .1875rem top 50%;
     border: 1px solid white;
     display: inline-block;
@@ -91,7 +89,6 @@ input[type="text"], input[type="password"], select, textarea, .form-control {
     background: transparent;
    border: 1px solid #1F7CD8;
     border-radius: .125rem;
-    /*color: #1F7CD8;*/
      background-color:  #1F7CD8;
     font-size: .875rem;
     min-width: 5rem;
@@ -117,12 +114,10 @@ input[type="text"], input[type="password"], select, textarea, .form-control {
     .btn.btn-danger {
         border-color: $(Danger);
         color: $(Danger);
-    }
+    }*/
 
-    .btn:hover {
-        /*background: $(Colour);*//*#1F7CD8;*/
+    /*.btn:hover {
        background: transparent;
-       /*  color: $(TextContrast);*/
     }
 
     .btn.btn-secondary:hover {
@@ -158,10 +153,9 @@ input[type="text"], input[type="password"], select, textarea, .form-control {
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi) {
     .select-wrapper {
-        /*background-image: url(../Images/$(SortIcon)@2x.png);*/
         background-size: .4375rem .625rem;
     }
-}
+}*/
 
 /* styles for validation helpers */
 .field-validation-error {
@@ -183,10 +177,12 @@ input[type="text"], input[type="password"], select, textarea, .form-control {
     -moz-appearance: none;
 }
 
-    .field-validation-error:before {
+.field-validation-error:before {
     content: '*';
     /*font-family: 'FontAwesome';
     font-size: .875rem;*/
+
+    /*fa-exclamation-circle*/
 }
 
 .field-validation-valid {
@@ -199,7 +195,7 @@ input.input-validation-error {
 
 /************************** Alert **************************/
 
-#alert, 
+/*#alert, 
 #forgot-password-alert,
 #refresh-results-box {
     position: fixed;
@@ -216,7 +212,7 @@ input.input-validation-error {
 .alert-body {
     padding: 1rem;
     background: red;
-    /*color: red;*/
+
     position: relative;
     display: inline-block;
     border: 1px solid #ffffff;
@@ -248,7 +244,7 @@ input.input-validation-error {
 
 .alert-body.bg-danger {
     background: red;
-}
+}*/
 
 
 #show-errorlogs-button {
@@ -267,8 +263,8 @@ input.input-validation-error {
     z-index: 99;
 }
 
-.closebutton-wrapper {
+/*.closebutton-wrapper {
     cursor: pointer;
     float: right;
     margin-left: .375rem;
-}
+}*/
